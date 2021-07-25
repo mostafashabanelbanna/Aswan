@@ -15,7 +15,7 @@ function PhotosAlbum() {
             className="w-100 shadow-1-strong imageAlbum mb-4"
             alt=""
           />
-          <p className="text-center content mb-5">نهر النيل في اسوان</p>
+          <p className="text-center titles mb-5">نهر النيل في اسوان</p>
 
           <img
             src="./assets/m.jpg"
@@ -23,7 +23,7 @@ function PhotosAlbum() {
             alt=""
           />
 
-          <p className="text-center content">مقابر النبلاء</p>
+          <p className="text-center titles">مقابر النبلاء</p>
         </div>
 
         <div className="col-lg-4 mb-4 mb-lg-0 me-md-4">
@@ -33,7 +33,7 @@ function PhotosAlbum() {
             alt=""
           />
 
-          <p className="text-center content mb-5">الحديقة النباتية بأسوان</p>
+          <p className="text-center titles mb-5">الحديقة النباتية بأسوان</p>
 
           <img
             src="./assets/m.jpg"
@@ -41,7 +41,7 @@ function PhotosAlbum() {
             alt=""
           />
 
-          <p className="text-center content">كلابشة</p>
+          <p className="text-center titles">كلابشة</p>
         </div>
 
         <div className="col-lg-4 mb-4 mb-lg-0 me-md-4">
@@ -51,7 +51,7 @@ function PhotosAlbum() {
             alt=""
           />
 
-          <p className="text-center content mb-5">متحف النوبة</p>
+          <p className="text-center titles mb-5">متحف النوبة</p>
 
           <img
             src="./assets/m.jpg"
@@ -59,7 +59,7 @@ function PhotosAlbum() {
             alt=""
           />
 
-          <p className="text-center content">المسلة الغير مكتملة</p>
+          <p className="text-center titles">المسلة الغير مكتملة</p>
         </div>
       </div>
       <div className="line mx-auto my-5 w-100"></div>
