@@ -2,17 +2,35 @@ body {
   direction: rtl;
 }
 
-.titles{
-  font-size: 2em;
-  color: #808278;
+@media (min-width : 800px) {
+  .content{
+    font-size: 1vw;
+  }
+
+  .titles{
+    font-size: 2vw;
+  }
 }
 
-.content{
+@media (max-width : 800px) {
+  .content{
+    font-size: 2vw;
+  }
+
+  .titles{
+    font-size: 4.5vw;
+  }
+}
+
+
+.content, .titles{
   color: #808278;
 }
 
 .ContainerDiv{
   background-color: #fdd10b;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #808278;
 }
 
 .line{
@@ -22,13 +40,13 @@ body {
 }
 
 .rightIcon{
-  font-size:30px; 
+  font-size: 3.5vw;
   align-self: center;
   margin-left: 10px;
 }
 
 .leftIcon{
-  font-size:30px; 
+  font-size: 3.5vw;
   align-self: center;
   margin-right: 10px;
 }
@@ -36,12 +54,13 @@ body {
 .titleIcon{
   font-size:30px; 
   align-self: center;
-  margin-right: 4%;
   margin-left: 1%;
 }
 
 .imageAlbum{
   border: 4px green solid;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #808278;
 }
 
 .albumDiv{
