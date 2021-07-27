@@ -1,14 +1,17 @@
-import React from "react";
 import "./App.css";
-import GovernmentProjects from "./components/government-projects-component";
-import PhotosAlbum from "./components/photos-album-component";
+import AppRouting  from "./app-routing";
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import rootReducer from './reducers';
+import promiseMiddleware from 'redux-promise';
 
+
+const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 function App() {
   return (
-    <React.Fragment>
-      <GovernmentProjects />
-      <PhotosAlbum />
-    </React.Fragment>
+    <Provider store={createStoreWithMW(rootReducer)}>
+      <AppRouting/>
+    </Provider>
   );
 }
 

@@ -31,6 +31,7 @@ body {
   background-color: #fdd10b;
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px #808278;
+  min-width: 50%;
 }
 
 .line{
@@ -39,20 +40,19 @@ body {
   width: 90%;
 }
 
-.rightIcon{
+.rightIcon, .leftIcon{
   font-size: 3.5vw;
   align-self: center;
   margin-left: 10px;
 }
 
-.leftIcon{
-  font-size: 3.5vw;
-  align-self: center;
-  margin-right: 10px;
+.rightIcon:hover, .leftIcon:hover{
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .titleIcon{
-  font-size:30px; 
+  font-size:2.5vw;
   align-self: center;
   margin-left: 1%;
 }
@@ -61,8 +61,29 @@ body {
   border: 4px green solid;
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px #808278;
+  cursor: pointer;
 }
 
 .albumDiv{
   width: 500px;
+}
+
+.innerPolygon{
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background-image: url("https://i1.sndcdn.com/artworks-000158744112-h6bqa4-t500x500.jpg");
+  background-size: contain;
+  height: 15vw;
+  width: 15vw;
+  margin: auto;
+  position:absolute;
+        top: 3%;
+        left:3%;
+}
+
+.outerPolygon{
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  height: 16vw;
+  width: 16vw;
+  background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
+  position:relative;
 }

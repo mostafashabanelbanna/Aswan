@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages } from "@fortawesome/free-solid-svg-icons";
 
-function PhotosAlbum() {
+function PhotosAlbum(props) {
   return (
     <div className="container-fluid col-11 mt-5 mb-2">
       <div className="d-flex mb-3 justify-content-center justify-content-md-start">
