@@ -12,15 +12,15 @@ const News = () => {
         // autoplaySpeed:1000,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
+              slidesToShow: 2,
+              slidesToScroll: 1,
               infinite: true,
               dots: false
             }
@@ -28,8 +28,9 @@ const News = () => {
           {
             breakpoint: 600,
             settings: {
+                arrows:false,
               slidesToShow: 1,
-              slidesToScroll: 2,
+              slidesToScroll: 1,
               initialSlide: 2
             }
           },
@@ -120,83 +121,83 @@ const News = () => {
                         <FontAwesomeIcon size={"2x"} icon={faChevronLeft}></FontAwesomeIcon>
                         </div> */}
                         <Slider {...settings}>
-                        <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                        <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
 
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>
                             </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-3">
+                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
                                     className="rounded-3 " width='100%'
                                     src="images/shrimp-zone-seafood_menu_2.jpg"
                                 />
-                                <div className="mt-4 mb-4 container p-3">
+                                <div className="mt-4 mb-4 container p-4">
                                     محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                     وا1/4ستثمار
                                 </div>

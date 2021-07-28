@@ -28,34 +28,30 @@
 .arrow_style{
   position: relative;
 }
-.arrow_style::after{
-  content:"";
-  position: absolute;
-  background :url('/src/right.png') no-repeat;
-  background-size: cover;
-  top: 50%;
-  right: -2%;
-  position: absolute;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+
+.slick-arrow{
+  background-color: black;
+  
 }
-.arrow_style::before{
-  content:"";
-  position: absolute;
-  background :url('/src/left.png') no-repeat;
-  background-size: cover;
-  top: 50%;
-  left: -2%;
-  position: absolute;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+.slick-next{
+  right: -10px;
+  top: 40%;
+}
+.slick-prev{
+  z-index: 1;
+  left: -10px;
+  top: 40%;
+}
 
 
+
+.slick-next, .slick-next:focus, .slick-next:hover, .slick-prev, .slick-prev:focus, .slick-prev:hover {
+  color: transparent;
+  outline: none;
+  background: transparent;
 }
-/*
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+
+
+.slick-next:before, .slick-prev:before {
+  color: #000;
+}
