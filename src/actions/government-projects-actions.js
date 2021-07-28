@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = "http://localhost:800/api/NationalProjectAPI/GETALLSlider"
+const baseURL = "http://localhost:2000/api/NationalProjectAPI/GETALLSlider"
 
 export async function getAllProjects(){
     let payload = null;

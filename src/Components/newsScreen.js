@@ -8,6 +8,7 @@ const News = () => {
 
     var settings = {
         dots: false,
+        arrows:false,
         // autoplay:true,
         // autoplaySpeed:1000,
         infinite: false,
@@ -79,7 +80,8 @@ const News = () => {
                 </div>
             </div>
             <div>
-                <div className="container p-0">
+                <div className="  col-11 container-fluid p-0">
+                    <div className=" row p-0">
                     {/* <div className='d-flex justify-content-center'> */}
                             {/* <div className=' text-center d-lg-inline d-none align-self-center' style={{width:'4.1%'}}>
                         <FontAwesomeIcon size={"2x"} icon={faChevronRight}></FontAwesomeIcon>
@@ -120,6 +122,10 @@ const News = () => {
                         <div className='d-lg-inline d-none text-center align-self-center' style={{width:'4.2%'}}>
                         <FontAwesomeIcon size={"2x"} icon={faChevronLeft}></FontAwesomeIcon>
                         </div> */}
+                         <div className=' text-center d-sm-block d-none align-self-center p-0' style={{width:'3%'}}>
+                        <FontAwesomeIcon size={"2x"} icon={faChevronRight}></FontAwesomeIcon>
+                            </div>
+                            <div className="col-11  p-0 m-0">
                         <Slider {...settings}>
                         <div className="col-sm-3 col-12 mt-4 text-center p-4">
                                 <img
@@ -204,6 +210,11 @@ const News = () => {
                             </div>
           
         </Slider>
+        </div>
+        <div className=' text-center d-sm-inline d-none align-self-center p-0' style={{width:'3%'}}>
+                        <FontAwesomeIcon onKeyPress={()=>{Slider.ne}} size={"2x"} icon={faChevronLeft}></FontAwesomeIcon>
+                            </div>
+        </div>
                     </div>
                 {/* </div> */}
                 {/* <div className='container-fluid justify-content-center'  >

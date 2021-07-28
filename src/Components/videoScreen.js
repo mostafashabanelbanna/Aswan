@@ -1,8 +1,47 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Slider from "react-slick";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 const Video = () => {
+    var settings = {
+        dots: false,
+        // autoplay:true,
+        // autoplaySpeed:1000,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
     return (
         <div className="custom_contanier ">
             <div className="p-0 m-0 ">
@@ -16,13 +55,16 @@ const Video = () => {
                 <div className='bg-secondary p-4  me-3 ms-3'>
                     <div className=' container gradient_style align-self-center col-9'></div>
                 </div>
-                <div className='bg-secondary me-3 ms-3'>
+
+
+                {/* <div className='bg-secondary me-3 ms-3'>
                         <div className='d-flex'>
                             {/* <div className='text-center align-self-center' style={{ width: '4.1%' }}>
                                 <img src='images/right.png' width='90%' />
                             </div> */}
-                            <div className="arrow_style bg-secondary d-flex col-12 justify-content-around mb-3">
-                                <div className=" m-4 text-center">
+                <div className="bg-secondary me-3 ms-3">
+                    {/* <div className="arrow_style bg-secondary d-flex col-12 justify-content-around mb-3"> */}
+                    {/* <div className=" m-4 text-center">
                                     <img
                                         className="rounded-3 " width='100%'
                                         src="images/shrimp-zone-seafood_menu_2.jpg"
@@ -61,13 +103,59 @@ const Video = () => {
                                         محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
                                         وا1/4ستثمار
                                     </div>
-                                </div>
+                                </div> */}
+
+
+                    <Slider {...settings}  >
+                        <div className=" mt-4 text-center p-4">
+                            <img
+                                className="rounded-3 " width='100%'
+                                src="images/shrimp-zone-seafood_menu_2.jpg"
+                            />
+                            <div className="mt-4">
+                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
+                                وا1/4ستثمار
                             </div>
-                            {/* <div className='text-center align-self-center' style={{ width: '4.2%' }}>
+                        </div>
+                        <div className=" mt-4 text-center p-4">
+                            <img
+                                className="rounded-3 " width='100%'
+                                src="images/shrimp-zone-seafood_menu_2.jpg"
+                            />
+                            <div className="mt-4">
+                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
+                                وا1/4ستثمار
+                            </div>
+                        </div>
+                        <div className=" mt-4 text-center p-4">
+                            <img
+                                className="rounded-3 " width='100%'
+                                src="images/shrimp-zone-seafood_menu_2.jpg"
+                            />
+                            <div className="mt-4">
+                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
+                                وا1/4ستثمار
+                            </div>
+                        </div>
+                        <div className=" mt-4 text-center p-4">
+                            <img
+                                className="rounded-3 " width='100%'
+                                src="images/shrimp-zone-seafood_menu_2.jpg"
+                            />
+                            <div className="mt-4">
+                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
+                                وا1/4ستثمار
+                            </div>
+                        </div>
+                    </Slider>
+
+
+                </div>
+                {/* <div className='text-center align-self-center' style={{ width: '4.2%' }}>
                                 <img src='images/left.png' width='90%' />
                             </div> */}
-                    </div>
-                </div>
+                {/* </div> */}
+                {/* </div> */}
 
             </div>
         </div>
