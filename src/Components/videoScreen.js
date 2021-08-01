@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "react-slick";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import {sliderVideo} from '../actions/News_Action'
+const Video = (props) => {
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-const Video = () => {
+    useEffect(()=>{
+        props.sliderVideo();
+    },[])
+
     var settings = {
         dots: false,
-        // autoplay:true,
-        // autoplaySpeed:1000,
+        autoplay:true,
+        autoplaySpeed:1000,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
@@ -42,6 +47,7 @@ const Video = () => {
             }
         ]
     };
+    if(props.videos)
     return (
         <div className="custom_contanier ">
             <div className="p-0 m-0 ">
@@ -50,115 +56,50 @@ const Video = () => {
                     <h4 className="mt-3 me-3 text-secondary"> مكتبة الفيديو </h4>
                 </div>
                 <div className="me-3 ms-3 bg-secondary">
-                    <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px' src='videos/1. Welcome!.mp4'></iframe>
+                    <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
                 </div>
                 <div className='bg-secondary p-4  me-3 ms-3'>
                     <div className=' container gradient_style align-self-center col-9'></div>
                 </div>
 
 
-                {/* <div className='bg-secondary me-3 ms-3'>
-                        <div className='d-flex'>
-                            {/* <div className='text-center align-self-center' style={{ width: '4.1%' }}>
-                                <img src='images/right.png' width='90%' />
-                            </div> */}
+
                 <div className="bg-secondary me-3 ms-3">
-                    {/* <div className="arrow_style bg-secondary d-flex col-12 justify-content-around mb-3"> */}
-                    {/* <div className=" m-4 text-center">
-                                    <img
-                                        className="rounded-3 " width='100%'
-                                        src="images/shrimp-zone-seafood_menu_2.jpg"
-                                    />
-                                    <div className="mt-4 ">
-                                        محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                        وا1/4ستثمار
-                                    </div>
-                                </div>
-                                <div className=" m-4 text-center">
-                                    <img
-                                        className="rounded-3 " width='100%'
-                                        src="images/shrimp-zone-seafood_menu_2.jpg"
-                                    />
-                                    <div className="mt-4 ">
-                                        محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                        وا1/4ستثمار
-                                    </div>
-                                </div>
-                                <div className=" m-4 text-center">
-                                    <img
-                                        className="rounded-3 " width='100%'
-                                        src="images/shrimp-zone-seafood_menu_2.jpg"
-                                    />
-                                    <div className="mt-4 ">
-                                        محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                        وا1/4ستثمار
-                                    </div>
-                                </div>
-                                <div className=" m-4 text-center">
-                                    <img
-                                        className="rounded-3 " width='100%'
-                                        src="images/shrimp-zone-seafood_menu_2.jpg"
-                                    />
-                                    <div className="mt-4">
-                                        محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                        وا1/4ستثمار
-                                    </div>
-                                </div> */}
+
 
 
                     <Slider {...settings}  >
-                        <div className=" mt-4 text-center p-4">
-                            <img
+
+                        {props.videos.result.map((item,index)=>{
+                            return(
+                            <div key={item.id} className="mt-4 text-center p-4">
+                            {/* <img
                                 className="rounded-3 " width='100%'
                                 src="images/shrimp-zone-seafood_menu_2.jpg"
-                            />
+                            /> */}
+                            <video src={item.youtubeId} className="rounded-3" width='100%'></video>
                             <div className="mt-4">
-                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                وا1/4ستثمار
+                                {item.title}
+                                {/* محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
+                                وا1/4ستثمار */}
                             </div>
-                        </div>
-                        <div className=" mt-4 text-center p-4">
-                            <img
-                                className="rounded-3 " width='100%'
-                                src="images/shrimp-zone-seafood_menu_2.jpg"
-                            />
-                            <div className="mt-4">
-                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                وا1/4ستثمار
-                            </div>
-                        </div>
-                        <div className=" mt-4 text-center p-4">
-                            <img
-                                className="rounded-3 " width='100%'
-                                src="images/shrimp-zone-seafood_menu_2.jpg"
-                            />
-                            <div className="mt-4">
-                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                وا1/4ستثمار
-                            </div>
-                        </div>
-                        <div className=" mt-4 text-center p-4">
-                            <img
-                                className="rounded-3 " width='100%'
-                                src="images/shrimp-zone-seafood_menu_2.jpg"
-                            />
-                            <div className="mt-4">
-                                محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                وا1/4ستثمار
-                            </div>
-                        </div>
+                        </div>);
+                        })}
+                        
                     </Slider>
 
 
                 </div>
-                {/* <div className='text-center align-self-center' style={{ width: '4.2%' }}>
-                                <img src='images/left.png' width='90%' />
-                            </div> */}
-                {/* </div> */}
-                {/* </div> */}
 
             </div>
         </div>
     );
+    return(<div>Loading</div>)
 }
-export default Video;
+const mapStateToProps = (state) => {
+    return { videos: state.homeComponents.slidervideo }
+}
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ sliderVideo}, dispatch)
+}
+export default connect(mapStateToProps ,mapDispatchToProps )( Video);

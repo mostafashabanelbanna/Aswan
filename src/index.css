@@ -33,6 +33,9 @@
   background-color: black;
   
 }
+.slick-slide{
+  /* cursor: pointer; */
+}
 .slick-next{
   right: -10px;
   top: 40%;
