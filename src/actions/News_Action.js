@@ -45,3 +45,27 @@ export async function sliderVideo(){
         payload
     };
 }
+
+export async function newsList( pageNumber , pageSize=10 , keywords = {}){
+    console.log("Hi from action" , pageNumber)
+    let payload = null;
+    let response  = await axios.post('/NewsAPI/Search/'+ pageNumber+'/'+pageSize ,keywords);
+    let countResponse  = await axios.post('/NewsAPI/GetResultCount' ,keywords);
+
+    
+    let res = countResponse.data.result;
+    payload = {...response.data,count:res};
+    console.log(payload);
+    return {
+        type:"NEWS_LIST",
+        payload
+    };
+}
+
+export async function clearNewsList( ){
+    let payload 
+    return {
+        type:"CLEAR_NEWS_LIST",
+        payload
+    };
+}

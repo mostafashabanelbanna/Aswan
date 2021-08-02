@@ -63,8 +63,6 @@ const News = (props) => {
                     <div className="row p-0 m-3">
                         <div className=" text-secondary">
                             <h2 className="mb-lg-5 mb-2">
-                                {/* محافظ أسوان يوجه بسرعة طلاء واجهات المبانى والعقارات والمنشآت
-                            الحكومية */}
                                 {props.mainews.result.title}
                             </h2>
                         </div>
@@ -80,24 +78,9 @@ const News = (props) => {
                             </div>
                         {ReactHtmlParser(props.mainews.result.content)}
                             </p>
-                            {/* من جانبه طالب اللواء أشرف عطية، با1/4سراع في تنفيذ التصميمات الخاصة
-                            بالهوية البصرية لوضع رؤية متكاملة تعتمد على الدراسة العلمية
-                            1/4دماجها في مشروعات التطوير والتجميل الجارية والمخططة مستقبليoe،
-                            علاوة على توحيد اللون والتصميم لطلاء واجهات المباني والعقارات
-                            والمنشآت الحكومية بما يعكس الثقافة والتراث .ا¶سوانى ا¶صيل أشــاد
-                            المحافــظ، بالتعــاون البنــاء للاســتفادة مــن خبــرات الجامعــة
-                            ا¶لمانيــة وإمكانياتهـا الفنيـة والتكنولوجيـة وا1/4داريـة فـى
-                            مجـالات التصميـم والتطويـر لدعـم .مدن المحافظة جماليoe
-                            وتخطيطيoe....... أقراء المزيد */}
+                          
                         </div>
-                        {/* <div className="col-lg-6   col-sm-12 col-12 d-flex d-lg-block justify-content-center align-items-center align-content-center order-lg-2  order-sm-1 order-1"> */}
-                            {/* <img
-                                className="  mt-3 mb-3 rounded-3 img-fluid" 
-                                // src={"images/shrimp-zone-seafood_menu_2.jpg"}
-                                src={'images/Upload/News/Photo/' + props.mainews.result.id + '/' + props.mainews.result.photo}
-                                alt={props.mainews.result.title}
-                            /> */}
-                        {/* </div> */}
+                        
                     </div>
                 </div>
                 <div>
@@ -120,88 +103,7 @@ const News = (props) => {
                             })}
 
 
-                            {/* <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-                            <div className="col-sm-3 col-12 mt-4 text-center p-4">
-                                <img
-                                    className="rounded-3 " width='100%'
-                                    src="images/shrimp-zone-seafood_menu_2.jpg"
-                                />
-                                <div className="mt-4 mb-4 container p-4">
-                                    محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                    وا1/4ستثمار
-                                </div>
-                            </div>
-           */}
+                          
                         </Slider>
                     </div>
 

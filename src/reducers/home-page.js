@@ -12,6 +12,12 @@ export function homeComponents (state = {}, action){
             case 'MAIN_NEWS':
             return {...state , mainews:action.payload}
             
+            case 'NEWS_LIST':
+                return {...state , newslist:action.payload}
+
+                case 'CLEAR_NEWS_LIST':
+                    return {...state , newslist:action.payload}
+                
         default:
             return state;
     }

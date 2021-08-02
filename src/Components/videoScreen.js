@@ -56,7 +56,7 @@ const Video = (props) => {
                     <h4 className="mt-3 me-3 text-secondary"> مكتبة الفيديو </h4>
                 </div>
                 <div className="me-3 ms-3 bg-secondary">
-                    <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
+                    <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={'https://www.youtube.com/embed/'+props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
                 </div>
                 <div className='bg-secondary p-4  me-3 ms-3'>
                     <div className=' container gradient_style align-self-center col-9'></div>
@@ -73,15 +73,11 @@ const Video = (props) => {
                         {props.videos.result.map((item,index)=>{
                             return(
                             <div key={item.id} className="mt-4 text-center p-4">
-                            {/* <img
-                                className="rounded-3 " width='100%'
-                                src="images/shrimp-zone-seafood_menu_2.jpg"
-                            /> */}
-                            <video src={item.youtubeId} className="rounded-3" width='100%'></video>
+                         
+                            <iframe src={'https://www.youtube.com/embed/'+item.youtubeId} className="rounded-3" width='100%'></iframe>
                             <div className="mt-4">
                                 {item.title}
-                                {/* محافظ أسوان يلتقى السفير ا1/4ندونيسي لمناقشة أوجه التعاون
-                                وا1/4ستثمار */}
+                      
                             </div>
                         </div>);
                         })}

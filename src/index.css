@@ -33,6 +33,36 @@
   background-color: black;
   
 }
+
+.searcher_title
+{
+  margin: 0px 0px 15px 0px;
+  /* padding-top: 30px; */
+  /* border-bottom: 1px solid rgb(230, 230, 230); */
+}
+
+.searcher_title  > div::after
+{
+  content: "";
+  position: absolute;
+  background-color: white;
+  left: -30%;
+  right: 0%;
+  height: 2.5px;
+  bottom: -2px;
+}
+
+.searcher_title  h3,h4,h2,h5,p
+{
+  position: relative;
+  font-weight: 400;
+  color: rgba(158, 31, 99);
+  color: var(--color-1);
+  margin: 0px;
+  line-height: 0px;
+  text-align: center;
+}
+
 .slick-slide{
   /* cursor: pointer; */
 }
@@ -143,3 +173,4 @@
 .slick-next:before, .slick-prev:before {
   color: #000;
 }
+
