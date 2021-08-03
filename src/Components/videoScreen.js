@@ -73,8 +73,7 @@ const Video = (props) => {
                         {props.videos.result.map((item,index)=>{
                             return(
                             <div key={item.id} className="mt-4 text-center p-4">
-                         
-                            <iframe src={'https://www.youtube.com/embed/'+item.youtubeId} className="rounded-3" width='100%'></iframe>
+                            <img src={'https://img.youtube.com/vi/'+item.youtubeId+'/'+'hqdefault.jpg'} className="rounded-3" width='100%'/>
                             <div className="mt-4">
                                 {item.title}
                       

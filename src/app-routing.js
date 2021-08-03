@@ -8,7 +8,9 @@ import Complaints from './Components/complaints-screen'
 import Contact from './Components/contact_us'
 import Footer from './Components/footer'
 import Navbar from './Components/navbar'
-
+import LoaclLeaders from './Components/local_leaders'
+import InfoNews from './Components/info_and_news'
+import CitizenServices from './Components/citizen_services'
 const AppRouting = () => {
     return (
         <BrowserRouter>
@@ -20,6 +22,16 @@ const AppRouting = () => {
                 </Route>
                 <Route path='/newslist' >
                     <NewsList />
+                </Route>
+                
+                <Route path='/loacleaders' >
+                    <LoaclLeaders />
+                </Route>GoodLife
+                <Route path='/CitizenServices' >
+                    <CitizenServices />
+                </Route>
+                <Route path='/InfoNews' >
+                    <InfoNews />
                 </Route>
                 <Route path='/navbar' >
                     <Navbar />

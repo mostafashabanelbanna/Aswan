@@ -69,3 +69,9 @@ export async function clearNewsList( ){
         payload
     };
 }
+
+export async function feedBackApi(feedBackObj={}){
+    let response  = await axios.post('/FeedBackAPI/Contact' ,feedBackObj);
+    return response;
+    
+}
