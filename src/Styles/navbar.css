@@ -1,8 +1,8 @@
 .bgimg{
-    background-image:  url('./Philae-Temple-WallsColumns.jpg') ;
+    background-image:  url('./aswan-0١.png') ;
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px; 
+    background-size: contain;
+    height: 450px; 
       
 }
 .fsiz{

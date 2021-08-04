@@ -71,10 +71,10 @@ const Navbar = ()=>{
             <div className='fsiz'>مجلس الشيوخ</div>
         </div>
         <div className='bgimg position-relative'>
-            <div className='position-absolute' style={{right:'6%' , bottom:'10%'}}>
+            <div className='position-absolute' style={{right:'6%' , bottom:'22%'}}>
                 <img  height='50' width='180' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
             </div>
-            <div className='position-absolute d-flex flex-column' style={{left:'3%' , top:'25%'}}>
+            <div className='position-absolute d-flex flex-column' style={{left:'3%' , top:'15%'}}>
                 
             <div className=' text-center p-1 py-2 rounded-3 mb-3 bg-light'> <FontAwesomeIcon color={'#3b51a3'} size='3x' icon={faFacebookF}></FontAwesomeIcon></div>
             <div className=' text-center p-1 py-2 rounded-3 mb-3 bg-light'> <FontAwesomeIcon color={'#5da9dd'} size='3x' icon={faTwitter}></FontAwesomeIcon></div>
