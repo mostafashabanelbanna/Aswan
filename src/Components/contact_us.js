@@ -33,8 +33,15 @@ const Contact = () => {
     }
 
     return (
-        <div style={{backgroundColor:'#eeecec'}}>
-            <div className='container p-0 mt-3 ' >
+        <div>
+            <div className=" custom_contanier pe-0 ">
+                <div className="mt-2 d-flex">
+                    <img src="/images/icons/contact_titel-0٢.png" width='7%' />
+                    <h4 className="mt-4 me-2 text-secondary">اتصل بنا </h4>
+                </div>
+            </div>
+            <div style={{backgroundColor:'#eeecec'}}>
+            <div className='container p-0 mt-3 py-4' >
                 <div className=" row p-0 m-0">
                     <div className='col-sm-4 col-12   p-0 order-sm-1 order-2'>
                         <form className="justify-content-center col-11">
@@ -71,6 +78,7 @@ const Contact = () => {
                     <MyModal dialogClassName='danger' show={dangerShow} onHide={() => setDangerShow(false)} />
                 </div>
             </div>
+        </div>
         </div>
     );
 

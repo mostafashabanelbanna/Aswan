@@ -11,7 +11,7 @@ const CitizenServices = () => {
                     <h4 className="mt-4 me-2 text-secondary">خدمات المواطنون  </h4>
                 </div>
             </div>
-            <div className="container p-0 mt-4">
+            <div className="container p-0 mt-4 mb-3">
                 <div className="row  text-center p-0 m-0 ">
 
                     <div className="col-lg-2  col-4 mb-4">
@@ -47,6 +47,7 @@ const CitizenServices = () => {
 
                 </div>
             </div>
+            <div className="line my-5 mx-auto"></div>
         </div>
     );
 }

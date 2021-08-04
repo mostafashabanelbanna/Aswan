@@ -5,13 +5,13 @@ const InfoNews = () => {
 
     return (
         <div>
-            <div className="custom_contanier p-0 mb-4">
+            <div className="custom_contanier p-0 ">
                 <div className="mt-2 d-flex">
                     <img src="/images/icons/information_titel-0١.png" width='7%' />
                     <h4 className="mt-4 me-2 text-secondary"> معلومات ودراسات ونشرات </h4>
                 </div>
             </div>
-            <div className="container p-0 mt-4">
+            <div className="container p-0 mt-4 ">
                 <div className="row text-center  p-0 m-0 ">
                     
                     <div className="col-lg-3  col-6 mb-4">
@@ -42,6 +42,8 @@ const InfoNews = () => {
 
                 </div>
             </div>
+            <div className="line my-5 mx-auto"></div>
+
         </div>
     );
 }

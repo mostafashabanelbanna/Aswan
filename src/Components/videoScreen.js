@@ -12,8 +12,8 @@ const Video = (props) => {
 
     var settings = {
         dots: false,
-        autoplay:true,
-        autoplaySpeed:1000,
+        // autoplay:true,
+        // autoplaySpeed:1000,
         infinite: false,
         speed: 500,
         slidesToShow: 3,
@@ -52,19 +52,19 @@ const Video = (props) => {
         <div className="custom_contanier ">
             <div className="p-0 m-0 ">
                 <div className="m-3 d-flex">
-                    <img src="/images/check-mark.png" />
+                    <img src="/images/icons/video_titel-0٢.png" width='7%' />
                     <h4 className="mt-3 me-3 text-secondary"> مكتبة الفيديو </h4>
                 </div>
-                <div className="me-3 ms-3 bg-secondary">
+                <div className="me-3 ms-3 " style={{backgroundColor:'#eeecec'}}>
                     <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={'https://www.youtube.com/embed/'+props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
                 </div>
-                <div className='bg-secondary p-4  me-3 ms-3'>
+                <div style={{backgroundColor:'#eeecec'}} className='p-4  me-3 ms-3'>
                     <div className=' container gradient_style align-self-center col-9'></div>
                 </div>
 
 
 
-                <div className="bg-secondary me-3 ms-3">
+                <div style={{backgroundColor:'#eeecec'}} className=" me-3 ms-3">
 
 
 
@@ -87,6 +87,8 @@ const Video = (props) => {
                 </div>
 
             </div>
+            <div className="line my-5 mx-auto"></div>
+
         </div>
     );
     return(<div>Loading</div>)

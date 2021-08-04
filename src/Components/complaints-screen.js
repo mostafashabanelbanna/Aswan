@@ -7,8 +7,8 @@ const Complaints = () => {
         <div>
             <div className="custom_contanier p-0 mb-4">
                 <div className="m-3 d-flex">
-                    <img src="/images/check-mark.png" />
-                    <h4 className="mt-3 me-3 text-secondary"> اخبار المحافظة </h4>
+                    <img src="/images/icons/complaints_titel-0٢.png"  width='7%'/>
+                    <h4 className="mt-3 me-3 text-secondary"> الشكاوى </h4>
                 </div>
             </div>
             <div className="container p-0">
@@ -36,6 +36,7 @@ const Complaints = () => {
                     </div>
                 </div>
             </div>
+            <div className="line my-5 mx-auto"></div>
         </div>
     );
 }

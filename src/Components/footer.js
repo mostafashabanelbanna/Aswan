@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div style={{ backgroundColor: 'rgba(37,38,38,255)' }}>
             <div className='custom_contanier '>
-                <div className='row p-0 m-0 mb-5 pt-4 pb-4 '>
+                <div className='row p-0 m-0  pt-4 pb-4 '>
 
 
                     <div className='text-light col-lg-2 col-md-2    container-xxl m-md-0 container-md col-6   ms-md-5   d-flex flex-column'>
