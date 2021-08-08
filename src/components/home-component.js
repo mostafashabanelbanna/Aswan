@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GovernmentFamous from "./government-famous-component"
-import GovernmentProjects from "../components/government-projects/government-projects-component";
+import GovernmentProjects from "./government-projects/government-projects-component";
 import PhotosAlbum from "./photos-album-component";
 import News  from './newsScreen'
 import Video from './videoScreen'

@@ -45,6 +45,21 @@ export async function sliderVideo(){
         payload
     };
 }
+export async function complaints(){
+
+    let payload = null;
+    try{
+        let response = await axios.get('/WebLinkAPI/GetByCategory?id=2');
+        payload =  response.data;
+        console.log(payload);
+    } catch (error){
+        console.log(error);
+    }
+    return {
+        type:"COMPLAINT",
+        payload
+    };
+}
 
 export async function newsList( pageNumber , pageSize=10 , keywords = {}){
     console.log("Hi from action" , pageNumber)
