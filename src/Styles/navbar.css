@@ -1,7 +1,7 @@
 .bgimg{
     background-image:  url('./aswan-0١.png') ;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 450px; 
       
 }

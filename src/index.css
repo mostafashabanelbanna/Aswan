@@ -52,7 +52,7 @@
   bottom: -2px;
 }
 
-.searcher_title  h3,h4,h2,h5,p
+/* .searcher_title  h3,h4,h2,h5,p
 {
   position: relative;
   font-weight: 400;
@@ -61,7 +61,7 @@
   margin: 0px;
   line-height: 0px;
   text-align: center;
-}
+} */
 
 .slick-slide{
   /* cursor: pointer; */

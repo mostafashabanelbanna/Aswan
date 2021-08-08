@@ -7,8 +7,8 @@ const InfoNews = () => {
         <div>
             <div className="custom_contanier p-0 ">
                 <div className="mt-2 d-flex">
-                    <img src="/images/icons/information_titel-0١.png" width='7%' />
-                    <h4 className="mt-4 me-2 text-secondary"> معلومات ودراسات ونشرات </h4>
+                    <img src="/images/icons/information_titel-0١.png" width="80px" />
+                    <h3 className="mt-4 me-2 text-secondary"> معلومات ودراسات ونشرات </h3>
                 </div>
             </div>
             <div className="container p-0 mt-4 ">

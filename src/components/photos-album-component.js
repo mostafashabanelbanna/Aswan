@@ -1,70 +1,66 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImages } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getAllPhotos } from "../store/actions/photos-album-actions";
+import { useEffect } from "react";
+import { paths } from "../paths/paths";
+import "../Styles/photo-album-style.css";
 
-function PhotosAlbum(props) {
-  return (
-    <div className="container-fluid col-11 mt-5 mb-2">
-      <div className="d-flex mb-3 justify-content-center justify-content-md-start">
-        <FontAwesomeIcon icon={faImages} className="titleIcon" />
-        <p className="titles mb-1">البوم الصور</p>
+const PhotosAlbum = (props) => {
+  useEffect(() => {
+    props.getAllPhotos();
+  }, []);
+
+  // let photos = props.photos.result;
+
+  const renderAlbum = () => {
+    return (
+      <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
+        {props.photos.result.map((content, index) => {
+          return (
+            <div
+              className="col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
+              key={content.id}
+            >
+              <img
+                src={`${paths.PhotoLibraryAlbum}${content.id}/${content.photo}`}
+                className="w-100 shadow-1-strong imageAlbum mb-4"
+                alt=""
+              />
+              <p className="text-center titles mb-5">{content.titleA}</p>
+            </div>
+          );
+        })}
       </div>
-      <div className="d-flex justify-content-lg-around flex-column flex-md-row">
-        <div className="col-lg-4 mb-4 mb-lg-0">
-          <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
-            alt=""
-          />
-          <p className="text-center titles mb-5">نهر النيل في اسوان</p>
+    );
+  };
 
+  if (props.photos) {
+    // console.log("ggggggggg",props.photos.result)
+    return (
+      <div className="custom_contanier mt-5">
+        <div className="d-flex my-2">
           <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
+            src="./images/icons/photoalbum_titel-0٢.png"
             alt=""
+            width="80px"
           />
-
-          <p className="text-center titles">مقابر النبلاء</p>
+          <h3 className="mt-4 me-2 text-secondary">البوم الصور</h3>
         </div>
-
-        <div className="col-lg-4 mb-4 mb-lg-0 me-md-4">
-          <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
-            alt=""
-          />
-
-          <p className="text-center titles mb-5">الحديقة النباتية بأسوان</p>
-
-          <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
-            alt=""
-          />
-
-          <p className="text-center titles">كلابشة</p>
-        </div>
-
-        <div className="col-lg-4 mb-4 mb-lg-0 me-md-4">
-          <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
-            alt=""
-          />
-
-          <p className="text-center titles mb-5">متحف النوبة</p>
-
-          <img
-            src="./assets/m.jpg"
-            className="w-100 shadow-1-strong imageAlbum mb-4"
-            alt=""
-          />
-
-          <p className="text-center titles">المسلة الغير مكتملة</p>
-        </div>
+        {renderAlbum()}
+        <div className="line mx-auto my-5 w-100"></div>
       </div>
-      <div className="line mx-auto my-5 w-100"></div>
-    </div>
-  );
-}
+    );
+  }
+  return <div>Loading</div>;
+};
 
-export default PhotosAlbum;
+export default connect(
+  (state) => {
+    return {
+      photos: state.homeComponents.photosList,
+    };
+  },
+  (dispatch) => {
+    return bindActionCreators({ getAllPhotos }, dispatch);
+  }
+)(PhotosAlbum);

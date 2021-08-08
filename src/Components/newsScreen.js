@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { mainNews, sliderNews } from '../actions/News_Action'
+import { mainNews, sliderNews } from '../store/actions/News_Action'
 import ReactHtmlParser from 'react-html-parser';
 
 const News = (props) => {
@@ -58,8 +58,8 @@ const News = (props) => {
             <div>
                 <div className="custom_contanier p-0">
                     <div className="m-3 d-flex">
-                        <img src="/images/icons/news_titel-0١.png" width='7%' />
-                        <h4 className="mt-3 me-3 text-secondary"> اخبار المحافظة </h4>
+                        <img src="/images/icons/news_titel-0١.png" width='80px' />
+                        <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
                     </div>
                     <div className="row p-0 mt-3">
                         <div className=" text-secondary">

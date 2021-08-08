@@ -1,7 +1,7 @@
 import React, { useEffect ,useState} from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { newsList,clearNewsList } from '../actions/News_Action'
+import { newsList,clearNewsList } from '../store/actions/News_Action'
 import ReactPaginate from 'react-paginate';
 
 

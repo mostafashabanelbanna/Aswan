@@ -1,0 +1,22 @@
+@media (min-width: 767px) {
+  .portalsBorder {
+    border: #808278 15px double;
+    border-image: linear-gradient(90deg, #808278, white, white, #808278) 100;
+  }
+}
+
+@media (max-width: 767px) {
+  .portalsBorder {
+    border: 0px;
+    border-image: none;
+  }
+}
+
+.circular-image {
+  border-radius: 50%;
+}
+
+.circular-image img {
+  width: 200px;
+  height: 200px;
+}

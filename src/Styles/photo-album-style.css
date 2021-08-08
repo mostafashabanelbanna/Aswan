@@ -1,0 +1,8 @@
+.imageAlbum {
+  border: 4px green solid;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #808278;
+  cursor: pointer;
+  background-size: cover;
+  height: 450px;
+}

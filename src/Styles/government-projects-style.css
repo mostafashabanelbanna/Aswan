@@ -1,0 +1,41 @@
+.ContainerDiv {
+  background-color: #fdd10b;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #808278;
+  min-width: 50%;
+  position: relative;
+  height: 450px;
+}
+
+.rightIcon,
+.leftIcon {
+  font-size: 3.5vw;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.rightIcon:hover,
+.leftIcon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.imageAlbum {
+  border: 4px green solid;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #808278;
+  cursor: pointer;
+  background-size: cover;
+  height: 450px;
+}
+
+.projectsButtons {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.projectAlbum {
+  height: 300px;
+  width: 200px;
+}
