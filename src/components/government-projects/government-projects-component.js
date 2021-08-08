@@ -64,7 +64,7 @@ const GovernmentProjects = (props) => {
                 </p>
                 <div className="projectsButtons">
                   <button
-                    className="btn btn-secondary mx-1"
+                    className="btn btn-secondary mx-1 mb-2 mb-sm-0"
                     onClick={() => {
                       props.history.push(
                         `/projectDetails/${projects[counter].id}`
@@ -73,7 +73,7 @@ const GovernmentProjects = (props) => {
                   >
                     عرض التفاصيل
                   </button>
-                  <button className="btn btn-secondary mx-1">
+                  <button className="btn btn-secondary mx-1 mb-2 mb-sm-0">
                     مزيد من المشروعات
                   </button>
                 </div>
@@ -91,7 +91,7 @@ const GovernmentProjects = (props) => {
               onClick={onLeftClickHandler}
             />
           </div>
-          <div className="line my-5 mx-auto"></div>
+          <div className="line my-5 w-100"></div>
         </div>
       );
     }
