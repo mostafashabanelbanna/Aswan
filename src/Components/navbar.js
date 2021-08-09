@@ -72,7 +72,7 @@ const Navbar = ()=>{
         </div>
         <div className='bgimg position-relative'>
             <div className='position-absolute' style={{right:'6%' , bottom:'22%'}}>
-                <img  height='50' width='180' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
+                <img  height='50' width='180' src={'./images/cover.jpg'}/>
             </div>
             <div className='position-absolute d-flex flex-column' style={{left:'3%' , top:'15%'}}>
                 
