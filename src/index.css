@@ -141,28 +141,6 @@
   width: 500px;
 }
 
-.innerPolygon{
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  background-image: url("https://i1.sndcdn.com/artworks-000158744112-h6bqa4-t500x500.jpg");
-  background-size: contain;
-  height: 15vw;
-  width: 15vw;
-  margin: auto;
-  position:absolute;
-        top: 3%;
-        left:3%;
-}
-
-.outerPolygon{
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  height: 16vw;
-  width: 16vw;
-  background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
-  position:relative;
-}
-
-
-
 .slick-next, .slick-next:focus, .slick-next:hover, .slick-prev, .slick-prev:focus, .slick-prev:hover {
   color: transparent;
   outline: none;
@@ -174,3 +152,11 @@
   color: #000;
 }
 
+.hovering {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.hovering:hover {
+  transform: scale(1.05);
+}

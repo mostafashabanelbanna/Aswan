@@ -129,23 +129,29 @@ const ProjectDetails = (props) => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="row my-3">
-          <Col>
+        <div className="my-3">
             <Slider {...settings} style={{ width: "100%" }}>
               {details.photos.map((photo, index) => {
+                console.log("photo objjjjjjjjj" + photo);
                 return (
-                  <div className="">
+                  <div style={{ position: "relative",  boxShadow:"3px 3px 3px 3px #808278" }}>
                     <img
                       src={`${paths.ProjectPhotos}${photo.id}/${photo.photo}`}
                       className="projectAlbum p-2 rounded-3 border border-1 border-dark"
                       alt={photo.name}
                     />
-                    <div class="text-center">التجلى الأعظم بسانت كاترين </div>
+                    <div
+                      class="text-center"
+                      style={{ position: "absolute", bottom: 30, border: "1px solid black",  }}
+                    ><p>
+
+                      التجلى الأعظم بسانت كاترين{" "}
+                    </p>
+                    </div>
                   </div>
                 );
               })}
             </Slider>
-          </Col>
         </div>
       </div>
     );
