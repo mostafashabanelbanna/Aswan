@@ -74,7 +74,6 @@ const ImportantPortals = (props) => {
 
   if (props.portalsList) {
     if (props.portalsList.result.length) {
-      console.log(props.portalsList);
       let portals = Object.assign({}, props.portalsList);
       return (
         <div className="custom_contanier mt-5 mb-2">

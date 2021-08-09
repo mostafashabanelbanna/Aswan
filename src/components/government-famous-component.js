@@ -57,7 +57,7 @@ const GovernmentFamous = (props) => {
         <div className="d-flex flex-column ms-lg-4 align-items-center justify-content-between hovering">
           <div
             className="outerPolygon"
-            onClick={() => console.log("helloooooooooooooo")}
+            
           >
             <div className="innerPolygon"></div>
           </div>

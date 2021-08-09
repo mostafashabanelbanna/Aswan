@@ -36,7 +36,6 @@ const GovernmentProjects = (props) => {
 
   if (props.projects) {
     if (props.projects.result.length) {
-      // console.log(props);
       let projects = Object.assign({}, props.projects.result);
       return (
         <div className="custom_contanier">

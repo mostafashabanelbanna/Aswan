@@ -15,28 +15,28 @@ const InfoNews = () => {
                 <div className="row text-center  p-0 m-0 ">
                     
                     <div className="col-lg-3  col-6 mb-4">
-                        <img className='w-100 h-75 px-4' src={'/images/icons/statistics-0١.png'} />
+                        <img className='w-75 h-75 px-4' src={'/images/icons/statistics-0١.png'} />
                         <div className='mt-4'> احصائيات </div>
 
 
                     </div>
 
                     <div className="col-lg-3  col-6 mb-4">
-                        <img className='w-100 h-75 px-4' src={'/images/icons/bulletin-0١.png'} />
-                        <div className='mt-4'> احصائيات </div>
+                        <img className='w-75 h-75 px-4' src={'/images/icons/bulletin-0١.png'} />
+                        <div className='mt-4'> نشرات شهرية </div>
 
 
                     </div>
 
                     <div className="col-lg-3  col-6 mb-4">
-                        <img className='w-100 h-75 px-4' src={'/images/icons/decision-0١.png'} />
-                        <div className='mt-4'> احصائيات </div>
+                        <img className='w-75 h-75 px-4' src={'/images/icons/decision-0١.png'} />
+                        <div className='mt-4'> احصائيات نشرات سكانية </div>
 
                     </div>
 
                     <div className="col-lg-3  col-6 mb-4">
-                        <img className='w-100 h-75 px-4' src={'/images/icons/statistics-0١.png'} />
-                        <div className='mt-4'> احصائيات </div>
+                        <img className='w-75 h-75 px-4' src={'/images/icons/statistics-0١.png'} />
+                        <div className='mt-4'> دعم القرار </div>
 
                     </div>
 

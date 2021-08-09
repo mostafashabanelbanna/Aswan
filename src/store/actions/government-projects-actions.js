@@ -7,7 +7,6 @@ export async function getAllProjects(){
         let response = await axios.get("/NationalProjectAPI/GETALLSlider")
         payload = await response.data;
     } catch (error){
-        console.log(error);
     }
     return {
         type:"PROJECTS_LIST",
@@ -21,7 +20,6 @@ export async function getProjectDetails(id){
         let response = await axios.get(`/NationalProjectAPI/Details/${id}`);
         payload = await response.data;
     } catch (error) {
-        console.log(error);
     }
     return {
         type:"PROJECT_DETAILS",

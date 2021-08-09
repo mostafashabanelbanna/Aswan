@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
 function MyModal(props) {
-    console.log({props})
     return (
       <Modal
         {...props}

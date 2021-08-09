@@ -7,7 +7,6 @@ export async function sliderNews(){
         let response = await axios.get('/NewsAPI/GetSlider');
         payload =  response.data;
     } catch (error){
-        console.log(error);
     }
     return {
         type:"SLIDER_NEWS",
@@ -23,7 +22,6 @@ export async function mainNews(){
         payload =  response.data;
         
     } catch (error){
-        console.log(error);
     }
     return {
         type:"MAIN_NEWS",
@@ -38,7 +36,6 @@ export async function sliderVideo(){
         let response = await axios.get('/VideoLibraryAPI/GetAllSlider');
         payload =  response.data;
     } catch (error){
-        console.log(error);
     }
     return {
         type:"SLIDER_VIDEO",
@@ -51,9 +48,7 @@ export async function complaints(){
     try{
         let response = await axios.get('/WebLinkAPI/GetByCategory?id=2');
         payload =  response.data;
-        console.log(payload);
     } catch (error){
-        console.log(error);
     }
     return {
         type:"COMPLAINT",
@@ -62,7 +57,6 @@ export async function complaints(){
 }
 
 export async function newsList( pageNumber , pageSize=10 , keywords = {}){
-    console.log("Hi from action" , pageNumber)
     let payload = null;
     let response  = await axios.post('/NewsAPI/Search/'+ pageNumber+'/'+pageSize ,keywords);
     let countResponse  = await axios.post('/NewsAPI/GetResultCount' ,keywords);
@@ -70,7 +64,6 @@ export async function newsList( pageNumber , pageSize=10 , keywords = {}){
     
     let res = countResponse.data.result;
     payload = {...response.data,count:res};
-    console.log(payload);
     return {
         type:"NEWS_LIST",
         payload

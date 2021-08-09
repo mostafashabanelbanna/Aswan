@@ -6,7 +6,6 @@ export async function getAllPhotos(){
         let response = await axios.get("/PhotoLibraryAPI/GetAllSlider")
         payload = await response.data;
     } catch (error){
-        console.log(error);
     }
     return {
         type:"PHOTOS_ALBUM_LIST",

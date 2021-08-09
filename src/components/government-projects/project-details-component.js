@@ -74,9 +74,7 @@ const ProjectDetails = (props) => {
     ],
   };
 
-  //   console.log(props);
   if (props.projectDetails) {
-    // console.log(props.projectDetails);
     let details = Object.assign({}, props.projectDetails.result);
     return (
       <div className="container">

@@ -23,7 +23,6 @@ const Contact = () => {
             let res = await feedBackApi(obj)
             setSuccessShow(true)
         } catch (e) {
-            console.log(e)
             setDangerShow(true)
 
         }
@@ -62,7 +61,6 @@ const Contact = () => {
                             </div>
                             <div className="form-group mb-3 mt-2">
                                 <textarea  onChange={(e) => {
-                                    console.log(e.currentTarget.value)
                                     setMessage(e.currentTarget.value)
                                 }} placeholder="الرسالة" className="form-control border-0" rows="3"></textarea>
                             </div>

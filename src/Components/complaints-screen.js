@@ -16,7 +16,6 @@ const Complaints = (props) => {
       }
 
     if (props.complaint) {
-        console.log(props.complaint.result);
         if (props.complaint.result.length) {
             return (
                 <div>
@@ -32,28 +31,13 @@ const Complaints = (props) => {
                             {props.complaint.result.map((item, index) => {
                                 return (
                                     <div onClick={()=>{openInNewTab(item.url)}} style={{cursor:'pointer'}} key={item.id} className="col-lg-3 justify-content-center flex-wrap col-6 mb-4">
-                                        {/* <div className="text-center" style={{ border: '1px solid #BADA55', borderRadius: '50%', height: 170, width: '65%' }} > */}
                                      <div>       <img className=' mt-2 mb-3' height='150px' style={{ borderRadius: '50%', width: '88%' }} src={'./images/Upload/WebLink/Photo/'+item.id+'/'+item.photo} />
                                         </div>
                                         <div> {item.name} </div>
                                     </div>
                                 );
                             })}
-                            {/* <div className="col-lg-3  col-6 mb-3">
-                        <div className="text-center" style={{ border: '1px solid #BADA55', borderRadius: '50%', height: 170, width: '65%' }}>
-                            <img className=' mt-2' height='152px' style={{ borderRadius: '50%', width: '88%' }} src={'/images/shrimp-zone-seafood_menu_2.jpg'} />
-                        </div>
-                    </div>
-                    <div className="col-lg-3  col-6 mb-3">
-                        <div className="text-center" style={{ border: '1px solid #BADA55', borderRadius: '50%', height: 170, width: '65%' }} >
-                            <img className=' mt-2' height='152px' style={{ borderRadius: '50%', width: '88%' }} src={'/images/shrimp-zone-seafood_menu_2.jpg'} />
-                        </div>
-                    </div>
-                    <div className="col-lg-3  col-6 mb-3">
-                        <div className="text-center" style={{ border: '1px solid #BADA55', borderRadius: '50%', height: 170, width: '65%' }} >
-                            <img className=' mt-2' height='152px' style={{ borderRadius: '50%', width: '88%' }} src={'/images/shrimp-zone-seafood_menu_2.jpg'} />
-                        </div>
-                    </div> */}
+                           
                         </div>
                     </div>
                     <div className="line my-5 mx-auto"></div>

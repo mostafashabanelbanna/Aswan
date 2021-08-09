@@ -35,7 +35,6 @@ const PhotosAlbum = (props) => {
   };
 
   if (props.photos) {
-    // console.log("ggggggggg",props.photos.result)
     return (
       <div className="custom_contanier mt-5">
         <div className="d-flex my-2">
