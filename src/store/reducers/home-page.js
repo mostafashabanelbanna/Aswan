@@ -6,7 +6,7 @@ export function homeComponents(state = {}, action) {
     case "PROJECT_DETAILS":
       return { ...state, projectDetails: action.payload };
     case "CLEAR_DATA":
-      return { ...state, Details: action.payload }
+      return { ...state, projectDetails: action.payload }
 
     //photo album reducers
     case "PHOTOS_ALBUM_LIST":

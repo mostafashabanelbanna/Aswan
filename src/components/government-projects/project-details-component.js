@@ -15,7 +15,11 @@ import "../../Styles/government-projects-style.css";
 
 const ProjectDetails = (props) => {
   useEffect(() => {
-    props.getProjectDetails(props.match.params.id);
+    const resolver = async () => {
+      await props.getProjectDetails(props.match.params.id);
+    }
+
+    resolver();
 
     return () => {
       props.clearData();
@@ -25,7 +29,7 @@ const ProjectDetails = (props) => {
   var settings = {
     dots: true,
     arrows: false,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     infinite: true,
     speed: 500,
@@ -34,6 +38,7 @@ const ProjectDetails = (props) => {
     initialSlide: 1,
     pauseOnFocus: true,
     pauseOnHover: true,
+    swipeToSlide:true,
     responsive: [
       {
         breakpoint: 1300,
@@ -130,28 +135,41 @@ const ProjectDetails = (props) => {
           ></iframe>
         </div>
         <div className="my-3">
-            <Slider {...settings} style={{ width: "100%" }}>
-              {details.photos.map((photo, index) => {
-                console.log("photo objjjjjjjjj" + photo);
-                return (
-                  <div style={{ position: "relative",  boxShadow:"3px 3px 3px 3px #808278" }}>
+          <Slider {...settings} style={{ width: "100%" }}>
+            {details.photos.map((photo, index) => {
+              console.log("photo objjjjjjjjj" + photo);
+              return (
+                <div
+                  style={{
+                    position: "relative",
+                    boxShadow: "3px 3px 3px 3px #808278",
+                  }}
+                >
+                  <div style={{
+                    position: "relative"}} className="w-100 px-3 text-center">
                     <img
                       src={`${paths.ProjectPhotos}${photo.id}/${photo.photo}`}
                       className="projectAlbum p-2 rounded-3 border border-1 border-dark"
                       alt={photo.name}
                     />
-                    <div
-                      class="text-center"
-                      style={{ position: "absolute", bottom: 30, border: "1px solid black",  }}
-                    ><p>
-
-                      التجلى الأعظم بسانت كاترين{" "}
-                    </p>
-                    </div>
+                  
+                  <div
+                    class="text-center"
+                    style={{
+                      position: "absolute",
+                      bottom: '6%',
+                      left:'6.2%',
+                      border: "1px solid black",
+                      width:'77.1%'
+                    }}
+                  >
+                    <p>التجلى الأعظم بسانت كاترين </p>
                   </div>
-                );
-              })}
-            </Slider>
+                  </div>
+                </div>
+              );
+            })}
+          </Slider>
         </div>
       </div>
     );

@@ -39,3 +39,35 @@
   height: 300px;
   width: 200px;
 }
+
+.leftControl > i, .leftControl > span {
+  color: black;
+}
+
+.rightControl > i, .leftControl > span {
+  color: black;
+}
+
+.carousel-control-prev{
+  width: 2% !important;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.carousel-control-next{
+  width: 2% !important;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+@media (min-width: 767px) {
+  .projectsDiv{
+    height: 455px;
+  }
+}
+
+@media (max-width: 767px) {
+  .projectsDiv{
+    height: 950px;
+  }
+}

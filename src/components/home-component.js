@@ -12,6 +12,7 @@ import InfoNews from './info_and_news'
 import CitizenServices from './citizen_services'
 import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
+
 class HomeComponent extends Component {
   constructor(props) {
     super(props);

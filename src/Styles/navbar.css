@@ -10,16 +10,19 @@
 }
 
 .bgnavbar{
- background-image: linear-gradient(to right top, #4c4c4c, #757575, #a1a1a1, #cfcfcf, #ffffff);
+ background-image: linear-gradient(to right, transparent, #a1a1a1, #cfcfcf);
     padding: 25px 40px 25px 60px;
     border-radius: 3px;
+    text-shadow: #757575 2px 2px;
+    font-size: x-large;
 }
 
 .borderside{
     padding: 7px 10px 7px 10px;
     border:blue 2px solid;
-    border-left-color: #4c4c4c;
+    border-left-color: transparent;
     border-right-color:#cfcfcf ;
     border-top-color:#a1a1a1 ;
     border-bottom-color:#757575 ;
+    opacity: 0.8;
 }
