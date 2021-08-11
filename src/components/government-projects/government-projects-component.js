@@ -92,12 +92,14 @@ const GovernmentProjects = (props) => {
                 onSelect={_onSelect}
                 ref={slider}
                 version={4}
+                className="carousel-fade"
               >
                 {projects.map((project, index) => {
+
                   let slicedBrief = project.brief;
-                  if(project.brief !== null){
+                  if(project.brief !== null && project.brief.length > 750){
                     const brief = project.brief;
-                    slicedBrief = brief.substring(0, 750).concat('...');
+                    slicedBrief = brief.substring(0, 740).concat(' ...');
                   }
 
                   return (

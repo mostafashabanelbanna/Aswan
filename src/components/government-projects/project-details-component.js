@@ -137,7 +137,10 @@ const ProjectDetails = (props) => {
         <div className="my-3">
           <Slider {...settings} style={{ width: "100%" }}>
             {details.photos.map((photo, index) => {
-              console.log("photo objjjjjjjjj" + photo);
+              let title = photo.title;
+              if(photo.title === null){
+                title = photo.caption;
+              }
               return (
                 <div
                   style={{
@@ -163,7 +166,7 @@ const ProjectDetails = (props) => {
                       width:'77.1%'
                     }}
                   >
-                    <p>التجلى الأعظم بسانت كاترين </p>
+                    <p>{title}</p>
                   </div>
                   </div>
                 </div>
