@@ -141,7 +141,7 @@ const ProjectDetails = (props) => {
                       alt={photo.name}
                     />
                     <div
-                      class="text-center"
+                      className="text-center"
                       style={{ position: "absolute", bottom: 30, border: "1px solid black",  }}
                     ><p>
 

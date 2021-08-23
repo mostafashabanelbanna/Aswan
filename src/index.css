@@ -160,3 +160,14 @@
 .hovering:hover {
   transform: scale(1.05);
 }
+
+.fc .fc-daygrid-day-number{
+  color: grey;
+  text-decoration: none;
+
+}
+
+.fc-col-header-cell-cushion {
+  text-decoration: none;
+
+}

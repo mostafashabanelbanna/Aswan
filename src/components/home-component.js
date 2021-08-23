@@ -12,6 +12,7 @@ import InfoNews from './info_and_news'
 import CitizenServices from './citizen_services'
 import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
+import TrainingAgenda from './training-agenda'
 class HomeComponent extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ class HomeComponent extends Component {
         <Navbar {...this.props}/>
         <News {...this.props}/>
         <InfoNews {...this.props}/>
+        <TrainingAgenda {...this.props}/>
         <GovernmentProjects {...this.props}/>
         <CitizenServices {...this.props}/>
         <LocalLeaders {...this.props}/>
