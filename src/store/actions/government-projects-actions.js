@@ -14,12 +14,13 @@ export async function getAllProjects(){
     };
 }
 
-export async function getProjectDetails(id){
+export async function getProjectDetails(id = 0){
     let payload = null
     try{
         let response = await axios.get(`/NationalProjectAPI/Details/${id}`);
         payload = await response.data;
     } catch (error) {
+        console.log(error)
     }
     return {
         type:"PROJECT_DETAILS",
