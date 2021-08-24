@@ -1,0 +1,43 @@
+.fc-theme-standard .fc-scrollgrid,
+.fc td, .fc th {
+    border: 3px solid white !important;
+}
+
+.fc-col-header-cell .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion{
+    color: #c2c2c2;
+}
+
+.fc-scrollgrid  thead tr td .fc-scroller-harness{
+    margin-bottom: 1.5rem;
+}
+
+.fc-daygrid-day-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fc-daygrid-day{
+    background-color: transparent;
+    font-size: x-large;
+}
+
+.fc-day-past .fc-daygrid-day-top, .fc-day-future .fc-daygrid-day-top{
+    background-color: #c2c2c2;
+    width: 65px;
+    height: 65px;
+}
+
+.fc-day-today .fc-daygrid-day-top{
+    background-color: #d8b65e;
+    width: 65px;
+    height: 65px;
+}
+
+.fc-toolbar-title{
+    color: #d8b65e;
+}
+
+.fc-daygrid-day-number{
+    margin: auto;
+}
