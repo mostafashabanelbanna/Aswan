@@ -37,8 +37,8 @@ const TrainingAgenda = () => {
 
   return (
     <div>
-      <div className="d-flex flex-column flex-md-row container">
-        <div className="col-md-6 col-12 p-3">
+      <div className="d-flex flex-column flex-xl-row container">
+        <div className="col-xl-6 col-12 p-3">
           <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
@@ -74,10 +74,10 @@ const TrainingAgenda = () => {
             headerToolbar={{ start: "", center: "title", end: "" }}
             editable={false}
             locale="ar"
-            height={"835px"}
+            height={"870px"}
           />
         </div>
-        <div className="col-md-6 col-12 px-3">
+        <div className="col-xl-6 col-12 px-3">
           <div>
             <div>
               <h2>مؤتمرات</h2>
