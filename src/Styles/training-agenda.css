@@ -23,13 +23,13 @@
 }
 
 .fc-day-past .fc-daygrid-day-top, .fc-day-future .fc-daygrid-day-top{
-    background-color: #c2c2c2;
+    background-color: #ddd;
     width: 65px;
     height: 65px;
 }
 
 .fc-day-today .fc-daygrid-day-top{
-    background-color: #d8b65e;
+    background-color: rgba(233, 203, 126, 0.5);
     width: 65px;
     height: 65px;
 }
@@ -41,3 +41,20 @@
 .fc-daygrid-day-number{
     margin: auto;
 }
+
+.fc-event-title{
+    font-size: 1rem;
+}
+
+.fc-daygrid-more-link{
+    color: #aaa;
+}
+
+.fc .fc-daygrid-day-bottom {
+    font-size: 0.7em;
+}
+
+.fc .fc-daygrid-day.fc-day-today{
+    background-color: transparent !important;
+}
+
