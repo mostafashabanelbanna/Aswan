@@ -1,7 +1,16 @@
 import React from 'react'
 import './Styles/navbar.css'
+import { useHistory } from "react-router-dom";
 
 const Main_navbar = ()=>{
+
+    const history = useHistory();
+
+    const routeChange = () =>{ 
+      let home = `/`; 
+      history.push(home);
+    }
+
     return(
     <div className='row p-0 m-0 mt-2'>
     <div className="col-3 p-0">
@@ -10,7 +19,9 @@ const Main_navbar = ()=>{
         </div>
     </div>
     <div style={{ color: '#7f807f' }} className='col-6 text-center d-flex justify-content-center align-items-center p-0'>
-        <div className='col-1'>
+        <div className='col-1' onClick={() => {
+            routeChange()
+        }}>
             <img className='w-75' src='/images/icons/home-0١.png' />
         </div>
 

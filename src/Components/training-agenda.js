@@ -39,7 +39,7 @@ const TrainingAgenda = () => {
             headerToolbar={{ start: "", center: "title", end: "" }}
             editable={false}
             locale="ar"
-            height={"870px"}
+            height={"880px"}
           />
         </div>
         <div className="col-xl-6 col-12 px-3">
