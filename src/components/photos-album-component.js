@@ -36,7 +36,7 @@ const PhotosAlbum = (props) => {
 
   if (props.photos) {
     return (
-      <div className="custom_contanier mt-5">
+      <div className="container mt-5">
         <div className="d-flex my-2">
           <img
             src="./images/icons/photoalbum_titel-0٢.png"

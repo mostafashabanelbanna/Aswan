@@ -21,19 +21,19 @@ class HomeComponent extends Component {
     return (
       <React.Fragment>
         <MainSlider {...this.props} />
-        <News {...this.props} />
-        <InfoNews {...this.props} />
-        <TrainingAgenda {...this.props} />
-        <GovernmentProjects {...this.props} />
-        <CitizenServices {...this.props} />
-        <LocalLeaders {...this.props} />
-        <Video {...this.props} />
-        <GovernmentFamous {...this.props} />
-        <PhotosAlbum {...this.props} />
-        <Complaints {...this.props} />
-        <ImportantPortals {...this.props} />
-        <Contact {...this.props} />
-        <Footer {...this.props} />
+        <News {...this.props}/>
+        <InfoNews {...this.props}/>
+        <GovernmentProjects {...this.props}/>
+        <CitizenServices {...this.props}/>
+        <LocalLeaders {...this.props}/>
+        <TrainingAgenda {...this.props}/>
+        <Video {...this.props}/>
+        <GovernmentFamous {...this.props}/>
+        <PhotosAlbum {...this.props}/>
+        <Complaints {...this.props}/>
+        <ImportantPortals {...this.props}/>
+        <Contact {...this.props}/>
+        <Footer {...this.props}/>
       </React.Fragment>
     );
   }
