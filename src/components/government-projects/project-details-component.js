@@ -33,7 +33,7 @@ const ProjectDetails = (props) => {
     autoplaySpeed: 3000,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 1,
     pauseOnFocus: true,
@@ -106,7 +106,7 @@ const ProjectDetails = (props) => {
         </div>
         <div className="row my-2 flex-column-reverse flex-lg-row">
           <div className="col-lg-7">
-            <div style={{ lineHeight: "30px", fontSize: "1vw" }}>
+            <div style={{ lineHeight: "30px", fontSize: "1rem" }}>
               <p>
                 <span style={{ fontFamily: "Arial,Helvetica,sans-serif" }}>
                   <span>
@@ -145,28 +145,28 @@ const ProjectDetails = (props) => {
                 <div
                   style={{
                     position: "relative",
-                    boxShadow: "3px 3px 3px 3px #808278",
                   }}
                 >
                   <div style={{
                     position: "relative"}} className="w-100 px-3 text-center">
                     <img
                       src={`${paths.ProjectPhotos}${photo.id}/${photo.photo}`}
-                      className="projectAlbum p-2 rounded-3 border border-1 border-dark"
+                      className="projectAlbum rounded-3 border border-1 border-dark"
                       alt={photo.name}
                     />
                   
                   <div
-                    class="text-center"
+                    class="text-center bg-light"
                     style={{
                       position: "absolute",
-                      bottom: '6%',
-                      left:'6.2%',
+                      bottom: '10px',
+                      left:'8px',
                       border: "1px solid black",
-                      width:'77.1%'
+                      borderRadius: '30px',
+                      width:'95%'
                     }}
                   >
-                    <p>{title}</p>
+                    <p className="mt-2">{title}</p>
                   </div>
                   </div>
                 </div>

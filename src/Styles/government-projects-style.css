@@ -1,7 +1,6 @@
 .ContainerDiv {
-  background-color: #fdd10b;
-  border-radius: 20px;
-  box-shadow: 3px 3px 3px 3px #808278;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   min-width: 50%;
   position: relative;
   height: 450px;
@@ -21,10 +20,8 @@
 }
 
 .imageDiv {
-  border: 4px green solid;
-  border-radius: 20px;
-  box-shadow: 3px 3px 3px 3px #808278;
-  cursor: pointer;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   background-size: cover;
   height: 450px;
 }
@@ -37,37 +34,63 @@
 
 .projectAlbum {
   height: 300px;
-  width: 200px;
+  width: inherit;
 }
 
-.leftControl > i, .leftControl > span {
+.rightControl > i, .leftControl > span, .leftControl > i {
   color: black;
 }
 
-.rightControl > i, .leftControl > span {
-  color: black;
+.rightControl > i, .rightControl > span {
+  right: 50% !important;
+  margin-right: -35px !important;
+  position: absolute !important;
+  top: 50% !important;
+  z-index: 5 !important;
+  display: inline-block !important;
+  margin-top: -10px !important;
+  font-size: 35px !important;
 }
 
-.carousel-control-prev{
-  width: 2% !important;
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
+.leftControl > i, .leftControl > span{
+  font-size: 35px !important;
+  margin-left: -30px !important;
 }
 
-.carousel-control-next{
-  width: 2% !important;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
+.carousel-control-next, .carousel-control-prev{
+  width: 0 !important;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 992px) {
   .projectsDiv{
     height: 455px;
+  }
+
+  .ContainerDiv {
+    width: 100%;
+  }
+
+  .imageDiv{
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .projectsDiv{
+    height: 950px;
   }
 }
 
 @media (max-width: 767px) {
-  .projectsDiv{
-    height: 950px;
+  .imageDiv{
+    width: 95%;
+  }
+
+  .ContainerDiv {
+    width: 95%;
+  }
+
+  .rightControl > i, .rightControl > span {
+    margin-right: -30px !important;
   }
 }

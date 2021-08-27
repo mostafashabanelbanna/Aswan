@@ -12,11 +12,10 @@ const TrainingAgenda = () => {
   const [message, setMessage] = useState();
   const [show, setShow] = useState();
   const eventsArr = [
-    { title: "bbb", date: "2021-08-25"},
-    { title: "ddd", date: "2021-08-24" },
-    { title: "bbfffb", date: "2021-08-24" },
-    { title: "rrr", date: "2021-08-24" },
-    { title: "tr", date: "2021-08-24" },
+    { title: "إعلان", date: "2021-08-26" },
+    { title: "مناقصة", date: "2021-08-26" },
+    { title: "إعلان", date: "2021-08-26" },
+    { title: "مؤتمرات", date: "2021-08-25" },
   ];
 
   return (
@@ -45,14 +44,15 @@ const TrainingAgenda = () => {
         <div className="col-xl-6 col-12 px-3">
           <div>
             <div>
-              <h2>مؤتمرات</h2>
+              <h2>إعلان</h2>
             </div>
             <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+              احجز وحدتك في حي اللوتس -- التجمع الثاني - مدينة اسوان الوحدات
+              تنطبق عليها شروط مبادرة 3% للبنك المركزي للتمويل العقاري تم حجز
+              55% من الوحدات المعروضة
             </div>
             <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
+              <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
               <div className="align-items-center d-flex">المزيد</div>
             </div>
             <div
@@ -68,14 +68,14 @@ const TrainingAgenda = () => {
 
           <div>
             <div>
-              <h2>مؤتمرات</h2>
+              <h2>مناقصة</h2>
             </div>
             <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+              المكان: مدينة دراو- وسط المدينة الاعداد لطرح محلات مول تجاري
+              للايجار بالمزاد العلني
             </div>
             <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
+              <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
               <div className="align-items-center d-flex">المزيد</div>
             </div>
             <div
@@ -91,14 +91,16 @@ const TrainingAgenda = () => {
 
           <div>
             <div>
-              <h2>مؤتمرات</h2>
+              <h2>إعلان</h2>
             </div>
             <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+              المكان: مدينة ادفو - كورنيش النيل جاري الاعداد لطرح تطوير حديقة
+              الاندلس و حورس و الطرح حق انتفاع 20 عام لاقامة كافتريات و قاعة
+              مناسبات و مناطق العاب اطفال و مسطحات خضراء و التي تمثل اضافة
+              حضارية لكورنيش المدينة الطرح بالتصميمات المعتمدة
             </div>
             <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
+              <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
               <div className="align-items-center d-flex">المزيد</div>
             </div>
             <div
@@ -122,7 +124,7 @@ const TrainingAgenda = () => {
               للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
             </div>
             <div className="d-flex justify-content-between my-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
+              <div className="p-3 bg_gradient">الأربعاء 2021 / 25 يوليو</div>
               <div className="align-items-center d-flex">المزيد</div>
             </div>
           </div>
