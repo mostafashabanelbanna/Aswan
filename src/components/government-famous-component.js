@@ -17,8 +17,8 @@ const GovernmentFamous = (props) => {
   var settings = {
     dots: false,
     arrows: true,
-    // autoplay:true,
-    // autoplaySpeed:1000,
+    autoplay:true,
+    autoplaySpeed:1000,
     infinite: true,
     speed: 4000,
     slidesToShow: 4,

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import Fade from 'react-reveal/Fade';
 
 import "../Styles/training-agenda.css";
 
@@ -23,7 +23,7 @@ const TrainingAgenda = () => {
       <div className="d-flex flex-column flex-xl-row container">
         <div className="col-xl-6 col-12 p-3">
           <FullCalendar
-            plugins={[dayGridPlugin, interactionPlugin]}
+            plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             dayMaxEventRows={2}
             events={eventsArr}
@@ -67,65 +67,75 @@ const TrainingAgenda = () => {
           </div>
 
           <div>
-            <div>
-              <h2>مناقصة</h2>
-            </div>
-            <div>
-              المكان: مدينة دراو- وسط المدينة الاعداد لطرح محلات مول تجاري
-              للايجار بالمزاد العلني
-            </div>
-            <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
-            </div>
-            <div
-              className="my-3"
-              style={{
-                height: "1px",
-                width: "60%",
-                backgroundColor: "gray",
-                margin: "auto",
-              }}
-            ></div>
-          </div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                    <div className='col-md-6 col-12 px-3'>
 
-          <div>
-            <div>
-              <h2>إعلان</h2>
-            </div>
-            <div>
-              المكان: مدينة ادفو - كورنيش النيل جاري الاعداد لطرح تطوير حديقة
-              الاندلس و حورس و الطرح حق انتفاع 20 عام لاقامة كافتريات و قاعة
-              مناسبات و مناطق العاب اطفال و مسطحات خضراء و التي تمثل اضافة
-              حضارية لكورنيش المدينة الطرح بالتصميمات المعتمدة
-            </div>
-            <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
-            </div>
-            <div
-              className="my-3"
-              style={{
-                height: "1px",
-                width: "60%",
-                backgroundColor: "gray",
-                margin: "auto",
-              }}
-            ></div>
-          </div>
+                <Fade dalay={200}>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                </Fade>
+                <Fade delay={400}>
 
-          <div>
-            <div>
-              <h2>مؤتمرات</h2>
-            </div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                </Fade >
+                <Fade delay={400}>
 
-            <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
-            </div>
-            <div className="d-flex justify-content-between my-5">
-              <div className="p-3 bg_gradient">الأربعاء 2021 / 25 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                    </div>
+                </Fade>
             </div>
           </div>
         </div>

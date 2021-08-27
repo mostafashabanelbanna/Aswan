@@ -49,14 +49,14 @@ const Video = (props) => {
     };
     if(props.videos)
     return (
-        <div className="custom_contanier ">
+        <div className=" container ">
             <div className="p-0 m-0 ">
                 <div className="m-3 d-flex">
-                    <img src="/images/icons/video_titel-0٢.png" width="80px" />
-                    <h3 className="mt-4 me-2 text-secondary"> مكتبة الفيديو </h3>
+                    <img src="/images/icons/video_titel-0٢.png" width="50px" />
+                <div className='underline'>    <h3 className="mt-4 me-2 text-secondary"> مكتبة الفيديو </h3></div>
                 </div>
-                <div className="me-3 ms-3 " style={{backgroundColor:'#eeecec'}}>
-                    <iframe style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={'https://www.youtube.com/embed/'+props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
+                <div className="embed-responsive embed-responsive-16by9 me-3 ms-3 " style={{backgroundColor:'#eeecec'}}>
+                    <iframe allowFullScreen className='embed-responsive-item' style={{ outline: 'none' }} loading='lazy' width='100%' height='450px'  src={'https://www.youtube.com/embed/'+props.videos.result[0].youtubeId} /*src='videos/1. Welcome!.mp4'*/></iframe>
                 </div>
                 <div style={{backgroundColor:'#eeecec'}} className='p-4  me-3 ms-3'>
                     <div className=' container gradient_style align-self-center col-9'></div>
