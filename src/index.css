@@ -130,12 +130,12 @@
   margin-left: 1%;
 }
 
-.imageAlbum{
+/* .imageAlbum{
   border: 4px green solid;
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px #808278;
   cursor: pointer;
-}
+} */
 
 .albumDiv{
   width: 500px;
