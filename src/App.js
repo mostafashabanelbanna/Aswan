@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './store/reducers';
 import promiseMiddleware from 'redux-promise';
+import './Styles/hover.css'
 
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);

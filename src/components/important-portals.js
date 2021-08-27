@@ -76,7 +76,7 @@ const ImportantPortals = (props) => {
     if (props.portalsList.result.length) {
       let portals = Object.assign({}, props.portalsList);
       return (
-        <div className="custom_contanier mt-5 mb-2">
+        <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
           <img
           src="./images/icons/web_titel-0١.png"

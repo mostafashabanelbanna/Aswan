@@ -33,7 +33,7 @@ const Contact = () => {
 
     return (
         <div>
-            <div className=" custom_contanier pe-0 ">
+            <div className=" container pe-0 ">
                 <div className="mt-2 d-flex">
                     <img src="/images/icons/contact_titel-0٢.png" width='80px' />
                     <h3 className="mt-4 me-2 text-secondary">اتصل بنا </h3>

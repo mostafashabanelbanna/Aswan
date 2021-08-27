@@ -56,10 +56,10 @@ const News = (props) => {
     if (props.mainews && props.news)
         return (
             <div>
-                <div className="custom_contanier p-0">
+                <div className="container p-0">
                     <div className="m-3 d-flex">
-                        <img src="/images/icons/news_titel-0١.png" width='80px' />
-                        <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
+                        <img src="/images/icons/news_titel-0١.png" width='50px' />
+                    <div className='underline'>   <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3></div>
                     </div>
                     <div className="row p-0 mt-3">
                         <div className=" text-secondary">

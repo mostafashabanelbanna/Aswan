@@ -71,3 +71,12 @@
     height: 950px;
   }
 }
+
+.underline::after{
+  content: "";
+  height: 4px;
+  background-color: #ffdc6e;
+  margin-right: 10px;
+  position: absolute;
+  width: 90px
+}

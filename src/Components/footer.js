@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <div style={{ backgroundColor: 'rgba(37,38,38,255)' }}>
-            <div className='custom_contanier '>
+            <div className='container '>
                 <div className='row p-0 m-0  pt-4 pb-4 '>
 
 

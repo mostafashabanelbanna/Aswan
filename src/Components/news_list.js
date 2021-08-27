@@ -29,7 +29,7 @@ const NewsList = (props) => {
     return(
     <div>
         {props.newslist.result.map((item , index )=>{return(
-            <div className="text-center my-3" key={item.id}>
+            <div className="text-center my-3 " key={item.id}>
                 <div>{item.title}</div>
                 <div><img width='200px' height='200px' src={'images/Upload/News/Photo/'+item.id+'/'+item.photo} /></div>
                 <div>{item.newsCategoryName}</div>
