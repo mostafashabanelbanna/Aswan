@@ -20,7 +20,7 @@ const InfoNews = () => {
             <div className="container p-0 mt-4 ">
                 <div className="row text-center  p-0 m-0 ">
                 <Fade bottom >
-                    <div className="col-lg-3 p-3 col-6 mb-4   hvr-bounce-to-right ">
+                    <div className="col-lg-3 p-3 col-5 mb-4   hvr-bounce-to-right ">
                         <img style={{width:150}} className='  px-4 imgfilter' src={'/images/icons/statistics-0١.png'} />
                         <div className='mt-4'> احصائيات </div>
 
@@ -29,7 +29,7 @@ const InfoNews = () => {
 </Fade>
 <Fade bottom delay={400}>
 
-                    <div className="col-lg-3 p-3 col-6 mb-4 hvr-bounce-to-right">
+                    <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
                         <img style={{width:150}} className=' px-4 imgfilter' src={'/images/icons/bulletin-0١.png'} />
                         <div className='mt-4'> نشرات شهرية </div>
 
@@ -38,7 +38,7 @@ const InfoNews = () => {
                     </Fade>
                     <Fade bottom >
 
-                    <div className="col-lg-3 p-3 col-6 mb-4 hvr-bounce-to-right">
+                    <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
                         <img style={{width:150}} className=' px-4 imgfilter' src={'/images/icons/decision-0١.png'} />
                         <div className='mt-4'> احصائيات نشرات سكانية </div>
 
@@ -46,7 +46,7 @@ const InfoNews = () => {
                     </Fade>
                     <Fade bottom delay={400}>
 
-                    <div className="col-lg-3 p-3 col-6 mb-4 hvr-bounce-to-right">
+                    <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
                         <img style={{width:150}} className='w px-4 imgfilter' src={'/images/icons/statistics-0١.png'} />
                         <div className='mt-4'> دعم القرار </div>
 

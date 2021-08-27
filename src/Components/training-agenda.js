@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import Fade from 'react-reveal/Fade';
 
 import "../Styles/training-agenda.css";
 
@@ -24,7 +24,7 @@ const TrainingAgenda = () => {
       <div className="d-flex flex-column flex-xl-row container">
         <div className="col-xl-6 col-12 p-3">
           <FullCalendar
-            plugins={[dayGridPlugin, interactionPlugin]}
+            plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             dayMaxEventRows={2}
             events={eventsArr}

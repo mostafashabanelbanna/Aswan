@@ -127,10 +127,10 @@ const Main_navbar = () => {
       </Navbar>
       <div className='col-md-1 col-2 d-flex flex-column position-fixed' style={{ left: '0%', top: '30%' }}>
 
-        <div className=' text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#3b51a3'} size='3x' icon={faFacebookF}></FontAwesomeIcon></div>
-        <div className='  text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#5da9dd'} size='3x' icon={faTwitter}></FontAwesomeIcon></div>
-        <div className=' text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#ca5080'} size='3x' icon={faInstagram}></FontAwesomeIcon></div>
-        <div className='  text-center p-1 py-2  rounded-3 mb-3 '> <FontAwesomeIcon color={'#e61e24'} size='3x' icon={faYoutube}></FontAwesomeIcon></div>
+        <div className=' text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#3b51a3'} size='2x' icon={faFacebookF}></FontAwesomeIcon></div>
+        <div className='  text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#5da9dd'} size='2x' icon={faTwitter}></FontAwesomeIcon></div>
+        <div className=' text-center p-1 py-2 rounded-3 mb-3 '> <FontAwesomeIcon color={'#ca5080'} size='2x' icon={faInstagram}></FontAwesomeIcon></div>
+        <div className='  text-center p-1 py-2  rounded-3 mb-3 '> <FontAwesomeIcon color={'#e61e24'} size='2x' icon={faYoutube}></FontAwesomeIcon></div>
 
         {/* <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
