@@ -1,4 +1,5 @@
 const MainPath = "http://41.128.217.181:10090/upload/";
+
 // const MainPath = "/images/Upload/";
 
 export const paths = {

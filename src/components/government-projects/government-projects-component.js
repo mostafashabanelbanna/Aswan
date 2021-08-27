@@ -71,14 +71,14 @@ const GovernmentProjects = (props) => {
       console.log(props.projects.result);
       let projects = props.projects.result;
       return (
-        <div className="custom_contanier">
+        <div className="container">
           <div className="d-flex my-2 ">
             <img
               src="./images/icons/projects_titel-0٢.png"
               alt=""
-              width="80px"
+              width="50px"
             />
-            <h3 className="mt-4 me-2 text-secondary">مشروعات المحافظة</h3>
+          <div className='underline'>  <h3 className="mt-4 me-2 text-secondary">مشروعات المحافظة</h3></div>
           </div>
 
           <Row>

@@ -67,63 +67,75 @@ const TrainingAgenda = () => {
           </div>
 
           <div>
-            <div>
-              <h2>مؤتمرات</h2>
-            </div>
-            <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
-            </div>
-            <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
-            </div>
-            <div
-              className="my-3"
-              style={{
-                height: "1px",
-                width: "60%",
-                backgroundColor: "gray",
-                margin: "auto",
-              }}
-            ></div>
-          </div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                    <div className='col-md-6 col-12 px-3'>
 
-          <div>
-            <div>
-              <h2>مؤتمرات</h2>
-            </div>
-            <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
-            </div>
-            <div className="d-flex justify-content-between mt-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
-            </div>
-            <div
-              className="my-3"
-              style={{
-                height: "1px",
-                width: "60%",
-                backgroundColor: "gray",
-                margin: "auto",
-              }}
-            ></div>
-          </div>
+                <Fade dalay={200}>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                </Fade>
+                <Fade delay={400}>
 
-          <div>
-            <div>
-              <h2>مؤتمرات</h2>
-            </div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                        <div className="my-2" style={{ height: '1px', width: '60%', backgroundColor: 'black', margin: 'auto' }}></div>
+                    </div>
+                </Fade >
+                <Fade delay={400}>
 
-            <div>
-              فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي .
-              للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
-            </div>
-            <div className="d-flex justify-content-between my-5">
-              <div className="p-3 bg_gradient">الأحد 2021 / 10 يوليو</div>
-              <div className="align-items-center d-flex">المزيد</div>
+                    <div>
+                        <div className='d-flex'>
+                            <div>Hi</div>
+                            <div><h2>مؤتمرات</h2></div>
+                        </div>
+                        <div>
+                            فاعليات اليوم الثانى من المؤتمر السنوى العشرون للمركز القومي
+                            . للبحوث الاجتماعية والجنائية تحت عنوان "السكان وتحديات التنمية
+                        </div>
+                        <div className='d-flex justify-content-between'>
+                            <div className='p-3 bg-info'>الأحد 2021 / 10 يوليو</div>
+                            <div className='align-items-center d-flex'>المزيد</div>
+                        </div>
+                    </div>
+                </Fade>
             </div>
           </div>
         </div>
