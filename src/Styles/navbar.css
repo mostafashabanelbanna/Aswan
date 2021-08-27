@@ -21,36 +21,36 @@
   font-size: x-large;
 }
 
-.borderside{
-    padding: 7px 10px 7px 10px;
-    border:blue 2px solid;
-    border-left-color: transparent;
-    border-right-color:#cfcfcf ;
-    border-top-color:#a1a1a1 ;
-    border-bottom-color:#757575 ;
-    opacity: 0.8;
+.borderside {
+  padding: 7px 10px 7px 10px;
+  border: blue 2px solid;
+  border-left-color: transparent;
+  border-right-color: #cfcfcf;
+  border-top-color: #a1a1a1;
+  border-bottom-color: #757575;
+  opacity: 0.8;
 }
 
 .main_logo {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10000;
-    width: 120px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+  width: 120px;
+}
+
+@media only screen and (max-width: 992px) {
+  .main_logo {
+    width: 100px;
   }
-  
-  @media only screen and (max-width: 992px) {
-    .main_logo {
-      width: 100px;
-    }
+}
+@media (max-width: 920px) {
+  .main_logo {
+    width: 90px;
+    top: 2px;
+    right: 2px;
   }
-  @media (max-width: 920px) {
-    .main_logo {
-      width: 90px;
-      top: 2px;
-      right: 2px;
-    }
-  }
+}
 .mainSlider .borderside {
   padding: 7px 10px 7px 10px;
   border: blue 2px solid;

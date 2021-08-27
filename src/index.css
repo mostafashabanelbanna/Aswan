@@ -1,48 +1,47 @@
- body {
+@font-face {
+  font-family: "GESSTwo";
+  src: url("./assets/fonts/GESSTwo/GESSTwoLight-Light.woff");
+}
+body {
   margin: 0;
   padding: 0;
   direction: rtl;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "GESSTwo", "PT Sans", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.custom_contanier{
+.custom_contanier {
   margin: 0 auto;
   width: 90%;
 }
-.gradient_style{
+.gradient_style {
   position: relative;
 }
 
-.gradient_style:after{
-  content:"";
+.gradient_style:after {
+  content: "";
   position: absolute;
   height: 6px;
   display: block;
   width: 100%;
-  background: -webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%);
+  background: -webkit-linear-gradient(right, #a4e1bf 0%, #fef9a4 100%);
   bottom: 0;
 }
-.arrow_style{
+.arrow_style {
   position: relative;
 }
 
-.slick-arrow{
+.slick-arrow {
   background-color: black;
-  
 }
 
-.searcher_title
-{
+.searcher_title {
   margin: 0px 0px 15px 0px;
   /* padding-top: 30px; */
   /* border-bottom: 1px solid rgb(230, 230, 230); */
 }
 
-.searcher_title  > div::after
-{
+.searcher_title > div::after {
   content: "";
   position: absolute;
   background-color: white;
@@ -63,69 +62,71 @@
   text-align: center;
 } */
 
-.slick-slide{
+.slick-slide {
   /* cursor: pointer; */
 }
-.slick-next{
+.slick-next {
   right: -10px;
   top: 40%;
 }
-.slick-prev{
+.slick-prev {
   z-index: 1;
   left: -10px;
   top: 40%;
 }
-@media (min-width : 767px) {
-  .content{
+@media (min-width: 767px) {
+  .content {
     font-size: 1vw;
   }
 
-  .titles{
+  .titles {
     font-size: 2vw;
   }
 }
 
-@media (max-width : 767px) {
-  .content{
+@media (max-width: 767px) {
+  .content {
     font-size: 2vw;
   }
 
-  .titles{
+  .titles {
     font-size: 4.5vw;
   }
 }
 
-
-.content , .titles {
+.content,
+.titles {
   color: #808278;
 }
 
-.ContainerDiv{
+.ContainerDiv {
   background-color: #fdd10b;
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px #808278;
   min-width: 50%;
 }
 
-.line{
+.line {
   background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
   height: 5px;
   width: 90%;
 }
 
-.rightIcon, .leftIcon{
+.rightIcon,
+.leftIcon {
   font-size: 3.5vw;
   align-self: center;
   margin-left: 10px;
 }
 
-.rightIcon:hover, .leftIcon:hover{
+.rightIcon:hover,
+.leftIcon:hover {
   opacity: 0.5;
   cursor: pointer;
 }
 
-.titleIcon{
-  font-size:2.5vw;
+.titleIcon {
+  font-size: 2.5vw;
   align-self: center;
   margin-left: 1%;
 }
@@ -137,18 +138,23 @@
   cursor: pointer;
 } */
 
-.albumDiv{
+.albumDiv {
   width: 500px;
 }
 
-.slick-next, .slick-next:focus, .slick-next:hover, .slick-prev, .slick-prev:focus, .slick-prev:hover {
+.slick-next,
+.slick-next:focus,
+.slick-next:hover,
+.slick-prev,
+.slick-prev:focus,
+.slick-prev:hover {
   color: transparent;
   outline: none;
   background: transparent;
 }
 
-
-.slick-next:before, .slick-prev:before {
+.slick-next:before,
+.slick-prev:before {
   color: #000;
 }
 
@@ -161,7 +167,7 @@
   transform: scale(1.05);
 }
 
-.fc .fc-daygrid-day-number{
+.fc .fc-daygrid-day-number {
   color: grey;
   text-decoration: none;
 }
@@ -170,7 +176,7 @@
   text-decoration: none;
 }
 
-.bg_gradient{
+.bg_gradient {
   background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
 }
 
