@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 import AppRouting  from "./app-routing";
 import {Provider} from 'react-redux';
@@ -12,7 +12,7 @@ const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 function App() {
   return (
     <Provider store={createStoreWithMW(rootReducer)}>
-    <AppRouting/>
+      <AppRouting />
     </Provider>
   );
 }

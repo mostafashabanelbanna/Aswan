@@ -1,20 +1,24 @@
-.bgimg{
-    background-image:  url('./aswan-0١.png') ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 450px; 
-      
+.item_conatainer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
 }
-.fsiz{
-    font-size: .8rem;
+.fsiz {
+  font-size: 0.8rem;
 }
 
-.bgnavbar{
- background-image: linear-gradient(to right, transparent, #a1a1a1, #cfcfcf);
-    padding: 25px 40px 25px 60px;
-    border-radius: 3px;
-    text-shadow: #757575 2px 2px;
-    font-size: x-large;
+.item_title {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(161 161 161 / 60%),
+    rgb(207 207 207 / 80%)
+  );
+  padding: 25px 40px 25px 60px;
+  border-radius: 3px;
+  text-shadow: #757575 2px 2px;
+  font-size: x-large;
 }
 
 .borderside{
@@ -47,3 +51,15 @@
       right: 2px;
     }
   }
+.mainSlider .borderside {
+  padding: 7px 10px 7px 10px;
+  border: blue 2px solid;
+  border-left-color: transparent;
+  border-right-color: #cfcfcf;
+  border-top-color: #a1a1a1;
+  border-bottom-color: #757575;
+}
+.mainSlider .carousel-control-prev,
+.mainSlider .carousel-control-next {
+  display: none;
+}

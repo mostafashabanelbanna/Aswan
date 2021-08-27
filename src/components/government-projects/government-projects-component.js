@@ -8,6 +8,7 @@ import React from "react";
 import RBCarousel from "react-bootstrap-carousel";
 import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+import '../../Styles/government-projects-style.css'
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -129,7 +130,7 @@ const GovernmentProjects = (props) => {
                           </div>
                         </div>
                         <div
-                          className="w-100 mx-3 mb-5 mb-lg-0 mt-md-0 imageAlbum"
+                          className="w-100 mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
                           style={{
                             backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${project.photo})`,
                           }}

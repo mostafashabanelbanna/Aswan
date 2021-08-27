@@ -130,12 +130,12 @@
   margin-left: 1%;
 }
 
-.imageAlbum{
+/* .imageAlbum{
   border: 4px green solid;
   border-radius: 20px;
   box-shadow: 3px 3px 3px 3px #808278;
   cursor: pointer;
-}
+} */
 
 .albumDiv{
   width: 500px;
@@ -164,10 +164,12 @@
 .fc .fc-daygrid-day-number{
   color: grey;
   text-decoration: none;
-
 }
 
 .fc-col-header-cell-cushion {
   text-decoration: none;
+}
 
+.bg_gradient{
+  background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
 }

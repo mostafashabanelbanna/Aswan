@@ -83,7 +83,7 @@ const ProjectDetails = (props) => {
     let details = Object.assign({}, props.projectDetails.result);
     return (
       <div className="container">
-        <div>
+        <div className="m-auto" style={{width: '95%'}}>
           <h3 className="mb-4">{ReactHtmlParser(details.name)}</h3>
           <h6 className="text-danger">{ReactHtmlParser(details.sectorName)}</h6>
           {details.attachment != null && (
