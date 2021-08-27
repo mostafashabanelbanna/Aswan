@@ -34,7 +34,7 @@ const MainSlider = () => {
               className=" borderside position-absolute text-light"
               style={{ right: "6%", bottom: "12%" }}
             >
-              <div style={{ fontWeight: "bold" }} className="item_title">
+              <div className="item_title">
                 <span>السد العالى</span>
               </div>
             </div>
