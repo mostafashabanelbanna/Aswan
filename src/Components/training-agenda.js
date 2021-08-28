@@ -4,11 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
-<<<<<<< HEAD
 import Fade from "react-reveal/Fade";
-=======
-import Fade from 'react-reveal/Fade';
->>>>>>> c66872582f4637e77227c5a653c0a1948e8d17f4
 
 import "../Styles/training-agenda.css";
 
