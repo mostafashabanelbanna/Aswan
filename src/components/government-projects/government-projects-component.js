@@ -68,7 +68,6 @@ const GovernmentProjects = (props) => {
 
   if (props.projects) {
     if (props.projects.result.length) {
-      console.log(props.projects.result);
       let projects = props.projects.result;
       return (
         <div className="container">
@@ -105,9 +104,9 @@ const GovernmentProjects = (props) => {
 
                   return (
                     <div className="d-flex justify-content-around projectsDiv">
-                      <div className="d-flex h-100 w-100 flex-md-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
-                        <div className="w-100 ContainerDiv mx-3 p-4 pb-5">
-                          <h3 className="titles overflow-hidden">
+                      <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
+                        <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 bg-light">
+                          <h3 className="titles mb-2">
                             {ReactHtmlParser(project.name)}
                           </h3>
                           <p className="content overflow-hidden">
@@ -115,22 +114,23 @@ const GovernmentProjects = (props) => {
                           </p>
                           <div className="projectsButtons">
                             <button
-                              className="btn btn-secondary mx-1 mb-2 mb-sm-0"
+                              className="myButton mx-1 mb-2 mb-sm-0"
                               onClick={() => {
                                 props.history.push(
                                   `/projectDetails/${project.id}`
                                 );
                               }}
+                              style={{verticalAlign:"middle"}}
                             >
-                              عرض التفاصيل
+                              <span>عرض التفاصيل</span>
                             </button>
-                            <button className="btn btn-secondary mx-1 mb-2 mb-sm-0">
-                              مزيد من المشروعات
+                            <button className="myButton mx-1 mb-2 mb-sm-0" style={{verticalAlign:"middle"}}>
+                              <span>مزيد من المشروعات</span>
                             </button>
                           </div>
                         </div>
                         <div
-                          className="w-100 mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
+                          className="mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
                           style={{
                             backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${project.photo})`,
                           }}

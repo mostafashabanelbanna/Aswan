@@ -16,6 +16,10 @@ export function homeComponents(state = {}, action) {
     case "PORTALS_LIST":
       return { ...state, portalsList: action.payload };
 
+    //Government Famous reducers
+    case "FAMOUS_PEOPLE_LIST": 
+      return { ...state, famousList: action.payload };
+
     case 'SLIDER_NEWS':
       return { ...state, slidernews: action.payload }
 

@@ -21,11 +21,13 @@ const PhotosAlbum = (props) => {
               className="col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
               key={content.id}
             >
-              <img
-                src={`${paths.PhotoLibraryAlbum}${content.id}/${content.photo}`}
-                className="w-100 shadow-1-strong imageAlbum mb-4"
-                alt=""
-              />
+              <div className="holder mb-4">
+              <div
+                style={{backgroundImage: `url(${paths.PhotoLibraryAlbum}${content.id}/${content.photo})`}}
+                className="shadow-1-strong imageAlbum"
+                alt={content.titleA}
+              ></div>
+              </div>
               <p className="text-center titles mb-5">{content.titleA}</p>
             </div>
           );
