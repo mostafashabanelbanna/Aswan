@@ -29,11 +29,11 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
           >
             <img
-              className="mx-2"
-              style={{ width: 35 }}
+              className="mx-2 imgsz"
+              
               src="/images/icons/home-0١.png"
             />
-            <span>الرئيسية</span>
+            <span className='spansz'>الرئيسية</span>
           </div>
 
           <div className=" d-none d-md-block">|</div>
@@ -43,11 +43,11 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
           >
             <img
-              className="mx-2"
-              style={{ width: 45 }}
+              className="mx-2 imgsz"
+              
               src="/images/icons/citizen-0١.png"
             />{" "}
-            <span>المواطن</span>
+            <span className='spansz'>المواطن</span>
           </div>
 
           <div className=" d-none d-md-block">|</div>
@@ -57,11 +57,11 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
           >
             <img
-              className="mx-2"
-              style={{ width: 35 }}
+              className="mx-2 imgsz"
+
               src="/images/icons/Investor-0١.png"
             />
-            <span>المستثمر</span>
+            <span className='spansz'>المستثمر</span>
           </div>
 
           <div className=" d-none d-md-block">|</div>
@@ -71,11 +71,11 @@ const Main_navbar = () => {
             className="col-3  col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img
-              className="mx-2"
-              style={{ width: 35 }}
+              className="mx-2 imgsz"
+        
               src="/images/icons/Tourist-0٢.png"
             />
-            <span>السائح</span>
+            <span className='spansz'>السائح</span>
           </div>
         </div>
         <div
@@ -94,9 +94,9 @@ const Main_navbar = () => {
           variant="dark"
         >
           <Container className="py-1">
-          <div class="navbar-brand d-lg-none d-block" href="#">
-          <img style={{width:25 ,marginLeft:10}} src="/images/icons/footer_logo-0١.png" />
-          محافظة اسوان
+            <div className="navbar-brand d-lg-block d-none text-secondary">ddd</div>
+          <div className="navbar-brand d-lg-none d-block" href="#">
+          <img style={{width:40 ,marginLeft:10}} src="/images/icons/footer_logo-0١.png" />
           </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
@@ -109,40 +109,40 @@ const Main_navbar = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <li className={`nav-item `}>
-                    <a className="nav-link text-light">عن المركز</a>
+                    <a className="nav-link text-light"> عن المحافظة</a>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">المنصة البحثية</a>
+                    <a className="nav-link text-light">قيادات المحافظة</a>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">عن المركز</a>
+                    <a className="nav-link text-light">المحافظون السابقون</a>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">المنصة البحثية</a>
+                    <a className="nav-link text-light">لقاءات و قرارات السيد المحافظ </a>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">عن المركز</a>
+                    <a className="nav-link text-light">الديوان العام</a>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">المنصة البحثية</a>
+                    <a className="nav-link text-light">مدن المحافظة</a>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">عن المركز</a>
+                    <a className="nav-link text-light">مجلس النواب</a>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">المنصة البحثية</a>
+                    <a className="nav-link text-light">مجلس الشيوخ</a>
                   </li>
 
                   <li
