@@ -16,6 +16,7 @@ const Complaints = (props) => {
     }
 
     if (props.complaint) {
+        console.log(props.complaint)
         if (props.complaint.result.length) {
             return (
                 <div>
@@ -25,9 +26,8 @@ const Complaints = (props) => {
                            <div className='underline'><h3 className="mt-4 me-2 text-secondary"> الشكاوى </h3></div> 
                         </div>
                     </div>
-                    <div className="container p-0">
-                        <div className="row justify-content-center p-0 m-0 ">
-
+                    <div className="container mt-4 p-0">
+                        <div className="row justify-content-center text-center p-0 m-0 ">
                             {props.complaint.result.map((item, index) => {
                                 return (
                                     <div onClick={() => { openInNewTab(item.url) }} style={{ cursor: 'pointer' }} key={item.id} className="col-lg-3 justify-content-center flex-wrap col-6 mb-4 mx-3 hvr-shrink">

@@ -88,7 +88,7 @@ const Contact = () => {
                     onClick={feedBack}
                     style={{ backgroundColor: "#cacbcb" }}
                     type="submit"
-                    className="btn border-0 col-12"
+                    className="btn border-0"
                   >
                     ارسال
                   </button>
