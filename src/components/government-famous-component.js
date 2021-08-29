@@ -34,17 +34,9 @@ const GovernmentFamous = (props) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
           arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -57,6 +49,7 @@ const GovernmentFamous = (props) => {
       console.log(props.famousPeople);
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (
+        <div>
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
             <img src="./images/icons/Famous_titel-0٢.png" alt="" width="80px" />
@@ -84,8 +77,8 @@ const GovernmentFamous = (props) => {
               );
             })}
           </Slider>
-
-          <div className="line mx-auto my-5 w-100"></div>
+          </div>
+          <div className="line mb-5"></div>
         </div>
       );
     }

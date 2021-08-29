@@ -4,7 +4,7 @@ import { getAllPortals } from "../store/actions/important-portals-actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { paths } from "../paths/paths";
-import "../Styles/important-portals-style.css";
+import '../Styles/important-portals-style.css'
 
 const ImportantPortals = (props) => {
   useEffect(() => {
@@ -15,24 +15,24 @@ const ImportantPortals = (props) => {
     dots: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 500,
+    autoplaySpeed: 300,
     infinite: true,
-    speed: 5000,
+    speed: 3000,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 1,
     pauseOnFocus: true,
     pauseOnHover: true,
     responsive: [
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
+        {
+            breakpoint: 1400,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
       {
         breakpoint: 1200,
         settings: {
@@ -76,38 +76,40 @@ const ImportantPortals = (props) => {
     if (props.portalsList.result.length) {
       let portals = Object.assign({}, props.portalsList);
       return (
+        <div>
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
-            <img src="./images/icons/web_titel-0١.png" alt="" width="80px" />{" "}
-            <div className="  underline">
+          <img
+          src="./images/icons/web_titel-0١.png"
+          alt=""
+          width="80px"
+        />
+            <div className="underline">
+              {" "}
               <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
             </div>
           </div>
-          <div className="portalsBorder p-5 p-md-3 justify-content-center">
-            <Slider {...settings}>
-              {portals.result.map((photo, index) => {
+          <div className="portalsBorder mt-4 p-5 p-md-3 justify-content-center">
+          <Slider {...settings}>
+            {portals.result.map((photo, index) => {
                 return (
-                  <div
+                    <div
                     className="d-flex flex-column ms-md-0 circular-image hovering"
                     key={photo.id}
-                  >
-                    <a
-                      href={photo.url}
-                      className="align-self-center"
-                      target="_blank"
-                      rel="noreferrer"
                     >
-                      <img
-                        src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
-                        alt={photo.name}
+                  <a href={photo.url} className="align-self-center" target="_blank" rel="noreferrer">
+                    <img
+                      src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
+                      alt={photo.name}
                       />
-                    </a>
-                  </div>
-                );
-              })}
-            </Slider>
-          </div>
-          <div className="line mx-auto my-5 w-100"></div>
+                  </a>
+                </div>
+              );
+            })}
+          </Slider>
+        </div>
+        </div>
+          <div className="line my-5"></div>
         </div>
       );
     }
