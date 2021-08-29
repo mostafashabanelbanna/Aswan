@@ -9,5 +9,6 @@ export const paths = {
   PhotoLibraryAlbum: `${MainPath}PhotoLibrary/Photo/`,
   ImportantPortalsPhotos: `${MainPath}WebLink/Photo/`,
   NewsPhotos: `${MainPath}News/Photo/`,
-  FamousPeople: `${MainPath}StaticContent/Photo/`
+  FamousPeople: `${MainPath}StaticContent/Photo/`,
+  WebLink: `${MainPath}WebLink/Photo/`,
 };

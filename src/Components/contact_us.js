@@ -81,21 +81,23 @@ const Contact = () => {
                     rows="3"
                   ></textarea>
                 </div>
-                <div className="mb-2 container col-6 justify-content-center">
-                  <button
-                    onClick={feedBack}
-                    style={{ backgroundColor: "#cacbcb" }}
-                    type="submit"
-                    className="btn border-0"
-                  >
-                    ارسال
-                  </button>
+                <div className="mb-2 d-flex justify-content-end">
+                  <div className="align-items-center d-flex j">
+                    <button
+                      onClick={feedBack}
+                      type="submit"
+                      className="myButton mx-1 mb-2 mb-sm-0"
+                      style={{ verticalAlign: "middle" }}
+                    >
+                      <span>ارسال</span>
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
             <div className="col-sm-7 col-12 order-sm-2 order-1 me-sm-3 me-0 mt-2">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1789541.5554558444!2d32.63899545236434!3d28.832954149939198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145418db9de8309d%3A0xf8bc0ebe4dadff7!2sSouth%20Sinai%20Governorate!5e0!3m2!1sen!2seg!4v1603114902415!5m2!1sen!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d466348.8095875423!2d32.65012447711616!3d24.053973643294743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14367b5ab1a30e5f%3A0xfb109fe337cabccb!2z2KPYs9mI2KfZhg!5e0!3m2!1sar!2seg!4v1630243110340!5m2!1sar!2seg"
                 width="100%"
                 height="95%"
                 frameBorder="0"

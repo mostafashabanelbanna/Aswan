@@ -270,3 +270,39 @@ body {
 .hvr-rectangle-out:active {
   color: #212529 !important;
 }
+
+.haya_carima_bg {
+  background-image: url("./assets//img/hayah_karema.jpg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.haya_carima_bg_logo {
+  position: absolute;
+  left: 35%;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hvr-sweep-to-bottom::before {
+  border-radius: 10px;
+  background-color: rgb(34 168 155 / 50%) !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .haya_carima_bg {
+    background-size: cover;
+  }
+  .haya_carima_bg_logo {
+    left: 0;
+  }
+}
