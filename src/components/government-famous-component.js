@@ -19,11 +19,21 @@ const GovernmentFamous = (props) => {
     autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
-    speed: 4000,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
+    swipeToSlide:true,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {

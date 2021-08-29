@@ -15,7 +15,7 @@ const ImportantPortals = (props) => {
     dots: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 300,
+    autoplaySpeed: 500,
     infinite: true,
     speed: 3000,
     slidesToShow: 5,
@@ -23,6 +23,7 @@ const ImportantPortals = (props) => {
     initialSlide: 1,
     pauseOnFocus: true,
     pauseOnHover: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1400,
