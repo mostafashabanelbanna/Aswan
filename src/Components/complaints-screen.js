@@ -30,7 +30,7 @@ const Complaints = (props) => {
                         <div className="row justify-content-center text-center p-0 m-0 ">
                             {props.complaint.result.map((item, index) => {
                                 return (
-                                    <div onClick={() => { openInNewTab(item.url) }} style={{ cursor: 'pointer' }} key={item.id} className="col-lg-3 justify-content-center flex-wrap col-6 mb-4 mx-3 hvr-shrink">
+                                    <div onClick={() => { openInNewTab(item.url) }} style={{ cursor: 'pointer' }} key={item.id} className="col-lg-3 justify-content-center flex-wrap col-6 mb-4  hvr-shrink">
                                         <div className='text-center'>
                                             <img className=' mt-2 mb-3' style={{ borderRadius: '50%', width: 150, height: 150 }} src={'./images/Upload/WebLink/Photo/' + item.id + '/' + item.photo} />
                                         </div>
