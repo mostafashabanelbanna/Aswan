@@ -1,8 +1,15 @@
+.side_social_icons {
+  background-color: rgb(255 255 255 / 40%);
+}
+.side_social_icons:hover {
+  background-color: rgb(255, 220, 110, 0.7);
+}
+
 .item_conatainer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 100%;
 }
 .fsiz {
   font-size: 0.8rem;

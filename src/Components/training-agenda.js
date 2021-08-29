@@ -19,7 +19,7 @@ const TrainingAgenda = () => {
   ];
 
   return (
-    <div>
+    <div className="pt-5 bg-light">
       <div className="d-flex flex-column flex-xl-row container">
         <div className="col-xl-6 col-12 p-3">
           <FullCalendar
@@ -54,7 +54,14 @@ const TrainingAgenda = () => {
               </div>
               <div className="d-flex justify-content-between mt-5">
                 <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
-                <div className="align-items-center d-flex">المزيد</div>
+                <div className="align-items-center d-flex">
+                  <button
+                    className="myButton mx-1 mb-2 mb-sm-0"
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <span>المزيد</span>
+                  </button>
+                </div>
               </div>
               <div
                 className="my-3"
@@ -78,7 +85,14 @@ const TrainingAgenda = () => {
               </div>
               <div className="d-flex justify-content-between mt-5">
                 <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
-                <div className="align-items-center d-flex">المزيد</div>
+                <div className="align-items-center d-flex">
+                  <button
+                    className="myButton mx-1 mb-2 mb-sm-0"
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <span>المزيد</span>
+                  </button>
+                </div>
               </div>
               <div
                 className="my-3"
@@ -104,7 +118,14 @@ const TrainingAgenda = () => {
               </div>
               <div className="d-flex justify-content-between mt-5">
                 <div className="p-3 bg_gradient">الخميس 2021 / 26 يوليو</div>
-                <div className="align-items-center d-flex">المزيد</div>
+                <div className="align-items-center d-flex">
+                  <button
+                    className="myButton mx-1 mb-2 mb-sm-0"
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <span>المزيد</span>
+                  </button>
+                </div>
               </div>
               <div
                 className="my-3"
@@ -130,7 +151,14 @@ const TrainingAgenda = () => {
               </div>
               <div className="d-flex justify-content-between my-5">
                 <div className="p-3 bg_gradient">الأربعاء 2021 / 25 يوليو</div>
-                <div className="align-items-center d-flex">المزيد</div>
+                <div className="align-items-center d-flex">
+                  <button
+                    className="myButton mx-1 mb-2 mb-sm-0"
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <span>المزيد</span>
+                  </button>
+                </div>
               </div>
               <div
                 className="my-2"
@@ -145,6 +173,7 @@ const TrainingAgenda = () => {
           </Fade>
         </div>
       </div>
+      <div className="line mt-5"></div>
     </div>
   );
 };

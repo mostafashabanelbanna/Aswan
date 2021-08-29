@@ -13,6 +13,7 @@ import CitizenServices from "./citizen_services";
 import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
 import TrainingAgenda from "./training-agenda";
+import BgAttachment from "./bg-attachment";
 class HomeComponent extends Component {
   constructor(props) {
     super(props);
@@ -21,19 +22,20 @@ class HomeComponent extends Component {
     return (
       <React.Fragment>
         <MainSlider {...this.props} />
-        <News {...this.props}/>
-        <InfoNews {...this.props}/>
-        <GovernmentProjects {...this.props}/>
-        <CitizenServices {...this.props}/>
-        <LocalLeaders {...this.props}/>
-        <TrainingAgenda {...this.props}/>
-        <Video {...this.props}/>
-        <GovernmentFamous {...this.props}/>
-        <PhotosAlbum {...this.props}/>
-        <Complaints {...this.props}/>
-        <ImportantPortals {...this.props}/>
-        <Contact {...this.props}/>
-        <Footer {...this.props}/>
+        <News {...this.props} />
+        <InfoNews {...this.props} />
+        <GovernmentProjects {...this.props} />
+        <CitizenServices {...this.props} />
+        <LocalLeaders {...this.props} />
+        <TrainingAgenda {...this.props} />
+        <BgAttachment />
+        <Video {...this.props} />
+        <GovernmentFamous {...this.props} />
+        <PhotosAlbum {...this.props} />
+        <Complaints {...this.props} />
+        <ImportantPortals {...this.props} />
+        <Contact {...this.props} />
+        <Footer {...this.props} />
       </React.Fragment>
     );
   }

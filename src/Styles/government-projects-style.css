@@ -1,6 +1,7 @@
 .ContainerDiv {
   border-radius: 14px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   min-width: 50%;
   position: relative;
   height: 450px;
@@ -21,7 +22,8 @@
 
 .imageDiv {
   border-radius: 14px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   background-size: cover;
   height: 450px;
 }
@@ -37,11 +39,14 @@
   width: inherit;
 }
 
-.rightControl > i, .leftControl > span, .leftControl > i {
+.rightControl > i,
+.leftControl > span,
+.leftControl > i {
   color: black;
 }
 
-.rightControl > i, .rightControl > span {
+.rightControl > i,
+.rightControl > span {
   right: 50% !important;
   margin-right: -35px !important;
   position: absolute !important;
@@ -52,17 +57,19 @@
   font-size: 35px !important;
 }
 
-.leftControl > i, .leftControl > span{
+.leftControl > i,
+.leftControl > span {
   font-size: 35px !important;
   margin-left: -30px !important;
 }
 
-.carousel-control-next, .carousel-control-prev{
+.carousel-control-next,
+.carousel-control-prev {
   width: 0 !important;
 }
 
 @media (min-width: 992px) {
-  .projectsDiv{
+  .projectsDiv {
     height: 455px;
   }
 
@@ -70,19 +77,19 @@
     width: 100%;
   }
 
-  .imageDiv{
+  .imageDiv {
     width: 100%;
   }
 }
 
 @media (max-width: 991px) {
-  .projectsDiv{
+  .projectsDiv {
     height: 950px;
   }
 }
 
 @media (max-width: 767px) {
-  .imageDiv{
+  .imageDiv {
     width: 95%;
   }
 
@@ -90,16 +97,17 @@
     width: 95%;
   }
 
-  .rightControl > i, .rightControl > span {
+  .rightControl > i,
+  .rightControl > span {
     margin-right: -30px !important;
   }
 }
 
-.underline::after{
+.underline::after {
   content: "";
   height: 4px;
   background-color: #ffdc6e;
   margin-right: 10px;
   position: absolute;
-  width: 90px
+  width: 160px;
 }

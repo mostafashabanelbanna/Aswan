@@ -8,7 +8,7 @@ import React from "react";
 import RBCarousel from "react-bootstrap-carousel";
 import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import '../../Styles/government-projects-style.css'
+import "../../Styles/government-projects-style.css";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -70,14 +70,17 @@ const GovernmentProjects = (props) => {
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (
-        <div className="container">
+        <div className="container mb-5">
           <div className="d-flex my-2 ">
             <img
               src="./images/icons/projects_titel-0٢.png"
               alt=""
               width="50px"
             />
-          <div className='underline'>  <h3 className="mt-4 me-2 text-secondary">مشروعات المحافظة</h3></div>
+            <div className="underline">
+              {" "}
+              <h3 className="mt-4 me-2 text-secondary">مشروعات المحافظة</h3>
+            </div>
           </div>
 
           <Row>
@@ -95,11 +98,10 @@ const GovernmentProjects = (props) => {
                 className="carousel-fade"
               >
                 {projects.map((project, index) => {
-
                   let slicedBrief = project.brief;
-                  if(project.brief !== null && project.brief.length > 750){
+                  if (project.brief !== null && project.brief.length > 750) {
                     const brief = project.brief;
-                    slicedBrief = brief.substring(0, 740).concat(' ...');
+                    slicedBrief = brief.substring(0, 740).concat(" ...");
                   }
 
                   return (
@@ -120,11 +122,14 @@ const GovernmentProjects = (props) => {
                                   `/projectDetails/${project.id}`
                                 );
                               }}
-                              style={{verticalAlign:"middle"}}
+                              style={{ verticalAlign: "middle" }}
                             >
                               <span>عرض التفاصيل</span>
                             </button>
-                            <button className="myButton mx-1 mb-2 mb-sm-0" style={{verticalAlign:"middle"}}>
+                            <button
+                              className="myButton mx-1 mb-2 mb-sm-0"
+                              style={{ verticalAlign: "middle" }}
+                            >
                               <span>مزيد من المشروعات</span>
                             </button>
                           </div>
@@ -142,7 +147,6 @@ const GovernmentProjects = (props) => {
               </RBCarousel>
             </Col>
           </Row>
-          <div className="line my-5 w-100"></div>
         </div>
       );
     }

@@ -65,7 +65,7 @@ body {
 .slick-slide {
   /* cursor: pointer; */
 }
-.slick-next{
+.slick-next {
   right: -20px;
   top: 45%;
 }
@@ -75,11 +75,11 @@ body {
   top: 45%;
 }
 
-.content{
+.content {
   font-size: 1rem;
 }
 
-.titles{
+.titles {
   font-size: 1.5rem;
 }
 
@@ -98,7 +98,6 @@ body {
 .line {
   background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
   height: 5px;
-  width: 90%;
 }
 
 .rightIcon,
@@ -192,12 +191,14 @@ body {
 }
 
 .myButton span:before {
-  content: '\00bb';
+  content: "\003e\003e";
   position: absolute;
   opacity: 0;
-  top: 0;
   left: -20px;
   transition: 0.5s;
+  transform: translateY(-50%);
+  top: 50%;
+  font-size: 30px;
 }
 
 .myButton:hover span {
@@ -206,7 +207,7 @@ body {
 
 .myButton:hover span:before {
   opacity: 1;
-  left: 0;
+  left: -20px;
 }
 
 /* #myVideo{
@@ -228,14 +229,31 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  z-index: -1
+  z-index: 0;
 }
 
-.bgvid  video{
+.bgvid video {
   object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.hvr-underline-from-center:hover div {
+  transform: scale(1.2);
+  color: #323232;
+}
+
+.city_name_attachment {
+  background: rgba(0, 0, 0, 0)
+    url("./assets/img/mohamed-soliman-MFgPnJOsI_I-unsplash.jpg") no-repeat fixed
+    center / cover;
+  height: auto;
+  width: 100%;
+}
+.city_name_inner {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
 }
