@@ -24,11 +24,11 @@ class HomeComponent extends Component {
         <MainSlider {...this.props} />
         <News {...this.props} />
         <InfoNews {...this.props} />
+        <BgAttachment />
         <GovernmentProjects {...this.props} />
         <CitizenServices {...this.props} />
         <LocalLeaders {...this.props} />
         <TrainingAgenda {...this.props} />
-        <BgAttachment />
         <Video {...this.props} />
         <GovernmentFamous {...this.props} />
         <PhotosAlbum {...this.props} />

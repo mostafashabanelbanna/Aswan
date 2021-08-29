@@ -8,7 +8,6 @@ import Slider from "react-slick";
 import "../Styles/government-famous-style.css";
 import { paths } from "../paths/paths";
 
-
 const GovernmentFamous = (props) => {
   console.log(props);
   useEffect(() => {
@@ -17,8 +16,8 @@ const GovernmentFamous = (props) => {
   var settings = {
     dots: false,
     arrows: true,
-    autoplay:true,
-    autoplaySpeed:1000,
+    autoplay: true,
+    autoplaySpeed: 1000,
     infinite: true,
     speed: 4000,
     slidesToShow: 4,
@@ -61,14 +60,24 @@ const GovernmentFamous = (props) => {
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
             <img src="./images/icons/Famous_titel-0٢.png" alt="" width="80px" />
-            <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            <div className="  underline">
+              <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            </div>
           </div>
           <Slider {...settings}>
             {famousPeopleList.result.map((person, index) => {
               return (
-                <div key={person.id} className="d-flex flex-column align-items-center justify-content-between hovering">
+                <div
+                  key={person.id}
+                  className="d-flex flex-column align-items-center justify-content-between hovering"
+                >
                   <div className="outerPolygon">
-                    <div className="innerPolygon" style={{backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`}}></div>
+                    <div
+                      className="innerPolygon"
+                      style={{
+                        backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`,
+                      }}
+                    ></div>
                   </div>
                   <p className="text-center">{person.title}</p>
                 </div>

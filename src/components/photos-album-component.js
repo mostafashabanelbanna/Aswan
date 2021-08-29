@@ -47,7 +47,9 @@ const PhotosAlbum = (props) => {
             alt=""
             width="80px"
           />
-          <h3 className="mt-4 me-2 text-secondary">البوم الصور</h3>
+          <div className="  underline">
+            <h3 className="mt-4 me-2 text-secondary">ألبوم الصور</h3>
+          </div>
         </div>
         {renderAlbum()}
         <div className="line mx-auto my-5 w-100"></div>
