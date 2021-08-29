@@ -62,7 +62,10 @@ const GovernmentFamous = (props) => {
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
             <img src="./images/icons/Famous_titel-0٢.png" alt="" width="80px" />
-            <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            <div className="underline">
+              {" "}
+              <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            </div>
           </div>
           <Slider {...settings}>
             {famousPeopleList.result.map((person, index) => {

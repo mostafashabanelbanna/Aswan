@@ -84,7 +84,10 @@ const ImportantPortals = (props) => {
           alt=""
           width="80px"
         />
-            <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
+            <div className="underline">
+              {" "}
+              <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
+            </div>
           </div>
           <div className="portalsBorder p-5 p-md-3 justify-content-center">
           <Slider {...settings}>
