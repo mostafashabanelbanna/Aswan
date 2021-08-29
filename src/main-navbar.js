@@ -15,14 +15,14 @@ const Main_navbar = () => {
   return (
     <div>
       <div className="row p-0 m-0 mt-2 sticky-top bg-light">
-        <div className="col-2 p-0">
+        <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
             <img className="main_logo" src="/images/icons/logo_banner-0١.png" />
           </div>
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-7 text-center d-flex justify-content-center align-items-center p-0"
+          className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
         >
           <div
             style={{ cursor: "pointer" }}
@@ -36,7 +36,7 @@ const Main_navbar = () => {
             <span>الرئيسية</span>
           </div>
 
-          <div className=" d-none d-sm-block">|</div>
+          <div className=" d-none d-md-block">|</div>
 
           <div
             style={{ cursor: "pointer" }}
@@ -50,7 +50,7 @@ const Main_navbar = () => {
             <span>المواطن</span>
           </div>
 
-          <div className=" d-none d-sm-block">|</div>
+          <div className=" d-none d-md-block">|</div>
 
           <div
             style={{ cursor: "pointer" }}
@@ -64,11 +64,11 @@ const Main_navbar = () => {
             <span>المستثمر</span>
           </div>
 
-          <div className=" d-none d-sm-block">|</div>
+          <div className=" d-none d-md-block">|</div>
 
           <div
             style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="col-3  col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img
               className="mx-2"
@@ -80,7 +80,7 @@ const Main_navbar = () => {
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-3 d-flex justify-content-center align-items-center p-0 py-3"
+          className="col-3  d-none d-lg-flex justify-content-center align-items-center p-0 py-3"
         >
           <div className="col-5 fsiz">خريطة الموقع</div>
           <div className="col-2">|</div>
@@ -89,12 +89,15 @@ const Main_navbar = () => {
 
         <Navbar
           className="py-0 bg-secondary"
-          style={{ direction: "ltr" }}
           collapseOnSelect
           expand="lg"
           variant="dark"
         >
           <Container className="py-1">
+          <div class="navbar-brand d-lg-none d-block" href="#">
+          <img style={{width:25 ,marginLeft:10}} src="/images/icons/footer_logo-0١.png" />
+          محافظة اسوان
+          </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
               className="justify-content-center"
@@ -103,7 +106,7 @@ const Main_navbar = () => {
               <Nav className="align-items-center">
                 <ul
                   className="navbar-nav mr-auto"
-                  style={{ cursor: "pointer", direction: "rtl" }}
+                  style={{ cursor: "pointer" }}
                 >
                   <li className={`nav-item `}>
                     <a className="nav-link text-light">عن المركز</a>
@@ -140,6 +143,21 @@ const Main_navbar = () => {
                       `}
                   >
                     <a className="nav-link text-light">المنصة البحثية</a>
+                  </li>
+
+                  <li
+                    className={`nav-item 
+                      `}
+                  >
+                    <a className=" d-lg-none d-block  nav-link text-light"> خريطة الموفع</a>
+                  </li>
+
+
+                  <li
+                    className={`nav-item 
+                      `}
+                  >
+                    <a className="d-lg-none d-block nav-link text-light"> تواصل معانا</a>
                   </li>
                 </ul>
               </Nav>

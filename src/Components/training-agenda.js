@@ -23,6 +23,7 @@ const TrainingAgenda = () => {
       <div className="d-flex flex-column flex-xl-row container">
         <div className="col-xl-6 col-12 p-3">
           <FullCalendar
+          date
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             dayMaxEventRows={2}
