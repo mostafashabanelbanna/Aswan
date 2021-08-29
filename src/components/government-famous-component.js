@@ -49,34 +49,38 @@ const GovernmentFamous = (props) => {
       console.log(props.famousPeople);
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (
-        <div>
-        <div className="container mt-5 mb-2">
-          <div className="d-flex my-2">
-            <img src="./images/icons/Famous_titel-0٢.png" alt="" width="80px" />
-            <div className="  underline">
-              <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+        <div className="bg-light">
+          <div className="container mt-5 mb-2">
+            <div className="d-flex my-2">
+              <img
+                src="./images/icons/Famous_titel-0٢.png"
+                alt=""
+                width="80px"
+              />
+              <div className="  underline">
+                <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+              </div>
             </div>
-          </div>
-          <Slider {...settings}>
-            {famousPeopleList.result.map((person, index) => {
-              return (
-                <div
-                  key={person.id}
-                  className="d-flex flex-column align-items-center justify-content-between hovering"
-                >
-                  <div className="outerPolygon">
-                    <div
-                      className="innerPolygon"
-                      style={{
-                        backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`,
-                      }}
-                    ></div>
+            <Slider {...settings}>
+              {famousPeopleList.result.map((person, index) => {
+                return (
+                  <div
+                    key={person.id}
+                    className="d-flex flex-column align-items-center justify-content-between hovering"
+                  >
+                    <div className="outerPolygon">
+                      <div
+                        className="innerPolygon"
+                        style={{
+                          backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`,
+                        }}
+                      ></div>
+                    </div>
+                    <p className="text-center">{person.title}</p>
                   </div>
-                  <p className="text-center">{person.title}</p>
-                </div>
-              );
-            })}
-          </Slider>
+                );
+              })}
+            </Slider>
           </div>
           <div className="line mb-5"></div>
         </div>

@@ -41,21 +41,20 @@ const PhotosAlbum = (props) => {
   if (props.photos) {
     return (
       <div>
-      <div className="container mt-5">
-        <div className="d-flex my-2">
-          <img
-            src="./images/icons/photoalbum_titel-0٢.png"
-            alt=""
-            width="80px"
-          />
-          <div className="underline">
+        <div className="container mt-5">
+          <div className="d-flex my-2">
+            <img
+              src="./images/icons/photoalbum_titel-0٢.png"
+              alt=""
+              width="80px"
+            />
+            <div className="underline">
               {" "}
               <h3 className="mt-4 me-2 text-secondary">البوم الصور</h3>
             </div>
+          </div>
+          {renderAlbum()}
         </div>
-        {renderAlbum()}
-        </div>
-        <div className="line mt-5"></div>
       </div>
     );
   }

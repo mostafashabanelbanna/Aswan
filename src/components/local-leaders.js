@@ -53,7 +53,6 @@ const LocalLeaders = (props) => {
               </div>
             </div>
           </div>
-          <div className="line mx-auto mt-5 w-100"></div>
         </div>
       </div>
     </div>

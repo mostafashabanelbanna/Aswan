@@ -23,7 +23,7 @@ const InfoNews = () => {
       <div className="container p-0 mt-4 ">
         <div className="row text-center  p-0 m-0 ">
           <Fade bottom>
-            <div className="col-lg-3 p-3 col-5 mb-4   hvr-bounce-to-right ">
+            <div className="col-lg-3 p-3 col-5 mb-4  hvr-rectangle-out ">
               <img
                 style={{ width: 150 }}
                 className="  px-4 imgfilter"
@@ -33,7 +33,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom delay={400}>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
               <img
                 style={{ width: 150 }}
                 className=" px-4 imgfilter"
@@ -43,7 +43,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
               <img
                 style={{ width: 150 }}
                 className=" px-4 imgfilter"
@@ -53,7 +53,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom delay={400}>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-bounce-to-right">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
               <img
                 style={{ width: 150 }}
                 className="w px-4 imgfilter"
@@ -64,7 +64,6 @@ const InfoNews = () => {
           </Fade>
         </div>
       </div>
-      <div className="line my-5 mx-auto"></div>
     </div>
   );
 };

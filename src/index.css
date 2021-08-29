@@ -257,3 +257,16 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 }
+
+.hvr-rectangle-out {
+  background: transparent !important;
+}
+.hvr-rectangle-out:before {
+  border-radius: 10px;
+  background: rgb(255 220 110 / 80%) !important;
+}
+.hvr-rectangle-out:hover,
+.hvr-rectangle-out:focus,
+.hvr-rectangle-out:active {
+  color: #212529 !important;
+}

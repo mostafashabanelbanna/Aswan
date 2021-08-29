@@ -58,7 +58,7 @@ const News = (props) => {
   };
   if (props.mainews && props.news)
     return (
-      <div>
+      <div className="mb-4">
         <div className="container p-0">
           <div className="my-3 d-flex">
             <img src="/images/icons/news_titel-0١.png" width="50px" />
@@ -71,10 +71,10 @@ const News = (props) => {
             <div className="col-lg-6">
               <div className="h-100">
                 <h4 className="mb-3">{props.mainews.result.title}</h4>
-                <div className="d-lg-none d-block">
+                <div>
                   <img
                     style={{ borderRadius: "10px" }}
-                    className="img-fluid"
+                    className="img-fluid d-lg-none d-block"
                     src={
                       paths.NewsPhotos +
                       props.mainews.result.id +
@@ -130,7 +130,6 @@ const News = (props) => {
             </Slider>
           </div>
         </div>
-        <div className="line mt-5 mx-auto"></div>
       </div>
     );
   return <div>Loading</div>;
