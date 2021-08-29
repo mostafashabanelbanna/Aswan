@@ -17,12 +17,13 @@ const ImportantPortals = (props) => {
     autoplay: true,
     autoplaySpeed: 500,
     infinite: true,
-    speed: 5000,
+    speed: 3000,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 1,
     pauseOnFocus: true,
     pauseOnHover: true,
+    swipeToSlide:true,
     responsive: [
         {
             breakpoint: 1400,
@@ -76,6 +77,7 @@ const ImportantPortals = (props) => {
     if (props.portalsList.result.length) {
       let portals = Object.assign({}, props.portalsList);
       return (
+        <div>
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
           <img
@@ -83,9 +85,12 @@ const ImportantPortals = (props) => {
           alt=""
           width="80px"
         />
-            <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
+            <div className="underline">
+              {" "}
+              <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
+            </div>
           </div>
-          <div className="portalsBorder p-5 p-md-3 justify-content-center">
+          <div className="portalsBorder mt-4 p-5  justify-content-center">
           <Slider {...settings}>
             {portals.result.map((photo, index) => {
                 return (
@@ -104,7 +109,8 @@ const ImportantPortals = (props) => {
             })}
           </Slider>
         </div>
-          <div className="line mx-auto my-5 w-100"></div>
+        </div>
+          <div className="line my-5"></div>
         </div>
       );
     }

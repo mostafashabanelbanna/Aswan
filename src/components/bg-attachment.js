@@ -10,6 +10,7 @@ const BgAttachment = () => {
           <h3 className="text-center text-white"> محافظة أسوان</h3>
         </div>
       </div>
+      <div className="line mx-auto"></div>
     </div>
   );
 };

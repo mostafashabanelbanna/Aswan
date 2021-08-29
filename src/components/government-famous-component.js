@@ -8,7 +8,6 @@ import Slider from "react-slick";
 import "../Styles/government-famous-style.css";
 import { paths } from "../paths/paths";
 
-
 const GovernmentFamous = (props) => {
   console.log(props);
   useEffect(() => {
@@ -17,14 +16,24 @@ const GovernmentFamous = (props) => {
   var settings = {
     dots: false,
     arrows: true,
-    autoplay:true,
-    autoplaySpeed:1000,
+    autoplay: true,
+    autoplaySpeed: 1000,
     infinite: true,
-    speed: 4000,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
+    swipeToSlide:true,
     responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
@@ -35,17 +44,9 @@ const GovernmentFamous = (props) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
           arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -58,25 +59,36 @@ const GovernmentFamous = (props) => {
       console.log(props.famousPeople);
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (
+        <div>
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
             <img src="./images/icons/Famous_titel-0٢.png" alt="" width="80px" />
-            <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            <div className="  underline">
+              <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
+            </div>
           </div>
           <Slider {...settings}>
             {famousPeopleList.result.map((person, index) => {
               return (
-                <div key={person.id} className="d-flex flex-column align-items-center justify-content-between hovering">
+                <div
+                  key={person.id}
+                  className="d-flex flex-column align-items-center justify-content-between hovering"
+                >
                   <div className="outerPolygon">
-                    <div className="innerPolygon" style={{backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`}}></div>
+                    <div
+                      className="innerPolygon"
+                      style={{
+                        backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`,
+                      }}
+                    ></div>
                   </div>
                   <p className="text-center">{person.title}</p>
                 </div>
               );
             })}
           </Slider>
-
-          <div className="line mx-auto my-5 w-100"></div>
+          </div>
+          <div className="line mb-5"></div>
         </div>
       );
     }

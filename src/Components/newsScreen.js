@@ -61,8 +61,10 @@ const News = (props) => {
       <div>
         <div className="container p-0">
           <div className="my-3 d-flex">
-            <img src="/images/icons/news_titel-0١.png" width="80px" />
-            <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
+            <img src="/images/icons/news_titel-0١.png" width="50px" />
+            <div className="  underline">
+              <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
+            </div>
           </div>
           {/*  */}
           <div className="row">
@@ -128,7 +130,7 @@ const News = (props) => {
             </Slider>
           </div>
         </div>
-        <div className="line my-5 mx-auto"></div>
+        <div className="line mt-5 mx-auto"></div>
       </div>
     );
   return <div>Loading</div>;
