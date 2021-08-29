@@ -15,9 +15,9 @@ const ImportantPortals = (props) => {
     dots: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 500,
+    autoplaySpeed: 300,
     infinite: true,
-    speed: 5000,
+    speed: 3000,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 1,
@@ -89,7 +89,7 @@ const ImportantPortals = (props) => {
               <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
             </div>
           </div>
-          <div className="portalsBorder p-5 p-md-3 justify-content-center">
+          <div className="portalsBorder mt-4 p-5 p-md-3 justify-content-center">
           <Slider {...settings}>
             {portals.result.map((photo, index) => {
                 return (

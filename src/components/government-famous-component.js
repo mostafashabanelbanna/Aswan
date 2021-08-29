@@ -35,17 +35,9 @@ const GovernmentFamous = (props) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
           arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
