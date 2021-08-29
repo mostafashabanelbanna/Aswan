@@ -99,8 +99,13 @@
 
   .rightControl > i,
   .rightControl > span {
-    margin-right: -30px !important;
+    margin-right: -15px !important;
   }
+
+  .leftControl > i,
+  .leftControl > span {
+  margin-left: -15px !important;
+}
 }
 
 .underline::after {

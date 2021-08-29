@@ -128,7 +128,7 @@ const News = (props) => {
             </Slider>
           </div>
         </div>
-        <div className="line my-5 mx-auto"></div>
+        <div className="line mt-5 mx-auto"></div>
       </div>
     );
   return <div>Loading</div>;

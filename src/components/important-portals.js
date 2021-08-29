@@ -76,6 +76,7 @@ const ImportantPortals = (props) => {
     if (props.portalsList.result.length) {
       let portals = Object.assign({}, props.portalsList);
       return (
+        <div>
         <div className="container mt-5 mb-2">
           <div className="d-flex my-2">
           <img
@@ -104,7 +105,8 @@ const ImportantPortals = (props) => {
             })}
           </Slider>
         </div>
-          <div className="line mx-auto my-5 w-100"></div>
+        </div>
+          <div className="line my-5"></div>
         </div>
       );
     }
