@@ -46,9 +46,9 @@ export async function complaints() {
   };
 }
 
-export async function newsList(pageNumber, pageSize = 10, keywords = {}) {
+export async function newsList(pageNumber, pageSize = 9, keywords = {}) {
   let payload = null;
-  let response = await axios.post(
+  try{let response = await axios.post(
     "/NewsAPI/Search/" + pageNumber + "/" + pageSize,
     keywords
   );
@@ -56,6 +56,9 @@ export async function newsList(pageNumber, pageSize = 10, keywords = {}) {
 
   let res = countResponse.data.result;
   payload = { ...response.data, count: res };
+}catch(e){
+
+  }
   return {
     type: "NEWS_LIST",
     payload,

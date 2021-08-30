@@ -94,7 +94,9 @@ const Main_navbar = () => {
           variant="dark"
         >
           <Container className="py-1">
-            <div className="navbar-brand d-lg-block d-none text-secondary">ddd</div>
+            <div className="navbar-brand d-lg-block d-none text-secondary">
+            <img style={{width:20 ,marginLeft:10 , visibility:'hidden'}} src="/images/icons/footer_logo-0١.png" />
+            </div>
           <div className="navbar-brand d-lg-none d-block" href="#">
           <img style={{width:40 ,marginLeft:10}} src="/images/icons/footer_logo-0١.png" />
           </div>

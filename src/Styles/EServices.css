@@ -1,0 +1,36 @@
+.pagination__link{
+    /* text-decoration: none   ;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 2px 10px 2px 10px ;
+    margin: 10px; */
+
+}
+
+.pagination li :not(.previous .next ){
+    color: black;
+    color: black;
+  float: left;
+  padding: 2px 12px;
+  text-decoration: none;
+  margin: 2px;
+   
+}
+.pagination__link--active{
+    background-color: #fecf55;
+    color: white;
+    border-radius: 5px;
+  }
+.pagination li:hover:not(.pagination__link--active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
+.pagination__link--active{
+    /* padding: 0px 5px 0px 5px ; */
+    
+}
+.pagination__link--active a{
+    /* font-size: 22px; */
+
+}
