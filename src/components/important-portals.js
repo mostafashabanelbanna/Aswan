@@ -14,7 +14,7 @@ const ImportantPortals = (props) => {
   var settings = {
     dots: true,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 500,
     infinite: true,
     speed: 3000,
@@ -96,7 +96,7 @@ const ImportantPortals = (props) => {
                     >
                       <a
                         href={photo.url}
-                        className="align-self-center"
+                        className="d-flex justify-content-center align-items-center"
                         target="_blank"
                         rel="noreferrer"
                       >

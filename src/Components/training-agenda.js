@@ -21,18 +21,18 @@ const TrainingAgenda = () => {
   return (
     <div className="pt-5 bg-light">
       <div className="container">
-      <div className="d-flex my-2">
-            <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
-            <div className="underline">
-                {" "}
-                <h3 className="mt-4 me-2  text-secondary">أجندة التدريب</h3>
-              </div>
+        <div className="d-flex my-2">
+          <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
+          <div className="underline">
+            {" "}
+            <h3 className="mt-4 me-2  text-secondary"> أطروحات إستثمارية </h3>
           </div>
+        </div>
       </div>
       <div className="d-flex flex-column flex-xl-row container">
         <div className="col-xl-6 col-12 p-3">
           <FullCalendar
-          date
+            date
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             dayMaxEventRows={2}

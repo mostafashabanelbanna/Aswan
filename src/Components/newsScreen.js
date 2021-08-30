@@ -58,8 +58,8 @@ const News = (props) => {
   };
   if (props.mainews && props.news)
     return (
-      <div className="mb-4">
-        <div className="container p-0">
+      <div className="container fluid mb-4 px-0">
+        <div className="container">
           <div className="my-3 d-flex">
             <img src="/images/icons/news_titel-0١.png" width="50px" />
             <div className="  underline">
@@ -73,7 +73,7 @@ const News = (props) => {
                 <h4 className="mb-3">{props.mainews.result.title}</h4>
                 <div>
                   <img
-                    style={{ borderRadius: "10px" }}
+                    style={{ borderRadius: "10px", maxWidth: "100%" }}
                     className="img-fluid d-lg-none d-block"
                     src={
                       paths.NewsPhotos +

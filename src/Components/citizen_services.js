@@ -10,7 +10,7 @@ const CitizenServices = () => {
 
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2 text-secondary ">خدمات المواطنون </h3>
+            <h3 className="mt-4 me-2 text-secondary ">خدمات المواطنين </h3>
           </div>
         </div>
       </div>

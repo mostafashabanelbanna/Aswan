@@ -14,6 +14,7 @@ import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
 import TrainingAgenda from "./training-agenda";
 import BgAttachment from "./bg-attachment";
+import HayahKarima from "./haya-carima";
 class HomeComponent extends Component {
   constructor(props) {
     super(props);
@@ -24,8 +25,9 @@ class HomeComponent extends Component {
         <MainSlider {...this.props} />
         <News {...this.props} />
         <InfoNews {...this.props} />
-        <BgAttachment />
+        {/* <BgAttachment /> */}
         <GovernmentProjects {...this.props} />
+        <HayahKarima />
         <CitizenServices {...this.props} />
         <LocalLeaders {...this.props} />
         <TrainingAgenda {...this.props} />
