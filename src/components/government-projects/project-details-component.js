@@ -12,6 +12,7 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import "../../Styles/government-projects-style.css";
+import "../../Styles/photo-album-style.css";
 
 const ProjectDetails = (props) => {
   useEffect(() => {
@@ -80,18 +81,21 @@ const ProjectDetails = (props) => {
   };
 
   if (props.projectDetails) {
+    console.log(props.projectDetails)
     let details = Object.assign({}, props.projectDetails.result);
     return (
       <div className="container">
-        <div className="m-auto" style={{width: '95%'}}>
-          <h3 className="mb-4">{ReactHtmlParser(details.name)}</h3>
-          <h6 className="text-danger">{ReactHtmlParser(details.sectorName)}</h6>
+        <div>
+        <div className="underline my-4">
+              {" "}
+          <h3>{ReactHtmlParser(details.name)}</h3>
+          </div>
+          <div className="d-flex justify-content-end">
+            <div className="text-muted text-start fa-1x p-3 detailsSectorName">
+              <h6 className="mb-0">{ReactHtmlParser(details.sectorName)}</h6>
+            </div>
           {details.attachment != null && (
-            <div className="d-flex flex-row">
-              <FontAwesomeIcon
-                icon={faPaperclip}
-                className="align-self-center text-danger"
-              />
+            <div className="d-flex flex-row my-2">
               <h6 className="text-primary mx-2">
                 <a
                   style={{ textDecoration: "none", color: "black" }}
@@ -100,13 +104,18 @@ const ProjectDetails = (props) => {
                   إستعراض الملف المرفق
                 </a>
               </h6>
+              <FontAwesomeIcon
+                icon={faPaperclip}
+                className="align-self-center text-danger"
+              />
             </div>
           )}
-          <hr className="text-danger m-0" />
+          </div>
+          <hr className="text-muted m-0" />
         </div>
-        <div className="row my-2 flex-column-reverse flex-lg-row">
-          <div className="col-lg-7">
-            <div style={{ lineHeight: "30px", fontSize: "1rem" }}>
+        <div className="row my-4 flex-column-reverse flex-lg-row">
+          <div className="col-lg-7 my-3 my-lg-0">
+            <div className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
               <p>
                 <span style={{ fontFamily: "Arial,Helvetica,sans-serif" }}>
                   <span>
@@ -116,24 +125,15 @@ const ProjectDetails = (props) => {
               </p>
             </div>
           </div>
-          <div className="col-lg-5">
+          <div className="col-lg-5 detailsPhoto p-0 h-100">
             <img
-              className="img-fluid p-1 border border-dark border-2"
-              style={{ borderRadius: "16px" }}
+              className="img-fluid"
+              style={{borderRadius:17}}
               src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
             />
           </div>
         </div>
-        <div className="row my-2">
-          <iframe
-            width="100%"
-            height="450px"
-            src={`https://www.youtube.com/embed/${details.youtubeId}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+
         <div className="my-3">
           <Slider {...settings} style={{ width: "100%" }}>
             {details.photos.map((photo, index) => {
@@ -142,38 +142,35 @@ const ProjectDetails = (props) => {
                 title = photo.caption;
               }
               return (
-                <div
-                  style={{
-                    position: "relative",
-                  }}
-                >
-                  <div style={{
-                    position: "relative"}} className="w-100 px-3 text-center">
-                    <img
-                      src={`${paths.ProjectPhotos}${photo.id}/${photo.photo}`}
-                      className="projectAlbum rounded-3 border border-1 border-dark"
-                      alt={photo.name}
-                    />
-                  
-                  <div
-                    class="text-center bg-light"
-                    style={{
-                      position: "absolute",
-                      bottom: '10px',
-                      left:'8px',
-                      border: "1px solid black",
-                      borderRadius: '30px',
-                      width:'95%'
-                    }}
-                  >
-                    <p className="mt-2">{title}</p>
+                <div className="mx-auto p-3 hoverTitle">
+                  <div className="holder">
+                    <div style={{
+                      position: "relative",
+                      backgroundImage:`url(${paths.ProjectPhotos}${photo.id}/${photo.photo})`
+                      }} className="imageAlbum">
+                    </div>
                   </div>
-                  </div>
+                    <p className="text-center my-2">{title}</p>
                 </div>
               );
             })}
           </Slider>
         </div>
+
+        <div
+              className="embed-responsive embed-responsive-16by9 mx-3 my-5 "
+              style={{ borderRadius: "10px" }}
+            >
+              <iframe
+                allowFullScreen
+                className="embed-responsive-item rounded-3"
+                style={{ outline: "none" }}
+                loading="lazy"
+                width="100%"
+                height="450px"
+                src={`https://www.youtube.com/embed/${details.youtubeId}`}
+              ></iframe>
+            </div>
       </div>
     );
   }
