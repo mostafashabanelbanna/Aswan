@@ -92,7 +92,7 @@ const ProjectDetails = (props) => {
           </div>
           <div className="d-flex justify-content-end">
             <div className="text-muted text-start fa-1x p-3 detailsSectorName">
-              <h6 className="mb-0">{ReactHtmlParser(details.sectorName)}</h6>
+              <h6 className="mb-0 text-center">{ReactHtmlParser(details.sectorName)}</h6>
             </div>
           {details.attachment != null && (
             <div className="d-flex flex-row my-2">
