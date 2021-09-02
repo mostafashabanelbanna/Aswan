@@ -9,6 +9,7 @@ import RBCarousel from "react-bootstrap-carousel";
 import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import "../../Styles/government-projects-style.css";
+import {Link } from "react-router-dom";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -119,17 +120,19 @@ const GovernmentProjects = (props) => {
                             {ReactHtmlParser(slicedBrief)}
                           </p>
                           <div className="projectsButtons">
+                            <Link to={`/projectDetails/${project.id}`}>
                             <button
                               className="myButton mx-1 mb-2 mb-sm-0"
-                              onClick={() => {
-                                props.history.push(
-                                  `/projectDetails/${project.id}`
-                                );
-                              }}
+                              // onClick={() => {
+                              //   props.history.push(
+                              //     `/projectDetails/${project.id}`
+                              //   );
+                              // }}
                               style={{ verticalAlign: "middle" }}
                             >
                               <span>عرض التفاصيل</span>
                             </button>
+                            </Link>
                             <button
                               className="myButton mx-1 mb-2 mb-sm-0"
                               style={{ verticalAlign: "middle" }}
