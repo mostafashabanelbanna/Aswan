@@ -12,6 +12,7 @@ import { bindActionCreators } from "redux";
 import { mainNews, sliderNews } from "../store/actions/News_Action";
 import ReactHtmlParser from "react-html-parser";
 import { paths } from "../paths/paths";
+import { Link } from "react-router-dom";
 
 const News = (props) => {
   useEffect(() => {
@@ -111,10 +112,13 @@ const News = (props) => {
           <div className="container p-0">
             <Slider {...settings}>
               {props.news.result.map((item, index) => {
+                
                 return (
-                  <div
+                  <Link to={`/NewsDetails/${item.id}`} className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 ">
+                  <div 
                     key={item.id}
-                    className="col-sm-3 col-12 mt-4 text-center px-3"
+                    
+                    
                   >
                     <img
                       className="rounded-3 "
@@ -125,6 +129,7 @@ const News = (props) => {
                     />
                     <div className="mt-4  container p-2">{item.title}</div>
                   </div>
+                  </Link>
                 );
               })}
             </Slider>

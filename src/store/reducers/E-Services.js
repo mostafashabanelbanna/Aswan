@@ -7,6 +7,8 @@ export function EServicesComponents(state = {}, action) {
       //government projects reducers
       case "ESERVICES":
           return{...state , allServices:action.payload}
+          case "CLEAR_ESERVICES":
+          return{...state , allServices:action.payload}
       default:
         return state;
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServices } from "../../store/actions/E-Services";
+import { getEServices ,clearEServices} from "../../store/actions/E-Services";
 import ReactPaginate from "react-paginate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,7 @@ const EServices = (props) => {
 
   const handlePageClick = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
+    
   };
 
   useEffect(() => {
@@ -19,7 +20,10 @@ const EServices = (props) => {
   }, [currentPage]);
 
   if (props.services) {
+    
     pageCount = Math.ceil(props.services.count / 9);
+    console.log(props.services)
+    if(props.services.page==currentPage+1){
     return (
       <div>
         <div className=" container my-4 d-flex flex-column flex-md-row justify-content-end align-items-center">
@@ -86,6 +90,9 @@ const EServices = (props) => {
           <ReactPaginate
             previousLabel={"<<"}
             nextLabel={">>"}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            forcePage={currentPage}
             pageCount={pageCount}
             onPageChange={handlePageClick}
             containerClassName={"pagination"}
@@ -96,7 +103,10 @@ const EServices = (props) => {
           />
         </div>
       </div>
-    );
+    );}
+    else{
+      return <div> Loading Two </div>
+    }
   }
   return <div>Loading</div>;
 };
@@ -104,7 +114,7 @@ const mapStateToProps = (state) => {
   return { services: state.EServicesComponents.allServices };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getEServices }, dispatch);
+  return bindActionCreators({ getEServices,clearEServices }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EServices);
