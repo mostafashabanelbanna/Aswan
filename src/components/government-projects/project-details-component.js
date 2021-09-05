@@ -16,6 +16,8 @@ import "../../Styles/photo-album-style.css";
 
 import SliderDetailsModalComponent from "../slider-details-modal-component";
 
+import OnePieaceSkeleton from '../loading-skeleton/one-pieace'
+
 const ProjectDetails = (props) => {
   useEffect(() => {
     const resolver = async () => {
@@ -138,18 +140,9 @@ const ProjectDetails = (props) => {
         </div>
         <div className="row my-4 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
-            <div
-              className="text-muted"
-              style={{ lineHeight: "30px", fontSize: "1rem" }}
-            >
-              <p>
-                <span style={{ fontFamily: "Arial,Helvetica,sans-serif" }}>
-                  <span>
-                    <strong>{ReactHtmlParser(details.description)}</strong>
-                  </span>
-                </span>
+              <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
+                {ReactHtmlParser(details.description)}
               </p>
-            </div>
           </div>
           <div className="col-lg-5 detailsPhoto p-0 h-100">
             <img
@@ -210,7 +203,12 @@ const ProjectDetails = (props) => {
       </div>
     );
   }
-  return <div>No Details</div>;
+  return (
+  <div className="text-center container">
+    <OnePieaceSkeleton/>
+    <OnePieaceSkeleton/>
+  </div>
+  )
 };
 
 export default connect(
