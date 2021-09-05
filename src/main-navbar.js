@@ -26,15 +26,15 @@ const Main_navbar = () => {
           style={{ color: "#7f807f" }}
           className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
         >
-            <div
-              style={{ cursor: "pointer" }}
-              className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
-            >
+          <div
+            style={{ cursor: "pointer" }}
+            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
+          >
             <Link to="/" className="text-decoration-none text-muted">
               <img className="mx-2 imgsz" src="/images/icons/home-0١.png" />
               <span className="spansz">الرئيسية</span>
             </Link>
-            </div>
+          </div>
           <div className=" d-none d-md-block">|</div>
 
           <div
