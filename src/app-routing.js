@@ -5,7 +5,7 @@ import ProjectDetails from "./components/government-projects/project-details-com
 import NewsDetails from "./components/news-details";
 import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
-import Ads from "./components/ads/ads";
+import EServices from "./components/sevices-page/E-Services";
 
 const AppRouting = () => {
   return (
@@ -16,10 +16,10 @@ const AppRouting = () => {
         <Route exact path="/home" component={HomeComponent} />
         <Route exact path="/projectDetails/:id" component={ProjectDetails} />
         <Route exact path="/newsdetails/:id" component={NewsDetails}></Route>
+        <Route exact path="/eservices" component={EServices}></Route>
         <Route exact path="/tourist" component={TouristHome}></Route>
         <Route path="*" component={Error} />
       </Switch>
-      <Ads />
     </BrowserRouter>
   );
 };

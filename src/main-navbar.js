@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Pulse from "react-reveal/Pulse";
 
+import { Link } from "react-router-dom";
+
 const Main_navbar = () => {
   return (
     <div>
@@ -24,16 +26,23 @@ const Main_navbar = () => {
           style={{ color: "#7f807f" }}
           className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
         >
+            <div
+              style={{ cursor: "pointer" }}
+              className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
+            >
+            <Link to="/" className="text-decoration-none text-muted">
+              <img className="mx-2 imgsz" src="/images/icons/home-0١.png" />
+              <span className="spansz">الرئيسية</span>
+            </Link>
+            </div>
+          <div className=" d-none d-md-block">|</div>
+
           <div
             style={{ cursor: "pointer" }}
             className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
           >
-            <img
-              className="mx-2 imgsz"
-              
-              src="/images/icons/home-0١.png"
-            />
-            <span className='spansz'>الرئيسية</span>
+            <img className="mx-2 imgsz" src="/images/icons/citizen-0١.png" />{" "}
+            <span className="spansz">المواطن</span>
           </div>
 
           <div className=" d-none d-md-block">|</div>
@@ -42,26 +51,8 @@ const Main_navbar = () => {
             style={{ cursor: "pointer" }}
             className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
           >
-            <img
-              className="mx-2 imgsz"
-              
-              src="/images/icons/citizen-0١.png"
-            />{" "}
-            <span className='spansz'>المواطن</span>
-          </div>
-
-          <div className=" d-none d-md-block">|</div>
-
-          <div
-            style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
-          >
-            <img
-              className="mx-2 imgsz"
-
-              src="/images/icons/Investor-0١.png"
-            />
-            <span className='spansz'>المستثمر</span>
+            <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
+            <span className="spansz">المستثمر</span>
           </div>
 
           <div className=" d-none d-md-block">|</div>
@@ -70,12 +61,8 @@ const Main_navbar = () => {
             style={{ cursor: "pointer" }}
             className="col-3  col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
-            <img
-              className="mx-2 imgsz"
-        
-              src="/images/icons/Tourist-0٢.png"
-            />
-            <span className='spansz'>السائح</span>
+            <img className="mx-2 imgsz" src="/images/icons/Tourist-0٢.png" />
+            <span className="spansz">السائح</span>
           </div>
         </div>
         <div
@@ -94,10 +81,18 @@ const Main_navbar = () => {
           variant="dark"
         >
           <Container className="py-1">
-            <div className="navbar-brand d-lg-block d-none text-secondary">ddd</div>
-          <div className="navbar-brand d-lg-none d-block" href="#">
-          <img style={{width:40 ,marginLeft:10}} src="/images/icons/footer_logo-0١.png" />
-          </div>
+            <div className="navbar-brand d-lg-block d-none text-secondary">
+              <img
+                style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
+                src="/images/icons/footer_logo-0١.png"
+              />
+            </div>
+            <div className="navbar-brand d-lg-none d-block" href="#">
+              <img
+                style={{ width: 40, marginLeft: 10 }}
+                src="/images/icons/footer_logo-0١.png"
+              />
+            </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
               className="justify-content-center"
@@ -124,7 +119,9 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">لقاءات و قرارات السيد المحافظ </a>
+                    <a className="nav-link text-light">
+                      لقاءات و قرارات السيد المحافظ{" "}
+                    </a>
                   </li>
                   <li className={`nav-item`}>
                     <a className="nav-link text-light">الديوان العام</a>
@@ -149,15 +146,20 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className=" d-lg-none d-block  nav-link text-light"> خريطة الموفع</a>
+                    <a className=" d-lg-none d-block  nav-link text-light">
+                      {" "}
+                      خريطة الموفع
+                    </a>
                   </li>
-
 
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="d-lg-none d-block nav-link text-light"> تواصل معانا</a>
+                    <a className="d-lg-none d-block nav-link text-light">
+                      {" "}
+                      تواصل معانا
+                    </a>
                   </li>
                 </ul>
               </Nav>

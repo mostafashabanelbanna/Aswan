@@ -11,13 +11,14 @@ const Video = (props) => {
 
   var settings = {
     dots: false,
-    // autoplay:true,
-    // autoplaySpeed:1000,
-    infinite: false,
-    speed: 500,
+    autoplay:true,
+    autoplaySpeed: 1000,
+    infinite: true,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
+    swipeToSlide:true,
     responsive: [
       {
         breakpoint: 1024,
@@ -81,7 +82,8 @@ const Video = (props) => {
               <Slider {...settings}>
                 {props.videos.result.map((item, index) => {
                   return (
-                    <div key={item.id} className="mt-4 text-center p-4">
+                    <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
+                      <div className='holder'>
                       <img
                         src={
                           "https://img.youtube.com/vi/" +
@@ -89,11 +91,13 @@ const Video = (props) => {
                           "/" +
                           "hqdefault.jpg"
                         }
-                        className="rounded-3"
+                        className="rounded-3 imageAlbum"
                         width="100%"
                       />
+                      </div>
                       <div className="mt-4">{item.title}</div>
                     </div>
+                    
                   );
                 })}
               </Slider>
