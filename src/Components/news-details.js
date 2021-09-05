@@ -1,40 +1,54 @@
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-const NewsDetails = () => {
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import ReactHtmlParser from "react-html-parser";
+import { newsdetails, clearNewsdetails } from '../store/actions/News_Action'
+const NewsDetails = (props) => {
+    const id = props.match.params.id;
+    useEffect(() => {
+        props.newsdetails(id)
+    }, []);
+    if (props.newsdetail)
+        return (
+            <div>
+                <div className="underline container mt-5"><h3>{props.newsdetail.result.title}</h3></div>
+                <div className="container d-flex justify-content-end">
+                    <div className=" text-center text-muted   fa-1x py-3  detailsSectorName">
+                        {ReactHtmlParser(props.newsdetail.result.sectorName)}
+                    </div>
+                </div>
+                <hr className='container my-2'></hr>
+               
+                <div className=" container p-0">
+                    <div className="d-flex flex-column flex-md-row justify-content-center ">
+                        <div className="col-md-8 p-3 col-12 lh-lg  order-md-0 order-1">،" َّ تبدأ السعودية، اعتبار من اليوم احد، تطبيق قيود صارمة على حركة غير المطعمين بلقاح "كورونا
+                            ،إذ تفرض السلطات إلزامية التحصين المعتمد من وزارة الصحة بأحد اللقاحات المضادة لفيروس كورونا
+                            لدخول جميع اماكن العامة، والفعاليات، والمنشآت الحكومية والخاصة، واستخدام وسائل النقل العام
+                            .في المملكة
+                            َّ وأكدت وزارة الداخلية السعودية، في بيان على بدء إلزامية التحصين المعتمد من وزارة الصحة اعتبار
+                            .من اليوم احد، في جميع مناطق المملكة</div>
+                        <div className="col-md-4 p-3 col-12">
+.                        </div>
+                    </div>
+                </div>
+                <Link to={'/newslist'} className="justify-content-center text-decoration-none align-items-center d-flex my-4">
+                    <button className="btn " style={{ background: '-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)' }}>المزيد من الاخبار</button>
+                </Link>
+            </div>)
 
-    return (<div>
-        <div className="my-5 text-center"><h3>"بدء­ من اليوم.. السعودية تطبق قيود­ صارمة على حركة غير المطعمين بلقاح "كورونا</h3></div>
-        <div className=" container p-0">
-            <div className="my-2 d-flex"> <div className="mt-1 ms-2">
-                <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-            </div> <h5><u>منع غير المحصنين من دخول جميع اماكن العامة والفعاليات والمنشآت الحكومية والخاصة واستخدام وسائل النقل العام</u></h5></div>
-            <div className="my-2 d-flex">
-                <div className="mt-1 ms-2">
-                    <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-                </div>
-                <h5><u>وزارة الموارد البشرية توضح آلية التعامل مع الموظفين غير المطعمين في القطاع العام والقطاعين الخاص وغير الربحي</u></h5></div>
-            <div className="mt-2">  <p className="text-muted">
-                06:11 2021 أغسطس 01 صباح 07:19 فى حدثت 2021 أغسطس 01 ص
-            </p></div>
-        </div>
-        <div className=" container p-0">
-            <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                <div className="col-md-6 p-2 col-12">
-                    <img src={'/images/cover.jpg'} className="w-100" />
-                </div>
-                <div className="col-md-6 p-2 col-12 align-items-center d-flex">،" َّ تبدأ السعودية، اعتبار من اليوم احد، تطبيق قيود صارمة على حركة غير المطعمين بلقاح "كورونا
-                    ،إذ تفرض السلطات إلزامية التحصين المعتمد من وزارة الصحة بأحد اللقاحات المضادة لفيروس كورونا
-                    لدخول جميع اماكن العامة، والفعاليات، والمنشآت الحكومية والخاصة، واستخدام وسائل النقل العام
-                    .في المملكة
-                    َّ وأكدت وزارة الداخلية السعودية، في بيان على بدء إلزامية التحصين المعتمد من وزارة الصحة اعتبار
-                    .من اليوم احد، في جميع مناطق المملكة</div>
-            </div>
-        </div>
-        <div className="justify-content-center align-items-center d-flex my-4">
-            <button className="btn " style={{ background: '-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)'}}>المزيد من الاخبار</button>
-        </div>
-    </div>);
+    return (<div>Loading</div>);
 }
+const mapStateToProps = (state) => {
+    return {
+        newsdetail: state.homeComponents.newsdetails,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ newsdetails, clearNewsdetails }, dispatch);
+};
 
-export default NewsDetails;
+export default connect(mapStateToProps, mapDispatchToProps)(NewsDetails);

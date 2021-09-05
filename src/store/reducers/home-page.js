@@ -36,7 +36,11 @@ export function homeComponents(state = {}, action) {
       return { ...state, newslist: action.payload }
       case 'COMPLAINT':
         return { ...state, complaint: action.payload }
-      
+        case 'CLEAR_NEWS_DETAILS':
+        return { ...state, newsdetails: action.payload }
+        case 'NEWS_DETAILS':
+        return { ...state, newsdetails: action.payload }
+        
     default:
       return state;
   }
