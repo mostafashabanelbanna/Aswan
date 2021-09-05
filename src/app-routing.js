@@ -6,6 +6,7 @@ import NewsDetails from "./components/news-details";
 import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
 import EServices from "./components/sevices-page/E-Services";
+import NewsList from "./components/news_list";
 
 const AppRouting = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouting = () => {
         <Route exact path="/" component={HomeComponent} />
         <Route exact path="/home" component={HomeComponent} />
         <Route exact path="/projectDetails/:id" component={ProjectDetails} />
+        <Route exact path="/newslist" component={NewsList} />
         <Route exact path="/newsdetails/:id" component={NewsDetails}></Route>
         <Route exact path="/eservices" component={EServices}></Route>
         <Route exact path="/tourist" component={TouristHome}></Route>
