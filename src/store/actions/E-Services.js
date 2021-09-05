@@ -9,12 +9,19 @@ export async function getEServices(pageNumber, pageSize = 9, keywords = {}) {
   let countResponse = await axios.post("/ServiceAPI/GetResultCount", keywords);
 
   let res = countResponse.data.result;
-  payload = { ...response.data, count: res };
+  payload = { ...response.data, count: res,page:pageNumber };
 }catch(e){
 
   }
   return {
     type: "ESERVICES",
+    payload,
+  };
+}
+export async function clearEServices() {
+  let payload ;
+  return {
+    type: "CLEAR_ESERVICES",
     payload,
   };
 }
