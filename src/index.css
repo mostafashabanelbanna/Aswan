@@ -11,6 +11,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+a {
+  text-decoration: none !important;
+}
 .custom_contanier {
   margin: 0 auto;
   width: 90%;
@@ -157,7 +160,6 @@ body {
 
 .hovering:hover {
   transform: scale(1.05);
-  
 }
 
 .fc .fc-daygrid-day-number {
@@ -312,13 +314,13 @@ body {
   }
 }
 
-.hoverTitle{
+.hoverTitle {
   -moz-transition: all 0.7s ease-in-out;
   -webkit-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
 }
 
-.hoverTitle:hover{
+.hoverTitle:hover {
   color: blue;
   transform: translateY(-10px);
 }

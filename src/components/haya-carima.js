@@ -35,8 +35,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/1.png"}
                     />
                     <div className="mt-4 mb-1 ">
-                      {" "}
-                      محور البنية الأساسية و المرافق{" "}
+                      محور البنية الأساسية و المرافق
                     </div>
                   </div>
                 </div>

@@ -23,6 +23,28 @@ export async function mainNews() {
   };
 }
 
+
+export async function newsdetails(newsId) {
+  let payload = null;
+  try {
+    let response = await axios.get("/NewsAPI/Details/"+newsId);
+    payload = response.data;
+  } catch (error) {}
+  return {
+    type: "NEWS_DETAILS",
+    payload,
+  };
+}
+
+export async function clearNewsdetails() {
+  let payload ;
+
+  return {
+    type: "CLEAR_NEWS_DETAILS",
+    payload,
+  };
+}
+
 export async function sliderVideo() {
   let payload = null;
   try {
