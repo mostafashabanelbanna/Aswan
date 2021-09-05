@@ -121,15 +121,15 @@ const GovernmentProjects = (props) => {
                           </p>
                           <div className="projectsButtons">
                             <Link to={`/projectDetails/${project.id}`}>
-                            <button
-                              className="myButton mx-1 mb-2 mb-sm-0"
-                              // onClick={() => {
-                              //   props.history.push(
-                              //     `/projectDetails/${project.id}`
-                              //   );
-                              // }}
-                              style={{ verticalAlign: "middle" }}
-                            >
+                              <button
+                                className="myButton mx-1 mb-2 mb-sm-0"
+                                // onClick={() => {
+                                //   props.history.push(
+                                //     `/projectDetails/${project.id}`
+                                //   );
+                                // }}
+                                style={{ verticalAlign: "middle" }}
+                              >
                               <span>عرض التفاصيل</span>
                             </button>
                             </Link>
