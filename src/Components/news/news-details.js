@@ -1,17 +1,20 @@
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import ReactHtmlParser from "react-html-parser";
-import { newsdetails, clearNewsdetails } from '../store/actions/News_Action'
+import { newsdetails, clearNewsdetails } from '../../store/actions/News_Action'
+import {paths} from '../../paths/paths'
+
+
+
 const NewsDetails = (props) => {
     const id = props.match.params.id;
     useEffect(() => {
         props.newsdetails(id)
     }, []);
+
     if (props.newsdetail)
         return (
             <div>
@@ -25,14 +28,11 @@ const NewsDetails = (props) => {
                
                 <div className=" container p-0">
                     <div className="d-flex flex-column flex-md-row justify-content-center ">
-                        <div className="col-md-8 p-3 col-12 lh-lg  order-md-0 order-1">،" َّ تبدأ السعودية، اعتبار من اليوم احد، تطبيق قيود صارمة على حركة غير المطعمين بلقاح "كورونا
-                            ،إذ تفرض السلطات إلزامية التحصين المعتمد من وزارة الصحة بأحد اللقاحات المضادة لفيروس كورونا
-                            لدخول جميع اماكن العامة، والفعاليات، والمنشآت الحكومية والخاصة، واستخدام وسائل النقل العام
-                            .في المملكة
-                            َّ وأكدت وزارة الداخلية السعودية، في بيان على بدء إلزامية التحصين المعتمد من وزارة الصحة اعتبار
-                            .من اليوم احد، في جميع مناطق المملكة</div>
+                        <div className="col-md-8 p-3 col-12 lh-lg  order-md-0 order-1">
+                            {ReactHtmlParser(props.newsdetail.result.content)}</div>
                         <div className="col-md-4 p-3 col-12">
-.                        </div>
+                            <img className='w-100' src={paths.NewsPhotos + props.newsdetail.result.id + '/'+'تطعيم العاملين بالمنشآت الحكومية والجمعيات الأهلية بلقاح كورونا في أسوان.jpg' } />
+                       </div>
                     </div>
                 </div>
                 <Link to={'/newslist'} className="justify-content-center text-decoration-none align-items-center d-flex my-4">

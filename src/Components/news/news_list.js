@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { newsList, clearNewsList } from "../store/actions/News_Action";
+import { newsList, clearNewsList } from "../../store/actions/News_Action";
 import ReactPaginate from "react-paginate";
-import { paths } from "../paths/paths";
+import { paths } from "../../paths/paths";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ListWithImage from "./ui/list-with-image";
+import ListWithImage from "../ui/list-with-image";
 
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
