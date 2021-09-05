@@ -86,12 +86,12 @@ const ImportantPortals = (props) => {
                 <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
               </div>
             </div>
-            <div className="portalsBorder mt-4 p-5 p-md-3 justify-content-center">
+            <div className="portalsBorder mt-4 p-5 p-md-4 justify-content-center">
               <Slider {...settings}>
                 {portals.result.map((photo, index) => {
                   return (
                     <div
-                      className="d-flex flex-column ms-md-0 circular-image hovering"
+                      className="d-flex flex-column ms-md-0 circular-image hvr-shrink"
                       key={photo.id}
                     >
                       <a

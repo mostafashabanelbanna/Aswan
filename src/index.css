@@ -149,10 +149,14 @@ body {
 .hovering {
   padding: 10px;
   cursor: pointer;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .hovering:hover {
   transform: scale(1.05);
+  
 }
 
 .fc .fc-daygrid-day-number {
@@ -305,4 +309,15 @@ body {
   .haya_carima_bg_logo {
     left: 0;
   }
+}
+
+.hoverTitle{
+  -moz-transition: all 0.7s ease-in-out;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.hoverTitle:hover{
+  color: blue;
+  transform: translateY(-10px);
 }

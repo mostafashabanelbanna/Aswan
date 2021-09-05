@@ -19,7 +19,6 @@ const AppRouting = () => {
                 <Route exact path='/eservices' component={EServices}></Route>
                 <Route exact path='/tourist' component={TouristHome}></Route>
                 <Route path='*' component={Error} />
-                
             </Switch>
         </BrowserRouter>
     )
