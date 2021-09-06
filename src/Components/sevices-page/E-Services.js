@@ -14,7 +14,7 @@ const EServices = (props) => {
     setCurrentPage(selectedPage);
     
   };
-
+  // #e0c36a
   useEffect(() => {
     props.getEServices(currentPage + 1);
   }, [currentPage]);
@@ -57,11 +57,12 @@ const EServices = (props) => {
           {props.services.result.map((item, index) => {
             return (
               <div
-                className="text-center my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-4  bg-light"
+                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
                 key={item.id}
+                style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
                 <div className="justify-content-end d-flex my-2 text-muted">
-                  {item.name}
+                  <span className="py-1 px-2 rounded-3" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
                 </div>
 
                 <div className=" justify-content-start d-flex my-2">
