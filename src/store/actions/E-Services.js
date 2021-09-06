@@ -1,6 +1,6 @@
 import axios from "../../Axios/Axios_Config";
 
-export async function getEServices(pageNumber, pageSize = 9, keywords = {}) {
+export async function getEServices(pageNumber, keywords = {},pageSize = 9) {
   let payload = null;
   try{let response = await axios.post(
     "/ServiceAPI/Search/" + pageNumber + "/" + pageSize,

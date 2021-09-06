@@ -8,6 +8,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import {} from "../../Styles/EServices.css";
 const EServices = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [keyword, setKeyword] = useState(null);
   let pageCount;
 
   const handlePageClick = ({ selected: selectedPage }) => {
@@ -16,7 +17,7 @@ const EServices = (props) => {
   };
   // #e0c36a
   useEffect(() => {
-    props.getEServices(currentPage + 1);
+   keyword==null? props.getEServices(currentPage + 1):props.getEServices(currentPage + 1,{'name':keyword});
   }, [currentPage]);
 
   if (props.services) {
@@ -29,6 +30,9 @@ const EServices = (props) => {
         <div className=" container my-4 d-flex flex-column flex-md-row justify-content-end align-items-center">
           <div class="form-group col-lg-2 col-md-4 col-6">
             <input
+            onChange={(e)=>{
+              setKeyword( e.target.value)
+            }}
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
@@ -48,7 +52,9 @@ const EServices = (props) => {
           </div>
           <div className="d-flex justify-content-center col-lg-1">
             {" "}
-            <button type="submit" class="btn btn-secondary">
+            <button onClick={()=>{
+              props.getEServices(currentPage+1 , {"name": keyword});
+            }} type="submit" class="btn btn-secondary">
               بحث
             </button>
           </div>
