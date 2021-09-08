@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { feedBackApi } from "../store/actions/News_Action";
+import { feedBackApi } from '../../store/actions/News_Action'
 import Alert from "react-bootstrap/Alert";
-import MyModal from "./modal";
+import MyModal from "../modal";
 
 const Contact = () => {
   const [email, setEmail] = useState("");

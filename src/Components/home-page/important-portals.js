@@ -1,10 +1,10 @@
 import Slider from "react-slick";
 import { useEffect } from "react";
-import { getAllPortals } from "../store/actions/important-portals-actions";
+import { getAllPortals } from "../../store/actions/important-portals-actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { paths } from "../paths/paths";
-import "../Styles/important-portals-style.css";
+import { paths } from "../../paths/paths";
+import "../../Styles/important-portals-style.css";
 
 const ImportantPortals = (props) => {
   useEffect(() => {

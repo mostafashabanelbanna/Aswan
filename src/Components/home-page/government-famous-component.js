@@ -3,10 +3,10 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllFamousPeople } from "../store/actions/government-famous-actions";
+import { getAllFamousPeople } from "../../store/actions/government-famous-actions";
 import Slider from "react-slick";
-import "../Styles/government-famous-style.css";
-import { paths } from "../paths/paths";
+import "../../Styles/government-famous-style.css";
+import { paths } from "../../paths/paths";
 
 const GovernmentFamous = (props) => {
   console.log(props);

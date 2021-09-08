@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllPhotos } from "../store/actions/photos-album-actions";
+import { getAllPhotos } from "../../store/actions/photos-album-actions";
 import { useEffect } from "react";
-import { paths } from "../paths/paths";
-import "../Styles/photo-album-style.css";
+import { paths } from "../../paths/paths";
+import "../../Styles/photo-album-style.css";
 
 const PhotosAlbum = (props) => {
   useEffect(() => {

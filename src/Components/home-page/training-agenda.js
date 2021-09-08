@@ -6,7 +6,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import Fade from "react-reveal/Fade";
 
-import "../Styles/training-agenda.css";
+import "../../Styles/training-agenda.css";
 
 const TrainingAgenda = () => {
   const [message, setMessage] = useState();

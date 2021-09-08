@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import HomeComponent from './components/home-component'
+import HomeComponent from './components/home-page/home-component'
 import Error  from './components/errorPage'
-import ProjectDetails from './components/government-projects/project-details-component'
-import NewsDetails from './components/news/news-details'
+import ProjectDetails from './components/home-page/government-projects/project-details-component'
+import NewsDetails from './components/home-page/news/news-details'
 import Main_navbar from './main-navbar'
 import TouristHome from './components/tourist-home/tourist-home-page'
 import EServices from './components/sevices-page/E-Services'
-import news_list from './components/news/news_list'
+import news_list from './components/home-page/news/news_list'
 const AppRouting = () => {
     return (
         <BrowserRouter>

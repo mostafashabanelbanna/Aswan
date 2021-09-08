@@ -1,4 +1,4 @@
-import "../Styles/local-leaders-style.css";
+import "../../Styles/local-leaders-style.css";
 
 const LocalLeaders = (props) => {
   return (

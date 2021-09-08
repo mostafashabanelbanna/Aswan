@@ -2,12 +2,12 @@ import React from "react";
 
 import { Carousel } from "react-bootstrap";
 
-import fiela from "../assets/main-slider/fiela.png";
-import gw from "../assets/main-slider/gw.jpg";
-import kom_ombo from "../assets/main-slider/kom_ombo.jpg";
-import Elephantine_island from "../assets/main-slider/Elephantine_island.jpg";
+import fiela from "../../assets/main-slider/fiela.png";
+import gw from "../../assets/main-slider/gw.jpg";
+import kom_ombo from "../../assets/main-slider/kom_ombo.jpg";
+import Elephantine_island from "../../assets/main-slider/Elephantine_island.jpg";
 
-import "../Styles/navbar.css";
+import "../../Styles/navbar.css";
 const MainSlider = () => {
   return (
     <div className="mainSlider" style={{ height: "80vh" }}>

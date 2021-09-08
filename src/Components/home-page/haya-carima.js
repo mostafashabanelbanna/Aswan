@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/img/haya_karima_logo.jpg";
+import logo from "../../assets/img/haya_karima_logo.jpg";
 
 const HayahKarima = () => {
   return (

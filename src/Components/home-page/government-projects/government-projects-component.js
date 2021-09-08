@@ -1,14 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllProjects } from "../../store/actions/government-projects-actions";
-import { paths } from "../../paths/paths";
+import { getAllProjects } from "../../../store/actions/government-projects-actions";
+import { paths } from "../../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
 import React from "react";
 import RBCarousel from "react-bootstrap-carousel";
 import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-import "../../Styles/government-projects-style.css";
+import "../../../Styles/government-projects-style.css";
 import {Link } from "react-router-dom";
 
 const styles = { height: 400, width: "100%" };
