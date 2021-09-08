@@ -67,15 +67,39 @@ export async function complaints() {
     payload,
   };
 }
+export async function getNewsCatrgory(){
+  let payload = null
+  try{
+    let res = await axios.get('/LookUpAPI/GetAllNewsCategory');
+    payload = res.data
+  }catch(e){}
+  return {
+    type:"NEWS_CATEGORY",
+    payload
+  }
+}
 
-export async function newsList(pageNumber, pageSize = 9, keywords = {}) {
+export async function getNewsSectors(){
+  let payload = null
+  try{
+    let res = await axios.get('/LookUpAPI/GetAllSector');
+    payload = res.data
+  }catch(e){}
+  return {
+    type:"NEWS_SECTORS",
+    payload
+  }
+}
+
+export async function newsList(pageNumber,  keywords = {}  , pageSize = 9) {
   let payload = null;
+  console.log(keywords)
   try{let response = await axios.post(
     "/NewsAPI/Search/" + pageNumber + "/" + pageSize,
-    keywords
+    keywords,
   );
   let countResponse = await axios.post("/NewsAPI/GetResultCount", keywords);
-
+    console.log(response)
   let res = countResponse.data.result;
   payload = { ...response.data, count: res };
 }catch(e){

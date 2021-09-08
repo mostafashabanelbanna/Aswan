@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux'
 import ReactHtmlParser from "react-html-parser";
 import { newsdetails, clearNewsdetails } from '../../store/actions/News_Action'
 import {paths} from '../../paths/paths'
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPen , faCalendar} from "@fortawesome/free-solid-svg-icons"
 
 const NewsDetails = (props) => {
     const id = props.match.params.id;
@@ -19,17 +19,21 @@ const NewsDetails = (props) => {
         return (
             <div>
                 <div className="underline container mt-5"><h3>{props.newsdetail.result.title}</h3></div>
-                <div className="container d-flex justify-content-between">
-                    <div className="col-7  text-center text-muted d-flex justify-content-between align-items-end  fa-1x  ">
-                        <div> 
-                         تاريخ :     {props.newsdetail.result.publishDate} 
-                        </div>
+                <div className="container d-flex justify-content-between mt-4">
+                    <div className="col-7   text-muted align-items-end  fa-1x  ">
 
+                        <div className='d-flex '>
+                            <div className="mx-3"><FontAwesomeIcon icon={faPen} size={26} ></FontAwesomeIcon></div>
+                      <div>   {props.newsdetail.result.author}</div>
+                        </div>
+                        <div className='d-flex '> 
+                        <div className="mx-3"> <FontAwesomeIcon icon={faCalendar} size={26}></FontAwesomeIcon> </div>
                         <div>
-                        الكاتب : {props.newsdetail.result.author}
+                            {props.newsdetail.result.publishDate} 
+                            </div>
                         </div>
                     </div>
-                    <div className=" text-center text-muted   fa-1x py-3  detailsSectorName">
+                    <div className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName">
                         {ReactHtmlParser(props.newsdetail.result.sectorName)}
                     </div>
                 </div>

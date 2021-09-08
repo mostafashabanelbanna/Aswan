@@ -40,6 +40,10 @@ export function homeComponents(state = {}, action) {
         return { ...state, newsdetails: action.payload }
         case 'NEWS_DETAILS':
         return { ...state, newsdetails: action.payload }
+        case 'NEWS_CATEGORY':
+        return { ...state, categories: action.payload }
+        case 'NEWS_SECTORS':
+        return { ...state, sectors: action.payload }
         
     default:
       return state;

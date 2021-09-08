@@ -1,4 +1,7 @@
 #newscontent p span span {
     line-height: normal;
-
 }
+
+.pickerborder .MuiFormControl-root{
+     border-bottom:  1px rgb(0 0 0 / 42%) solid;
+ }
