@@ -4,10 +4,10 @@ import { bindActionCreators } from "redux";
 import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType} from "../../store/actions/E-Services";
 import ReactPaginate from "react-paginate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faCity, faUserTie, faPhoneAlt, faMapMarkerAlt, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faCity, faUserTie, faPhoneAlt, faMapMarkerAlt, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import {} from "../../Styles/EServices.css";
-import GuidesSearchSection from "../ui/government-guides-section";
 import { Col, Container, Row } from "react-bootstrap";
+import SearchSection from "../ui/search-section";
 
 
 const EServices = (props) => {
@@ -82,10 +82,10 @@ const EServices = (props) => {
   // }, [currentPage]);
 
   if (props.services) {
-    let cityIdName = props.cities.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
+    let cityName = props.cities.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
     let dirCatVal = props.directoryCategories.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
     let dirTypeVal = props.directoryTypes.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
-    cityIdName.unshift({ value: null, label: "كل المدن" })
+    cityName.unshift({ value: null, label: "كل المدن" })
     dirCatVal.unshift({ value: null, label: "كل التصنيفات" })
     dirTypeVal.unshift({ value: null, label: "كل الأنواع" })
     pageCount = Math.ceil(props.services.count / 9);
@@ -98,19 +98,24 @@ const EServices = (props) => {
             <h3>ادلة المحافظة</h3>
           </div>
           <div className=" bg-light p-3">
-            <GuidesSearchSection 
+            <SearchSection
             submit={submitHandler}
-            nameHandler={nameHandler}
-            mangerHandler={mangerHandler}
-            cityIdVal={cityIdName.find(e => e.value == cityId)}
-            cityIdHandler={cityIdHandler}
-            cityIdName={cityIdName}
-            dirCatVal={dirCatVal.find(e => e.value == directoryCategoryId)}
-            dirCatHandler={directoryCategoryHandler}
-            dirCatName={dirCatVal}
-            dirTypeVal={dirTypeVal.find(e => e.value == directoryTypeId)}
-            dirTypeHandler={directoryTypeHandler}
-            dirTypeName={dirTypeVal}
+            TextFieldOneHandler={nameHandler}
+            labelTextFieldOne='الاسم'
+            TextFieldTwoHandler={mangerHandler}
+            labelTextFieldTwo= 'المدير'
+            dropdownThreeVal={cityName.find(e => e.value == cityId)}
+            dropdownThreeHandler={cityIdHandler}
+            dropdownThreePlaceholder='المدينة'
+            dropdownThreeName={cityName}
+            dropdownTwoVal={dirCatVal.find(e => e.value == directoryCategoryId)}
+            dropdownTwoHandler={directoryCategoryHandler}
+            dropdownTwoPlaceholder='كل التصنيفات'
+            dropdownTwoName={dirCatVal}
+            dropdownOneVal={dirTypeVal.find(e => e.value == directoryTypeId)}
+            dropdownOneHandler={directoryTypeHandler}
+            dropdownOnePlaceholder='كل الأنواع'
+            dropdownOneName={dirTypeVal}
             />
           </div>
         </Container>
@@ -130,7 +135,7 @@ const EServices = (props) => {
                   <span className="py-1 px-2 rounded-3" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
                 </div>
 
-                <div className="d-flex">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -141,12 +146,12 @@ const EServices = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      {item.address}
+                      {item.address == null? item.cityName:item.address}
                     </a>
                   </div>
                 </div>
 
-                <div className="d-flex">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -162,7 +167,7 @@ const EServices = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -178,7 +183,7 @@ const EServices = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -194,7 +199,24 @@ const EServices = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex">
+                {item.manger?<div className="d-flex my-3">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faBriefcase}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      {item.manager}
+                    </a>
+                  </div>
+                </div>:<div className="d-none"></div>
+                }
+
+                {item.mapUrl?<div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -205,26 +227,11 @@ const EServices = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      الرابط
+                      {item.mapUrl}
                     </a>
                   </div>
-                </div>
-
-                <div className="d-flex">
-                  <div className="mx-2">
-                    {" "}
-                    <FontAwesomeIcon
-                      icon={faTrophy}
-                      size={"x2"}
-                    ></FontAwesomeIcon>
-                  </div>
-                  <div className="mx-2">
-                    {" "}
-                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      الرابط
-                    </a>
-                  </div>
-                </div>
+                </div>:<div className="d-none"></div>
+                }     
               </div>
             );
           })}
