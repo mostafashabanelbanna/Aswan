@@ -21,8 +21,8 @@ function App() {
       <StylesProvider jss={jss}>
         <ThemeProvider theme={theme}>
           <AppRouting />
-    </ThemeProvider>
-    </StylesProvider>
+        </ThemeProvider>
+      </StylesProvider>
     </Provider>
   );
 }

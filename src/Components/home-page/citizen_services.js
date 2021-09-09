@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
@@ -29,8 +30,9 @@ const CitizenServices = () => {
               className="col-lg-6 col-md-9 col-12  bg-light py-4"
               style={{ zIndex: 1 }}
             >
-              <div className="row justify-content-center py-3 text-center">
-                <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+              <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">
+                <Link to='/eservices' className="text-decoration-none text-muted">
+                <div className="mb-4 col-md-3 col-sm-6 col-12 hvr-underline-from-center ">
                   <img
                     style={{ width: 100 }}
                     className="px-4"
@@ -38,7 +40,10 @@ const CitizenServices = () => {
                   />
                   <div className="mt-4 mb-1 "> ادلة المحافظة </div>
                 </div>
-                <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                </Link>
+
+                <Link to='/eservices' className="text-decoration-none text-muted">
+                <div className="mb-4 col-md-3 col-sm-6 col-12 hvr-underline-from-center ">
                   <img
                     style={{ width: 100 }}
                     className="px-4"
@@ -46,6 +51,8 @@ const CitizenServices = () => {
                   />
                   <div className="mt-4 mb-1 "> دليل الخدمات الالكترونية </div>
                 </div>
+                </Link>
+
                 <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
                   <img
                     style={{ width: 100 }}
