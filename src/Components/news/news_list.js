@@ -14,13 +14,13 @@ import PaginationSection from "../ui/pagination-section";
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
-  const [sector, setSector] = useState(null);
+  const [sectorSourceId, setSectorSourceId] = useState(null);
   const [flag, setFlag] = useState(0);
   const [newsCategoryId, setNewsCategoryId] = useState(null);
   const [publishDateFrom, setPublishDateFrom] = useState(null);
   const [publishDateTo, setPublishDateTo] = useState(null);
 
-  let dataFilled = { title, publishDateFrom, sector, publishDateTo, newsCategoryId }
+  let dataFilled = { title, publishDateFrom, sectorSourceId, publishDateTo, newsCategoryId }
   let pageCount;
 
   const submitHandler = (e) => {
@@ -35,7 +35,7 @@ const NewsList = (props) => {
   }
 
   const catHandler = (e) => { setNewsCategoryId(e.value) }
-  const sectorHandler = (e) => { setSector(e.value) }
+  const sectorHandler = (e) => { setSectorSourceId(e.value) }
  const publishFromHandler =  (dateChanged) => setPublishDateFrom(moment(new Date(dateChanged._d).toLocaleDateString(), "MM-DD-YYYY").format('YYYY-MM-DD').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
  const publishToHandler =(dateChanged) => setPublishDateTo(moment(new Date(dateChanged._d).toLocaleDateString(), "MM-DD-YYYY").format('YYYY-MM-DD').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))) 
  function check(a) {
@@ -98,7 +98,7 @@ const NewsList = (props) => {
             catVal={catName.find(e => e.value == newsCategoryId)}
             catHandler={catHandler}
             catName={catName}
-            sectorVal={sectorsName.find(e => e.value == sector)}
+            sectorVal={sectorsName.find(e => e.value == sectorSourceId)}
             sectorHandler={sectorHandler}
             sectorsName={sectorsName}
             publishDateFrom={publishDateFrom}
