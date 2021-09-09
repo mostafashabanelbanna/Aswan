@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../Styles/news.css";
+import "../../../Styles/news.css";
 import {
   faChevronRight,
   faChevronLeft,
@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { mainNews, sliderNews } from "../../store/actions/News_Action";
+import { mainNews, sliderNews } from "../../../store/actions/News_Action";
 import ReactHtmlParser from "react-html-parser";
-import { paths } from "../../paths/paths";
+import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
 
 const News = (props) => {

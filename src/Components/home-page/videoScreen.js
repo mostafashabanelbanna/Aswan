@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { sliderVideo } from "../store/actions/News_Action";
+import { sliderVideo } from "../../store/actions/News_Action";
 const Video = (props) => {
   useEffect(() => {
     props.sliderVideo();

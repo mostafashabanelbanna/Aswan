@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import {
   getProjectDetails,
   clearData,
-} from "../../store/actions/government-projects-actions";
+} from "../../../store/actions/government-projects-actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
-import { paths } from "../../paths/paths";
+import { paths } from "../../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
-import "../../Styles/government-projects-style.css";
-import "../../Styles/photo-album-style.css";
+import "../../../Styles/government-projects-style.css";
+import "../../../Styles/photo-album-style.css";
 
-import SliderDetailsModalComponent from "../slider-details-modal-component";
+import SliderDetailsModalComponent from "../../slider-details-modal-component";
 
-import OnePieaceSkeleton from '../loading-skeleton/one-pieace'
+import OnePieaceSkeleton from '../../loading-skeleton/one-pieace'
 
 const ProjectDetails = (props) => {
   useEffect(() => {

@@ -6,14 +6,14 @@ import News from "./news/newsScreen";
 import Video from "./videoScreen";
 import Complaints from "./complaints-screen";
 import Contact from "./contact_us";
-import Footer from "./footer";
+import Footer from "../footer";
 import MainSlider from "./main-slider";
 import InfoNews from "./info_and_news";
 import CitizenServices from "./citizen_services";
 import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
 import TrainingAgenda from "./training-agenda";
-import BgAttachment from "./bg-attachment";
+import BgAttachment from "../bg-attachment";
 import HayahKarima from "./haya-carima";
 class HomeComponent extends Component {
   constructor(props) {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { complaints } from "../store/actions/News_Action";
-import { paths } from "../paths/paths";
+import { complaints } from '../../store/actions/News_Action'
+import { paths } from "../../paths/paths";
 
 const Complaints = (props) => {
   useEffect(() => {
