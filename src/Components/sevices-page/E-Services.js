@@ -1,64 +1,119 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServices ,clearEServices} from "../../store/actions/E-Services";
+import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType} from "../../store/actions/E-Services";
 import ReactPaginate from "react-paginate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faCity, faUserTie, faPhoneAlt, faMapMarkerAlt, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import {} from "../../Styles/EServices.css";
+import GuidesSearchSection from "../ui/government-guides-section";
+import { Col, Container, Row } from "react-bootstrap";
+
+
 const EServices = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [keyword, setKeyword] = useState(null);
+  const [flag, setFlag] = useState(0);
+  const [name, setName] = useState(null);
+  const [manger, setManger] = useState(null);
+  const [directoryTypeId, setDirectoryTypeId] = useState(null);
+  const [directoryCategoryId, setDirectoryCategoryId] = useState(null);
+  const [cityId, setCityId] = useState(null);
+
+  let dataFilled = { name, manger, directoryTypeId, directoryCategoryId, cityId }
   let pageCount;
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    props.getEServices(currentPage + 1, data(dataFilled))
+    setFlag(1)
+    setCurrentPage(0);
+  }
+
+  const nameHandler = (e) => {setName(e.target.value);}
+  const mangerHandler = (e) => {setManger(e.target.value);}
+  const directoryTypeHandler = (e) => {setDirectoryTypeId(e.value);}
+  const directoryCategoryHandler = (e) => {setDirectoryCategoryId(e.value);}
+  const cityIdHandler = (e) => {setCityId(e.value);}
+
+  function check(a) {
+    let flag = 0;
+    for (let property in a) {
+      if (a[property] != null) {
+        flag = 1
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function data(a) {
+    for (let property in a) {
+      if (a[property] == null)
+        delete a[property];
+
+    }
+    return a;
+  }
+
   const handlePageClick = ({ selected: selectedPage }) => {
-    setCurrentPage(selectedPage);
-    
+    props.clearEServices();
+    setCurrentPage(selectedPage)
   };
-  // #e0c36a
+
   useEffect(() => {
-   keyword==null? props.getEServices(currentPage + 1):props.getEServices(currentPage + 1,{'name':keyword});
+    if (flag)
+      check(dataFilled) == false ? props.getEServices(currentPage + 1) : props.getEServices(currentPage + 1, data(dataFilled));
+    else
+      props.getEServices(currentPage + 1)
+
+    if (!props.cities)
+      props.getAllCities();
+
+    if (!props.directoryCategories)
+      props.getAllDirectoryCategory();
+
+    if (!props.directoryTypeIds)
+      props.getAllDirectoryType();
   }, [currentPage]);
 
+  // #e0c36a
+  // useEffect(() => {
+  //  keyword==null? props.getEServices(currentPage + 1):props.getEServices(currentPage + 1,{'name':keyword});
+  // }, [currentPage]);
+
   if (props.services) {
-    
+    let cityIdName = props.cities.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
+    let dirCatVal = props.directoryCategories.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
+    let dirTypeVal = props.directoryTypes.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
+    cityIdName.unshift({ value: null, label: "كل المدن" })
+    dirCatVal.unshift({ value: null, label: "كل التصنيفات" })
+    dirTypeVal.unshift({ value: null, label: "كل الأنواع" })
     pageCount = Math.ceil(props.services.count / 9);
-    console.log(props.services)
+    console.log("hiii",props.services)
     if(props.services.page==currentPage+1){
     return (
-      <div>
-        <div className=" container my-4 d-flex flex-column flex-md-row justify-content-end align-items-center">
-          <div class="form-group col-lg-2 col-md-4 col-6">
-            <input
-            onChange={(e)=>{
-              setKeyword( e.target.value)
-            }}
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="كلمات البحث مثل مدارس"
+      <>
+        <Container fluid>
+          <div className=" container underline  my-4">
+            <h3>ادلة المحافظة</h3>
+          </div>
+          <div className=" bg-light p-3">
+            <GuidesSearchSection 
+            submit={submitHandler}
+            nameHandler={nameHandler}
+            mangerHandler={mangerHandler}
+            cityIdVal={cityIdName.find(e => e.value == cityId)}
+            cityIdHandler={cityIdHandler}
+            cityIdName={cityIdName}
+            dirCatVal={dirCatVal.find(e => e.value == directoryCategoryId)}
+            dirCatHandler={directoryCategoryHandler}
+            dirCatName={dirCatVal}
+            dirTypeVal={dirTypeVal.find(e => e.value == directoryTypeId)}
+            dirTypeHandler={directoryTypeHandler}
+            dirTypeName={dirTypeVal}
             />
           </div>
-          <div class="form-group col-lg-1 col-md-3 col-4 mx-2 my-2">
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option selected disabled>
-                اختر
-              </option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div className="d-flex justify-content-center col-lg-1">
-            {" "}
-            <button onClick={()=>{
-              props.getEServices(currentPage+1 , {"name": keyword});
-            }} type="submit" class="btn btn-secondary">
-              بحث
-            </button>
-          </div>
-        </div>
+        </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.services.result.map((item, index) => {
             return (
@@ -67,13 +122,78 @@ const EServices = (props) => {
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-end d-flex my-2 text-muted">
+                <div className="justify-content-start d-flex my-2 text-muted">
+                  <span className="py-1 px-2 fa-1x">{item.directoryTypeName}-{item.directoryCategoryName}</span>
+                </div>
+
+                <div className="justify-content-center d-flex my-2 text-muted">
                   <span className="py-1 px-2 rounded-3" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
                 </div>
 
-                <div className=" justify-content-start d-flex my-2">
-                  {item.serviceCategoryName}
+                <div className="d-flex">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faCity}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      {item.address}
+                    </a>
+                  </div>
                 </div>
+
+                <div className="d-flex">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faUserTie}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      {item.name}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="d-flex">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faPhoneAlt}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      {item.telephone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="d-flex">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faMapMarkerAlt}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      {item.cityName}
+                    </a>
+                  </div>
+                </div>
+
                 <div className="d-flex">
                   <div className="mx-2">
                     {" "}
@@ -89,10 +209,27 @@ const EServices = (props) => {
                     </a>
                   </div>
                 </div>
+
+                <div className="d-flex">
+                  <div className="mx-2">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faTrophy}
+                      size={"x2"}
+                    ></FontAwesomeIcon>
+                  </div>
+                  <div className="mx-2">
+                    {" "}
+                    <a style={{ textDecoration: "none", cursor: "pointer" }}>
+                      الرابط
+                    </a>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
+        {props.services.result.length?
         <div className=" justify-content-center d-flex">
           <ReactPaginate
             previousLabel={"<<"}
@@ -108,8 +245,9 @@ const EServices = (props) => {
             disabledClassName={"pagination__link--disabled"}
             activeClassName={"pagination__link--active"}
           />
-        </div>
-      </div>
+        </div>:<div className="text-center mt-5">لا يوجد نتائج</div>
+    }
+      </>
     );}
     else{
       return <div> Loading Two </div>
@@ -118,10 +256,15 @@ const EServices = (props) => {
   return <div>Loading</div>;
 };
 const mapStateToProps = (state) => {
-  return { services: state.EServicesComponents.allServices };
+  return { 
+    services: state.EServicesComponents.allServices,
+    cities: state.EServicesComponents.allCities,
+    directoryCategories: state.EServicesComponents.allDirectoryCategories,
+    directoryTypes: state.EServicesComponents.allDirectoryTypes
+  };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getEServices,clearEServices }, dispatch);
+  return bindActionCreators({ getEServices,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EServices);

@@ -67,7 +67,7 @@ export async function complaints() {
     payload,
   };
 }
-export async function getNewsCatrgory(){
+export async function getNewsCategory(){
   let payload = null
   try{
     let res = await axios.get('/LookUpAPI/GetAllNewsCategory');

@@ -11,20 +11,26 @@ const SearchSection = (props) => {
         <div className='container'>
             <form onSubmit={props.submit}>
                 <div className='row align-items-center'>
-                    <div class="form-group col-4 mb-4">
-                        <TextField onChange={props.titleHandler} className='w-100' id="standard-basic" label="العنوان" />
-                    </div>
+                   {    !props.TextFieldOne? <div class="form-group col-4 mb-4">
+                        <TextField onChange={props.TextFieldOneHandler} className='w-100' id="standard-basic" label="العنوان" />
+                    </div>:<div className="d-none"></div>}
 
+                    {    props.TextFieldTwo? <div class="form-group col-4 mb-4">
+                        <TextField onChange={props.TextFieldTwoHandler} className='w-100' id="standard-basic" label="العنوان" />
+                    </div>:<div className='d-none'></div>}
 
-                    <div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
-                        <Select value={props.catVal} onChange={props.catHandler} placeholder='القسم' options={props.catName} />
+                    {props.dropdownOneHandler?<div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
+                        <Select value={props.dropdownOneVal} onChange={props.dropdownOneHandler} placeholder={props.dropdownOnePlaceholder} options={props.dropdownOneName} />
+                    </div>:<div className='d-none'></div>}
 
-                    </div>
-                    <div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
-                        <Select value={props.sectorVal} onChange={props.sectorHandler} placeholder='قطاع' options={props.sectorsName} />
-                    </div>
-                    <div className=' d-flex  my-3'>
-                        <div className='  col-3'>
+                    {props.dropdownTwoHandler?<div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
+                        <Select value={props.dropdownTwoVal} onChange={props.dropdownTwoHandler} placeholder={props.dropdownTwoPlaceholder} options={props.dropdownTwoName} />
+                    </div>:<div className='d-none'></div>}
+
+                    {props.dropdownThreeHandler?<div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
+                        <Select value={props.dropdownThreeVal} onChange={props.dropdownThreeHandler} placeholder={props.dropdownThreePlaceholder} options={props.dropdownThreeName} />
+                    </div>:<div className='d-none'></div>}
+                        {props.publishFromHandler?<div className='col-3'>
                             <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils} locale={"sw"} >
                                 <KeyboardDatePicker
                                     format="L"
@@ -37,8 +43,8 @@ const SearchSection = (props) => {
                                     views={["year", "month", "date"]}
                                 />
                             </MuiPickersUtilsProvider>
-                        </div>
-                        <div className='  col-4'>
+                        </div>:<div className='d-none'></div>}
+                       {props.publishToHandler? <div className='  col-4'>
                             <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils} locale={"sw"} >
                                 <KeyboardDatePicker
                                     format="L"
@@ -51,8 +57,7 @@ const SearchSection = (props) => {
                                     views={["year", "month", "date"]}
                                 />
                             </MuiPickersUtilsProvider>
-                        </div>
-                    </div>
+                        </div>:<div className='d-none'></div>}
                     <div className=" d-flex justify-content-end">
                         {" "}
                         <button type={'submit'}

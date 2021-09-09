@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux'
 import ReactHtmlParser from "react-html-parser";
 import { newsdetails, clearNewsdetails } from '../../../store/actions/News_Action'
 import {paths} from '../../../paths/paths'
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPen , faCalendar} from "@fortawesome/free-solid-svg-icons"
 
 const NewsDetails = (props) => {
     const id = props.match.params.id;
@@ -19,11 +19,25 @@ const NewsDetails = (props) => {
         return (
             <div>
                 <div className="underline container mt-5"><h3>{props.newsdetail.result.title}</h3></div>
-                <div className="container d-flex justify-content-end">
-                    <div className=" text-center text-muted   fa-1x py-3  detailsSectorName">
+                <div className="container d-flex justify-content-between mt-4">
+                    <div className="col-7   text-muted align-items-end  fa-1x  ">
+
+                        <div className='d-flex '>
+                            <div className="mx-3"><FontAwesomeIcon icon={faPen} size={26} ></FontAwesomeIcon></div>
+                      <div>   {props.newsdetail.result.author}</div>
+                        </div>
+                        <div className='d-flex '> 
+                        <div className="mx-3"> <FontAwesomeIcon icon={faCalendar} size={26}></FontAwesomeIcon> </div>
+                        <div>
+                            {props.newsdetail.result.publishDate} 
+                            </div>
+                        </div>
+                    </div>
+                    <div className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName">
                         {ReactHtmlParser(props.newsdetail.result.sectorName)}
                     </div>
                 </div>
+
                 <hr className='container my-2'></hr>
                
                 <div className=" container p-0">
@@ -31,7 +45,7 @@ const NewsDetails = (props) => {
                         <div className="col-md-8 p-3 col-12 lh-lg  order-md-0 order-1">
                             {ReactHtmlParser(props.newsdetail.result.content)}</div>
                         <div className="col-md-4 p-3 col-12">
-                            <img className='w-100' src={paths.NewsPhotos + props.newsdetail.result.id + '/'+'تطعيم العاملين بالمنشآت الحكومية والجمعيات الأهلية بلقاح كورونا في أسوان.jpg' } />
+                            <img className='w-100' src={paths.NewsPhotos + props.newsdetail.result.id + '/'+props.newsdetail.result.photo} />
                        </div>
                     </div>
                 </div>
