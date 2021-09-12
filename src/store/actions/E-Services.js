@@ -18,8 +18,9 @@ export async function getEServices(pageNumber, keywords = {},pageSize = 9) {
     payload,
   };
 }
+
 export async function clearEServices() {
-  let payload ;
+  let payload = null;
   return {
     type: "CLEAR_ESERVICES",
     payload,
@@ -38,16 +39,29 @@ export async function getAllCities(){
   }
 }
 
-export async function getAllDirectoryCategory(){
+export async function getAllDirectoryCategory(id){
   let payload = null
+  let res
   try{
-    let res = await axios.get('/LookUpAPI/GetAllDirectoryCategory');
+    if(id != null)
+      res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory?ParentId=${id}`);
+    else
+      res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory`);
     payload = res.data
+    console.log("ooooo",payload)
   }catch(e){}
   return {
     type:"DIRECTORY_CATEGORY",
     payload
   }
+}
+
+export async function clearDirectoryCategory() {
+  let payload = null ;
+  return {
+    type: "CLEAR_DIRECTORY_CATEGORY",
+    payload,
+  };
 }
 
 export async function getAllDirectoryType(){
@@ -60,4 +74,107 @@ export async function getAllDirectoryType(){
     type:"DIRECTORY_TYPE",
     payload
   }
+}
+
+
+//E-Service-Directory
+
+export async function getEServiceDirectories(pageNumber, keywords = {},pageSize = 9) {
+  let payload = null;
+  try{let response = await axios.post(
+    "/ServiceAPI/Search/" + pageNumber + "/" + pageSize,
+    keywords
+  );
+  let countResponse = await axios.post("/ServiceAPI/GetResultCount", keywords);
+
+  let res = countResponse.data.result;
+  payload = { ...response.data, count: res,page:pageNumber };
+}catch(e){
+
+  }
+  return {
+    type: "ESERVICE_DIRECTORIES",
+    payload,
+  };
+}
+
+export async function clearEServiceDirectories() {
+  let payload = null;
+  return {
+    type: "CLEAR_ESERVICES_DIRECTORIES",
+    payload,
+  };
+}
+
+
+export async function getAllServiceDirectoryTypes(){
+  let payload = null
+  try{
+    let res = await axios.get('/LookUpAPI/GetAllServiceCategory');
+    payload = res.data
+  }catch(e){}
+  return {
+    type:"ESERVICE_DIRECTORY_TYPES",
+    payload
+  }
+}
+
+
+//Directorate-services
+
+export async function getDirectorates(pageNumber, keywords = {},pageSize = 9) {
+  let payload = null;
+  try{let response = await axios.post(
+    "/DirectorateAPI/Search/" + pageNumber + "/" + pageSize,
+    keywords
+  );
+  let countResponse = await axios.post("/DirectorateAPI/GetResultCount", keywords);
+
+  let res = countResponse.data.result;
+  payload = { ...response.data, count: res,page:pageNumber };
+}catch(e){
+
+  }
+  return {
+    type: "DIRECTORATES",
+    payload,
+  };
+}
+
+export async function clearDirectorates() {
+  let payload = null;
+  return {
+    type: "CLEAR_DIRECTORATES",
+    payload,
+  };
+}
+
+
+//Advertisement
+
+export async function getAdvertisements(pageNumber, keywords = {},pageSize = 9) {
+  let payload = null;
+  try{let response = await axios.post(
+    "/AdvertismentAPI/Search/" + pageNumber + "/" + pageSize,
+    keywords
+  );
+  let countResponse = await axios.post("/AdvertismentAPI/GetResultCount", keywords);
+
+  let res = countResponse.data.result;
+  payload = { ...response.data, count: res,page:pageNumber };
+}catch(e){
+
+  }
+  return {
+    type: "ADVERTISEMENTS",
+    payload,
+  };
+}
+
+export async function clearAdvertisements() {
+  let payload = null;
+  return {
+    type: "CLEAR_ADVERTISEMENTS",
+    payload,
+  };
 }

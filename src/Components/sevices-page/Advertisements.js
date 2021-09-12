@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { newsList, clearNewsList, getNewsCategory, getNewsSectors } from "../../../store/actions/News_Action";
-import { paths } from "../../../paths/paths";
+import { newsList, clearNewsList, getNewsCategory, getNewsSectors } from "../../store/actions/News_Action";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import ListWithImage from "../../ui/list-with-image";
 import moment from "moment";
 import "moment/locale/ar";
-import SearchSection from "../../ui/search-section";
-import PaginationSection from "../../ui/pagination-section";
+import SearchSection from "../ui/search-section";
+import PaginationSection from "../ui/pagination-section";
 
-const NewsList = (props) => {
+const Advertisements = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
   const [sector, setSector] = useState(null);
@@ -118,19 +115,7 @@ const NewsList = (props) => {
         <Container>
           <Row className="my-4">
             {props.newslist.result.map((item, index) => {
-              return (
-                <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                  <Link to={`newsdetails/${item.id}`} className="h-100">
-                    <ListWithImage
-                      imgSrc={paths.NewsPhotos + item.id + "/" + item.photo}
-                      title={item.title}
-                      date={"1/1/2022"}
-                      category={item.newsCategoryName}
-                      imgHeight="200px"
-                    />
-                  </Link>
-                </Col>
-              );
+
             })}
             <Col xs={12}>
               <PaginationSection 
@@ -158,4 +143,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ newsList, clearNewsList, getNewsCategory, getNewsSectors }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsList);
+export default connect(mapStateToProps, mapDispatchToProps)(Advertisements);

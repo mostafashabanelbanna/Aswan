@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 
 const PaginationSection = (props)=>{
     return(<>
-        <div className=" justify-content-center d-flex">
+        <div className="justify-content-center d-flex">
                 <ReactPaginate
                   previousLabel={"<<"}
                   nextLabel={">>"}
@@ -17,7 +17,7 @@ const PaginationSection = (props)=>{
                   disabledClassName={"pagination__link--disabled"}
                   activeClassName={"pagination__link--active"}
                 />
-              </div>
+        </div>
     </>)
 }
 export default PaginationSection;
