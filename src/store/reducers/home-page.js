@@ -44,7 +44,11 @@ export function homeComponents(state = {}, action) {
         return { ...state, categories: action.payload }
         case 'NEWS_SECTORS':
         return { ...state, sectors: action.payload }
-        
+        case 'HAYA_CARIMA':
+          return { ...state, hayacarima: action.payload }
+          case 'CLEAR_HAYA_CARIMA':
+            return { ...state, hayacarima: action.payload }
+          
     default:
       return state;
   }

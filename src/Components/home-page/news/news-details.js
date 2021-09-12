@@ -8,14 +8,15 @@ import { newsdetails, clearNewsdetails } from '../../../store/actions/News_Actio
 import {paths} from '../../../paths/paths'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPen , faCalendar} from "@fortawesome/free-solid-svg-icons"
-
 const NewsDetails = (props) => {
     const id = props.match.params.id;
     useEffect(() => {
         props.newsdetails(id)
     }, []);
 
-    if (props.newsdetail)
+    if (props.newsdetail){
+     let sectorName =    props.newsdetail.result.sectorName;
+     let sectorid =  props.newsdetail.result.sectorId
         return (
             <div>
                 <div className="underline container mt-5"><h3>{props.newsdetail.result.title}</h3></div>
@@ -33,9 +34,9 @@ const NewsDetails = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName">
+                    <Link to={`/filternews/${sectorid +'&&' +  sectorName+ '&&'+ 'sector'}`} className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName">
                         {ReactHtmlParser(props.newsdetail.result.sectorName)}
-                    </div>
+                    </Link>
                 </div>
 
                 <hr className='container my-2'></hr>
@@ -53,6 +54,7 @@ const NewsDetails = (props) => {
                     <button className="btn " style={{ background: '-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)' }}>المزيد من الاخبار</button>
                 </Link>
             </div>)
+    }
 
     return (<div>Loading</div>);
 }

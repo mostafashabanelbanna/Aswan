@@ -8,7 +8,8 @@ import TouristHome from './components/tourist-home/tourist-home-page'
 import EServices from './components/sevices-page/E-Services'
 import news_list from './components/home-page/news/news_list'
 import FilterNews from './components/news/filter-news'
-
+import HayaKarimaDetails from './components/home-page/good-life/haya-karima-details'
+import ExConservatives from './components/Governer/ex-conservatives'
 const AppRouting = () => {
     return (
         <BrowserRouter>
@@ -22,6 +23,8 @@ const AppRouting = () => {
                 <Route exact path='/tourist' component={TouristHome}></Route>
                 <Route exact path='/newslist' component={news_list}></Route>
                 <Route exact path='/filternews/:info' component={FilterNews}></Route>
+                <Route exact path='/exconservatives' component={ExConservatives}></Route>
+                <Route exact path='/HayaKarimaDetails/:id' component={HayaKarimaDetails}></Route>
                 <Route path='*' component={Error} />
             </Switch>
         </BrowserRouter>

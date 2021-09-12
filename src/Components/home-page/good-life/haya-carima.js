@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../assets/img/haya_karima_logo.jpg";
-
+import logo from "../../../assets/img/haya_karima_logo.jpg";
+import {Link} from 'react-router-dom'
 const HayahKarima = () => {
   return (
     <div className=" my-5 pt-4">
@@ -26,65 +26,70 @@ const HayahKarima = () => {
               className="bg-white  col-lg-6 col-md-9 col-12 py-4"
               style={{ zIndex: 1 }}
             >
-              <div className="row justify-content-center py-3 text-center">
-                <div className="mb-4 col-md-4 col-sm-6 ">
+              <div className="row justify-content-center py-3 text-center ">
+               <Link to={`/HayaKarimaDetails/${1}`} className="mb-4 col-md-4 col-sm-6 ">  
+           
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className=" p-2"
                       src={"/images/haya_karima/1.png"}
                     />
-                    <div className="mt-4 mb-1 ">
-                      محور البنية الأساسية و المرافق
-                    </div>
+                    <div className="mt-4 mb-1  text-dark">                   
+                      محور البنية الأساسية و المرافق                  
                   </div>
+                  
                 </div>
+                    </Link>
 
-                <div className="mb-4 col-md-4 col-sm-6 ">
+                <Link to={`/HayaKarimaDetails/${2}`} className="mb-4 col-md-4 col-sm-6 ">
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/2.png"}
                     />
-                    <div className="mt-4 mb-1 "> محور خدمات المواطن </div>
+                    <div  className="mt-4 mb-1  text-dark"> محور خدمات المواطن 
                   </div>
                 </div>
+                    </Link>
 
-                <div className="mb-4 col-md-4 col-sm-6 ">
+                <Link to={`/HayaKarimaDetails/${3}`} className="mb-4 col-md-4 col-sm-6 ">
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/3.png"}
                     />
-                    <div className="mt-4 mb-1 ">
+                    <div  className="mt-4 mb-1  text-dark">
                       {" "}
                       المحور الثقافى و الإجتماعي{" "}
-                    </div>
                   </div>
                 </div>
-                <div className="mb-4 col-md-4 col-sm-6 ">
+                      </Link>
+                <Link to={`/HayaKarimaDetails/${4}`} className="mb-4 col-md-4 col-sm-6 ">
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/4.png"}
                     />
-                    <div className="mt-4 mb-1 "> المحور الإقتصادي </div>
+                    <div  className="mt-4 mb-1  text-dark"> المحور الإقتصادي 
                   </div>
                 </div>
+                    </Link>
 
-                <div className="mb-4 col-md-4 col-sm-6 ">
+                <Link to={`/HayaKarimaDetails/${5}`}  className="mb-4 col-md-4 col-sm-6 ">
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/5.png"}
                     />
-                    <div className="mt-4 mb-1 "> سكن كريم </div>
+                    <div className="mt-4 mb-1  text-dark"> سكن كريم 
                   </div>
                 </div>
+                    </Link>
               </div>
             </div>
             <div className="col-6 "></div>
