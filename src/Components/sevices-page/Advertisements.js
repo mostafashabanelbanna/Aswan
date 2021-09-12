@@ -32,7 +32,7 @@ const Advertisements = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.newsList(currentPage + 1, data(dataFilled));
+    props.getAdvertisements(currentPage + 1, data(dataFilled));
     setFlag(1);
     setCurrentPage(0);
   };
@@ -86,6 +86,9 @@ const Advertisements = (props) => {
         : props.getAdvertisements(currentPage + 1, data(dataFilled));
     else props.getAdvertisements(currentPage + 1);
 
+    if(!props.advertisementTypes)
+        props.getAllAdvertisementTypes();
+
   }, [currentPage]);
 
   if (props.advertisementsList && props.advertisementTypes) {
@@ -128,6 +131,19 @@ const Advertisements = (props) => {
         </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.advertisementsList.result.map((item, index) => {
+              let date = new Date(item.publishDate.split('T')[0]);
+              let months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+                "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+              ];
+              let days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+              let delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+            
+              let slicedDescription = item.description;
+                  if (item.description !== null && item.description.length > 500) {
+                    const desc = item.description;
+                    slicedDescription = desc.substring(0, 490).concat(" ...");
+                  }
+            
             return (
               <div
                 className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
@@ -139,7 +155,7 @@ const Advertisements = (props) => {
                 </div>
 
                 <div className="justify-content-start d-flex my-2 text-muted">
-                  <span className="py-1 px-2 fa-1x">{item.description}</span>
+                  <span className="py-1 px-2 fa-1x">{slicedDescription}</span>
                 </div>
 
                 {item.publishDate?<div className="d-flex my-3">
@@ -147,13 +163,13 @@ const Advertisements = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faCalendarAlt}
-                      size={"2x"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
                     {" "}
                     <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      {item.publishDate}
+                      {/* {item.publishDate.split('T')[0]} */}{delDateString}
                     </a>
                   </div>
                 </div>:<div className="d-none"></div>
@@ -162,7 +178,7 @@ const Advertisements = (props) => {
             );
           })}
         </div>
-        {props.serviceDirectories.result.length?
+        {props.advertisementsList.result.length?
         <PaginationSection 
         currentPage={currentPage}
         pageCount={pageCount}

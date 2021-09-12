@@ -12,7 +12,6 @@ import PaginationSection from "../ui/pagination-section";
 
 const EmergencyNumbers = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [dataFlag, setDataFlag] = useState(0);
   const [renderFlag, setRenderFlag] = useState(1);
   const [name, setName] = useState(null);
   const [manger, setManger] = useState(null);
@@ -27,7 +26,6 @@ const EmergencyNumbers = (props) => {
   const submitHandler = (e) => {
     e.preventDefault()
     props.getEServices(currentPage + 1, data({ name, manger, directoryTypeId:18, directoryCategoryId:29, cityId }))
-    setDataFlag(1)
     setCurrentPage(0);
   }
 
@@ -36,17 +34,6 @@ const EmergencyNumbers = (props) => {
   const directoryTypeHandler = (e) => { setRenderFlag(0); setDirectoryTypeId(18); }
   const directoryCategoryHandler = (e) => {setDirectoryCategoryId(29);}
   const cityIdHandler = (e) => {setCityId(e.value);}
-
-  function check(a) {
-    let flags = 0;
-    for (let property in a) {
-      if (a[property] != null) {
-        flags = 1
-        return true;
-      }
-    }
-    return false;
-  }
 
   function data(a) {
     for (let property in a) {
@@ -117,11 +104,13 @@ const EmergencyNumbers = (props) => {
             dropdownTwoPlaceholder='كل التصنيفات'
             dropdownTwoName={dirCatVal}
             classNameDropdownTwo='col-md-4 col-sm-6 col-12'
+            disableTwo={true}
             dropdownOneVal={dirTypeVal.find(e => e.value == 18)}
             dropdownOneHandler={directoryTypeHandler}
             dropdownOnePlaceholder='كل الأنواع'
             dropdownOneName={dirTypeVal}
             classNameDropdownOne='col-md-4 col-sm-6 col-12'
+            disableOne={true}
             />
           </div>
         </Container>
@@ -146,7 +135,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faCity}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -160,7 +149,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faUserTie}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -174,7 +163,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faPhoneAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -188,7 +177,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -202,7 +191,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faBriefcase}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -217,7 +206,7 @@ const EmergencyNumbers = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faLink}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">

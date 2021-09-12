@@ -10,35 +10,23 @@ import SearchSection from "../ui/search-section";
 import PaginationSection from "../ui/pagination-section";
 
 
-const EServiceDirectories = (props) => {
+const TechCenterServices = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [flag, setFlag] = useState(0);
+  const [flag, setFlag] = useState(1);
   const [name, setName] = useState(null);
   const [serviceCategoryId, setServiceDirectories] = useState(null);
 
-  let dataFilled = { name, serviceCategoryId }
   let pageCount;
 
   const submitHandler = (e) => {
     e.preventDefault()
-    props.getEServiceDirectories(currentPage + 1, data(dataFilled))
+    props.getEServiceDirectories(currentPage + 1, data({ name, serviceCategoryId:4 }))
     setFlag(1)
     setCurrentPage(0);
   }
 
   const nameHandler = (e) => {setName(e.target.value);}
-  const serviceDirectoriesHandler = (e) => {setServiceDirectories(e.value);}
-
-  function check(a) {
-    let flag = 0;
-    for (let property in a) {
-      if (a[property] != null) {
-        flag = 1
-        return true;
-      }
-    }
-    return false;
-  }
+  const serviceDirectoriesHandler = (e) => {setServiceDirectories(4);}
 
   function data(a) {
     for (let property in a) {
@@ -55,26 +43,33 @@ const EServiceDirectories = (props) => {
   };
 
   useEffect(() => {
-    if (flag)
-      check(dataFilled) == false ? props.getEServiceDirectories(currentPage + 1) : props.getEServiceDirectories(currentPage + 1, data(dataFilled));
-    else
-      props.getEServiceDirectories(currentPage + 1)
+    if(flag){
+        props.getEServiceDirectories(currentPage + 1, data({ serviceCategoryId:4 }));
+    }
 
     if (!props.serviceTypes)
       props.getAllServiceDirectoryTypes();
 
+      setFlag(1);
   }, [currentPage]);
 
   if (props.serviceDirectories) {
-    let serviceDirVal = props.serviceTypes.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
-    serviceDirVal.unshift({ value: null, label: "كل الخدمات" })
+      console.log("hoooooooo",props.serviceDirectories)
+    let serviceDirVal;
+    if(props.serviceTypes != null){
+        serviceDirVal = props.serviceTypes.result.map((item) => ({ value: item.id, label: item.nameA }));
+        serviceDirVal.unshift({ value: null, label: "كل الخدمات" })
+    } else {
+        serviceDirVal = [];
+        serviceDirVal.push({ value: null, label: "كل الخدمات" })
+    }
     pageCount = Math.ceil(props.serviceDirectories.count / 9);
     if(props.serviceDirectories.page == currentPage + 1){
     return (
       <>
         <Container fluid>
           <div className=" container underline  my-4">
-            <h3>دليل الخدمات الإلكترونية</h3>
+            <h3>خدمات المراكز التكنولوجية</h3>
           </div>
           <div className=" bg-light p-3">
             <SearchSection
@@ -82,11 +77,12 @@ const EServiceDirectories = (props) => {
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne='الاسم'
             classNameTextFieldOne='col-sm-6 col-12'
-            dropdownOneVal={serviceDirVal.find(e => e.value == serviceCategoryId)}
+            dropdownOneVal={serviceDirVal.find(e => e.value == 4)}
             dropdownOneHandler={serviceDirectoriesHandler}
             dropdownOnePlaceholder='كل الخدمات'
             dropdownOneName={serviceDirVal}
             classNameDropdownOne='col-sm-6 col-12'
+            disableOne={true}
             />
           </div>
         </Container>
@@ -151,4 +147,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getEServiceDirectories, clearEServiceDirectories, getAllServiceDirectoryTypes }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EServiceDirectories);
+export default connect(mapStateToProps, mapDispatchToProps)(TechCenterServices);

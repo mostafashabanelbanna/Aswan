@@ -108,7 +108,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faUserTie}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.manager}</div>
@@ -119,7 +119,7 @@ const Directorates = (props) => {
                       {" "}
                       <FontAwesomeIcon
                         icon={faPhoneAlt}
-                        size={"x2"}
+                        size={"1x"}
                       ></FontAwesomeIcon>
                     </div>
                     <div className="mx-2">
@@ -132,7 +132,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.address}</div>
@@ -143,7 +143,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.email}</div>

@@ -155,7 +155,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faCity}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -169,7 +169,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faUserTie}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -183,7 +183,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faPhoneAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -197,7 +197,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -211,7 +211,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faBriefcase}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -226,7 +226,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faLink}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
