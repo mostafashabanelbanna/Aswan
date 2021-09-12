@@ -18,7 +18,7 @@ export async function leaders(){
      let currleader =  await  axios.get('/GovernorAPI/CurrentGovernor')
      let leaders =  await axios.get('/LeaderAPI/GetAll');
         let res = currleader.data.result;
-        payload = {...leaders.data , res}
+        payload = {...leaders.data ,curr: res}
         console.log(payload)
     }catch(e){}
 

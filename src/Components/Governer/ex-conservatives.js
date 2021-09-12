@@ -13,6 +13,9 @@ useEffect(()=>{
 
   if(props.exconservatives)
   return(<>
+    <div className=" container underline  my-4">
+            <h3>المحافظون السابقون </h3>
+          </div>
   <div className='container mt-5'>
                 <div className='row '>
         {props.exconservatives.result.map((item)=>{
