@@ -7,17 +7,35 @@ import { paths } from "../../paths/paths";
 
 
 const Leaders = (props) => {
+    
     useEffect(() => {
         props.leaders()
     }, []);
 
     if (props.leaders) {
         return (<>
-        <div className='container d-flex justify-content-center'>
-            <ListWithImage />
+         <div className=" container underline  my-4">
+            <h3>قيادات المحافظة </h3>
+          </div>
+        <div className='container d-flex justify-content-center my-4'>
+            <ListWithImage 
+                imgSrc={paths.Governer + props.leader.curr.id + "/" + props.leader.curr.photo}
+                title={props.leader.curr.name}
+                imgHeight="270px"
+            />
         </div>
-        <div className='container d-flex justify-content-center'>
-            {props.leaders.result.map((item)=>{return(<ListWithImage />)})} 
+        <div className='container'>
+        <div className=' row d-flex justify-content-around my-4'>
+             {props.leader.result.map((item)=>{return(
+             <div className='col-sm-6 col-md-4 my-2'>
+             <ListWithImage 
+                 imgSrc={paths.Governer + props.leader.curr.id + "/" + props.leader.curr.photo}
+                 title={item.name}
+                 imgHeight="200px"
+             />
+             </div>
+             )})} 
+        </div>
         </div>
         </>)
     }
@@ -27,7 +45,7 @@ const Leaders = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        leaders: state.GovernerComponents.leaders,
+        leader: state.GovernerComponents.leaders,
     };
 };
 const mapDispatchToProps = (dispatch) => {

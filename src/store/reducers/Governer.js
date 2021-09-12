@@ -6,7 +6,9 @@ export function GovernerComponents(state = {}, action) {
             return{...state , exconservatives:action.payload}
             case "LEADERS":
             return{...state , leaders:action.payload}
-
+            case "APPOINTMENT":
+            return{...state , apointment:action.payload}
+            
           default:
             return state;
 

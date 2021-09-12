@@ -108,7 +108,7 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to={'/exconservatives'} className="nav-link text-light">قيادات المحافظة</Link>
+                    <Link to={'/leaders'} className="nav-link text-light">قيادات المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
                     <Link className="nav-link text-light" to={'/exconservatives'}>المحافظون السابقون</Link>
@@ -117,9 +117,9 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">
+                    <Link to={'appointment'} className="nav-link text-light">
                       لقاءات و قرارات السيد المحافظ{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className={`nav-item`}>
                     <a className="nav-link text-light">الديوان العام</a>
