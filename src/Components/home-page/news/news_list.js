@@ -109,8 +109,10 @@ const NewsList = (props) => {
             classNameDropdownTwo='col-sm-4 col-12'
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
+            classNameDPFrom='col-4'
             publishDateTo={publishDateTo}
             publishToHandler={publishToHandler}
+            classNameDPTo='col-4'
             />
           </div>
         </Container>

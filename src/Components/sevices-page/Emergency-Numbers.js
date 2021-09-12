@@ -96,7 +96,7 @@ const EmergencyNumbers = (props) => {
       <>
         <Container fluid>
           <div className=" container underline my-4">
-            <h3>ادلة المحافظة</h3>
+            <h3>أرقام الطوارئ</h3>
           </div>
           <div className=" bg-light p-3">
             <SearchSection

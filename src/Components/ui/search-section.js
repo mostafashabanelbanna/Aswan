@@ -30,7 +30,7 @@ const SearchSection = (props) => {
                     {props.dropdownThreeHandler?<div style={{ height: '1.1rem' }} className={`${props.classNameDropdownThree} form-group my-4`}>
                         <Select isDisabled={props.disableThree??false} value={props.dropdownThreeVal} onChange={props.dropdownThreeHandler} placeholder={props.dropdownThreePlaceholder} options={props.dropdownThreeName} />
                     </div>:<div className='d-none'></div>}
-                        {props.publishFromHandler?<div className='col-4'>
+                        {props.publishFromHandler?<div className={`${props.classNameDPFrom}`}>
                             <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils} locale={"sw"} >
                                 <KeyboardDatePicker
                                     format="L"
@@ -44,7 +44,7 @@ const SearchSection = (props) => {
                                 />
                             </MuiPickersUtilsProvider>
                         </div>:<div className='d-none'></div>}
-                       {props.publishToHandler? <div className='  col-4'>
+                       {props.publishToHandler? <div className={`${props.classNameDPTo}`}>
                             <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils} locale={"sw"} >
                                 <KeyboardDatePicker
                                     format="L"

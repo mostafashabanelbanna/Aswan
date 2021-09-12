@@ -119,7 +119,6 @@ export async function getAllServiceDirectoryTypes(){
   }
 }
 
-
 //Directorate-services
 
 export async function getDirectorates(pageNumber, keywords = {},pageSize = 9) {
@@ -177,4 +176,16 @@ export async function clearAdvertisements() {
     type: "CLEAR_ADVERTISEMENTS",
     payload,
   };
+}
+
+export async function getAllAdvertisementTypes(){
+  let payload = null
+  try{
+    let res = await axios.get('/LookUpAPI/GetAllAdvertismentType');
+    payload = res.data
+  }catch(e){}
+  return {
+    type:"ADVERTISEMENT_TYPES",
+    payload
+  }
 }

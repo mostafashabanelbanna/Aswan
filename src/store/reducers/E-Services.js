@@ -36,8 +36,10 @@ export function EServicesComponents(state = {}, action) {
       case "ADVERTISEMENTS":
         return{...state , allAdvertisements:action.payload}
       case "CLEAR_DIRECTORATES":
-          return{...state , allAdvertisements:action.payload}
-          
+        return{...state , allAdvertisements:action.payload}
+      case "ADVERTISEMENT_TYPES":
+        return{...state , allAdvertisementTypes:action.payload}
+        
       default:
         return state;
     }

@@ -92,14 +92,18 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
-                  <img
-                    style={{ width: 100 }}
-                    className="px-4"
-                    src={"/images/icons/AdvertisementServices-0١.png"}
-                  />
-                  <div className="mt-4 mb-1 "> أعلانات ومناقصات </div>
-                </div>
+                <Link to='/advertisements' className="text-decoration-none text-muted">
+                  <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                    <img
+                      style={{ width: 100 }}
+                      className="px-4"
+                      src={"/images/icons/AdvertisementServices-0١.png"}
+                    />
+                    <div className="mt-4 mb-1 "> أعلانات ومناقصات </div>
+                  </div>
+                </Link>
+
+
                 <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
                   <img
                     style={{ width: 100 }}
