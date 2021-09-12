@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { newsList } from '../../store/actions/News_Action'
+import { newsList } from '../../../store/actions/News_Action'
 import { bindActionCreators } from 'redux'
-import PaginationSection from "../ui/pagination-section";
-import ListWithImage from '../ui/list-with-image'
-import { paths } from "../../paths/paths";
+import PaginationSection from "../../ui/pagination-section";
+import ListWithImage from '../../ui/list-with-image'
+import { paths } from "../../../paths/paths";
 
 const FilterNews = (props) => {
     const [currentPage, setCurrentPage] = useState(0)

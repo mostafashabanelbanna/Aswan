@@ -116,21 +116,27 @@ const NewsList = (props) => {
             <h3>الاخبار</h3>
           </div>
           <div className=" bg-light p-3">
-            <SearchSection
-              submit={submitHandler}
-              TextFieldOneHandler={titleHandler}
-              dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
-              dropdownOneHandler={catHandler}
-              dropdownOneName={catName}
-              dropdownOnePlaceholder={"القسم"}
-              dropdownTwoVal={sectorsName.find((e) => e.value == sector)}
-              dropdownTwoHandler={sectorHandler}
-              dropdownTwoPlaceholder={"القطاع"}
-              dropdownTwoName={sectorsName}
-              publishDateFrom={publishDateFrom}
-              publishFromHandler={publishFromHandler}
-              publishDateTo={publishDateTo}
-              publishToHandler={publishToHandler}
+            <SearchSection 
+            submit={submitHandler} 
+            TextFieldOneHandler={titleHandler}
+            labelTextFieldOne='العنوان'
+            classNameTextFieldOne='col-sm-4 col-12'
+            dropdownOneVal={catName.find(e => e.value == newsCategoryId)}
+            dropdownOneHandler={catHandler}
+            dropdownOneName={catName}
+            dropdownOnePlaceholder='القسم'
+            classNameDropdownOne='col-sm-4 col-12'
+            dropdownTwoVal={sectorsName.find(e => e.value == sector)}
+            dropdownTwoHandler={sectorHandler}
+            dropdownTwoPlaceholder='القطاع'
+            dropdownTwoName={sectorsName}
+            classNameDropdownTwo='col-sm-4 col-12'
+            publishDateFrom={publishDateFrom}
+            publishFromHandler={publishFromHandler}
+            classNameDPFrom='col-4'
+            publishDateTo={publishDateTo}
+            publishToHandler={publishToHandler}
+            classNameDPTo='col-4'
             />
           </div>
         </Container>

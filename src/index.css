@@ -324,3 +324,7 @@ a {
   color: blue;
   transform: translateY(-10px);
 }
+
+.pagination{
+  padding: 0!important;
+}
