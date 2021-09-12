@@ -12,7 +12,8 @@ import EServiceDirectories from './components/sevices-page/E-Services-Directory'
 import Directorates from './components/sevices-page/Directorates-Services'
 import EmergencyNumbers from './components/sevices-page/Emergency-Numbers'
 import Advertisements from './components/sevices-page/Advertisements'
-
+import HayaKarimaDetails from './components/home-page/good-life/haya-karima-details'
+import ExConservatives from './components/Governer/ex-conservatives'
 const AppRouting = () => {
     return (
         <BrowserRouter>
@@ -30,6 +31,8 @@ const AppRouting = () => {
                 <Route exact path='/tourist' component={TouristHome}/>
                 <Route exact path='/newslist' component={news_list}/>
                 <Route exact path='/filternews/:info' component={FilterNews}/>
+                <Route exact path='/exconservatives' component={ExConservatives}/>
+                <Route exact path='/HayaKarimaDetails/:id' component={HayaKarimaDetails}/>
                 <Route path='*' component={Error} />
             </Switch>
         </BrowserRouter>

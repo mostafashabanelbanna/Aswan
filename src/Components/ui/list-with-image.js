@@ -12,13 +12,13 @@ const ListWithImage = (props) => {
             height: props.imgHeight,
           }}
         ></div>
-        <div className="list_category">{props.category}</div>
+       {props.category? <div className="list_category">{props.category}</div>:<div className='d-none'></div>}
       </div>
-      <div className="d-flex justify-content-end p-2 text-muted">
+      {props.date?  <div className="d-flex justify-content-end p-2 text-muted">
         {props.date}
-      </div>
+      </div>:<div className='d-none'></div>}
       <div className="my-2 p-2">
-        <div>{props.title}</div>
+        <div  className={`${props.center?'text-center':''}`}>{props.title}</div>
       </div>
     </div>
   );

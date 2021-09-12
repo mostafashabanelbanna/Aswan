@@ -8,9 +8,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import Pulse from "react-reveal/Pulse";
-
 import { Link } from "react-router-dom";
 
 const Main_navbar = () => {
@@ -110,10 +108,10 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">قيادات المحافظة</a>
+                    <Link to={'/exconservatives'} className="nav-link text-light">قيادات المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">المحافظون السابقون</a>
+                    <Link className="nav-link text-light" to={'/exconservatives'}>المحافظون السابقون</Link>
                   </li>
                   <li
                     className={`nav-item 

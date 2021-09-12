@@ -14,7 +14,7 @@ import LocalLeaders from "./local-leaders";
 import ImportantPortals from "./important-portals";
 import TrainingAgenda from "./training-agenda";
 import BgAttachment from "../bg-attachment";
-import HayahKarima from "./haya-carima";
+import HayahKarima from "./good-life/haya-carima";
 class HomeComponent extends Component {
   constructor(props) {
     super(props);

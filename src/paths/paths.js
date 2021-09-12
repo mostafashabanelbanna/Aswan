@@ -11,4 +11,5 @@ export const paths = {
   NewsPhotos: `${MainPath}News/Photo/`,
   FamousPeople: `${MainPath}StaticContent/Photo/`,
   WebLink: `${MainPath}WebLink/Photo/`,
+  Governer:`${MainPath}Governor/Photo/`
 };
