@@ -11,12 +11,12 @@ const SearchSection = (props) => {
         <div className='container'>
             <form onSubmit={props.submit}>
                 <div className='row align-items-center'>
-                   {    !props.TextFieldOne? <div class="form-group col-4 mb-4">
-                        <TextField onChange={props.TextFieldOneHandler} className='w-100' id="standard-basic" label="العنوان" />
+                   {props.TextFieldOneHandler? <div class="form-group col-6 mb-4">
+                        <TextField onChange={props.TextFieldOneHandler} className='w-100' id="standard-basic" label={props.labelTextFieldOne} />
                     </div>:<div className="d-none"></div>}
 
-                    {    props.TextFieldTwo? <div class="form-group col-4 mb-4">
-                        <TextField onChange={props.TextFieldTwoHandler} className='w-100' id="standard-basic" label="العنوان" />
+                    {props.TextFieldTwoHandler? <div class="form-group col-6 mb-4">
+                        <TextField onChange={props.TextFieldTwoHandler} className='w-100' id="standard-basic" label={props.labelTextFieldTwo} />
                     </div>:<div className='d-none'></div>}
 
                     {props.dropdownOneHandler?<div style={{ height: '1.1rem' }} class="form-group col-4 mb-4">
