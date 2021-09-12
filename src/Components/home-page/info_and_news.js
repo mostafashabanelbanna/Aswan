@@ -1,5 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const InfoNews = () => {
   return (
@@ -24,12 +25,14 @@ const InfoNews = () => {
         <div className="row text-center  p-0 m-0 ">
           <Fade bottom>
             <div className="col-lg-3 p-3 col-5 mb-4  hvr-rectangle-out ">
-              <img
-                style={{ width: 150 }}
-                className="  px-4 imgfilter"
-                src={"/images/icons/statistics-0١.png"}
-              />
-              <div className="mt-4"> احصائيات </div>
+              <Link to="document-library">
+                <img
+                  style={{ width: 150 }}
+                  className="  px-4 imgfilter"
+                  src={"/images/icons/statistics-0١.png"}
+                />
+                <div className="mt-4"> احصائيات </div>
+              </Link>
             </div>
           </Fade>
           <Fade bottom delay={400}>
