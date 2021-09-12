@@ -128,7 +128,7 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">مدن المحافظة</a>
+                    <Link to='/cities' className="nav-link text-light">مدن المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
                     <a className="nav-link text-light">مجلس النواب</a>
