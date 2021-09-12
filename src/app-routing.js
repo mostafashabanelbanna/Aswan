@@ -11,6 +11,7 @@ import FilterNews from "./components/news/filter-news";
 import HayaKarimaDetails from "./components/home-page/good-life/haya-karima-details";
 import ExConservatives from "./components/Governer/ex-conservatives";
 import Leaders from "./components/Governer/leaders";
+import DocumentLibrary from "./components/document-library-page/document-library";
 import appointment from "./components/appointment";
 const AppRouting = () => {
   return (
@@ -36,6 +37,11 @@ const AppRouting = () => {
           path="/HayaKarimaDetails/:id"
           component={HayaKarimaDetails}
         ></Route>
+         <Route
+            exact
+            path="/document-library"
+            component={DocumentLibrary}
+          ></Route>
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>
