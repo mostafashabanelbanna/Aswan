@@ -7,7 +7,7 @@ import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
 import EServices from "./components/sevices-page/E-Services";
 import news_list from "./components/home-page/news/news_list";
-import FilterNews from "./components/news/filter-news";
+import FilterNews from "./components/home-page/news/filter-news";
 import HayaKarimaDetails from "./components/home-page/good-life/haya-karima-details";
 import ExConservatives from "./components/Governer/ex-conservatives";
 import Leaders from "./components/Governer/leaders";
