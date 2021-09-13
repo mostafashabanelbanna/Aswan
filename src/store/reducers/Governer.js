@@ -8,7 +8,8 @@ export function GovernerComponents(state = {}, action) {
             return{...state , leaders:action.payload}
             case "APPOINTMENT":
             return{...state , apointment:action.payload}
-            
+            case "APPOINTMENT_TYPES":
+            return{...state , apointmenttypes:action.payload}
           default:
             return state;
 
