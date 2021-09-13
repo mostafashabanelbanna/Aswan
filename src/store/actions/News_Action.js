@@ -3,7 +3,7 @@ import axios from "../../Axios/Axios_Config";
 export async function sliderNews() {
   let payload = null;
   try {
-    let response = await axios.get("/NewsAPI/GetSlider");
+    let response = await axios.get("/NewsAPI/GetGovernmentSlider");
     payload = response.data;
   } catch (error) {}
   return {
@@ -14,8 +14,9 @@ export async function sliderNews() {
 export async function mainNews() {
   let payload = null;
   try {
-    let response = await axios.get("/NewsAPI/GetMainNews");
+    let response = await axios.get("/NewsAPI/GetAllGovernment");
     payload = response.data;
+    console.log(payload)
   } catch (error) {}
   return {
     type: "MAIN_NEWS",
@@ -48,7 +49,7 @@ export async function clearNewsdetails() {
 export async function sliderVideo() {
   let payload = null;
   try {
-    let response = await axios.get("/VideoLibraryAPI/GetAllSlider");
+    let response = await axios.get("/VideoLibraryAPI/GetAllSliderGovernment");
     payload = response.data;
   } catch (error) {}
   return {

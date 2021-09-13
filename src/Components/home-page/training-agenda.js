@@ -9,13 +9,14 @@ import Fade from "react-reveal/Fade";
 import "../../Styles/training-agenda.css";
 
 const TrainingAgenda = () => {
+
   const [message, setMessage] = useState();
   const [show, setShow] = useState();
   const eventsArr = [
-    { title: "إعلان", date: "2021-08-26" },
-    { title: "مناقصة", date: "2021-08-26" },
-    { title: "إعلان", date: "2021-08-26" },
-    { title: "مؤتمرات", date: "2021-08-25" },
+    { title: "إعلان", date: "2021-09-13" },
+    { title: "مناقصة", date: "2021-09-01" },
+    { title: "إعلان", date: "2021-09-01" },
+    { title: "مؤتمرات", date: "2021-09-01" },
   ];
 
   return (

@@ -39,7 +39,6 @@ const CitiesNavBar = (props) => {
                   <ListWithImage
                     imgSrc={paths.NavBarCities + item.id + "/" + item.photo}
                     title={item.name}
-                    imgHeight="200px"
                     center="yes"
                     hoverTitle="hoverTitle"
                     holder="holder"

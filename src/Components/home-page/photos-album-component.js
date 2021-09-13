@@ -18,7 +18,7 @@ const PhotosAlbum = (props) => {
         {props.photos.result.map((content, index) => {
           return (
             <div
-              className="col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
+              className="hoverTitle col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
               key={content.id}
             >
               <div className="holder mb-4">
@@ -30,7 +30,7 @@ const PhotosAlbum = (props) => {
                   alt={content.titleA}
                 ></div>
               </div>
-              <p className="text-center titles mb-5">{content.titleA}</p>
+              <p className="text-center mb-5" style={{fontSize:'22px'}}>{content.titleA}</p>
             </div>
           );
         })}
@@ -39,6 +39,7 @@ const PhotosAlbum = (props) => {
   };
 
   if (props.photos) {
+    console.log(props.photos)
     return (
       <div>
         <div className="container mt-5">

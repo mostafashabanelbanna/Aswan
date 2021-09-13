@@ -1,4 +1,3 @@
-
 export function GovernerComponents(state = {}, action) {
     switch (action.type) {
         

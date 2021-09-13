@@ -47,7 +47,8 @@ const Video = (props) => {
       },
     ],
   };
-  if (props.videos)
+  if (props.videos){
+  console.log(props.videos)
     return (
       <div>
         <div className=" container  py-4">
@@ -106,6 +107,7 @@ const Video = (props) => {
         </div>
       </div>
     );
+  }
   return <div>Loading</div>;
 };
 const mapStateToProps = (state) => {

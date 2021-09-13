@@ -5,12 +5,12 @@ import {
   getAdvertisements,
   clearAdvertisements,
   getAllAdvertisementTypes
-} from "../../store/actions/E-Services";
+} from "../../../../store/actions/E-Services";
 import { Col, Container, Row } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
-import SearchSection from "../ui/search-section";
-import PaginationSection from "../ui/pagination-section";
+import SearchSection from "../../../ui/search-section";
+import PaginationSection from "../../../ui/pagination-section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -88,7 +88,9 @@ const Advertisements = (props) => {
 
     if(!props.advertisementTypes)
         props.getAllAdvertisementTypes();
-
+    return () => {
+      props.clearAdvertisements();
+    }
   }, [currentPage]);
 
   if (props.advertisementsList && props.advertisementTypes) {

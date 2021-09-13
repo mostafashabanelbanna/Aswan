@@ -57,7 +57,8 @@ const News = (props) => {
       },
     ],
   };
-  if (props.mainews && props.news)
+  if (props.mainews && props.news){
+    // console.log(props.mainews.result.value.result);
     return (
       <div className="container fluid mb-4 px-0">
         <div className="container">
@@ -71,22 +72,22 @@ const News = (props) => {
           <div className="row">
             <div className="col-lg-6">
               <div className="h-100">
-                <h4 className="mb-3">{props.mainews.result.title}</h4>
+                <h4 className="mb-3">{props.mainews.result.value.result[0].title}</h4>
                 <div>
                   <img
                     style={{ borderRadius: "10px", maxWidth: "100%" }}
                     className="img-fluid d-lg-none d-block"
                     src={
                       paths.NewsPhotos +
-                      props.mainews.result.id +
+                      props.mainews.result.value.result[0].id +
                       "/" +
-                      props.mainews.result.photo
+                      props.mainews.result.value.result[0].photo
                     }
-                    alt={props.mainews.result.title}
+                    alt={props.mainews.result.value.result[0].title}
                   />
                   <div id="newscontent">
                     {" "}
-                    {ReactHtmlParser(props.mainews.result.content)}
+                    {ReactHtmlParser(props.mainews.result.value.result[0].content)}
                   </div>
                 </div>
               </div>
@@ -98,11 +99,11 @@ const News = (props) => {
                   style={{ borderRadius: "10px" }}
                   src={
                     paths.NewsPhotos +
-                    props.mainews.result.id +
+                    props.mainews.result.value.result[0].id +
                     "/" +
-                    props.mainews.result.photo
+                    props.mainews.result.value.result[0].photo
                   }
-                  alt={props.mainews.result.title}
+                  alt={props.mainews.result.value.result[0].title}
                 />
               </div>
             </div>
@@ -111,7 +112,7 @@ const News = (props) => {
         <div>
           <div className="container p-0">
             <Slider {...settings}>
-              {props.news.result.map((item, index) => {
+              {props.mainews.result.value.result.map((item, index) => { //hnktb bdl mainews => news
                 
                 return (
                   <Link to={`/NewsDetails/${item.id}`} className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 ">
@@ -137,6 +138,7 @@ const News = (props) => {
         </div>
       </div>
     );
+  }
   return <div>Loading</div>;
 };
 

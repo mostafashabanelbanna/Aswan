@@ -131,13 +131,13 @@ const Main_navbar = () => {
                     <Link to='/cities' className="nav-link text-light">مدن المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">مجلس النواب</a>
+                    <Link to='/parliament' className="nav-link text-light">مجلس النواب</Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">مجلس الشيوخ</a>
+                    <Link to='/senate' className="nav-link text-light">مجلس الشيوخ</Link>
                   </li>
 
                   <li

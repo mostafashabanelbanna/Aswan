@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServiceDirectories, clearEServiceDirectories, getAllServiceDirectoryTypes} from "../../store/actions/E-Services";
+import { getEServiceDirectories, clearEServiceDirectories, getAllServiceDirectoryTypes} from "../../../../store/actions/E-Services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import {} from "../../Styles/EServices.css";
+import {} from "../../../../Styles/EServices.css";
 import { Container } from "react-bootstrap";
-import SearchSection from "../ui/search-section";
-import PaginationSection from "../ui/pagination-section";
+import SearchSection from "../../../ui/search-section";
+import PaginationSection from "../../../ui/pagination-section";
 
 
 const TechCenterServices = (props) => {
@@ -50,11 +50,14 @@ const TechCenterServices = (props) => {
     if (!props.serviceTypes)
       props.getAllServiceDirectoryTypes();
 
-      setFlag(1);
+    setFlag(1);
+
+    return () => {
+      props.clearEServiceDirectories();
+    };
   }, [currentPage]);
 
   if (props.serviceDirectories) {
-      console.log("hoooooooo",props.serviceDirectories)
     let serviceDirVal;
     if(props.serviceTypes != null){
         serviceDirVal = props.serviceTypes.result.map((item) => ({ value: item.id, label: item.nameA }));
