@@ -78,7 +78,7 @@ const GovernmentProjects = (props) => {
             <img
               src="./images/icons/projects_titel-0٢.png"
               alt=""
-              width="50px"
+              width="80px"
             />
             <div className="underline">
               {" "}

@@ -63,7 +63,7 @@ const News = (props) => {
       <div className="container fluid mb-4 px-0">
         <div className="container">
           <div className="my-3 d-flex">
-            <img src="/images/icons/news_titel-0١.png" width="50px" />
+            <img src="/images/icons/news_titel-0١.png" width="80px" />
             <div className="  underline">
               <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
             </div>

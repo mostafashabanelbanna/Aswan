@@ -6,12 +6,12 @@ const LocalLeaders = (props) => {
     <div className="container-fluid mt-4">
       <div className="row">
         <div className="col-12 px-0">
-          <div className="container p-0 mt-5">
-            <div className="d-flex my-2 mb-5 ">
+          <div className="container p-0">
+            <div className="d-flex my-3">
               <img
                 src="./images/icons/leaders_titel-0١.png"
                 alt=""
-                width="50px"
+                width="80px"
               />
 
               <div className="underline">

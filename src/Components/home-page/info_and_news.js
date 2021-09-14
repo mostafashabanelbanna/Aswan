@@ -6,10 +6,10 @@ const InfoNews = () => {
   return (
     <div className="bg-light pt-4">
       <div className=" container p-0 ">
-        <div className="mt-2 d-flex">
+        <div className="my-3 d-flex">
           <img
             src="/images/icons/information_titel-0١.png"
-            style={{ width: 50 }}
+            width='80px'
           />
 
           <div className="  underline">

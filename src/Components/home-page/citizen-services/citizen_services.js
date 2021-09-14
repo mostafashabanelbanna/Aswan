@@ -5,9 +5,9 @@ import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
   return (
     <div className="bg-light pt-4">
-      <div className=" container p-0 mb-4">
-        <div className="mt-2 d-flex ">
-          <img src="/images/icons/services_titel-0١.png" width="50px" />
+      <div className=" container p-0 mt-2">
+        <div className="my-3 d-flex ">
+          <img src="/images/icons/services_titel-0١.png" width="80px" />
 
           <div className="underline">
             {" "}
