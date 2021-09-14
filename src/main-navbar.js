@@ -65,11 +65,11 @@ const Main_navbar = () => {
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-3  d-none d-lg-flex justify-content-center align-items-center p-0 py-3"
+          className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3"
         >
-          <div className="col-5 fsiz">خريطة الموقع</div>
-          <div className="col-2">|</div>
-          <div className="col-5 fsiz">تواصل معانا</div>
+          <div className="col-3 fsiz">خريطة الموقع</div>
+          <div className="col-2 d-flex justify-content-center">|</div>
+          <div className="col-3 fsiz">تواصل معانا</div>
         </div>
 
         <Navbar
@@ -108,7 +108,7 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to={'/exconservatives'} className="nav-link text-light">قيادات المحافظة</Link>
+                    <Link to={'/leaders'} className="nav-link text-light">قيادات المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
                     <Link className="nav-link text-light" to={'/exconservatives'}>المحافظون السابقون</Link>
@@ -117,9 +117,9 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">
+                    <Link to={'appointment'} className="nav-link text-light">
                       لقاءات و قرارات السيد المحافظ{" "}
-                    </a>
+                    </Link>
                   </li>
                   <li className={`nav-item`}>
                     <a className="nav-link text-light">الديوان العام</a>
@@ -128,16 +128,16 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">مدن المحافظة</a>
+                    <Link to='/cities' className="nav-link text-light">مدن المحافظة</Link>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">مجلس النواب</a>
+                    <Link to='/parliament' className="nav-link text-light">مجلس النواب</Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="nav-link text-light">مجلس الشيوخ</a>
+                    <Link to='/senate' className="nav-link text-light">مجلس الشيوخ</Link>
                   </li>
 
                   <li

@@ -321,7 +321,7 @@ a {
 }
 
 .hoverTitle:hover {
-  color: blue;
+  color: #faa74a;
   transform: translateY(-10px);
 }
 

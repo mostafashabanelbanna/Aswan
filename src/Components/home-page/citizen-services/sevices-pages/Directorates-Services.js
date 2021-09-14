@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getDirectorates, clearDirectorates} from "../../store/actions/E-Services";
+import { getDirectorates, clearDirectorates} from "../../../../store/actions/E-Services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserTie, faPhoneAlt, faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {} from "../../Styles/EServices.css";
+import {} from "../../../../Styles/EServices.css";
 import { Container } from "react-bootstrap";
-import SearchSection from "../ui/search-section";
-import PaginationSection from "../ui/pagination-section";
+import SearchSection from "../../../ui/search-section";
+import PaginationSection from "../../../ui/pagination-section";
 
 
 const Directorates = (props) => {
@@ -60,6 +60,9 @@ const Directorates = (props) => {
     else
       props.getDirectorates(currentPage + 1)
 
+    return () => {
+      props.clearDirectorates();
+    }
   }, [currentPage]);
 
   if (props.directorates) {
@@ -108,7 +111,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faUserTie}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.manager}</div>
@@ -119,7 +122,7 @@ const Directorates = (props) => {
                       {" "}
                       <FontAwesomeIcon
                         icon={faPhoneAlt}
-                        size={"x2"}
+                        size={"1x"}
                       ></FontAwesomeIcon>
                     </div>
                     <div className="mx-2">
@@ -132,7 +135,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.address}</div>
@@ -143,7 +146,7 @@ const Directorates = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faEnvelope}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2"> {item.email}</div>

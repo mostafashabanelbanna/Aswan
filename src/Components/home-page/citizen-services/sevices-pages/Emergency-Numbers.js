@@ -1,51 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType, clearDirectoryCategory} from "../../store/actions/E-Services";
+import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType} from "../../../../store/actions/E-Services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink, faCity, faUserTie, faPhoneAlt, faMapMarkerAlt, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import {} from "../../Styles/EServices.css";
+import {} from "../../../../Styles/EServices.css";
 import { Col, Container, Row } from "react-bootstrap";
-import SearchSection from "../ui/search-section";
-import PaginationSection from "../ui/pagination-section";
+import SearchSection from "../../../ui/search-section";
+import PaginationSection from "../../../ui/pagination-section";
 
 
-const EServices = (props) => {
+const EmergencyNumbers = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [dataFlag, setDataFlag] = useState(0);
   const [renderFlag, setRenderFlag] = useState(1);
   const [name, setName] = useState(null);
   const [manger, setManger] = useState(null);
   const [directoryTypeId, setDirectoryTypeId] = useState(null);
   const [directoryCategoryId, setDirectoryCategoryId] = useState(null);
   const [cityId, setCityId] = useState(null);
+  
 
-  let dataFilled = { name, manger, directoryTypeId, directoryCategoryId, cityId }
   let pageCount;
+  
 
   const submitHandler = (e) => {
     e.preventDefault()
-    props.getEServices(currentPage + 1, data(dataFilled))
-    setDataFlag(1)
+    props.getEServices(currentPage + 1, data({ name, manger, directoryTypeId:18, directoryCategoryId:29, cityId }))
     setCurrentPage(0);
   }
 
   const nameHandler = (e) => {setName(e.target.value);}
   const mangerHandler = (e) => {setManger(e.target.value);}
-  const directoryTypeHandler = (e) => { setRenderFlag(0); setDirectoryTypeId(e.value); setDirectoryCategoryId(null);}
-  const directoryCategoryHandler = (e) => {setDirectoryCategoryId(e.value);}
+  const directoryTypeHandler = (e) => { setRenderFlag(0); setDirectoryTypeId(18); }
+  const directoryCategoryHandler = (e) => {setDirectoryCategoryId(29);}
   const cityIdHandler = (e) => {setCityId(e.value);}
-
-  function check(a) {
-    let flags = 0;
-    for (let property in a) {
-      if (a[property] != null) {
-        flags = 1
-        return true;
-      }
-    }
-    return false;
-  }
 
   function data(a) {
     for (let property in a) {
@@ -62,10 +50,7 @@ const EServices = (props) => {
 
   useEffect(() => {
     if(renderFlag){
-      if (dataFlag)
-        check(dataFilled) == false ? props.getEServices(currentPage + 1) : props.getEServices(currentPage + 1, data(dataFilled));
-      else
-        props.getEServices(currentPage + 1)
+        props.getEServices(currentPage + 1, {directoryTypeId:18, directoryCategoryId:29})
     }
     if (!props.cities)
       props.getAllCities();
@@ -73,15 +58,16 @@ const EServices = (props) => {
     if (!props.directoryTypes)
       props.getAllDirectoryType();
     
-    props.getAllDirectoryCategory(directoryTypeId);
+    props.getAllDirectoryCategory(18);
     
-    setRenderFlag(1)
+    setRenderFlag(1);
 
     return () => {
       props.clearDirectoryCategory();
+      props.clearEServices();
     };
 
-  }, [currentPage,directoryTypeId]);
+  }, [currentPage]);
 
   if (props.services) {
     let cityName = props.cities.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
@@ -93,19 +79,16 @@ const EServices = (props) => {
       dirCatVal = [];
       dirCatVal.push({ value: null, label: "كل التصنيفات" })
     }
-    let dirTypeVal = props.directoryTypes.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
+    let dirTypeVal = props.directoryTypes.result.map((item) => ({ value: item.id, label: item.nameA }));
     cityName.unshift({ value: null, label: "كل المدن" })
     dirTypeVal.unshift({ value: null, label: "كل الأنواع" })
     pageCount = Math.ceil(props.services.count / 9);
-    console.log("hiii",props.services)
-    console.log("h",props.directoryCategories)
-    console.log("hiiiii",props.directoryTypes)
     if(props.services.page==currentPage+1){
     return (
       <>
         <Container fluid>
           <div className=" container underline my-4">
-            <h3>ادلة المحافظة</h3>
+            <h3>أرقام الطوارئ</h3>
           </div>
           <div className=" bg-light p-3">
             <SearchSection
@@ -121,16 +104,18 @@ const EServices = (props) => {
             dropdownThreePlaceholder='المدينة'
             dropdownThreeName={cityName}
             classNameDropdownThree='col-md-4 col-sm-6 col-12'
-            dropdownTwoVal={dirCatVal.find(e => e.value == directoryCategoryId)}
+            dropdownTwoVal={dirCatVal.find(e => e.value == 29)}
             dropdownTwoHandler={directoryCategoryHandler}
             dropdownTwoPlaceholder='كل التصنيفات'
             dropdownTwoName={dirCatVal}
             classNameDropdownTwo='col-md-4 col-sm-6 col-12'
-            dropdownOneVal={dirTypeVal.find(e => e.value == directoryTypeId)}
+            disableTwo={true}
+            dropdownOneVal={dirTypeVal.find(e => e.value == 18)}
             dropdownOneHandler={directoryTypeHandler}
             dropdownOnePlaceholder='كل الأنواع'
             dropdownOneName={dirTypeVal}
             classNameDropdownOne='col-md-4 col-sm-6 col-12'
+            disableOne={true}
             />
           </div>
         </Container>
@@ -155,7 +140,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faCity}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -169,7 +154,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faUserTie}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -183,7 +168,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faPhoneAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -197,7 +182,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faMapMarkerAlt}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -211,7 +196,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faBriefcase}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -226,7 +211,7 @@ const EServices = (props) => {
                     {" "}
                     <FontAwesomeIcon
                       icon={faLink}
-                      size={"x2"}
+                      size={"1x"}
                     ></FontAwesomeIcon>
                   </div>
                   <div className="mx-2">
@@ -265,7 +250,7 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getEServices,clearEServices, getAllCities, getAllDirectoryCategory, clearDirectoryCategory,getAllDirectoryType}, dispatch);
+  return bindActionCreators({ getEServices,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EServices);
+export default connect(mapStateToProps, mapDispatchToProps)(EmergencyNumbers);

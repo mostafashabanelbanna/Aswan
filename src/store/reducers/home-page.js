@@ -1,5 +1,11 @@
 export function homeComponents(state = {}, action) {
   switch (action.type) {
+    //navbar items
+    case 'CITIES':
+      return { ...state, citiesList: action.payload };
+    case "CLEAR_CITIES":
+      return { ...state, citiesList: action.payload };
+
     //government projects reducers
     case "PROJECTS_LIST":
       return { ...state, projectsList: action.payload };
@@ -20,6 +26,7 @@ export function homeComponents(state = {}, action) {
     case "FAMOUS_PEOPLE_LIST": 
       return { ...state, famousList: action.payload };
 
+    //News
     case 'SLIDER_NEWS':
       return { ...state, slidernews: action.payload }
 
@@ -34,20 +41,22 @@ export function homeComponents(state = {}, action) {
 
     case 'CLEAR_NEWS_LIST':
       return { ...state, newslist: action.payload }
-      case 'COMPLAINT':
-        return { ...state, complaint: action.payload }
-        case 'CLEAR_NEWS_DETAILS':
-        return { ...state, newsdetails: action.payload }
-        case 'NEWS_DETAILS':
-        return { ...state, newsdetails: action.payload }
-        case 'NEWS_CATEGORY':
-        return { ...state, categories: action.payload }
-        case 'NEWS_SECTORS':
-        return { ...state, sectors: action.payload }
-        case 'HAYA_CARIMA':
-          return { ...state, hayacarima: action.payload }
-          case 'CLEAR_HAYA_CARIMA':
-            return { ...state, hayacarima: action.payload }
+    case 'COMPLAINT':
+      return { ...state, complaint: action.payload }
+    case 'CLEAR_NEWS_DETAILS':
+      return { ...state, newsdetails: action.payload }
+    case 'NEWS_DETAILS':
+      return { ...state, newsdetails: action.payload }
+    case 'NEWS_CATEGORY':
+      return { ...state, categories: action.payload }
+    case 'NEWS_SECTORS':
+      return { ...state, sectors: action.payload }
+
+    //haya carema
+    case 'HAYA_CARIMA':
+      return { ...state, hayacarima: action.payload }
+    case 'CLEAR_HAYA_CARIMA':
+      return { ...state, hayacarima: action.payload }
           
     default:
       return state;
