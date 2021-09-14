@@ -9,13 +9,21 @@ const Video = (props) => {
     props.sliderVideo();
   }, []);
 
+  let vidCount;
+  let slidesToShow = {slidesToShow : 0}; 
+  if(vidCount >= 4){
+    slidesToShow.slidesToShow = 4
+  } else {
+    slidesToShow.slidesToShow = 2
+  }
+
   var settings = {
     dots: false,
     autoplay:true,
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
-    slidesToShow: 4,
+    // slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     swipeToSlide:true,
@@ -48,7 +56,7 @@ const Video = (props) => {
     ],
   };
   if (props.videos){
-  console.log(props.videos)
+    vidCount = props.videos.result.length
     return (
       <div>
         <div className=" container  py-4">
@@ -80,7 +88,7 @@ const Video = (props) => {
             </div>
 
             <div className=" me-3 ms-3">
-              <Slider {...settings}>
+              <Slider {...settings} {...slidesToShow}>
                 {props.videos.result.map((item, index) => {
                   return (
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
