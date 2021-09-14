@@ -61,7 +61,7 @@ const AppRouting = () => {
         <Route exact path="/appointment" component={appointment}></Route>
         <Route
           exact
-          path="/document-library"
+          path="/document-library/:type"
           component={DocumentLibrary}
         ></Route>
         <Route exact path="/leaders" component={Leaders}></Route>
