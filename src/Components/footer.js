@@ -11,7 +11,6 @@ const Footer = () => {
     <div
       style={{
         backgroundColor: "rgba(37,38,38,255)",
-        padding: "0px 0px 120px",
       }}
     >
       <div className="container ">
