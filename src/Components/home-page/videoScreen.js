@@ -106,7 +106,6 @@ const Video = (props) => {
                       </div>
                       <div className="mt-4">{item.title}</div>
                     </div>
-                    
                   );
                 })}
               </Slider>
