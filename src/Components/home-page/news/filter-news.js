@@ -12,7 +12,6 @@ const FilterNews = (props) => {
     const [currentPage, setCurrentPage] = useState(0)
     const info = props.match.params.info.split('&&');
     let pageCount;
-    console.log(info)
     useEffect(() => {
         info[2] == 'sector' ?
             props.newsList(currentPage + 1, { sectorSourceId: parseInt(info[0]) }) :

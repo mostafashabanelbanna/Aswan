@@ -95,8 +95,6 @@ const Advertisements = (props) => {
   }, [currentPage]);
 
   if (props.advertisementsList && props.advertisementTypes) {
-    console.log(props.advertisementsList);
-    console.log(props.advertisementTypes)
     let advName = props.advertisementTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -196,7 +194,6 @@ const Advertisements = (props) => {
   return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     advertisementsList: state.EServicesComponents.allAdvertisements,
     advertisementTypes: state.EServicesComponents.allAdvertisementTypes

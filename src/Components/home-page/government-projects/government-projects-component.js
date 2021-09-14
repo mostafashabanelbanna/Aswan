@@ -71,7 +71,6 @@ const GovernmentProjects = (props) => {
   if (props.projects) {
     
     if (props.projects.result.length) {
-      console.log(paths.ProjectPhoto)
       let projects = props.projects.result;
       return (
         <div className="container mb-5">
@@ -102,8 +101,7 @@ const GovernmentProjects = (props) => {
                 className="carousel-fade"
               >
                 {projects.map((project, index) => {
-                  console.log(project.id)
-                  console.log(project.photo)
+                 
                   let slicedBrief = project.brief;
                   if (project.brief !== null && project.brief.length > 750) {
                     const brief = project.brief;

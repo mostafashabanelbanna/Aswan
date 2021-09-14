@@ -177,7 +177,6 @@ const NewsList = (props) => {
   return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     newslist: state.homeComponents.newslist,
     categories: state.homeComponents.categories,

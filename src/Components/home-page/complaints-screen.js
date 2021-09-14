@@ -16,7 +16,6 @@ const Complaints = (props) => {
   };
 
   if (props.complaint) {
-    console.log(props.complaint);
     if (props.complaint.result.length) {
       return (
         <div>

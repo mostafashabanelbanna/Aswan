@@ -14,7 +14,6 @@ const ExConservatives = (props) => {
   }, []);
 
   if (props.exconservatives){
-      console.log(props.exconservatives)
     return (
       <>
         <div className=" container underline  my-4">

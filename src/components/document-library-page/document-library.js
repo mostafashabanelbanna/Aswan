@@ -192,7 +192,6 @@ const DocumentLibrary = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     documentLibrary: state.DocumentLibrary.documentLibrary,
     documentLibraryType: state.DocumentLibrary.documentLibraryType,

@@ -10,7 +10,6 @@ import { paths } from "../../paths/paths";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 
 const GovernmentFamous = (props) => {
-  console.log(props);
   useEffect(() => {
     props.getAllFamousPeople();
   }, []);
@@ -57,7 +56,6 @@ const GovernmentFamous = (props) => {
 
   if (props.famousPeople) {
     if (props.famousPeople.result.length) {
-      console.log(props.famousPeople);
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (
         <div className="bg-light">

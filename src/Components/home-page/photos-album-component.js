@@ -40,7 +40,6 @@ const PhotosAlbum = (props) => {
   };
 
   if (props.photos) {
-    console.log(props.photos)
     return (
       <div>
         <div className="container mt-5">
