@@ -40,9 +40,8 @@ const CitiesNavBar = (props) => {
                     imgSrc={paths.NavBarCities + item.id + "/" + item.photo}
                     title={item.name}
                     center="yes"
+                    imgHeight='250px'
                     hoverTitle="hoverTitle"
-                    holder="holder"
-                    imageAlbum="imageAlbum"
                   />
                 </div>
               );

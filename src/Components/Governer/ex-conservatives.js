@@ -23,15 +23,14 @@ const ExConservatives = (props) => {
           <div className="row ">
             {props.exconservatives.result.map((item) => {
               return (
-                <div className="mb-4 col-lg-4 col-sm-6 col-12">
+                <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12">
                   <ListWithImage
                     imgSrc={paths.Governer + item.id + "/" + item.photo}
                     title={item.name}
                     date={`${moment(new Date(item.jobStartDate)).format("LL")} إلى ${moment(new Date(item.jobEndDate)).format("LL")}`}
                     center="yes"
+                    imgHeight='250px'
                     hoverTitle="hoverTitle"
-                    holder="holder"
-                    imageAlbum="imageAlbum"
                   />
                 </div>
               );

@@ -4,9 +4,9 @@ import "./list-with-image.css";
 const ListWithImage = (props) => {
   return (
     <div className={`${props.hoverTitle} list_container`}>
-      <div className={`${props.holder} list_img_container`}>
+      <div className="list_img_container">
         <div
-          className={`${props.imageAlbum} list_img`}
+          className="list_img"
           style={{
             backgroundImage: `url(${props.imgSrc})`,
             height: props.imgHeight,

@@ -25,9 +25,8 @@ const Senate = (props) => {
                     imgSrc={paths.SenatePhotos + item.id + "/" + item.photo}
                     title={item.title}
                     center="yes"
+                    imgHeight='250px'
                     hoverTitle="hoverTitle"
-                    holder="holder"
-                    imageAlbum="imageAlbum"
                   />
                 </div>
               );
