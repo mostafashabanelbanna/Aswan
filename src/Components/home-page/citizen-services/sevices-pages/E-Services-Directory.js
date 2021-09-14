@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServiceDirectories, clearEServiceDirectories, getAllServiceDirectoryTypes} from "../../store/actions/E-Services";
+import { getEServiceDirectories, clearEServiceDirectories, getAllServiceDirectoryTypes} from "../../../../store/actions/E-Services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import {} from "../../Styles/EServices.css";
+import {} from "../../../../Styles/EServices.css";
 import { Container } from "react-bootstrap";
-import SearchSection from "../ui/search-section";
-import PaginationSection from "../ui/pagination-section";
+import SearchSection from "../../../ui/search-section";
+import PaginationSection from "../../../ui/pagination-section";
 
 
 const EServiceDirectories = (props) => {
@@ -63,6 +63,9 @@ const EServiceDirectories = (props) => {
     if (!props.serviceTypes)
       props.getAllServiceDirectoryTypes();
 
+    return () => {
+      props.clearEServiceDirectories();
+    };
   }, [currentPage]);
 
   if (props.serviceDirectories) {
@@ -116,7 +119,7 @@ const EServiceDirectories = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl}>
+                    <a style={{ textDecoration: "none", cursor: "pointer" }} href={item.url}>
                       الرابط
                     </a>
                   </div>

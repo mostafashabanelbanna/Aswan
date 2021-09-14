@@ -19,7 +19,7 @@ const GovernmentFamous = (props) => {
     autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
-    speed: 2000,
+    speed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -61,13 +61,13 @@ const GovernmentFamous = (props) => {
       return (
         <div className="bg-light">
           <div className="container mt-5 mb-2">
-            <div className="d-flex my-2">
+            <div className="d-flex my-3 py-4">
               <img
                 src="./images/icons/Famous_titel-0٢.png"
                 alt=""
                 width="80px"
               />
-              <div className="  underline">
+              <div className="underline">
                 <h3 className="mt-4 me-2 text-secondary">مشاهير المحافظة</h3>
               </div>
             </div>

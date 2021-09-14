@@ -47,13 +47,14 @@ const Video = (props) => {
       },
     ],
   };
-  if (props.videos)
+  if (props.videos){
+  console.log(props.videos)
     return (
       <div>
         <div className=" container  py-4">
           <div className="p-0 m-0 ">
             <div className="m-3 mb-5 d-flex">
-              <img src="/images/icons/video_titel-0٢.png" width="50px" />
+              <img src="/images/icons/video_titel-0٢.png" width="80px" />
               <div className="underline">
                 {" "}
                 <h3 className="mt-4 me-2 text-secondary"> مكتبة الفيديو </h3>
@@ -106,6 +107,7 @@ const Video = (props) => {
         </div>
       </div>
     );
+  }
   return <div>Loading</div>;
 };
 const mapStateToProps = (state) => {

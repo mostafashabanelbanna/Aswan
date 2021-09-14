@@ -26,6 +26,7 @@ export function homeComponents(state = {}, action) {
     case "FAMOUS_PEOPLE_LIST": 
       return { ...state, famousList: action.payload };
 
+    //News
     case 'SLIDER_NEWS':
       return { ...state, slidernews: action.payload }
 
@@ -50,6 +51,8 @@ export function homeComponents(state = {}, action) {
       return { ...state, categories: action.payload }
     case 'NEWS_SECTORS':
       return { ...state, sectors: action.payload }
+
+    //haya carema
     case 'HAYA_CARIMA':
       return { ...state, hayacarima: action.payload }
     case 'CLEAR_HAYA_CARIMA':

@@ -3,7 +3,7 @@ import axios  from "../../Axios/Axios_Config";
 export async function getAllPhotos(){
     let payload = null;
     try{
-        let response = await axios.get("/PhotoLibraryAPI/GetAllSlider")
+        let response = await axios.get("/PhotoLibraryAPI/GetAllSliderGovernment")
         payload = await response.data;
     } catch (error){
     }

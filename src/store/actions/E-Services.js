@@ -30,7 +30,7 @@ export async function clearEServices() {
 export async function getAllCities(){
   let payload = null
   try{
-    let res = await axios.get('/LookUpAPI/GetAllCityCategory');
+    let res = await axios.get('/CityAPI/GetAll');
     payload = res.data
   }catch(e){}
   return {

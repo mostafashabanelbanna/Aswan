@@ -1,7 +1,3 @@
-
-
-
-
 export function EServicesComponents(state = {}, action) {
     switch (action.type) {
       //E-Service

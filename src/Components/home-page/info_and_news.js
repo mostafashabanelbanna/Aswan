@@ -6,10 +6,10 @@ const InfoNews = () => {
   return (
     <div className="bg-light pt-4">
       <div className=" container p-0 ">
-        <div className="mt-2 d-flex">
+        <div className="my-3 d-flex">
           <img
             src="/images/icons/information_titel-0١.png"
-            style={{ width: 50 }}
+            width='80px'
           />
 
           <div className="  underline">
@@ -25,7 +25,7 @@ const InfoNews = () => {
         <div className="row text-center  p-0 m-0 ">
           <Fade bottom>
             <div className="col-lg-3 p-3 col-5 mb-4  hvr-rectangle-out ">
-              <Link to="document-library">
+              <Link to="document-library" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"

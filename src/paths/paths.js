@@ -13,5 +13,7 @@ export const paths = {
   WebLink: `${MainPath}WebLink/Photo/`,
   Governer:`${MainPath}Governor/Photo/`,
   Appointment:`${MainPath}Appointment/Photo/`,
-  NavBarCities:`${MainPath}City/Photo/`
+  NavBarCities:`${MainPath}City/Photo/`,
+  ParliamentPhotos:`${MainPath}StaticContent/Photo/`,
+  SenatePhotos:`${MainPath}StaticContent/Photo/`
 };

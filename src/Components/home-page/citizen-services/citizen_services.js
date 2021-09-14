@@ -5,9 +5,9 @@ import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
   return (
     <div className="bg-light pt-4">
-      <div className=" container p-0 mb-4">
-        <div className="mt-2 d-flex ">
-          <img src="/images/icons/services_titel-0١.png" width="50px" />
+      <div className=" container p-0 mt-2">
+        <div className="my-3 d-flex ">
+          <img src="/images/icons/services_titel-0١.png" width="80px" />
 
           <div className="underline">
             {" "}
@@ -35,7 +35,7 @@ const CitizenServices = () => {
                   to="/eservices"
                   className="text-decoration-none text-muted"
                 >
-                  <div className="mb-4 col-md-3 col-sm-6 col-12 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -71,7 +71,7 @@ const CitizenServices = () => {
                 </a>
 
                 <Link to='/directorates' className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -82,7 +82,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <Link to={'/emergencynumbers'} className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -93,7 +93,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <Link to='/advertisements' className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -104,7 +104,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <Link to='/techcenterservices' className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
