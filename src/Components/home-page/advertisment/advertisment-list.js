@@ -14,6 +14,7 @@ import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
+import ListSkeleton from "../../loading-skeleton/list-skiliton";
 
 const AdvertismentList = (props) => {
     let id = props.match.params.id
@@ -170,7 +171,7 @@ const AdvertismentList = (props) => {
       </>
     );
   }
-  return <div>Loading</div>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   console.log(state);

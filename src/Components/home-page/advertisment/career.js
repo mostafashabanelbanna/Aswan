@@ -10,6 +10,7 @@ import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
+import ListSkeleton from "../../loading-skeleton/list-skiliton";
 
 const Career = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -113,7 +114,7 @@ const Career = (props) => {
       </>
     );
   }
-  return <div>Loading</div>;
+  return <ListSkeleton></ListSkeleton>;
 };
 const mapStateToProps = (state) => {
   console.log(state);
