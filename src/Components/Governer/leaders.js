@@ -12,7 +12,7 @@ const Leaders = (props) => {
         props.leaders()
     }, []);
 
-    if (props.leaders) {
+    if (props.leader) {
         return (<>
          <div className=" container underline  my-4">
             <h3>قيادات المحافظة </h3>
@@ -27,7 +27,7 @@ const Leaders = (props) => {
         <div className='container'>
         <div className=' row d-flex justify-content-around my-4'>
              {props.leader.result.map((item)=>{return(
-             <div className='col-sm-6 col-md-4 my-2'>
+             <div key={item.id} className='col-sm-6 col-md-4 my-2'>
              <ListWithImage 
                  imgSrc={paths.Governer + props.leader.curr.id + "/" + props.leader.curr.photo}
                  title={item.name}

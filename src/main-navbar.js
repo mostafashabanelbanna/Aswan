@@ -65,11 +65,11 @@ const Main_navbar = () => {
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-3  d-none d-lg-flex justify-content-center align-items-center p-0 py-3"
+          className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3"
         >
-          <div className="col-5 fsiz">خريطة الموقع</div>
-          <div className="col-2">|</div>
-          <div className="col-5 fsiz">تواصل معانا</div>
+          <div className="col-3 fsiz">خريطة الموقع</div>
+          <div className="col-2 d-flex justify-content-center">|</div>
+          <div className="col-3 fsiz">تواصل معانا</div>
         </div>
 
         <Navbar
