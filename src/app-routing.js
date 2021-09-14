@@ -22,6 +22,9 @@ import appointment from "./components/appointment";
 import Tribe from './components/home-page/local-leaders/local-leaders-pages/tribe';
 import Parliament from "./components/home-page/local-leaders/local-leaders-pages/parliament";
 import Senate from "./components/home-page/local-leaders/local-leaders-pages/senate";
+import AdvertismentList from "./components/home-page/advertisment/advertisment-list";
+import YouthEmp from "./components/home-page/advertisment/youth-employent";
+import Career from "./components/home-page/advertisment/career";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -64,6 +67,22 @@ const AppRouting = () => {
           path="/document-library/:type"
           component={DocumentLibrary}
         ></Route>
+        <Route
+          exact
+          path="/ads/:id"
+          component={AdvertismentList}
+        ></Route>
+         <Route
+          exact
+          path="/youth"
+          component={YouthEmp}
+        ></Route>
+        <Route
+          exact
+          path="/career"
+          component={Career}
+        ></Route>
+        
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>

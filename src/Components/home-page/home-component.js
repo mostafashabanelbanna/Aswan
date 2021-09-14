@@ -16,7 +16,7 @@ import TrainingAgenda from "./training-agenda";
 import BgAttachment from "../bg-attachment";
 import HayahKarima from "./good-life/haya-carima";
 import Ads from "../ads/ads";
-import Advertising from "./advertising";
+import Advertising from "./advertisment/advertising";
 class HomeComponent extends Component {
   constructor(props) {
     super(props);

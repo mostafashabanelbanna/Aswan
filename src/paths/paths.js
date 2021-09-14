@@ -1,3 +1,4 @@
+
 const MainPath = "http://41.128.217.181:10090/upload/";
 
 // const MainPath = "/images/Upload/";
@@ -16,5 +17,7 @@ export const paths = {
   Appointment:`${MainPath}Appointment/Photo/`,
   NavBarCities:`${MainPath}City/Photo/`,
   ParliamentPhotos:`${MainPath}StaticContent/Photo/`,
-  SenatePhotos:`${MainPath}StaticContent/Photo/`
+  SenatePhotos:`${MainPath}StaticContent/Photo/`,
+  ads:`${MainPath}Advertisment/photo/`,
+  youth:`${MainPath}YouthEmployent/photo/`
 };
