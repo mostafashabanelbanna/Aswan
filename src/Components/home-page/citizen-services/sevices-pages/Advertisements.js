@@ -13,6 +13,7 @@ import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 
 const Advertisements = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -94,8 +95,6 @@ const Advertisements = (props) => {
   }, [currentPage]);
 
   if (props.advertisementsList && props.advertisementTypes) {
-    console.log(props.advertisementsList);
-    console.log(props.advertisementTypes)
     let advName = props.advertisementTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -192,10 +191,9 @@ const Advertisements = (props) => {
       return <div> Loading Two </div>
     }
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     advertisementsList: state.EServicesComponents.allAdvertisements,
     advertisementTypes: state.EServicesComponents.allAdvertisementTypes

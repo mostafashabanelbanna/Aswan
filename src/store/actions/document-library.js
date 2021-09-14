@@ -6,7 +6,6 @@ export async function DocumentLibraryList(
   pageSize = 2
 ) {
   let payload = null;
-  console.log(keywords);
   try {
     let response = await axios.post(
       "/DocumentLibraryAPI/Search/" + pageNumber + "/" + pageSize,
@@ -16,10 +15,11 @@ export async function DocumentLibraryList(
       "/DocumentLibraryAPI/GetResultCount",
       keywords
     );
-    console.log(keywords);
     let res = countResponse.data.result;
     payload = { ...response.data, count: res };
-  } catch (e) {}
+  } catch (e) {
+    console.log(e)
+  }
   return {
     type: "Document_Library_LIST",
     payload,
@@ -31,8 +31,9 @@ export async function getAllDocumentType() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllDocumentType");
     payload = res.data;
-    console.log("Hi", payload);
-  } catch (e) {}
+  } catch (e) {
+    console.log(e)
+  }
   return {
     type: "DOCUMENT_TYPE",
     payload,

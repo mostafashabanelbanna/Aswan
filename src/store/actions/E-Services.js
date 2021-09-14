@@ -1,18 +1,20 @@
 import axios from "../../Axios/Axios_Config";
 
-export async function getEServices(pageNumber, keywords = {},pageSize = 9) {
+export async function getEServices(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
-  try{let response = await axios.post(
-    "/DirectoryAPI/Search/" + pageNumber + "/" + pageSize,
-    keywords
-  );
-  let countResponse = await axios.post("/DirectoryAPI/GetResultCount", keywords);
+  try {
+    let response = await axios.post(
+      "/DirectoryAPI/Search/" + pageNumber + "/" + pageSize,
+      keywords
+    );
+    let countResponse = await axios.post(
+      "/DirectoryAPI/GetResultCount",
+      keywords
+    );
 
-  let res = countResponse.data.result;
-  payload = { ...response.data, count: res,page:pageNumber };
-}catch(e){
-
-  }
+    let res = countResponse.data.result;
+    payload = { ...response.data, count: res, page: pageNumber };
+  } catch (e) {}
   return {
     type: "ESERVICES",
     payload,
@@ -27,70 +29,81 @@ export async function clearEServices() {
   };
 }
 
-export async function getAllCities(){
-  let payload = null
-  try{
-    let res = await axios.get('/CityAPI/GetAll');
-    payload = res.data
-  }catch(e){}
+export async function getAllCities() {
+  let payload = null;
+  try {
+    let res = await axios.get("/CityAPI/GetAll");
+    payload = res.data;
+  } catch (e) {}
   return {
-    type:"CITY_CATEGORY",
-    payload
-  }
+    type: "CITY_CATEGORY",
+    payload,
+  };
 }
 
-export async function getAllDirectoryCategory(id){
-  let payload = null
-  let res
-  try{
-    if(id != null)
-      res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory?ParentId=${id}`);
-    else
-      res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory`);
-    payload = res.data
-    console.log("ooooo",payload)
-  }catch(e){}
-  return {
-    type:"DIRECTORY_CATEGORY",
-    payload
+export async function getAllDirectoryCategory(id) {
+  let payload = null;
+  let res;
+  try {
+    if (id != null)
+      res = await axios.get(
+        `/LookUpAPI/GetAllDirectoryCategory?ParentId=${id}`
+      );
+    else res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory`);
+    payload = res.data;
+  } catch (e) {
+    console.log(e);
   }
+  return {
+    type: "DIRECTORY_CATEGORY",
+    payload,
+  };
 }
 
 export async function clearDirectoryCategory() {
-  let payload = null ;
+  let payload = null;
   return {
     type: "CLEAR_DIRECTORY_CATEGORY",
     payload,
   };
 }
 
-export async function getAllDirectoryType(){
-  let payload = null
-  try{
-    let res = await axios.get('/LookUpAPI/GetAllDirectoryType');
-    payload = res.data
-  }catch(e){}
-  return {
-    type:"DIRECTORY_TYPE",
-    payload
+export async function getAllDirectoryType() {
+  let payload = null;
+  try {
+    let res = await axios.get("/LookUpAPI/GetAllDirectoryType");
+    payload = res.data;
+  } catch (e) {
+    console.log(e);
   }
+  return {
+    type: "DIRECTORY_TYPE",
+    payload,
+  };
 }
-
 
 //E-Service-Directory
 
-export async function getEServiceDirectories(pageNumber, keywords = {},pageSize = 9) {
+export async function getEServiceDirectories(
+  pageNumber,
+  keywords = {},
+  pageSize = 9
+) {
   let payload = null;
-  try{let response = await axios.post(
-    "/ServiceAPI/Search/" + pageNumber + "/" + pageSize,
-    keywords
-  );
-  let countResponse = await axios.post("/ServiceAPI/GetResultCount", keywords);
+  try {
+    let response = await axios.post(
+      "/ServiceAPI/Search/" + pageNumber + "/" + pageSize,
+      keywords
+    );
+    let countResponse = await axios.post(
+      "/ServiceAPI/GetResultCount",
+      keywords
+    );
 
-  let res = countResponse.data.result;
-  payload = { ...response.data, count: res,page:pageNumber };
-}catch(e){
-
+    let res = countResponse.data.result;
+    payload = { ...response.data, count: res, page: pageNumber };
+  } catch (e) {
+    console.log(e);
   }
   return {
     type: "ESERVICE_DIRECTORIES",
@@ -106,33 +119,38 @@ export async function clearEServiceDirectories() {
   };
 }
 
-
-export async function getAllServiceDirectoryTypes(){
-  let payload = null
-  try{
-    let res = await axios.get('/LookUpAPI/GetAllServiceCategory');
-    payload = res.data
-  }catch(e){}
-  return {
-    type:"ESERVICE_DIRECTORY_TYPES",
-    payload
+export async function getAllServiceDirectoryTypes() {
+  let payload = null;
+  try {
+    let res = await axios.get("/LookUpAPI/GetAllServiceCategory");
+    payload = res.data;
+  } catch (e) {
+    console.log(e);
   }
+  return {
+    type: "ESERVICE_DIRECTORY_TYPES",
+    payload,
+  };
 }
 
 //Directorate-services
 
-export async function getDirectorates(pageNumber, keywords = {},pageSize = 9) {
+export async function getDirectorates(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
-  try{let response = await axios.post(
-    "/DirectorateAPI/Search/" + pageNumber + "/" + pageSize,
-    keywords
-  );
-  let countResponse = await axios.post("/DirectorateAPI/GetResultCount", keywords);
+  try {
+    let response = await axios.post(
+      "/DirectorateAPI/Search/" + pageNumber + "/" + pageSize,
+      keywords
+    );
+    let countResponse = await axios.post(
+      "/DirectorateAPI/GetResultCount",
+      keywords
+    );
 
-  let res = countResponse.data.result;
-  payload = { ...response.data, count: res,page:pageNumber };
-}catch(e){
-
+    let res = countResponse.data.result;
+    payload = { ...response.data, count: res, page: pageNumber };
+  } catch (e) {
+    console.log(e);
   }
   return {
     type: "DIRECTORATES",
@@ -148,21 +166,28 @@ export async function clearDirectorates() {
   };
 }
 
-
 //Advertisement
 
-export async function getAdvertisements(pageNumber, keywords = {},pageSize = 9) {
+export async function getAdvertisements(
+  pageNumber,
+  keywords = {},
+  pageSize = 9
+) {
   let payload = null;
-  try{let response = await axios.post(
-    "/AdvertismentAPI/Search/" + pageNumber + "/" + pageSize,
-    keywords
-  );
-  let countResponse = await axios.post("/AdvertismentAPI/GetResultCount", keywords);
+  try {
+    let response = await axios.post(
+      "/AdvertismentAPI/Search/" + pageNumber + "/" + pageSize,
+      keywords
+    );
+    let countResponse = await axios.post(
+      "/AdvertismentAPI/GetResultCount",
+      keywords
+    );
 
-  let res = countResponse.data.result;
-  payload = { ...response.data, count: res,page:pageNumber };
-}catch(e){
-
+    let res = countResponse.data.result;
+    payload = { ...response.data, count: res, page: pageNumber };
+  } catch (e) {
+    console.log(e);
   }
   return {
     type: "ADVERTISEMENTS",
@@ -178,14 +203,16 @@ export async function clearAdvertisements() {
   };
 }
 
-export async function getAllAdvertisementTypes(){
-  let payload = null
-  try{
-    let res = await axios.get('/LookUpAPI/GetAllAdvertismentType');
-    payload = res.data
-  }catch(e){}
-  return {
-    type:"ADVERTISEMENT_TYPES",
-    payload
+export async function getAllAdvertisementTypes() {
+  let payload = null;
+  try {
+    let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
+    payload = res.data;
+  } catch (e) {
+    console.log(e);
   }
+  return {
+    type: "ADVERTISEMENT_TYPES",
+    payload,
+  };
 }

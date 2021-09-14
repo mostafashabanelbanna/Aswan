@@ -8,6 +8,7 @@ import {} from "../../../../Styles/EServices.css";
 import { Col, Container, Row } from "react-bootstrap";
 import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
+import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 
 
 const EmergencyNumbers = (props) => {
@@ -236,7 +237,7 @@ const EmergencyNumbers = (props) => {
       </>
     );}
     else{
-      return <div> Loading Two </div>
+      return <ListSkeleton/>
     }
   }
   return <div>Loading</div>;

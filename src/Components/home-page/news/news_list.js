@@ -15,6 +15,7 @@ import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
+import ListSkeleton from "../../loading-skeleton/list-skiliton";
 
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -173,10 +174,9 @@ const NewsList = (props) => {
       </>
     );
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     newslist: state.homeComponents.newslist,
     categories: state.homeComponents.categories,

@@ -8,6 +8,7 @@ import {} from "../../../../Styles/EServices.css";
 import { Col, Container, Row } from "react-bootstrap";
 import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
+import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 
 
 const EServices = (props) => {
@@ -251,7 +252,7 @@ const EServices = (props) => {
       return <div> Loading Two </div>
     }
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return { 
