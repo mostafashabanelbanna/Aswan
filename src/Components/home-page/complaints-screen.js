@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { complaints } from '../../store/actions/News_Action'
 import { paths } from "../../paths/paths";
+import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 
 const Complaints = (props) => {
   useEffect(() => {
@@ -60,7 +61,7 @@ const Complaints = (props) => {
       );
     }
   }
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 
 const mapStateToProps = (state) => {

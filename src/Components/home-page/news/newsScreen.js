@@ -13,6 +13,7 @@ import { mainNews, sliderNews } from "../../../store/actions/News_Action";
 import ReactHtmlParser from "react-html-parser";
 import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
+import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 
 const News = (props) => {
   useEffect(() => {
@@ -139,7 +140,7 @@ const News = (props) => {
       </div>
     );
   }
-  return <div>Loading</div>;
+  return <GeneralThreeOthersSkeletons/>;
 };
 
 const mapStateToProps = (state) => {

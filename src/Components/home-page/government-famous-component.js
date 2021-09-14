@@ -7,6 +7,7 @@ import { getAllFamousPeople } from "../../store/actions/government-famous-action
 import Slider from "react-slick";
 import "../../Styles/government-famous-style.css";
 import { paths } from "../../paths/paths";
+import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 
 const GovernmentFamous = (props) => {
   console.log(props);
@@ -97,7 +98,7 @@ const GovernmentFamous = (props) => {
       );
     }
   }
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 
 export default connect(

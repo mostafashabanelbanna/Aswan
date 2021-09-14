@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { sliderVideo } from "../../store/actions/News_Action";
+import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 const Video = (props) => {
   useEffect(() => {
     props.sliderVideo();
@@ -115,7 +116,7 @@ const Video = (props) => {
       </div>
     );
   }
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return { videos: state.homeComponents.slidervideo };

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { leaders } from '../../store/actions/governer'
 import ListWithImage from '../ui/list-with-image'
 import { paths } from "../../paths/paths";
+import ListSkeleton from '../loading-skeleton/list-skiliton'
 
 
 const Leaders = (props) => {
@@ -39,7 +40,7 @@ const Leaders = (props) => {
         </div>
         </>)
     }
-    return (<div>Loading</div>)
+    return (<ListSkeleton/>)
 }
 
 

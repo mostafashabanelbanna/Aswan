@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import PaginationSection from "../../ui/pagination-section";
 import ListWithImage from '../../ui/list-with-image'
 import { paths } from "../../../paths/paths";
+import ListSkeleton from '../../loading-skeleton/list-skiliton'
 
 const FilterNews = (props) => {
     const [currentPage, setCurrentPage] = useState(0)
@@ -53,7 +54,7 @@ const FilterNews = (props) => {
             />
         </>)
     }
-    return (<div>No Data</div>)
+    return (<ListSkeleton/>)
 }
 const mapStateToProps = (state) => {
     return { data: state.homeComponents.newslist }

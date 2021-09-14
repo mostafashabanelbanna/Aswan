@@ -10,6 +10,7 @@ import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import "../../../Styles/government-projects-style.css";
 import {Link } from "react-router-dom";
+import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -158,7 +159,7 @@ const GovernmentProjects = (props) => {
       );
     }
   }
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 
 export default connect(

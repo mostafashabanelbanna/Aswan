@@ -8,6 +8,7 @@ import { newsdetails, clearNewsdetails } from '../../../store/actions/News_Actio
 import {paths} from '../../../paths/paths'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPen , faCalendar} from "@fortawesome/free-solid-svg-icons"
+import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
 const NewsDetails = (props) => {
     const id = props.match.params.id;
     useEffect(() => {
@@ -54,9 +55,10 @@ const NewsDetails = (props) => {
                     <button className="btn " style={{ background: '-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)' }}>المزيد من الاخبار</button>
                 </Link>
             </div>)
+    } else {
+        return (<GeneralThreeOthersSkeletons/>);
     }
 
-    return (<div>Loading</div>);
 }
 const mapStateToProps = (state) => {
     return {

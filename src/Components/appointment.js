@@ -9,6 +9,7 @@ import "moment/locale/ar";
 import { paths } from "../paths/paths";
 import { Link } from "react-router-dom";
 import PaginationSection from "./ui/pagination-section";
+import ListSkeleton from "./loading-skeleton/list-skiliton";
 const Appointment = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
@@ -143,7 +144,7 @@ const Appointment = (props) => {
         )}
     </>
   );}
-  return(<div> Loading</div>)
+  return(<ListSkeleton/>)
 };
 const mapStateToProps = (state) => {
   return {

@@ -6,6 +6,7 @@ import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import moment from "moment";
 import "moment/locale/ar";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
 
 const ExConservatives = (props) => {
   useEffect(() => {
@@ -39,7 +40,7 @@ const ExConservatives = (props) => {
         </div>
       </>
     );
-    } return <div>Loading</div>;
+    } return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {

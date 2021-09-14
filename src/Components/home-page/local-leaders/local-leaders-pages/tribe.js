@@ -16,6 +16,7 @@ import {} from "../../../../Styles/EServices.css";
 import { Container } from "react-bootstrap";
 import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
+import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 
 const Tribe = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -80,7 +81,6 @@ const Tribe = (props) => {
   }, [currentPage]);
 
   if (props.allTribe) {
-    console.log("hoooooooo", props.allTribe);
     let cityName = props.allCities.result.map(({ id, name }) => ({
       value: id,
       label: name,
@@ -205,7 +205,7 @@ const Tribe = (props) => {
       return <div> Loading Two </div>;
     }
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {
