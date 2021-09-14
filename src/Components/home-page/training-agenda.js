@@ -27,7 +27,6 @@ const TrainingAgenda = () => {
     $('.fc-daygrid-day-events').remove()
     $('.fc-daygrid-day-bg').remove()
     day = $(".fc-daygrid-day").attr("data-date").split('-')[2];
-    console.log(day)
     $(".fc-daygrid-day").addClass('day' + $(".fc-daygrid-day").attr("data-date"))
     $('.day'+$(".fc-daygrid-day").attr("data-date")).click((day) => {//".fc-daygrid-day"
       alert("The paragraph was clicked." + $(".fc-daygrid-day").attr("data-date"));

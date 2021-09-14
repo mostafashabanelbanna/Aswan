@@ -44,10 +44,10 @@ const GovernmentProjects = (props) => {
   };
 
   const _onSelect = (active, direction) => {
-    console.log(`active=${active} && direction=${direction}`);
+    // console.log(`active=${active} && direction=${direction}`);
   };
   const _visiableOnSelect = (active) => {
-    console.log(`visiable onSelect active=${active}`);
+    // console.log(`visiable onSelect active=${active}`);
   };
   const _slideNext = () => {
     slider.current.slideNext();
