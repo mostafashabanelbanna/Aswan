@@ -37,7 +37,7 @@ const AdvertismentList = (props) => {
     e.preventDefault();
     console.log(check(dataFilled))
     check(dataFilled)==false&&advertismentTypeId!=null?
-    props.getAllAdvertisment():
+    props.getAllAdvertisment(currentPage + 1):
     props.getAdvertisment(currentPage + 1, data(dataFilled));
     
     setFlag(1);
@@ -91,11 +91,11 @@ const AdvertismentList = (props) => {
     if (flag){
       check(dataFilled) == false
         ?advertismentTypeId==0?
-        props.getAllAdvertisment():
+        props.getAllAdvertisment(currentPage + 1):
         props.getAdvertisment(currentPage + 1)
         : props.getAdvertisment(currentPage + 1, data(dataFilled));}
     
-        else {advertismentTypeId==0?props.getAllAdvertisment():props.getAdvertisment(currentPage + 1,data(dataFilled));}
+        else {advertismentTypeId==0?props.getAllAdvertisment(currentPage + 1):props.getAdvertisment(currentPage + 1,data(dataFilled));}
         setFlag(0);
   }, [currentPage]);
 

@@ -25,6 +25,33 @@ export async function getAdvertisment(
     payload,
   };
 }
+export async function getAllAdvertismentType() {
+  let payload = null;
+  try {
+    let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
+    payload = res.data;
+    console.log("Hi", payload);
+  } catch (e) {}
+  return {
+    type: "ADVERTISMENT_TYPE",
+    payload,
+  };
+}
+
+export async function getAllAdvertisment(pageNumber,
+  pageSize = 2) {
+    let payload = null;
+    try {
+      let res = await axios.get(`/AdvertismentAPI/GetAdsBids/${pageNumber}/${pageSize}`);
+      payload = res.data;
+      console.log("Hi", payload);
+    } catch (e) {}
+    return {
+      type: "ADVERTISMENT_ALL",
+      payload,
+    };
+  }
+
 
 export async function youthEmployment(
     pageNumber,
@@ -78,30 +105,5 @@ export async function youthEmployment(
     };
   }
 
-export async function getAllAdvertismentType() {
-  let payload = null;
-  try {
-    let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
-    payload = res.data;
-    console.log("Hi", payload);
-  } catch (e) {}
-  return {
-    type: "ADVERTISMENT_TYPE",
-    payload,
-  };
-}
-
-export async function getAllAdvertisment() {
-    let payload = null;
-    try {
-      let res = await axios.get("/AdvertismentAPI/GetAdsBids");
-      payload = res.data;
-      console.log("Hi", payload);
-    } catch (e) {}
-    return {
-      type: "ADVERTISMENT_ALL",
-      payload,
-    };
-  }
 
   
