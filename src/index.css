@@ -189,7 +189,14 @@ a {
   cursor: pointer;
   margin: 5px;
 }
+.MuiOutlinedInput-input{
+  padding:  6px 14px !important;
+}
 
+#standard-basic{
+  padding: 6px 14px;
+
+}
 .myButton span {
   cursor: pointer;
   display: inline-block;

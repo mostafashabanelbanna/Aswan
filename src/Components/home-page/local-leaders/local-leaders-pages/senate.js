@@ -14,7 +14,7 @@ const Senate = (props) => {
   if (props.allSenate)
     return (
       <>
-        <div className=" container underline  my-4">
+        <div className=" container underline  my-5">
           <h3>مجلس الشيوخ</h3>
         </div>
         <div className="container mt-5">

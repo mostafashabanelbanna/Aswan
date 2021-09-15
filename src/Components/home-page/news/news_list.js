@@ -113,7 +113,7 @@ const NewsList = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-4">
+          <div className=" container underline  my-5">
             <h3>الاخبار</h3>
           </div>
           <div className=" bg-light p-3">

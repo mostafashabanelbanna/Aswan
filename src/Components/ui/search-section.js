@@ -17,23 +17,24 @@ const SearchSection = (props) => {
         <form onSubmit={props.submit}>
           <div className="row align-items-center">
             {props.TextFieldOneHandler ? (
-              <div className={`${props.classNameTextFieldOne} form-group my-4`}>
+              <div className={`${props.classNameTextFieldOne} form-group mt-4`}>
                 <TextField
+                variant="outlined"
                   onChange={props.TextFieldOneHandler}
                   className="w-100"
                   id="standard-basic"
-                  label={props.labelTextFieldOne}
+                  placeholder={props.labelTextFieldOne}
                 />
               </div>
             ) : null}
 
             {props.TextFieldTwoHandler ? (
-              <div className={`${props.classNameTextFieldTwo} form-group my-4`}>
+              <div className={`${props.classNameTextFieldTwo} form-group mt-4`}>
                 <TextField
                   onChange={props.TextFieldTwoHandler}
                   className="w-100"
                   id="standard-basic"
-                  label={props.labelTextFieldTwo}
+                  placeholder={props.labelTextFieldTwo}
                 />
               </div>
             ) : null}
@@ -83,7 +84,7 @@ const SearchSection = (props) => {
               </div>
             ) : null}
             {props.publishFromHandler ? (
-              <div className={`${props.classNameDPFrom}`}>
+              <div className={`${props.classNameDPFrom} mt-4`}>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -91,6 +92,7 @@ const SearchSection = (props) => {
                 >
                   <KeyboardDatePicker
                     format="L"
+                    inputVariant="outlined"
                     value={props.publishDateFrom}
                     variant="dialog"
                     maxDateMessage=""
@@ -103,7 +105,7 @@ const SearchSection = (props) => {
               </div>
             ) : null}
             {props.publishToHandler ? (
-              <div className={`${props.classNameDPTo}`}>
+              <div className={`${props.classNameDPTo} mt-4`}>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -113,6 +115,7 @@ const SearchSection = (props) => {
                     format="L"
                     value={props.publishDateTo}
                     variant="dialog"
+                    inputVariant="outlined"
                     maxDateMessage=""
                     mask="__-__-____"
                     placeholder="يوم/شهر/سنة"
