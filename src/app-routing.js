@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomeComponent from "./components/home-page/home-component";
 import Error from "./components/errorPage";
 import ProjectDetails from "./components/home-page/government-projects/project-details-component";
+import ProjectsList from './components/home-page/government-projects/government-projects-list-component'
 import NewsDetails from "./components/home-page/news/news-details";
 import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
@@ -30,6 +31,7 @@ const AppRouting = () => {
         <Route exact path="/" component={HomeComponent} />
         <Route exact path="/home" component={HomeComponent} />
         <Route exact path="/projectDetails/:id" component={ProjectDetails} />
+        <Route exact path='/projectslist' component={ProjectsList}/>
         <Route exact path="/newsdetails/:id" component={NewsDetails} />
         <Route exact path="/eservices" component={EServices} />
         <Route

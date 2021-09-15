@@ -64,7 +64,6 @@ const EmergencyNumbers = (props) => {
     setRenderFlag(1);
 
     return () => {
-      props.clearDirectoryCategory();
       props.clearEServices();
     };
 
@@ -124,19 +123,19 @@ const EmergencyNumbers = (props) => {
           {props.services.result.map((item, index) => {
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
+                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-start d-flex my-2 text-muted">
-                  <span className="py-1 px-2 fa-1x">{item.directoryTypeName}-{item.directoryCategoryName}</span>
+                <div className="justify-content-end d-flex my-3 text-muted">
+                  <span className="py-1 px-2 fa-1x"  style={{backgroundColor:'rgb(255 220 110 / 30%)', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.directoryTypeName}-{item.directoryCategoryName}</span>
                 </div>
 
                 <div className="justify-content-center d-flex my-2 text-muted">
-                  <span className="py-1 px-2 rounded-3 h4" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
+                  <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
                 </div>
 
-                <div className="d-flex my-3">
+                <div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -150,7 +149,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3">
+                <div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -164,7 +163,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3">
+                <div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -178,7 +177,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3">
+                <div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -192,7 +191,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                {item.manger?<div className="d-flex my-3">
+                {item.manger?<div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -204,10 +203,10 @@ const EmergencyNumbers = (props) => {
                     {" "}
                       {item.manager}
                   </div>
-                </div>:<div className="d-none"></div>
+                </div>:null
                 }
 
-                {item.mapUrl?<div className="d-flex my-3">
+                {item.mapUrl?<div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -217,11 +216,11 @@ const EmergencyNumbers = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl}>
+                    <a className='text-muted text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
                       الرابط
                     </a>
                   </div>
-                </div>:<div className="d-none"></div>
+                </div>:null
                 }     
               </div>
             );
@@ -236,11 +235,8 @@ const EmergencyNumbers = (props) => {
     }
       </>
     );}
-    else{
-      return <ListSkeleton/>
-    }
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return { 

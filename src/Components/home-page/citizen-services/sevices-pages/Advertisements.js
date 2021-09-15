@@ -132,12 +132,13 @@ const Advertisements = (props) => {
         </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.advertisementsList.result.map((item, index) => {
-              let date = new Date(item.publishDate.split('T')[0]);
-              let months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
-                "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
-              ];
-              let days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
-              let delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+            console.log(item)
+              // let date = new Date(item.publishDate.split('T')[0]);
+              // let months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+              //   "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+              // ];
+              // let days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+              // let delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
             
               let slicedDescription = item.description;
                   if (item.description !== null && item.description.length > 500) {
@@ -147,19 +148,28 @@ const Advertisements = (props) => {
             
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
+                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-center d-flex my-2 text-muted">
-                  <span className="py-1 px-2 rounded-3 h4" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.advertismentTypeName}</span>
-                </div>
+                {item.advertismentTypeName?<div className="justify-content-end d-flex my-3 text-muted">
+                    <span
+                      className="py-1 px-2 fa-1x"
+                      style={{
+                        backgroundColor: "rgb(255 220 110 / 30%)",
+                        borderTopRightRadius: "5px",
+                        borderBottomRightRadius: "5px",
+                      }}
+                    >
+                      {item.advertismentTypeName}
+                    </span>
+                  </div>:null}
 
                 <div className="justify-content-start d-flex my-2 text-muted">
                   <span className="py-1 px-2 fa-1x">{slicedDescription}</span>
                 </div>
 
-                {item.publishDate?<div className="d-flex my-3">
+                {item.publishDate?<div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -170,10 +180,11 @@ const Advertisements = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      {/* {item.publishDate.split('T')[0]} */}{delDateString}
+                      {/* {item.publishDate.split('T')[0]}{delDateString}*/}
+                      {`${moment(new Date(item.publishDate)).format("LL")}`}
                     </a>
                   </div>
-                </div>:<div className="d-none"></div>
+                </div>:null
                 }     
               </div>
             );
@@ -187,9 +198,7 @@ const Advertisements = (props) => {
       />:<div className="text-center mt-5">لا يوجد نتائج</div>
     }
       </>
-    );} else {
-      return <div> Loading Two </div>
-    }
+    );}
   }
   return <ListSkeleton/>;
 };

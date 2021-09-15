@@ -42,7 +42,7 @@ export async function newsdetails(newsId) {
 }
 
 export async function clearNewsdetails() {
-  let payload;
+  let payload = null;
 
   return {
     type: "CLEAR_NEWS_DETAILS",

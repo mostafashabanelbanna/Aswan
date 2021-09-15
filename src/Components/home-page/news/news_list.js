@@ -16,6 +16,7 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import { getSenate } from "../../../store/actions/local-leaders-actions";
 
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -96,9 +97,14 @@ const NewsList = (props) => {
 
     if (!props.categories) props.getNewsCategory();
     if (!props.sectors) props.getNewsSectors();
+
+    // return () => {
+    //   props.clearNewsList();
+    // }
   }, [currentPage]);
 
   if (props.newslist && props.categories && props.sectors) {
+    console.log("sdsdsd",props.newslist)
     let catName = props.categories.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -145,13 +151,15 @@ const NewsList = (props) => {
           <Container>
             <Row className="my-4">
               {props.newslist.result.map((item, index) => {
+                let date = item.publishDate.replace(/\//g,'-').split('-');
+                let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link to={`newsdetails/${item.id}`} className="h-100">
+                    <Link to={`/newsdetails/${item.id}`} className="h-100">
                       <ListWithImage
                         imgSrc={paths.NewsPhotos + item.id + "/" + item.photo}
                         title={item.title}
-                        date={"1/1/2022"}
+                        date={`${moment(new Date(publishedDate)).format("LL")}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
                       />

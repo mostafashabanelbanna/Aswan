@@ -7,13 +7,19 @@ export function homeComponents(state = {}, action) {
       return { ...state, citiesList: action.payload };
 
     //government projects reducers
-    case "PROJECTS_LIST":
-      return { ...state, projectsList: action.payload };
+    case "PROJECTS_SLIDER":
+      return { ...state, projectsSlider: action.payload };
     case "PROJECT_DETAILS":
       return { ...state, projectDetails: action.payload };
     case "CLEAR_DATA":
       return { ...state, projectDetails: action.payload }
-
+    case "PROJECTS_LIST":
+      return { ...state, projectsList: action.payload };
+    case "CLEAR_PROJECTS_LIST":
+      return { ...state, projectsList: action.payload };
+    case "NATIONAL_PROJECTS_SECTORS":
+      return { ...state, projectsSectors: action.payload };
+      
     //photo album reducers
     case "PHOTOS_ALBUM_LIST":
       return { ...state, photosList: action.payload };
