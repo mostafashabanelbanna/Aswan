@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const Main_navbar = () => {
   return (
     <div>
-      <div className="row p-0 m-0 mt-2 sticky-top bg-light">
+      <div className="row p-0 m-0 sticky-top bg-light">
         <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
             <img className="main_logo" src="/images/icons/logo_banner-0١.png" />

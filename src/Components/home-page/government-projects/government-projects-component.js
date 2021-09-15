@@ -10,6 +10,7 @@ import { Row, Col } from "react-bootstrap";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import "../../../Styles/government-projects-style.css";
 import {Link } from "react-router-dom";
+import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -43,10 +44,10 @@ const GovernmentProjects = (props) => {
   };
 
   const _onSelect = (active, direction) => {
-    console.log(`active=${active} && direction=${direction}`);
+    // console.log(`active=${active} && direction=${direction}`);
   };
   const _visiableOnSelect = (active) => {
-    console.log(`visiable onSelect active=${active}`);
+    // console.log(`visiable onSelect active=${active}`);
   };
   const _slideNext = () => {
     slider.current.slideNext();
@@ -70,7 +71,6 @@ const GovernmentProjects = (props) => {
   if (props.projects) {
     
     if (props.projects.result.length) {
-      console.log(paths.ProjectPhoto)
       let projects = props.projects.result;
       return (
         <div className="container mb-5">
@@ -101,8 +101,7 @@ const GovernmentProjects = (props) => {
                 className="carousel-fade"
               >
                 {projects.map((project, index) => {
-                  console.log(project.id)
-                  console.log(project.photo)
+                 
                   let slicedBrief = project.brief;
                   if (project.brief !== null && project.brief.length > 750) {
                     const brief = project.brief;
@@ -158,7 +157,7 @@ const GovernmentProjects = (props) => {
       );
     }
   }
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 
 export default connect(

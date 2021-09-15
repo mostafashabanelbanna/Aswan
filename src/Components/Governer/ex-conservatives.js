@@ -6,6 +6,7 @@ import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import moment from "moment";
 import "moment/locale/ar";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
 
 const ExConservatives = (props) => {
   useEffect(() => {
@@ -13,10 +14,9 @@ const ExConservatives = (props) => {
   }, []);
 
   if (props.exconservatives){
-      console.log(props.exconservatives)
     return (
       <>
-        <div className=" container underline  my-4">
+        <div className=" container underline  my-5">
           <h3>المحافظون السابقون </h3>
         </div>
         <div className="container mt-5">
@@ -39,7 +39,7 @@ const ExConservatives = (props) => {
         </div>
       </>
     );
-    } return <div>Loading</div>;
+    } return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {

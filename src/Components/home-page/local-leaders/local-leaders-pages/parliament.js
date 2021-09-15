@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { getParliament } from "../../../../store/actions/local-leaders-actions";
 import ListWithImage from "../../../ui/list-with-image";
 import { paths } from "../../../../paths/paths";
+import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 
 const Parliament = (props) => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const Parliament = (props) => {
   if (props.allParliament){
   return (
     <>
-      <div className=" container underline  my-4">
+      <div className=" container underline  my-5">
         <h3>مجلس النواب</h3>
       </div>
       <div className="container mt-5">
@@ -36,7 +37,7 @@ const Parliament = (props) => {
     </>
   );
         }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {

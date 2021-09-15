@@ -58,3 +58,7 @@
     background-color: transparent !important;
 }
 
+.fc-scrollgrid-sync-table {
+    height: 500px !important;
+}
+

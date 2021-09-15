@@ -13,6 +13,7 @@ import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../ui/search-section";
 import PaginationSection from "../ui/pagination-section";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
 
 const DocumentLibrary = (props) => {
   let id = props.match.params.type;
@@ -149,11 +150,12 @@ const DocumentLibrary = (props) => {
       );
     }
     return (
-      <Container fluid>
-        <div className=" d-flex justify-content-center align-items-center">
-          Loading
-        </div>
-      </Container>
+      // <Container fluid>
+      //   <div className=" d-flex justify-content-center align-items-center">
+      //     Loading
+      //   </div>
+      // </Container>
+      <ListSkeleton/>
     );
   };
   return (
@@ -190,7 +192,6 @@ const DocumentLibrary = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     documentLibrary: state.DocumentLibrary.documentLibrary,
     documentLibraryType: state.DocumentLibrary.documentLibraryType,

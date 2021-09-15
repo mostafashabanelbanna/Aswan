@@ -6,6 +6,7 @@ export async function getAllPortals(){
         let response = await axios.get("/WebLinkAPI/GetAll")
         payload = await response.data;
     } catch (error){
+        console.log(error)
     }
     return {
         type:"PORTALS_LIST",

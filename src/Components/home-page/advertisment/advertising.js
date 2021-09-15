@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Advertising = () => {
     return (<>
-        <div className='bg-light  mt-3'>
+        <div className='bg-light mt-3'>
         <div className=" container p-0 ">
         <div className="my-3 d-flex">
           <img
@@ -11,7 +11,7 @@ const Advertising = () => {
             width='80px'
           />
 
-          <div className="  underline">
+          <div className="underline">
             <h3 className="mt-4 me-2 text-secondary">
                 اعلانات
             </h3>
@@ -21,7 +21,7 @@ const Advertising = () => {
             <div className='container '>
             <div className='row text-center justify-content-around'>
             <div className="col-lg-3 p-3 col-5 mb-4 ">
-              <Link to="" className="text-decoration-none text-muted">
+              <Link to="ads/0" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
@@ -31,7 +31,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 ">
-              <Link to="" className="text-decoration-none text-muted">
+              <Link to="career" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
@@ -41,7 +41,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 ">
-              <Link to="" className="text-decoration-none text-muted">
+              <Link to="youth" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
@@ -51,7 +51,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 ">
-              <Link to="" className="text-decoration-none text-muted">
+              <Link to="ads/5" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"

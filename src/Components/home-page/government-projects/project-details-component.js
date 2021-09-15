@@ -13,10 +13,10 @@ import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
+import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
 
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 
-import OnePieaceSkeleton from '../../loading-skeleton/one-pieace'
 
 const ProjectDetails = (props) => {
   useEffect(() => {
@@ -104,7 +104,6 @@ const ProjectDetails = (props) => {
   }
 
   if (props.projectDetails) {
-    console.log(props.projectDetails);
     let details = Object.assign({}, props.projectDetails.result);
     return (
       <div className="container">
@@ -203,12 +202,7 @@ const ProjectDetails = (props) => {
       </div>
     );
   }
-  return (
-  <div className="text-center container">
-    <OnePieaceSkeleton/>
-    <OnePieaceSkeleton/>
-  </div>
-  )
+  return <GeneralThreeOthersSkeletons/>
 };
 
 export default connect(

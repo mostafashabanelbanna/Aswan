@@ -5,8 +5,9 @@ export async function getAppointments(pageNumber ,keyword={}, pageSize=9  ){
      let res =  await  axios.post('/AppointmentAPI/Search/'+ pageNumber +'/'+pageSize , keyword)
      let count = await axios.post('/AppointmentAPI/GetResultCount',keyword)
         payload ={ ...res.data, count:count.data.result}
-    }catch(e){}
-console.log(payload)
+    }catch(e){
+        console.log(e)
+    }
     return {
         type:'APPOINTMENT',
         payload
@@ -17,8 +18,9 @@ export async function getAppointmentsTypes(pageNumber ,keyword={}, pageSize=9  )
     try{
      let res =  await axios.get('/LookUpAPI/GetAllAppointmentType')
         payload =res.data
-    }catch(e){}
-console.log(payload)
+    }catch(e){
+        console.log(e)
+    }
     return {
         type:'APPOINTMENT_TYPES',
         payload

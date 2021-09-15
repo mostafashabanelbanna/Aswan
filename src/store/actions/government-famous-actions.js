@@ -1,15 +1,15 @@
+import axios from "../../Axios/Axios_Config";
 
-import axios  from "../../Axios/Axios_Config";
-
-export async function getAllFamousPeople(){
-    let payload = null;
-    try{
-        let response = await axios.get("/StaticContentAPI/GetAll/1")
-        payload = await response.data;
-    } catch (error){
-    }
-    return {
-        type:"FAMOUS_PEOPLE_LIST",
-        payload
-    };
+export async function getAllFamousPeople() {
+  let payload = null;
+  try {
+    let response = await axios.get("/StaticContentAPI/GetAll/1");
+    payload = await response.data;
+  } catch (e) {
+    console.log(e);
+  }
+  return {
+    type: "FAMOUS_PEOPLE_LIST",
+    payload,
+  };
 }

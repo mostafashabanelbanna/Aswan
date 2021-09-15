@@ -4,6 +4,7 @@ import { getHayaDetails, clearHayaDetails } from '../../../store/actions/haya-ca
 import { bindActionCreators } from 'redux'
 import ReactHtmlParser from "react-html-parser";
 import {Bar} from 'react-chartjs-2';
+import FocusedGeneralIndicatorSkeleton from "../../loading-skeleton/focused-general-indicator";
 
 const HayaKarimaDetails = (props) => {
     let id = props.match.params.id;
@@ -54,7 +55,7 @@ const HayaKarimaDetails = (props) => {
             </div>
         </>);
     }
-    return (<div>Loading</div>)
+    return (<FocusedGeneralIndicatorSkeleton/>)
 }
 const mapStateToProps = (state) => {
     return {

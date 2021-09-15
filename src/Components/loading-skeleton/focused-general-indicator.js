@@ -1,5 +1,5 @@
 import {react} from 'react'
-import { Tab, Tabs } from "react-bootstrap";
+import { Container, Tab, Tabs } from "react-bootstrap";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
@@ -7,12 +7,16 @@ const FocusedGeneralIndicatorSkeleton = () => {
 
     return (
         <>
-        <div className="row">
-            <div className="col-md-2"><Skeleton width="100%" height={50}/></div>
-            <div className="col-md-2"><Skeleton width="100%" height={50}/></div>
-            <div className="col-md-2"><Skeleton width="100%" height={50}/></div>
-        </div>
-         <Skeleton width="100%" height={400}/>   
+        <Container>
+            <div className="d-flex justify-content-between">
+                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
+                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
+                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
+            </div>
+            <div className="d-flex justify-content-between">
+                <Skeleton width="100%" height={400}/>
+            </div>  
+        </Container>
         </>
     );
 }

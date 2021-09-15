@@ -37,7 +37,7 @@ const InfoNews = () => {
           </Fade>
           <Fade bottom delay={400}>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
-              <Link to={`document-library/2`}>
+              <Link to={`document-library/2`} className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className=" px-4 imgfilter"
@@ -49,7 +49,7 @@ const InfoNews = () => {
           </Fade>
           <Fade bottom>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
-              <Link to={`document-library/3`}>
+              <Link to={`document-library/3`} className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className=" px-4 imgfilter"
@@ -61,7 +61,7 @@ const InfoNews = () => {
           </Fade>
           <Fade bottom delay={400}>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
-              <Link to={`document-library/4`}>
+              <Link to={`document-library/4`} className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
                   className="w px-4 imgfilter"

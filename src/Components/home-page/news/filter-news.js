@@ -6,12 +6,12 @@ import { bindActionCreators } from 'redux'
 import PaginationSection from "../../ui/pagination-section";
 import ListWithImage from '../../ui/list-with-image'
 import { paths } from "../../../paths/paths";
+import ListSkeleton from '../../loading-skeleton/list-skiliton'
 
 const FilterNews = (props) => {
     const [currentPage, setCurrentPage] = useState(0)
     const info = props.match.params.info.split('&&');
     let pageCount;
-    console.log(info)
     useEffect(() => {
         info[2] == 'sector' ?
             props.newsList(currentPage + 1, { sectorSourceId: parseInt(info[0]) }) :
@@ -53,7 +53,7 @@ const FilterNews = (props) => {
             />
         </>)
     }
-    return (<div>No Data</div>)
+    return (<ListSkeleton/>)
 }
 const mapStateToProps = (state) => {
     return { data: state.homeComponents.newslist }

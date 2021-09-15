@@ -5,8 +5,10 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import Fade from "react-reveal/Fade";
-
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import "../../Styles/training-agenda.css";
+import { useEffect } from "react";
 
 const TrainingAgenda = () => {
 
@@ -18,6 +20,18 @@ const TrainingAgenda = () => {
     { title: "إعلان", date: "2021-09-01" },
     { title: "مؤتمرات", date: "2021-09-01" },
   ];
+
+  let day;
+
+  useEffect (() => {
+    $('.fc-daygrid-day-events').remove()
+    $('.fc-daygrid-day-bg').remove()
+    day = $(".fc-daygrid-day").attr("data-date").split('-')[2];
+    $(".fc-daygrid-day").addClass('day' + $(".fc-daygrid-day").attr("data-date"))
+    $('.day'+$(".fc-daygrid-day").attr("data-date")).click((day) => {//".fc-daygrid-day"
+      alert("The paragraph was clicked." + $(".fc-daygrid-day").attr("data-date"));
+    });
+  }, [])
 
   return (
     <div className="pt-5 bg-light">
@@ -49,7 +63,7 @@ const TrainingAgenda = () => {
             headerToolbar={{ start: "", center: "title", end: "" }}
             editable={false}
             locale="ar"
-            height={"880px"}
+            height={"630px"}
           />
         </div>
         <div className="col-xl-6 col-12 px-3">

@@ -5,6 +5,7 @@ import { getAllCities, clearNavbarCities } from "../store/actions/navbar";
 import ListWithImage from "./ui/list-with-image";
 import { paths } from "../paths/paths";
 import PaginationSection from "./ui/pagination-section";
+import ListSkeleton from "./loading-skeleton/list-skiliton";
 
 const CitiesNavBar = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -20,7 +21,6 @@ const CitiesNavBar = (props) => {
   }, [currentPage]);
 
   if (props.citiesList) {
-    console.log(props.citiesList);
     pageCount = Math.ceil(props.citiesList.count / 9);
     return (
       <>
@@ -60,7 +60,7 @@ const CitiesNavBar = (props) => {
       </>
     );
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {

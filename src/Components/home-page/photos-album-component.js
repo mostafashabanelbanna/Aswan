@@ -4,6 +4,7 @@ import { getAllPhotos } from "../../store/actions/photos-album-actions";
 import { useEffect } from "react";
 import { paths } from "../../paths/paths";
 import "../../Styles/photo-album-style.css";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
 
 const PhotosAlbum = (props) => {
   useEffect(() => {
@@ -39,7 +40,6 @@ const PhotosAlbum = (props) => {
   };
 
   if (props.photos) {
-    console.log(props.photos)
     return (
       <div>
         <div className="container mt-5">
@@ -59,7 +59,7 @@ const PhotosAlbum = (props) => {
       </div>
     );
   }
-  return <div>Loading</div>;
+  return <ListSkeleton/>;
 };
 
 export default connect(
