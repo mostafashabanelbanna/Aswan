@@ -11,6 +11,7 @@ export const paths = {
   ImportantPortalsPhotos: `${MainPath}WebLink/Photo/`,
   NewsPhotos: `${MainPath}News/Photo/`,
   DocumentLibraryPhotos: `${MainPath}Document/Photo/`,
+  DocumentLibrarAttachment: `${MainPath}Document/Attachment/`,
   FamousPeople: `${MainPath}StaticContent/Photo/`,
   WebLink: `${MainPath}WebLink/Photo/`,
   Governer:`${MainPath}Governor/Photo/`,

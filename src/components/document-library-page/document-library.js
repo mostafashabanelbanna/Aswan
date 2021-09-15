@@ -110,6 +110,7 @@ const DocumentLibrary = (props) => {
               {props.documentLibrary.result.length ? (
                 <>
                   {props.documentLibrary.result.map((item) => {
+                    let publishedDate = `${item.publishDate}T00:00:00`
                     return (
                       <Col lg={4} md={4} sm={6} key={item.id} className="my-4">
                         <Link
@@ -124,7 +125,7 @@ const DocumentLibrary = (props) => {
                               item.photo
                             }
                             title={item.title}
-                            date={item.publishDate}
+                            date={`${moment(new Date(publishedDate)).format("LL")}`}
                             category={item.documentTypeName}
                             imgHeight="200px"
                           />
@@ -162,7 +163,7 @@ const DocumentLibrary = (props) => {
     <div>
       <Container fluid>
         <div className=" container underline  my-4">
-          <h3>الإصدارات</h3>
+          <h3>معلومات ودراسات ونشرات</h3>
         </div>
         <div className=" bg-light p-3">
           <SearchSection

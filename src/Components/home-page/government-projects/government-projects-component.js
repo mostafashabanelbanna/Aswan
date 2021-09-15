@@ -129,15 +129,17 @@ const GovernmentProjects = (props) => {
                                 // }}
                                 style={{ verticalAlign: "middle" }}
                               >
-                              <span>عرض التفاصيل</span>
-                            </button>
+                                <span>عرض التفاصيل</span>
+                              </button>
                             </Link>
-                            <button
-                              className="myButton mx-1 mb-2 mb-sm-0"
-                              style={{ verticalAlign: "middle" }}
-                            >
-                              <span>مزيد من المشروعات</span>
-                            </button>
+                            <Link to={`/projectslist`}>
+                              <button
+                                className="myButton mx-1 mb-2 mb-sm-0"
+                                style={{ verticalAlign: "middle" }}
+                              >
+                                <span>مزيد من المشروعات</span>
+                              </button>
+                            </Link>
                           </div>
                         </div>
                         <div
@@ -163,7 +165,7 @@ const GovernmentProjects = (props) => {
 export default connect(
   (state) => {
     return {
-      projects: state.homeComponents.projectsList,
+      projects: state.homeComponents.projectsSlider,
     };
   },
   (dispatch) => {

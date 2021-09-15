@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomeComponent from "./components/home-page/home-component";
 import Error from "./components/errorPage";
 import ProjectDetails from "./components/home-page/government-projects/project-details-component";
+import ProjectsList from './components/home-page/government-projects/government-projects-list-component'
 import NewsDetails from "./components/home-page/news/news-details";
 import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
@@ -19,12 +20,13 @@ import CitiesNavbar from "./components/cities-navbar";
 import Leaders from "./components/Governer/leaders";
 import DocumentLibrary from "./components/document-library-page/document-library";
 import appointment from "./components/appointment";
-import Tribe from './components/home-page/local-leaders/local-leaders-pages/tribe';
+import Tribe from "./components/home-page/local-leaders/local-leaders-pages/tribe";
 import Parliament from "./components/home-page/local-leaders/local-leaders-pages/parliament";
 import Senate from "./components/home-page/local-leaders/local-leaders-pages/senate";
 import AdvertismentList from "./components/home-page/advertisment/advertisment-list";
 import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
+import documentLibraryDetails from "./components/document-library-page/document-library-details";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -33,6 +35,7 @@ const AppRouting = () => {
         <Route exact path="/" component={HomeComponent} />
         <Route exact path="/home" component={HomeComponent} />
         <Route exact path="/projectDetails/:id" component={ProjectDetails} />
+        <Route exact path='/projectslist' component={ProjectsList}/>
         <Route exact path="/newsdetails/:id" component={NewsDetails} />
         <Route exact path="/eservices" component={EServices} />
         <Route
@@ -53,9 +56,9 @@ const AppRouting = () => {
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/exconservatives" component={ExConservatives} />
         <Route exact path="/cities" component={CitiesNavbar} />
-        <Route exact path='/tribe' component={Tribe}/>
-        <Route exact path='/parliament' component={Parliament}/>
-        <Route exact path='/senate' component={Senate}/>
+        <Route exact path="/tribe" component={Tribe} />
+        <Route exact path="/parliament" component={Parliament} />
+        <Route exact path="/senate" component={Senate} />
         <Route
           exact
           path="/HayaKarimaDetails/:id"
@@ -83,6 +86,11 @@ const AppRouting = () => {
           component={Career}
         ></Route>
         
+        <Route
+          exact
+          path="/document-library-details/:id"
+          component={documentLibraryDetails}
+        />
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>

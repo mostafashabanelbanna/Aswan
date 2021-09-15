@@ -58,7 +58,7 @@ const News = (props) => {
       },
     ],
   };
-  if (props.mainews && props.news){
+  if (props.mainews && props.news) {
     // console.log(props.mainews.result.value.result);
     return (
       <div className="container fluid mb-4 px-0">
@@ -70,10 +70,13 @@ const News = (props) => {
             </div>
           </div>
           {/*  */}
+          <Link to={`/NewsDetails/${props.mainews.result.value.result[0].id}`} className='text-muted'>
           <div className="row">
             <div className="col-lg-6">
               <div className="h-100">
-                <h4 className="mb-3">{props.mainews.result.value.result[0].title}</h4>
+                <h4 className="mb-3">
+                  {props.mainews.result.value.result[0].title}
+                </h4>
                 <div>
                   <img
                     style={{ borderRadius: "10px", maxWidth: "100%" }}
@@ -88,13 +91,15 @@ const News = (props) => {
                   />
                   <div id="newscontent">
                     {" "}
-                    {ReactHtmlParser(props.mainews.result.value.result[0].content)}
+                    {ReactHtmlParser(
+                      props.mainews.result.value.result[0].content
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="d-none d-lg-block h-100 p-3">
+            <div className="col-lg-6 holder p-0">
+              <div className="d-none d-lg-block h-100">
                 <img
                   className="img-fluid"
                   style={{ borderRadius: "10px" }}
@@ -109,28 +114,31 @@ const News = (props) => {
               </div>
             </div>
           </div>
+          </Link>
         </div>
         <div>
           <div className="container p-0">
             <Slider {...settings}>
-              {props.mainews.result.value.result.map((item, index) => { //hnktb bdl mainews => news
-                
+              {props.mainews.result.value.result.map((item, index) => {
+                //hnktb bdl mainews => news
+
                 return (
-                  <Link to={`/NewsDetails/${item.id}`} className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 ">
-                  <div 
-                    key={item.id}
-                    
-                    
+                  <Link
+                    to={`/NewsDetails/${item.id}`}
+                    className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
                   >
-                    <img
-                      className="rounded-3 "
-                      width="100%"
-                      height="205px"
-                      src={paths.NewsPhotos + +item.id + "/" + item.photo}
-                      alt={item.caption}
-                    />
-                    <div className="mt-4  container p-2">{item.title}</div>
-                  </div>
+                    <div className="hoverTitle">
+                      <div key={item.id} className="holder shadow-none" style={{borderRadius:'0px'}}>
+                        <img
+                          className="rounded-3 "
+                          width="100%"
+                          height="205px"
+                          src={paths.NewsPhotos + +item.id + "/" + item.photo}
+                          alt={item.caption}
+                        />
+                        <div className="mt-4  container p-2">{item.title}</div>
+                      </div>
+                    </div>
                   </Link>
                 );
               })}
@@ -140,7 +148,7 @@ const News = (props) => {
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons/>;
+  return <GeneralThreeOthersSkeletons />;
 };
 
 const mapStateToProps = (state) => {

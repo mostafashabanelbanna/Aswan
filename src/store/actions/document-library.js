@@ -31,11 +31,33 @@ export async function getAllDocumentType() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllDocumentType");
     payload = res.data;
-  } catch (e) {
-    console.log(e)
-  }
+  } catch (e) {}
   return {
     type: "DOCUMENT_TYPE",
+    payload,
+  };
+}
+
+// Details
+export async function documentLibraryDetails(documentLibraryId) {
+  let payload = null;
+  try {
+    let response = await axios.get(
+      "/DocumentLibraryAPI/Details/" + documentLibraryId
+    );
+    payload = response.data;
+  } catch (error) {}
+  return {
+    type: "DOCUMENT_LIBRARY_DETAILS",
+    payload,
+  };
+}
+
+export async function clearDocumentLibrarydetails() {
+  let payload;
+
+  return {
+    type: "CLEAR_DOCUMENT_LIBRARY_DETAILS",
     payload,
   };
 }

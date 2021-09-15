@@ -106,7 +106,7 @@ const TechCenterServices = (props) => {
                   <span className="py-1 px-2 rounded-3 h4" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
                 </div>
 
-                {item.url?<div className="d-flex my-3">
+                {item.url?<div className="d-flex my-3 text-muted">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -116,11 +116,11 @@ const TechCenterServices = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl}>
+                    <a className='text-muted text-decoration-none' style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl} target='_blank'>
                       الرابط
                     </a>
                   </div>
-                </div>:<div className="d-none"></div>
+                </div>:null
                 }     
               </div>
             );
@@ -135,9 +135,6 @@ const TechCenterServices = (props) => {
     }
       </>
     );}
-    else{
-      return <div> Loading Two </div>
-    }
   }
   return <ListSkeleton/>;
 };
