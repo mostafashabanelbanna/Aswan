@@ -14,7 +14,7 @@ const Parliament = (props) => {
   if (props.allParliament){
   return (
     <>
-      <div className=" container underline  my-4">
+      <div className=" container underline  my-5">
         <h3>مجلس النواب</h3>
       </div>
       <div className="container mt-5">

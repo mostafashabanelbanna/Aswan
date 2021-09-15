@@ -4,6 +4,7 @@ import {EServicesComponents} from './E-Services'
 import {GovernerComponents} from './Governer'
 import {LocalLeadersComponents} from './local-leaders'
 import { DocumentLibrary } from "./document-library";
+import { advertismentComponents } from "./advertisment";
 
 export default combineReducers({
     homeComponents,
@@ -11,4 +12,5 @@ export default combineReducers({
     GovernerComponents,
   LocalLeadersComponents,
   DocumentLibrary,
+  advertismentComponents
 })

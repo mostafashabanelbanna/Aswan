@@ -16,7 +16,7 @@ const ExConservatives = (props) => {
   if (props.exconservatives){
     return (
       <>
-        <div className=" container underline  my-4">
+        <div className=" container underline  my-5">
           <h3>المحافظون السابقون </h3>
         </div>
         <div className="container mt-5">
