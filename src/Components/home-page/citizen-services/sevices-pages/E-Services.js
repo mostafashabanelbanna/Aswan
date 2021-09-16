@@ -16,12 +16,11 @@ const EServices = (props) => {
   const [dataFlag, setDataFlag] = useState(0);
   const [renderFlag, setRenderFlag] = useState(1);
   const [name, setName] = useState(null);
-  const [manger, setManger] = useState(null);
   const [directoryTypeId, setDirectoryTypeId] = useState(null);
   const [directoryCategoryId, setDirectoryCategoryId] = useState(null);
   const [cityId, setCityId] = useState(null);
 
-  let dataFilled = { name, manger, directoryTypeId, directoryCategoryId, cityId }
+  let dataFilled = { name, directoryTypeId, directoryCategoryId, cityId }
   let pageCount;
 
   const submitHandler = (e) => {
@@ -32,7 +31,6 @@ const EServices = (props) => {
   }
 
   const nameHandler = (e) => {setName(e.target.value);}
-  const mangerHandler = (e) => {setManger(e.target.value);}
   const directoryTypeHandler = (e) => { setRenderFlag(0); setDirectoryTypeId(e.value); setDirectoryCategoryId(null);}
   const directoryCategoryHandler = (e) => {setDirectoryCategoryId(e.value);}
   const cityIdHandler = (e) => {setCityId(e.value);}
@@ -111,24 +109,21 @@ const EServices = (props) => {
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne='الاسم'
             classNameTextFieldOne='col-sm-6 col-12'
-            TextFieldTwoHandler={mangerHandler}
-            labelTextFieldTwo= 'المدير'
-            classNameTextFieldTwo='col-sm-6 col-12'
             dropdownThreeVal={cityName.find(e => e.value == cityId)}
             dropdownThreeHandler={cityIdHandler}
             dropdownThreePlaceholder='المدينة'
             dropdownThreeName={cityName}
-            classNameDropdownThree='col-md-4 col-sm-6 col-12'
+            classNameDropdownThree='col-sm-6 col-12'
             dropdownTwoVal={dirCatVal.find(e => e.value == directoryCategoryId)}
             dropdownTwoHandler={directoryCategoryHandler}
             dropdownTwoPlaceholder='كل التصنيفات'
             dropdownTwoName={dirCatVal}
-            classNameDropdownTwo='col-md-4 col-sm-6 col-12'
+            classNameDropdownTwo='col-sm-6 col-12'
             dropdownOneVal={dirTypeVal.find(e => e.value == directoryTypeId)}
             dropdownOneHandler={directoryTypeHandler}
             dropdownOnePlaceholder='كل الأنواع'
             dropdownOneName={dirTypeVal}
-            classNameDropdownOne='col-md-4 col-sm-6 col-12'
+            classNameDropdownOne='col-sm-6 col-12'
             />
           </div>
         </Container>
