@@ -43,7 +43,9 @@ export async function getAllAdvertisment(pageNumber,
     let payload = null;
     try {
       let res = await axios.get(`/AdvertismentAPI/GetAdsBids/${pageNumber}/${pageSize}`);
-      payload = res.data;
+      let countRes = await axios.post(`/AdvertismentAPI/GetAdsBidsCount`);
+      let count = countRes.data.result
+      payload = {...res.data  , count}
       console.log("Hi", payload);
     } catch (e) {}
     return {
