@@ -11,6 +11,8 @@ import {
 import { paths } from "../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faLink } from "@fortawesome/free-solid-svg-icons";
+import moment from "moment";
+import "moment/locale/ar";
 const DocumentLibraryDetails = (props) => {
   const id = props.match.params.id;
   useEffect(() => {
@@ -53,7 +55,8 @@ const DocumentLibraryDetails = (props) => {
                   size={26}
                 ></FontAwesomeIcon>{" "}
               </div>
-              <div>{props.documentLibraryDetail.result.publishDate}</div>
+              <div>
+              {`${moment(new Date(props.documentLibraryDetail.result.publishDate)).format("LL")}`}</div>
             </div>
           </div>
           <Link

@@ -144,7 +144,7 @@ const AdvertismentList = (props) => {
               {props.advertisment.result.map((item, index) => {
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link to={`newsdetails/${item.id}`} className="h-100">
+                    <Link className="h-100">
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + item.photo}
                         title={item.title}
