@@ -151,6 +151,7 @@ const AdvertismentList = (props) => {
                         date={`${moment(new Date(item.publishDate)).format("LL")}`}
                         category={item.advertismentTypeName}
                         imgHeight="200px"
+                        hoverTitle='hoverTitle'
                       />
                     </Link>
                   </Col>
