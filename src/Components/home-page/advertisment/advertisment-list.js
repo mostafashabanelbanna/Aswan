@@ -123,12 +123,12 @@ const AdvertismentList = (props) => {
             submit={submitHandler} 
             TextFieldOneHandler={titleHandler}
             labelTextFieldOne='العنوان'
-            classNameTextFieldOne='col-sm-4 col-12'
+            classNameTextFieldOne='col-sm-6 col-12'
             dropdownOneVal={adsName.find(e => e.value == advertismentTypeId)}
             dropdownOneHandler={advertismentTypeHandler}
             dropdownOneName={adsName}
             dropdownOnePlaceholder='النوع'
-            classNameDropdownOne='col-sm-4 col-12'
+            classNameDropdownOne='col-sm-6 col-12'
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
             classNameDPFrom='col-4'
