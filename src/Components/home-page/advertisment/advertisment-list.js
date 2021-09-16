@@ -111,7 +111,7 @@ const AdvertismentList = (props) => {
     }));
     adsName.unshift({ value: 0, label: "اعلانات ومناقصات" });
     adsName.unshift({ value: null, label: "كل الاعلانات" });
-    pageCount = Math.ceil(props.advertisment.count / 2);
+    pageCount = Math.ceil(props.advertisment.count / 9);
     return (
       <>
         <Container fluid>
@@ -123,12 +123,12 @@ const AdvertismentList = (props) => {
             submit={submitHandler} 
             TextFieldOneHandler={titleHandler}
             labelTextFieldOne='العنوان'
-            classNameTextFieldOne='col-sm-6 col-12'
+            classNameTextFieldOne='col-sm-4 col-12'
             dropdownOneVal={adsName.find(e => e.value == advertismentTypeId)}
             dropdownOneHandler={advertismentTypeHandler}
             dropdownOneName={adsName}
             dropdownOnePlaceholder='النوع'
-            classNameDropdownOne='col-sm-6 col-12'
+            classNameDropdownOne='col-sm-4 col-12'
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
             classNameDPFrom='col-sm-2 col-12'
