@@ -111,7 +111,7 @@ const AdvertismentList = (props) => {
     }));
     adsName.unshift({ value: 0, label: "اعلانات ومناقصات" });
     adsName.unshift({ value: null, label: "كل الاعلانات" });
-    pageCount = Math.ceil(props.advertisment.count / 2);
+    pageCount = Math.ceil(props.advertisment.count / 9);
     return (
       <>
         <Container fluid>

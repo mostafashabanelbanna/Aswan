@@ -3,7 +3,7 @@ import axios from "../../Axios/Axios_Config";
 export async function getAdvertisment(
   pageNumber,
   keywords = {},
-  pageSize = 2
+  pageSize = 9
 ) {
   let payload = null;
   console.log(keywords);
@@ -39,7 +39,7 @@ export async function getAllAdvertismentType() {
 }
 
 export async function getAllAdvertisment(pageNumber,
-  pageSize = 2) {
+  pageSize = 9) {
     let payload = null;
     try {
       let res = await axios.get(`/AdvertismentAPI/GetAdsBids/${pageNumber}/${pageSize}`);
