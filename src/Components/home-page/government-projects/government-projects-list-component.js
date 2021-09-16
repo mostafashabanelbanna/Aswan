@@ -94,7 +94,7 @@ const ProjectsList = (props) => {
                 submit={submitHandler}
                 TextFieldOneHandler={nameHandler}
                 labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-12"
+                classNameTextFieldOne="col-sm-6 col-12"
                 dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
                 dropdownOneHandler={sectorIdHandler}
                 dropdownOnePlaceholder="كل قطاعات المشروعات"

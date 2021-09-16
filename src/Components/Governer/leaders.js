@@ -23,6 +23,7 @@ const Leaders = (props) => {
                 imgSrc={paths.Governer + props.leader.curr.id + "/" + props.leader.curr.photo}
                 title={props.leader.curr.name}
                 imgHeight="270px"
+                hoverTitle='hoverTitle'
             />
         </div>
         <div className='container'>
@@ -33,6 +34,7 @@ const Leaders = (props) => {
                  imgSrc={paths.Governer + item.id + "/" + item.photo}
                  title={item.name}
                  imgHeight="200px"
+                 hoverTitle='hoverTitle'
              />
              </div>
              )})} 
