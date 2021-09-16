@@ -119,9 +119,7 @@ const News = (props) => {
         <div>
           <div className="container p-0">
             <Slider {...settings}>
-              {props.mainews.result.value.result.map((item, index) => {
-                //hnktb bdl mainews => news
-
+              {props.news.result.map((item, index) => {
                 return (
                   <Link
                     to={`/NewsDetails/${item.id}`}

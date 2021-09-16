@@ -131,10 +131,10 @@ const AdvertismentList = (props) => {
             classNameDropdownOne='col-sm-4 col-12'
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
-            classNameDPFrom='col-4'
+            classNameDPFrom='col-sm-2 col-12'
             publishDateTo={publishDateTo}
             publishToHandler={publishToHandler}
-            classNameDPTo='col-4'
+            classNameDPTo='col-sm-2 col-12'
             />
           </div>
         </Container>
@@ -166,7 +166,7 @@ const AdvertismentList = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className=" text-center">لا يوجد نتائج</div>
+          <div className="text-center">لا يوجد نتائج</div>
         )}
       </>
     );

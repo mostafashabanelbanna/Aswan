@@ -35,7 +35,7 @@ const CitizenServices = () => {
                   to="/eservices"
                   className="text-decoration-none text-muted"
                 >
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -49,7 +49,7 @@ const CitizenServices = () => {
                   to="/eservicesdirectories"
                   className="text-decoration-none text-muted"
                 >
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -60,7 +60,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <a href='http://agriprice.gov.eg/' className='text-muted' target="_blank">
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -71,7 +71,7 @@ const CitizenServices = () => {
                 </a>
 
                 <Link to='/directorates' className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -82,7 +82,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <Link to={'/emergencynumbers'} className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -92,7 +92,7 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <Link to='/advertisements' className="text-decoration-none text-muted">
+                {/* <Link to='/advertisements' className="text-decoration-none text-muted">
                   <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -101,10 +101,10 @@ const CitizenServices = () => {
                     />
                     <div className="mt-4 mb-1 "> أعلانات ومناقصات </div>
                   </div>
-                </Link>
+                </Link> */}
 
                 <Link to='/techcenterservices' className="text-decoration-none text-muted">
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"

@@ -25,7 +25,7 @@ const Advertising = () => {
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
+                  src={"/images/icons/AdvertisementServices-0١.png"}
                 />
                 <div className="mt-4"> اعلانات ومناقصات </div>
               </Link>
