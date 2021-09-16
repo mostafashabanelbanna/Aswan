@@ -148,7 +148,7 @@ const AdvertismentList = (props) => {
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + item.photo}
                         title={item.title}
-                        date={"1/1/2022"}
+                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
                         category={item.advertismentTypeName}
                         imgHeight="200px"
                       />
