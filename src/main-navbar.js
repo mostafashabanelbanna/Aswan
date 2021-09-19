@@ -36,15 +36,15 @@ const Main_navbar = () => {
           <div className=" d-none d-md-block">|</div>
 
          
-
-          <div
+          <Link to='/touristhome'
             style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
+            className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
-            <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
-            <span className="spansz">المستثمر</span>
-          </div>
-
+            <div>
+              <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
+              <span className="spansz">المستثمر</span>
+            </div>
+          </Link>
           <div className=" d-none d-md-block">|</div>
 
           <Link to="/tourist"

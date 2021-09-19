@@ -56,7 +56,7 @@ const PhotosAlbum = (props) => {
             />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2 text-secondary">البوم الصور</h3>
+              <h3 className="mt-4 me-2 text-secondary">{props.title}</h3>
             </div>
           </div>
           {renderAlbum()}
