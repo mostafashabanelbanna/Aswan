@@ -3,9 +3,10 @@ import { bindActionCreators } from "redux";
 import { getAllPhotos } from "../../store/actions/photos-album-actions";
 import {photoAlbum} from '../../store/actions/tourist-action/photos'
 import { useEffect } from "react";
-import { paths } from "../../paths/paths";
-import "../../Styles/photo-album-style.css";
-import ListSkeleton from "../loading-skeleton/list-skiliton";
+import { paths } from "../../../paths/paths";
+import "../../../Styles/photo-album-style.css";
+import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import { Link } from "react-router-dom";
 
 const PhotosAlbum = (props) => {
   useEffect(() => {
@@ -22,21 +23,23 @@ const PhotosAlbum = (props) => {
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
         {photos.result.map((content, index) => {
           return (
+            <Link to={`photodetails/${item.id}`} className='text-muted col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3'>
             <div
-              className="hoverTitle col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
-              key={content.id}
+              className="hoverTitle "
+              key={item.id}
             >
               <div className="holder mb-4">
                 <div
                   style={{
-                    backgroundImage: `url(${paths.PhotoLibraryAlbum}${content.id}/${content.photo})`,
+                    backgroundImage: `url(${paths.PhotoLibraryAlbum}${item.id}/${item.photo})`,
                   }}
                   className="imageAlbum"
-                  alt={content.titleA}
+                  alt={item.titleA}
                 ></div>
               </div>
-              <p className="text-center mb-5" style={{fontSize:'22px'}}>{content.titleA}</p>
+              <p className="text-center mb-5" style={{fontSize:'22px'}}>{item.titleA}</p>
             </div>
+            </Link>
           );
         })}
       </div>

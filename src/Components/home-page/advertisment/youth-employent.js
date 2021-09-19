@@ -78,7 +78,7 @@ const YouthEmp = (props) => {
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-6 col-12"
+              classNameTextFieldOne="col-12"
             />
           </div>
         </Container>
@@ -86,13 +86,14 @@ const YouthEmp = (props) => {
           <Container>
             <Row className="my-4">
               {props.youthemp.result.map((item, index) => {
+                console.log(props.youthemp.result)
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link to={`newsdetails/${item.id}`} className="h-100">
                       <ListWithImage
                         imgSrc={paths.youth + item.id + "/" + item.photo}
                         title={item.title}
-                        date={"1/1/2022"}
+                        date={`${moment(new Date(item.startDate)).format("LL")} إلى ${moment(new Date(item.endDate)).format("LL")}`}
                         imgHeight="200px"
                       />
                     </Link>

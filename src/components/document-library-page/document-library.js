@@ -118,11 +118,11 @@ const DocumentLibrary = (props) => {
                           className="h-100"
                         >
                           <ListWithImage
-                            imgSrc={
+                            imgSrc={item.photo?(
                               paths.DocumentLibraryPhotos +
                               item.id +
                               "/" +
-                              item.photo
+                              item.photo):null
                             }
                             title={item.title}
                             date={`${moment(new Date(publishedDate)).format("LL")}`}
@@ -143,7 +143,7 @@ const DocumentLibrary = (props) => {
                   </Col>
                 </>
               ) : (
-                <div>لا توجد نتائج</div>
+                <div className="text-center my-5">لا توجد نتائج</div>
               )}
             </Row>
           </Container>
@@ -159,11 +159,24 @@ const DocumentLibrary = (props) => {
       <ListSkeleton/>
     );
   };
+
+  let pageTitle;
+
+  if(id == '1'){
+    pageTitle = 'إحصائيات'
+  } else if(id == '2'){
+    pageTitle = 'نشرات شهرية'
+  } else if(id == '3'){
+    pageTitle = 'إحصائيات نشرات سكانية'
+  } else {
+    pageTitle = 'دعم القرار'
+  }
+
   return (
     <div>
       <Container fluid>
         <div className=" container underline  my-4">
-          <h3>معلومات ودراسات ونشرات</h3>
+          <h3>{pageTitle}</h3>
         </div>
         <div className=" bg-light p-3">
           <SearchSection
@@ -178,10 +191,10 @@ const DocumentLibrary = (props) => {
             classNameDropdownOne="col-sm-6 col-12 order-0"
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-sm-3 col-12 order-2"
+            classNameDPFrom="col-sm-6 col-12 order-2"
             publishDateTo={publishDateTo}
             publishToHandler={publishToHandler}
-            classNameDPTo="col-sm-3 col-12 order-3"
+            classNameDPTo="col-sm-6 col-12 order-3"
             classNameBtn="order-4"
           />
         </div>

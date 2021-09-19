@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faLink } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "moment/locale/ar";
+import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 const DocumentLibraryDetails = (props) => {
   const id = props.match.params.id;
   useEffect(() => {
@@ -42,6 +43,7 @@ const DocumentLibraryDetails = (props) => {
                 <a
                   target="_blank"
                   href={props.documentLibraryDetail.result.url}
+                  style={{cursor:'pointer'}}
                 >
                   الرابط
                 </a>
@@ -77,7 +79,7 @@ const DocumentLibraryDetails = (props) => {
               {ReactHtmlParser(props.documentLibraryDetail.result.content)}
             </div>
             <div className="col-md-4 p-3 col-12">
-              <img
+              {props.documentLibraryDetail.result.photo?<img
                 className="w-100"
                 src={
                   paths.DocumentLibraryPhotos +
@@ -85,19 +87,19 @@ const DocumentLibraryDetails = (props) => {
                   "/" +
                   props.documentLibraryDetail.result.photo
                 }
-              />
+              />:null}
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <iframe
+              {props.documentLibraryDetail.result.attachment?<iframe
                 frameborder="0"
                 src={`${paths.DocumentLibrarAttachment}${props.documentLibraryDetail.result.id}/${props.documentLibraryDetail.result.attachment}`}
                 width="100%"
                 height="800px"
-              ></iframe>
+              ></iframe>:null}
             </div>
           </div>
         </div>
@@ -105,7 +107,7 @@ const DocumentLibraryDetails = (props) => {
     );
   }
 
-  return <div>Loading</div>;
+  return <OnePieaceSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {

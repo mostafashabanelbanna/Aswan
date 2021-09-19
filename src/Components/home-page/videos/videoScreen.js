@@ -3,23 +3,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { sliderVideo } from "../../store/actions/News_Action";
+import { sliderVideo,getMainVideo } from "../../store/actions/News_Action";
 import {video} from "../../store/actions/tourist-action/videos"
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 const Video = (props) => {
   useEffect(() => {
-    props.pagePath=='home'?
-    props.sliderVideo():
+    if(props.pagePath=='home'){
+    props.sliderVideo() ;
+    props.getMainVideo()}
+    else{
     props.video()
+  }
   }, []);
 
-  let vidCount;
-  let slidesToShow = {slidesToShow : 0}; 
-  if(vidCount >= 4){
-    slidesToShow.slidesToShow = 4
-  } else {
-    slidesToShow.slidesToShow = 2
-  }
+  // let vidCount;
+  // let slidesToShow = {slidesToShow : 0}; 
+  // if(vidCount >= 4){
+  //   slidesToShow.slidesToShow = 4
+  // } else {
+  //   slidesToShow.slidesToShow = 2
+  // }
 
   var settings = {
     dots: false,
@@ -27,7 +30,7 @@ const Video = (props) => {
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
-    // slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     swipeToSlide:true,
@@ -97,6 +100,7 @@ const Video = (props) => {
               <Slider {...settings} {...slidesToShow}>
                 {videos.result.map((item, index) => {
                   return (
+                    <Link to={`videodetails/${item.id}`} className='text-muted'>
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
                       <div className='holder'>
                       <img
@@ -112,6 +116,7 @@ const Video = (props) => {
                       </div>
                       <div className="mt-4">{item.title}</div>
                     </div>
+                    </Link>
                   );
                 })}
               </Slider>
@@ -126,6 +131,7 @@ const Video = (props) => {
 const mapStateToProps = (state) => {
   return { 
     homeVideos: state.homeComponents.slidervideo,
+    mainVideo: state.homeComponents.mainVideo,
     touristVideos: state.touristHome.slidervideo
    };
 };
