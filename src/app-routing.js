@@ -27,6 +27,11 @@ import AdvertismentList from "./components/home-page/advertisment/advertisment-l
 import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
 import documentLibraryDetails from "./components/document-library-page/document-library-details";
+import VideosList from './components/home-page/videos/video-list-component'
+import VideoDetails from './components/home-page/videos/video-details-component'
+import PhotoDetails from "./components/home-page/photo-album/photo-details-component";
+import PhotosList from './components/home-page/photo-album/photos-list-component'
+import FilterPhotos from "./components/home-page/photo-album/filter-photos";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -51,9 +56,14 @@ const AppRouting = () => {
           path="/techcenterservices"
           component={TechnologyCenterServices}
         />
+        <Route exact path="/videoslist" component={VideosList} />
+        <Route exact path="/videodetails/:id" component={VideoDetails} />
+        <Route exact path="/photoslist" component={PhotosList} />
+        <Route exact path="/photodetails/:id" component={PhotoDetails} />
         <Route exact path="/tourist" component={TouristHome} />
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
+        <Route exact path="/filterphotos/:info" component={FilterPhotos} />
         <Route exact path="/exconservatives" component={ExConservatives} />
         <Route exact path="/cities" component={CitiesNavbar} />
         <Route exact path="/tribe" component={Tribe} />

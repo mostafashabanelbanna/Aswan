@@ -78,7 +78,7 @@ const Career = (props) => {
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-6 col-12"
+              classNameTextFieldOne="col-12"
             />
           </div>
         </Container>
@@ -92,7 +92,6 @@ const Career = (props) => {
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + item.photo}
                         title={item.title}
-                        date={"1/1/2022"}
                         imgHeight="200px"
                       />
                     </Link>

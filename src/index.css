@@ -283,6 +283,14 @@ a {
   color: #212529 !important;
 }
 
+.hvr-shutter-out-vertical{
+  background-color: transparent !important;
+}
+
+.hvr-shutter-out-vertical:before {
+  background-color: skyblue !important;
+  border-radius: 10px;
+}
 .haya_carima_bg {
   background-image: url("./assets//img/hayah_karema.jpg");
   background-repeat: no-repeat;
@@ -332,4 +340,8 @@ a {
 
 .pagination{
   padding: 0!important;
+}
+
+.MuiFormControl-root{
+  width: 100% !important;
 }

@@ -25,6 +25,7 @@ const Senate = (props) => {
                   <ListWithImage
                     imgSrc={paths.SenatePhotos + item.id + "/" + item.photo}
                     title={item.title}
+                    content={item.content}
                     center="yes"
                     imgHeight='250px'
                     hoverTitle="hoverTitle"

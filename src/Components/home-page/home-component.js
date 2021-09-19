@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import GovernmentFamous from "./government-famous-component";
 import GovernmentProjects from "./government-projects/government-projects-component";
-import PhotosAlbum from "./photos-album-component";
+import PhotosAlbum from "./photo-album/photos-album-component";
 import News from "./news/newsScreen";
-import Video from "./videoScreen";
+import Video from "./videos/videoScreen";
 import Complaints from "./complaints-screen";
 import Contact from "./contact_us";
 import Footer from "../footer";

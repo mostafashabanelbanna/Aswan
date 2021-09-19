@@ -3,20 +3,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { sliderVideo } from "../../store/actions/News_Action";
-import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import { sliderVideo, getMainVideo } from "../../../store/actions/News_Action";
+import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
+import { Link } from "react-router-dom";
 const Video = (props) => {
   useEffect(() => {
     props.sliderVideo();
+    props.getMainVideo();
   }, []);
 
-  let vidCount;
-  let slidesToShow = {slidesToShow : 0}; 
-  if(vidCount >= 4){
-    slidesToShow.slidesToShow = 4
-  } else {
-    slidesToShow.slidesToShow = 2
-  }
+  // let vidCount;
+  // let slidesToShow = {slidesToShow : 0}; 
+  // if(vidCount >= 4){
+  //   slidesToShow.slidesToShow = 4
+  // } else {
+  //   slidesToShow.slidesToShow = 2
+  // }
 
   var settings = {
     dots: false,
@@ -24,7 +26,7 @@ const Video = (props) => {
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
-    // slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     swipeToSlide:true,
@@ -56,8 +58,8 @@ const Video = (props) => {
       },
     ],
   };
-  if (props.videos){
-    vidCount = props.videos.result.length
+  if (props.videos&&props.mainVideo){
+    // vidCount = props.videos.result.length
     return (
       <div>
         <div className=" container  py-4">
@@ -83,15 +85,16 @@ const Video = (props) => {
                 height="450px"
                 src={
                   "https://www.youtube.com/embed/" +
-                  props.videos.result[0].youtubeId
+                  props.mainVideo.result.youtubeId
                 } /*src='videos/1. Welcome!.mp4'*/
               ></iframe>
             </div>
 
             <div className=" me-3 ms-3">
-              <Slider {...settings} {...slidesToShow}>
+              <Slider {...settings}>
                 {props.videos.result.map((item, index) => {
                   return (
+                    <Link to={`videodetails/${item.id}`} className='text-muted'>
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
                       <div className='holder'>
                       <img
@@ -107,6 +110,7 @@ const Video = (props) => {
                       </div>
                       <div className="mt-4">{item.title}</div>
                     </div>
+                    </Link>
                   );
                 })}
               </Slider>
@@ -119,9 +123,12 @@ const Video = (props) => {
   return <OnePieaceSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  return { videos: state.homeComponents.slidervideo };
+  return { 
+    videos: state.homeComponents.slidervideo,
+    mainVideo: state.homeComponents.mainVideo
+  };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ sliderVideo }, dispatch);
+  return bindActionCreators({ sliderVideo, getMainVideo }, dispatch);
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Video);

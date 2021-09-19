@@ -63,6 +63,69 @@ export async function sliderVideo() {
     payload,
   };
 }
+
+export async function getMainVideo() {
+  let payload = null;
+  try {
+    let response = await axios.get("/VideoLibraryAPI/GetMainVideoGovernment");
+    payload = response.data;
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: "MAIN_VIDEO",
+    payload,
+  };
+}
+
+export async function getVideosList(pageNumber, keywords = {}, pageSize = 9) {
+  let payload = null;
+  try {
+    let response = await axios.post(
+      "/VideoLibraryAPI/Search/" + pageNumber + "/" + pageSize,
+      keywords
+    );
+    let countResponse = await axios.post("/VideoLibraryAPI/GetResultCount", keywords);
+    let res = countResponse.data.result;
+    payload = { ...response.data,page: pageNumber, count: res };
+  } catch (e) {
+    console.log(e);
+  }
+  return {
+    type: "VIDEO_LIST",
+    payload,
+  };
+}
+
+export async function clearVideosList() {
+  let payload = null;
+  return {
+    type: "CLEAR_VIDEO_LIST",
+    payload,
+  };
+}
+
+export async function getVideoDetails(id = 0) {
+  let payload = null;
+  try {
+    let response = await axios.get(`/VideoLibraryAPI/Details/${id}`);
+    payload = await response.data;
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: "VIDEO_DETAILS",
+    payload,
+  };
+}
+
+export function clearVideoDetails() {
+  return {
+    type: "CLEAR_VIDEO_DETAILS",
+    payload: null,
+  };
+}
+
 export async function complaints() {
   let payload = null;
   try {
@@ -124,7 +187,7 @@ export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
 }
 
 export async function clearNewsList() {
-  let payload;
+  let payload = null;
   return {
     type: "CLEAR_NEWS_LIST",
     payload,

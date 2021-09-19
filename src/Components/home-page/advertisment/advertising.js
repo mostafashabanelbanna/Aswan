@@ -20,17 +20,17 @@ const Advertising = () => {
       </div>
             <div className='container '>
             <div className='row text-center justify-content-around'>
-            <div className="col-lg-3 p-3 col-5 mb-4 ">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
               <Link to="ads/0" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
-                  className="  px-4 imgfilter"
+                  className="px-4 imgfilter"
                   src={"/images/icons/AdvertisementServices-0١.png"}
                 />
                 <div className="mt-4"> اعلانات ومناقصات </div>
               </Link>
             </div>
-            <div className="col-lg-3 p-3 col-5 mb-4 ">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
               <Link to="career" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
@@ -40,7 +40,7 @@ const Advertising = () => {
                 <div className="mt-4"> وظائف شاغرة </div>
               </Link>
             </div>
-            <div className="col-lg-3 p-3 col-5 mb-4 ">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
               <Link to="youth" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}
@@ -50,7 +50,7 @@ const Advertising = () => {
                 <div className="mt-4"> تشغيل شباب  </div>
               </Link>
             </div>
-            <div className="col-lg-3 p-3 col-5 mb-4 ">
+            <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
               <Link to="ads/5" className="text-decoration-none text-muted">
                 <img
                   style={{ width: 150 }}

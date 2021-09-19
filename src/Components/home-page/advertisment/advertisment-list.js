@@ -116,7 +116,7 @@ const AdvertismentList = (props) => {
       <>
         <Container fluid>
           <div className=" container underline  my-4">
-            <h3>اعلانات ومناقصات</h3>
+          {advertismentTypeId==5?<h3>منتجات يدوية</h3>:<h3>اعلانات ومناقصات</h3>}
           </div>
           <div className=" bg-light p-3">
             <SearchSection 
@@ -167,7 +167,7 @@ const AdvertismentList = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className="text-center">لا يوجد نتائج</div>
+          <div className="text-center my-5">لا يوجد نتائج</div>
         )}
       </>
     );

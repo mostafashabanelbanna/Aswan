@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  getProjectDetails,
-  clearData,
-} from "../../../store/actions/government-projects-actions";
+  getPhotoDetails, clearPhotoDetails
+} from "../../../store/actions/photos-album-actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
@@ -10,48 +9,61 @@ import { paths } from "../../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
-import Col from "react-bootstrap/Col";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
 import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
-
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 
+import { Link } from "react-router-dom";
 
-const ProjectDetails = (props) => {
+
+const PhotoDetails = (props) => {
   useEffect(() => {
     const resolver = async () => {
-      await props.getProjectDetails(props.match.params.id);
+      await props.getPhotoDetails(props.match.params.id);
     };
 
     resolver();
 
     return () => {
-      props.clearData();
+      props.clearPhotoDetails();
     };
   }, []);
 
   const [show, setShow] = useState(false);
   const [content, setContent] = useState({})
+  // const [photosLength , setPhotosLength]=useState(1)
 
   const onShow = () => {
     setShow(true);
   };
 
+  
+
   var settings = {
-    dots: true,
-    arrows: false,
+    dots: false,
     autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
-    slidesToShow: 4,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 1,
-    pauseOnFocus: true,
-    pauseOnHover: true,
-    swipe: true,
-    swipeToSlide: true,
+    initialSlide: 0,
+    // dots: true,
+    // arrows: false,
+    // autoplay: true,
+    // autoplaySpeed: 1000,
+    // infinite: true,
+    // speed: 2000,
+    // slidesToShow: 4,
+    // slidesToScroll: 1,
+    // initialSlide: 1,
+    // pauseOnFocus: true,
+    // pauseOnHover: true,
+    // swipe: true,
+    // swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1300,
@@ -103,56 +115,46 @@ const ProjectDetails = (props) => {
     )
   }
 
-  if (props.projectDetails) {
-    let details = Object.assign({}, props.projectDetails.result);
+  if (props.photoDetails) {
+    let details = Object.assign({}, props.photoDetails.result);
+    let sectorName = props.photoDetails.result.sectorName;
+    let sectorId = props.photoDetails.result.sectorId;
+    // photosLength = props.photoDetails.result.photos.length;
     return (
       <div className="container">
         <div>
           <div className="underline mt-4">
             {" "}
-            <h3>{ReactHtmlParser(details.name)}</h3>
+            <h3>{ReactHtmlParser(details.titleA)}</h3>
           </div>
           <div className="d-flex justify-content-end">
             <div className="text-muted text-start fa-1x p-3 mb-1 detailsSectorName">
-              <h6 className="mb-0 text-center">
+            <Link
+            to={`/filterphotos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
+            className=" d-flex justify-content-center align-items-center text-center text-muted fa-1x"
+            >
                 {ReactHtmlParser(details.sectorName)}
-              </h6>
+            </Link>
             </div>
-            {details.attachment != null && (
-              <div className="d-flex flex-row my-2">
-                <h6 className="text-primary mx-2">
-                  <a
-                    style={{ textDecoration: "none", color: "black" }}
-                    href={`${paths.ProjectAttachment}${details.id}/${details.attachment}`}
-                  >
-                    إستعراض الملف المرفق
-                  </a>
-                </h6>
-                <FontAwesomeIcon
-                  icon={faPaperclip}
-                  className="align-self-center text-danger"
-                />
-              </div>
-            )}
           </div>
           <hr className="text-muted m-0" />
         </div>
         <div className="row my-4 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
               <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
-                {ReactHtmlParser(details.description)}
+                {ReactHtmlParser(details.photoCaptionA)}
               </p>
           </div>
           <div className="col-lg-5 detailsPhoto p-0 h-100">
             <img
               className="img-fluid w-100"
               style={{ borderRadius: 17 }}
-              src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
+              src={`${paths.PhotoLibraryAlbum}${details.id}/${details.photo}`}
             />
           </div>
         </div>
 
-        <div className="my-3">
+        {details.photos?<div className="my-3">
           <Slider {...settings} style={{ width: "100%" }}>
             {details.photos.map((photo, index) => {
               let title = photo.title;
@@ -172,7 +174,7 @@ const ProjectDetails = (props) => {
                     <div
                       style={{
                         position: "relative",
-                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${photo.photo})`,
+                        backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${photo.photo})`,
                       }}
                       className="imageAlbum"
                     ></div>
@@ -182,22 +184,21 @@ const ProjectDetails = (props) => {
               );
             })}
           </Slider>
-        </div>
-
-        <div
-          className="embed-responsive embed-responsive-16by9 mx-3 my-5 "
-          style={{ borderRadius: "10px" }}
+        </div>:null}
+        <Link
+          to={"/photoslist"}
+          className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
-          <iframe
-            allowFullScreen
-            className="embed-responsive-item rounded-3"
-            style={{ outline: "none" }}
-            loading="lazy"
-            width="100%"
-            height="450px"
-            src={`https://www.youtube.com/embed/${details.youtubeId}`}
-          ></iframe>
-        </div>
+          <button
+            className="btn "
+            style={{
+              background:
+                "-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)",
+            }}
+          >
+            عرض المزيد
+          </button>
+        </Link>
         {renderModal(content)}
       </div>
     );
@@ -208,10 +209,10 @@ const ProjectDetails = (props) => {
 export default connect(
   (state) => {
     return {
-      projectDetails: state.homeComponents.projectDetails,
+      photoDetails: state.homeComponents.photoDetails,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getProjectDetails, clearData }, dispatch);
+    return bindActionCreators({ getPhotoDetails, clearPhotoDetails}, dispatch);
   }
-)(ProjectDetails);
+)(PhotoDetails);

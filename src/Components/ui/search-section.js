@@ -110,6 +110,7 @@ const SearchSection = (props) => {
                   libInstance={moment}
                   utils={MomentUtils}
                   locale={"sw"}
+                  className="w-100"
                 >
                   <KeyboardDatePicker
                     format="L"

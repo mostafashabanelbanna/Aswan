@@ -38,12 +38,11 @@ export async function getAllAdvertismentType() {
   };
 }
 
-export async function getAllAdvertisment(pageNumber,
-  pageSize = 9) {
+export async function getAllAdvertisment(pageNumber,pageSize = 9) {
     let payload = null;
     try {
       let res = await axios.get(`/AdvertismentAPI/GetAdsBids/${pageNumber}/${pageSize}`);
-      let countRes = await axios.post(`/AdvertismentAPI/GetAdsBidsCount`);
+      let countRes = await axios.get(`/AdvertismentAPI/GetAdsBidsCount`);
       let count = countRes.data.result
       payload = {...res.data  , count}
       console.log("Hi", payload);
