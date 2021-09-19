@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getAllPhotos } from "../../store/actions/photos-album-actions";
+import {photoAlbum} from '../../store/actions/tourist-action/photos'
 import { useEffect } from "react";
 import { paths } from "../../paths/paths";
 import "../../Styles/photo-album-style.css";
@@ -8,15 +9,18 @@ import ListSkeleton from "../loading-skeleton/list-skiliton";
 
 const PhotosAlbum = (props) => {
   useEffect(() => {
-    props.getAllPhotos();
+    props.pagePath=='home'?
+    props.getAllPhotos():
+    props.photoAlbum();
   }, []);
-
+  let photos 
+  props.homePhotos==undefined? photos=props.touristPhotos: photos = props.homePhotos;
   // let photos = props.photos.result;
 
   const renderAlbum = () => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
-        {props.photos.result.map((content, index) => {
+        {photos.result.map((content, index) => {
           return (
             <div
               className="hoverTitle col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
@@ -39,7 +43,7 @@ const PhotosAlbum = (props) => {
     );
   };
 
-  if (props.photos) {
+  if (photos) {
     return (
       <div>
         <div className="container mt-5">
@@ -65,10 +69,11 @@ const PhotosAlbum = (props) => {
 export default connect(
   (state) => {
     return {
-      photos: state.homeComponents.photosList,
+      homePhotos: state.homeComponents.photosList,
+      touristPhotos: state.touristHome.photosList,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllPhotos }, dispatch);
+    return bindActionCreators({ getAllPhotos,photoAlbum }, dispatch);
   }
 )(PhotosAlbum);

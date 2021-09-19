@@ -5,6 +5,7 @@ import {GovernerComponents} from './Governer'
 import {LocalLeadersComponents} from './local-leaders'
 import { DocumentLibrary } from "./document-library";
 import { advertismentComponents } from "./advertisment";
+import { touristHome } from './tourist/tourist-home'
 
 export default combineReducers({
     homeComponents,
@@ -12,5 +13,6 @@ export default combineReducers({
     GovernerComponents,
   LocalLeadersComponents,
   DocumentLibrary,
-  advertismentComponents
+  advertismentComponents,
+  touristHome
 })

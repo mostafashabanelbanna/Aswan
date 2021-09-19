@@ -55,13 +55,13 @@ const Main_navbar = () => {
 
           <div className=" d-none d-md-block">|</div>
 
-          <div
+          <Link to="/tourist"
             style={{ cursor: "pointer" }}
             className="col-3  col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img className="mx-2 imgsz" src="/images/icons/Tourist-0٢.png" />
             <span className="spansz">السائح</span>
-          </div>
+          </Link>
         </div>
         <div
           style={{ color: "#7f807f" }}

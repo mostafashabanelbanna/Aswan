@@ -10,7 +10,7 @@ import $ from 'jquery';
 import "../../Styles/training-agenda.css";
 import { useEffect } from "react";
 
-const TrainingAgenda = () => {
+const TrainingAgenda = (props) => {
 
   const [message, setMessage] = useState();
   const [show, setShow] = useState();
@@ -40,7 +40,7 @@ const TrainingAgenda = () => {
           <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2  text-secondary"> أطروحات إستثمارية </h3>
+            <h3 className="mt-4 me-2  text-secondary"> {props.title} </h3>
           </div>
         </div>
       </div>

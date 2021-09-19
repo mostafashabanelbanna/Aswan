@@ -4,10 +4,13 @@ import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { sliderVideo } from "../../store/actions/News_Action";
+import {video} from "../../store/actions/tourist-action/videos"
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 const Video = (props) => {
   useEffect(() => {
-    props.sliderVideo();
+    props.pagePath=='home'?
+    props.sliderVideo():
+    props.video()
   }, []);
 
   let vidCount;
@@ -56,8 +59,10 @@ const Video = (props) => {
       },
     ],
   };
-  if (props.videos){
-    vidCount = props.videos.result.length
+  let videos 
+  props.homeVideos==undefined? videos=props.touristVideos: videos = props.homeVideos;
+  if (videos){
+    vidCount = videos.result.length
     return (
       <div>
         <div className=" container  py-4">
@@ -83,14 +88,14 @@ const Video = (props) => {
                 height="450px"
                 src={
                   "https://www.youtube.com/embed/" +
-                  props.videos.result[0].youtubeId
+                  videos.result[0].youtubeId
                 } /*src='videos/1. Welcome!.mp4'*/
               ></iframe>
             </div>
 
             <div className=" me-3 ms-3">
               <Slider {...settings} {...slidesToShow}>
-                {props.videos.result.map((item, index) => {
+                {videos.result.map((item, index) => {
                   return (
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
                       <div className='holder'>
@@ -119,9 +124,12 @@ const Video = (props) => {
   return <OnePieaceSkeleton/>;
 };
 const mapStateToProps = (state) => {
-  return { videos: state.homeComponents.slidervideo };
+  return { 
+    homeVideos: state.homeComponents.slidervideo,
+    touristVideos: state.touristHome.slidervideo
+   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ sliderVideo }, dispatch);
+  return bindActionCreators({ sliderVideo,video }, dispatch);
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Video);

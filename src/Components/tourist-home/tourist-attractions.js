@@ -6,7 +6,7 @@ const TouristAttraction = () => {
             <div className='mx-3'>
                 <img height='50' width='60' src='/images/icons/Tourist-0٢.png' />
             </div>
-            <div className='d-flex align-items-center'><h3>رحلتك تبدء من هنا</h3> </div>
+            <div className='d-flex align-items-center'><h3>خدمات سياحية</h3> </div>
         </div>
 
         <div className='bg-success d-flex justify-content-around flex-column flex-sm-row flex-wrap text-center'>

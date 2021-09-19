@@ -41,7 +41,7 @@ const TourStart =()=>{
             }
         ]
     };
-    return (<div>
+    return (<div className=''>
         <div className='text-center d-flex justify-content-center my-4'>
                 <div className='mx-3'>
                     <img src='/images/icons/Tourist-0٢.png' />

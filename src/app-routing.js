@@ -27,6 +27,7 @@ import AdvertismentList from "./components/home-page/advertisment/advertisment-l
 import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
 import documentLibraryDetails from "./components/document-library-page/document-library-details";
+import Footer from "./components/footer";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -94,6 +95,7 @@ const AppRouting = () => {
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 };

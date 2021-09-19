@@ -35,13 +35,12 @@ class HomeComponent extends Component {
         <CitizenServices {...this.props} />
         <LocalLeaders {...this.props} />
         <TrainingAgenda {...this.props} />
-        <Video {...this.props} />
+        <Video {...this.props}  pagePath={'home'}/>
         <GovernmentFamous {...this.props} />
-        <PhotosAlbum {...this.props} />
+        <PhotosAlbum {...this.props} pagePath={'home'}/>
         <Complaints {...this.props} />
         <ImportantPortals {...this.props} />
         <Contact {...this.props} />
-        <Footer {...this.props} />
       </React.Fragment>
     );
   }
