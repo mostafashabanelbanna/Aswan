@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { sliderVideo,getMainVideo } from "../../store/actions/News_Action";
-import {video} from "../../store/actions/tourist-action/videos"
-import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import { sliderVideo,getMainVideo } from "../../../store/actions/News_Action";
+import {video,getMainVideoTourist} from "../../../store/actions/tourist-action/videos"
+import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 const Video = (props) => {
   useEffect(() => {
     if(props.pagePath=='home'){
     props.sliderVideo() ;
     props.getMainVideo()}
     else{
-    props.video()
+    props.video();
+    props.getMainVideoTourist()
   }
   }, []);
 
@@ -62,10 +64,12 @@ const Video = (props) => {
       },
     ],
   };
-  let videos 
+  let videos , mainVid ;
   props.homeVideos==undefined? videos=props.touristVideos: videos = props.homeVideos;
-  if (videos){
-    vidCount = videos.result.length
+  props.homeMainVideo==undefined? mainVid=props.touristMainVideo: mainVid = props.homeMainVideo;
+    
+  if (videos&&mainVid){
+    // vidCount = videos.result.length
     return (
       <div>
         <div className=" container  py-4">
@@ -91,13 +95,13 @@ const Video = (props) => {
                 height="450px"
                 src={
                   "https://www.youtube.com/embed/" +
-                  videos.result[0].youtubeId
+                  mainVid.youtubeId
                 } /*src='videos/1. Welcome!.mp4'*/
               ></iframe>
             </div>
 
             <div className=" me-3 ms-3">
-              <Slider {...settings} {...slidesToShow}>
+              <Slider {...settings}>
                 {videos.result.map((item, index) => {
                   return (
                     <Link to={`videodetails/${item.id}`} className='text-muted'>
@@ -131,11 +135,13 @@ const Video = (props) => {
 const mapStateToProps = (state) => {
   return { 
     homeVideos: state.homeComponents.slidervideo,
-    mainVideo: state.homeComponents.mainVideo,
-    touristVideos: state.touristHome.slidervideo
+    homeMainVideo: state.homeComponents.mainVideo,
+    touristVideos: state.touristHome.slidervideo,
+    touristMainVideo: state.touristHome.mainVideo,
+
    };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ sliderVideo,video }, dispatch);
+  return bindActionCreators({ sliderVideo,video,getMainVideo ,getMainVideoTourist}, dispatch);
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Video);

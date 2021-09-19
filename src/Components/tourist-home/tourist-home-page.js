@@ -1,9 +1,9 @@
 import React from 'react'
 import '../../Styles/tourist-home.css'
 import Contact from '../home-page/contact_us';
-import PhotosAlbum from '../home-page/photos-album-component';
+import PhotosAlbum from '../home-page/photo-album/photos-album-component';
 import TrainingAgenda from '../home-page/training-agenda';
-import Video from '../home-page/videoScreen';
+import Video from '../home-page/videos/videoScreen';
 import TourStart from './tour-start';
 import TouristAttraction from './tourist-attractions';
 const TouristHome = () => {
@@ -18,7 +18,7 @@ const TouristHome = () => {
             </div>
             <TourStart/>
             <TouristAttraction/>
-            <TrainingAgenda title={'اجندة الاحداث'} />
+            <TrainingAgenda title={'اجندة الاحداث'} type={18}/>
             <Video pagePath={'tourist'}/>
             <PhotosAlbum pagePath={'tourist'}/>
             <Contact />

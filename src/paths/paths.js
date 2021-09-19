@@ -15,6 +15,7 @@ export const paths = {
   FamousPeople: `${MainPath}StaticContent/Photo/`,
   WebLink: `${MainPath}WebLink/Photo/`,
   Governer:`${MainPath}Governor/Photo/`,
+  Leader:`${MainPath}Leader/Photo/`,
   Appointment:`${MainPath}Appointment/Photo/`,
   NavBarCities:`${MainPath}City/Photo/`,
   ParliamentPhotos:`${MainPath}StaticContent/Photo/`,

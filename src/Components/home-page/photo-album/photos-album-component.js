@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllPhotos } from "../../store/actions/photos-album-actions";
-import {photoAlbum} from '../../store/actions/tourist-action/photos'
+import { getAllPhotos } from "../../../store/actions/photos-album-actions";
+import {photoAlbum} from '../../../store/actions/tourist-action/photos'
 import { useEffect } from "react";
 import { paths } from "../../../paths/paths";
 import "../../../Styles/photo-album-style.css";
@@ -16,12 +16,11 @@ const PhotosAlbum = (props) => {
   }, []);
   let photos 
   props.homePhotos==undefined? photos=props.touristPhotos: photos = props.homePhotos;
-  // let photos = props.photos.result;
 
   const renderAlbum = () => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
-        {photos.result.map((content, index) => {
+        {photos.result.map((item, index) => {
           return (
             <Link to={`photodetails/${item.id}`} className='text-muted col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3'>
             <div

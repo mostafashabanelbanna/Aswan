@@ -34,7 +34,7 @@ class HomeComponent extends Component {
         <HayahKarima />
         <CitizenServices {...this.props} />
         <LocalLeaders {...this.props} />
-        <TrainingAgenda {...this.props} />
+        <TrainingAgenda {...this.props}  title={'اطروحات استثمارية'} type={2}/>
         <Video {...this.props}  pagePath={'home'}/>
         <GovernmentFamous {...this.props} />
         <PhotosAlbum {...this.props} pagePath={'home'}/>

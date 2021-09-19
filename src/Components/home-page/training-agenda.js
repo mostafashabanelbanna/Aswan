@@ -29,7 +29,7 @@ const TrainingAgenda = (props) => {
   let day;
 
   useEffect (() => {
-    props.getAllEvents();
+    props.getAllEvents(props.type);
   }, [])
 
   if(props.eventsList){
@@ -41,7 +41,7 @@ const TrainingAgenda = (props) => {
             <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2  text-secondary"> أطروحات إستثمارية </h3>
+              <h3 className="mt-4 me-2  text-secondary">{props.title} </h3>
             </div>
           </div>
         </div>

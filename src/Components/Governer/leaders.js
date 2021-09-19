@@ -31,7 +31,7 @@ const Leaders = (props) => {
              {props.leader.result.map((item)=>{return(
              <div key={item.id} className='col-sm-6 col-md-4 my-2'>
              <ListWithImage 
-                 imgSrc={paths.Governer + item.id + "/" + item.photo}
+                 imgSrc={paths.Leader + item.id + "/" + item.photo}
                  title={item.name}
                  imgHeight="200px"
                  hoverTitle='hoverTitle'

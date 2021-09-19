@@ -13,3 +13,17 @@ export async function video() {
     payload,
   };
 }
+
+export async function getMainVideoTourist() {
+    let payload = null;
+    try {
+      let response = await axios.get("/VideoLibraryAPI/GetMainVideoGovernment");
+      payload = response.data;
+    } catch (error) {
+      console.log(error);
+    }
+    return {
+      type: "MAIN_VIDEO",
+      payload,
+    };
+  }
