@@ -12,9 +12,11 @@ import Slider from "react-slick";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
 import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
-
+import moment from "moment";
+import "moment/locale/ar";
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 import { Link } from "react-router-dom";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 const VideoDetails = (props) => {
@@ -86,15 +88,38 @@ const VideoDetails = (props) => {
 
   if (props.videoDetails) {
     let details = Object.assign({}, props.videoDetails.result);
+    let date = props.videoDetails.result.publishDate.split("-");
+    let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
+    let sectorName = details.sectorName;
+    let sectorId = details.sectorId;
     return (
       <div className="container">
-        <div>
           <div className="underline mt-4">
             {" "}
             <h3>{ReactHtmlParser(details.title)}</h3>
           </div>
-          <hr className="text-muted mx-0 my-5" />
+          <div className="container d-flex justify-content-between mt-4">
+          <div className="col-7 text-muted align-items-end fa-1x">
+            <div className="d-flex my-1">
+              <div className="ms-2">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faCalendarAlt}
+                  size={26}
+                ></FontAwesomeIcon>{" "}
+              </div>
+              <div>{`${moment(new Date(publishedDate)).format("LL")}`}</div>
+            </div>
+          </div>
+          <Link
+            to={`/filtervideos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
+            className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
+          >
+            {ReactHtmlParser(details.sectorName)}
+          </Link>
         </div>
+        <hr className="container my-2"></hr>
+
         <div className="row my-4 flex-column-reverse flex-lg-row">
           {details.content?<div className="col-12 my-3 my-lg-0">
               <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
