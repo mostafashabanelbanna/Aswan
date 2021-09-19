@@ -9,12 +9,10 @@ import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
 
 const PhotosAlbum = (props) => {
-  useEffect(() => {
-    props.pagePath=='home'?
-    props.getAllPhotos():
-    props.photoAlbum();
-  }, []);
   let photos 
+  useEffect(() => {
+    props.pagePath=='home'? props.getAllPhotos(): props.photoAlbum();
+  }, []);
   props.homePhotos==undefined? photos=props.touristPhotos: photos = props.homePhotos;
 
   const renderAlbum = () => {
@@ -46,6 +44,7 @@ const PhotosAlbum = (props) => {
   };
 
   if (photos) {
+    
     return (
       <div>
         <div className="container mt-5">
@@ -71,11 +70,11 @@ const PhotosAlbum = (props) => {
 export default connect(
   (state) => {
     return {
-      homePhotos: state.homeComponents.photosList,
-      touristPhotos: state.touristHome.photosList,
+      homePhotos: state.homeComponents.photosAlbum,
+      touristPhotos: state.touristHome.photosAlbum,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllPhotos,photoAlbum }, dispatch);
+    return bindActionCreators({ getAllPhotos, photoAlbum }, dispatch);
   }
 )(PhotosAlbum);

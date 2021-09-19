@@ -8,13 +8,13 @@ const GeneralThreeOthersSkeletons = () => {
     return (
         <>
         <Container>
-            <div className="row">
+            <div className="row my-3">
                 <Skeleton width="100%" height={400}/>   
             </div>
-            <div className="row">
-                <div className="col-md-4"><Skeleton width="100%" height={50}/></div>
-                <div className="col-md-4"><Skeleton width="100%" height={50}/></div>
-                <div className="col-md-4"><Skeleton width="100%" height={50}/></div>
+            <div className="row my-3">
+                <div className="col-md-4"><Skeleton width="100%" height={200}/></div>
+                <div className="col-md-4"><Skeleton width="100%" height={200}/></div>
+                <div className="col-md-4"><Skeleton width="100%" height={200}/></div>
             </div>
         </Container>
         </>

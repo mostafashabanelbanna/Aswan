@@ -87,7 +87,7 @@ const Appointment = (props) => {
         label: nameA,
       }));
       typesName.unshift({ value: null, label: "كل الانواع" });
-  
+
   return (
     <>
       <div className=" container underline  my-5">
@@ -122,7 +122,7 @@ const Appointment = (props) => {
                       <ListWithImage
                         imgSrc={paths.Appointment + item.id + "/" + item.photo}
                         title={item.title}
-                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
+                        date={`${moment(new Date(item.appointmentDate)).format("LL")}`}
                         category={item.appointmentTypeName}
                         imgHeight="200px"
                       />
