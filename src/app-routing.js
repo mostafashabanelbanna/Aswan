@@ -32,6 +32,7 @@ import VideoDetails from './components/home-page/videos/video-details-component'
 import PhotoDetails from "./components/home-page/photo-album/photo-details-component";
 import PhotosList from './components/home-page/photo-album/photos-list-component'
 import FilterPhotos from "./components/home-page/photo-album/filter-photos";
+import FilterVideos from "./components/home-page/videos/filter-videos";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -64,6 +65,7 @@ const AppRouting = () => {
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/filterphotos/:info" component={FilterPhotos} />
+        <Route exact path="/filtervideos/:info" component={FilterVideos} />
         <Route exact path="/exconservatives" component={ExConservatives} />
         <Route exact path="/cities" component={CitiesNavbar} />
         <Route exact path="/tribe" component={Tribe} />

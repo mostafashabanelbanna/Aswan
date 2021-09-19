@@ -35,7 +35,7 @@ const Advertising = () => {
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
+                  src={"/images/icons/وظائف_icon-01.png"}
                 />
                 <div className="mt-4"> وظائف شاغرة </div>
               </Link>
@@ -45,7 +45,7 @@ const Advertising = () => {
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
+                  src={"/images/icons/تشغيل_icon-01.png"}
                 />
                 <div className="mt-4"> تشغيل شباب  </div>
               </Link>
@@ -55,7 +55,7 @@ const Advertising = () => {
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
+                  src={"/images/icons/منجات_icon-01.png"}
                 />
                 <div className="mt-4"> منتجات يدوية </div>
               </Link>
