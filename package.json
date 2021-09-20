@@ -22,7 +22,6 @@
     "bootstrap": "^5.0.2",
     "chart.js": "^3.5.1",
     "hover.css": "^2.3.2",
-    "jquery": "^3.6.0",
     "jss-rtl": "^0.3.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",

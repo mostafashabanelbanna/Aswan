@@ -45,7 +45,7 @@ const YouthEmp = (props) => {
 
   function data(a) {
     for (let property in a) {
-      if (a[property] == null||a[property]=="") delete a[property];
+      if (a[property] == null || a[property] == "") delete a[property];
     }
     return a;
   }
@@ -86,14 +86,19 @@ const YouthEmp = (props) => {
           <Container>
             <Row className="my-4">
               {props.youthemp.result.map((item, index) => {
-                console.log(props.youthemp.result)
+                console.log(props.youthemp.result);
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link to={`newsdetails/${item.id}`} className="h-100">
+                    <Link
+                      to={`/advertisment-details/${item.id}`}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={paths.youth + item.id + "/" + item.photo}
                         title={item.title}
-                        date={`${moment(new Date(item.startDate)).format("LL")} إلى ${moment(new Date(item.endDate)).format("LL")}`}
+                        date={`${moment(new Date(item.startDate)).format(
+                          "LL"
+                        )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
                         imgHeight="200px"
                       />
                     </Link>

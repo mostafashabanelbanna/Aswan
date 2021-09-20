@@ -45,7 +45,7 @@ const Career = (props) => {
 
   function data(a) {
     for (let property in a) {
-      if (a[property] == null||a[property]=="") delete a[property];
+      if (a[property] == null || a[property] == "") delete a[property];
     }
     return a;
   }
@@ -88,7 +88,10 @@ const Career = (props) => {
               {props.career.result.map((item, index) => {
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link to={``} className="h-100">
+                    <Link
+                      to={`/advertisment-details/${item.id}`}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + item.photo}
                         title={item.title}

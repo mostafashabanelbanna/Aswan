@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import {
   getAdvertisment,
   getAllAdvertisment,
-  getAllAdvertismentType
+  getAllAdvertismentType,
 } from "../../../store/actions/advertisment-action";
 import { paths } from "../../../paths/paths";
 import { Col, Container, Row } from "react-bootstrap";
@@ -17,7 +17,7 @@ import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 
 const AdvertismentList = (props) => {
-    let id = props.match.params.id
+  let id = props.match.params.id;
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
   const [flag, setFlag] = useState(0);
@@ -35,11 +35,11 @@ const AdvertismentList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(check(dataFilled))
-    check(dataFilled)==false&&advertismentTypeId!=null?
-    props.getAllAdvertisment(currentPage + 1):
-    props.getAdvertisment(currentPage + 1, data(dataFilled));
-    
+    console.log(check(dataFilled));
+    check(dataFilled) == false && advertismentTypeId != null
+      ? props.getAllAdvertisment(currentPage + 1)
+      : props.getAdvertisment(currentPage + 1, data(dataFilled));
+
     setFlag(1);
     setCurrentPage(0);
   };
@@ -66,8 +66,8 @@ const AdvertismentList = (props) => {
     );
   function check(a) {
     for (let property in a) {
-      if (a[property] != null&&a[property] != '0') {
-          console.log(a[property])
+      if (a[property] != null && a[property] != "0") {
+        console.log(a[property]);
         return true;
       }
     }
@@ -86,23 +86,24 @@ const AdvertismentList = (props) => {
   };
 
   useEffect(() => {
-      
-      console.log(advertismentTypeId , check(dataFilled))
-    if (flag){
+    console.log(advertismentTypeId, check(dataFilled));
+    if (flag) {
       check(dataFilled) == false
-        ?advertismentTypeId==0?
-        props.getAllAdvertisment(currentPage + 1):
-        props.getAdvertisment(currentPage + 1)
-        : props.getAdvertisment(currentPage + 1, data(dataFilled));}
-    
-        else {advertismentTypeId==0?props.getAllAdvertisment(currentPage + 1):props.getAdvertisment(currentPage + 1,data(dataFilled));}
-        setFlag(0);
+        ? advertismentTypeId == 0
+          ? props.getAllAdvertisment(currentPage + 1)
+          : props.getAdvertisment(currentPage + 1)
+        : props.getAdvertisment(currentPage + 1, data(dataFilled));
+    } else {
+      advertismentTypeId == 0
+        ? props.getAllAdvertisment(currentPage + 1)
+        : props.getAdvertisment(currentPage + 1, data(dataFilled));
+    }
+    setFlag(0);
   }, [currentPage]);
 
   useEffect(() => {
     props.getAllAdvertismentType();
-
-  }, [])
+  }, []);
 
   if (props.advertisment && props.advertismentTypes) {
     let adsName = props.advertismentTypes.result.map(({ id, nameA }) => ({
@@ -116,25 +117,31 @@ const AdvertismentList = (props) => {
       <>
         <Container fluid>
           <div className=" container underline  my-4">
-          {advertismentTypeId==5?<h3>منتجات يدوية</h3>:<h3>اعلانات ومناقصات</h3>}
+            {advertismentTypeId == 5 ? (
+              <h3>منتجات يدوية</h3>
+            ) : (
+              <h3>اعلانات ومناقصات</h3>
+            )}
           </div>
           <div className=" bg-light p-3">
-            <SearchSection 
-            submit={submitHandler} 
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne='العنوان'
-            classNameTextFieldOne='col-sm-4 col-12'
-            dropdownOneVal={adsName.find(e => e.value == advertismentTypeId)}
-            dropdownOneHandler={advertismentTypeHandler}
-            dropdownOneName={adsName}
-            dropdownOnePlaceholder='النوع'
-            classNameDropdownOne='col-sm-4 col-12'
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom='col-sm-2 col-12'
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo='col-sm-2 col-12'
+            <SearchSection
+              submit={submitHandler}
+              TextFieldOneHandler={titleHandler}
+              labelTextFieldOne="العنوان"
+              classNameTextFieldOne="col-sm-4 col-12"
+              dropdownOneVal={adsName.find(
+                (e) => e.value == advertismentTypeId
+              )}
+              dropdownOneHandler={advertismentTypeHandler}
+              dropdownOneName={adsName}
+              dropdownOnePlaceholder="النوع"
+              classNameDropdownOne="col-sm-4 col-12"
+              publishDateFrom={publishDateFrom}
+              publishFromHandler={publishFromHandler}
+              classNameDPFrom="col-sm-2 col-12"
+              publishDateTo={publishDateTo}
+              publishToHandler={publishToHandler}
+              classNameDPTo="col-sm-2 col-12"
             />
           </div>
         </Container>
@@ -144,14 +151,19 @@ const AdvertismentList = (props) => {
               {props.advertisment.result.map((item, index) => {
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link className="h-100">
+                    <Link
+                      to={`/advertisment-details/${item.id}`}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + item.photo}
                         title={item.title}
-                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
+                        date={`${moment(new Date(item.publishDate)).format(
+                          "LL"
+                        )}`}
                         category={item.advertismentTypeName}
                         imgHeight="200px"
-                        hoverTitle='hoverTitle'
+                        hoverTitle="hoverTitle"
                       />
                     </Link>
                   </Col>
@@ -183,7 +195,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    {getAdvertisment , getAllAdvertisment , getAllAdvertismentType},
+    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType },
     dispatch
   );
 };

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomeComponent from "./components/home-page/home-component";
 import Error from "./components/errorPage";
 import ProjectDetails from "./components/home-page/government-projects/project-details-component";
-import ProjectsList from './components/home-page/government-projects/government-projects-list-component'
+import ProjectsList from "./components/home-page/government-projects/government-projects-list-component";
 import NewsDetails from "./components/home-page/news/news-details";
 import Main_navbar from "./main-navbar";
 import TouristHome from "./components/tourist-home/tourist-home-page";
@@ -27,11 +27,12 @@ import AdvertismentList from "./components/home-page/advertisment/advertisment-l
 import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
 import documentLibraryDetails from "./components/document-library-page/document-library-details";
-import VideosList from './components/home-page/videos/video-list-component'
-import VideoDetails from './components/home-page/videos/video-details-component'
+import VideosList from "./components/home-page/videos/video-list-component";
+import VideoDetails from "./components/home-page/videos/video-details-component";
 import PhotoDetails from "./components/home-page/photo-album/photo-details-component";
-import PhotosList from './components/home-page/photo-album/photos-list-component'
+import PhotosList from "./components/home-page/photo-album/photos-list-component";
 import FilterPhotos from "./components/home-page/photo-album/filter-photos";
+import AdvertismentDetails from "./components/ads/adsDetails";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -40,7 +41,7 @@ const AppRouting = () => {
         <Route exact path="/" component={HomeComponent} />
         <Route exact path="/home" component={HomeComponent} />
         <Route exact path="/projectDetails/:id" component={ProjectDetails} />
-        <Route exact path='/projectslist' component={ProjectsList}/>
+        <Route exact path="/projectslist" component={ProjectsList} />
         <Route exact path="/newsdetails/:id" component={NewsDetails} />
         <Route exact path="/eservices" component={EServices} />
         <Route
@@ -80,26 +81,19 @@ const AppRouting = () => {
           path="/document-library/:type"
           component={DocumentLibrary}
         ></Route>
-        <Route
-          exact
-          path="/ads/:id"
-          component={AdvertismentList}
-        ></Route>
-         <Route
-          exact
-          path="/youth"
-          component={YouthEmp}
-        ></Route>
-        <Route
-          exact
-          path="/career"
-          component={Career}
-        ></Route>
-        
+        <Route exact path="/ads/:id" component={AdvertismentList}></Route>
+        <Route exact path="/youth" component={YouthEmp}></Route>
+        <Route exact path="/career" component={Career}></Route>
+
         <Route
           exact
           path="/document-library-details/:id"
           component={documentLibraryDetails}
+        />
+        <Route
+          exact
+          path="/advertisment-details/:id"
+          component={AdvertismentDetails}
         />
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />

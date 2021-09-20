@@ -29,7 +29,7 @@ class HomeComponent extends Component {
         <InfoNews {...this.props} />
         {/* <BgAttachment /> */}
         <GovernmentProjects {...this.props} />
-        {/* <Ads {...this.props} /> */}
+        <Ads {...this.props} />
         <Advertising {...this.props} />
         <HayahKarima />
         <CitizenServices {...this.props} />
