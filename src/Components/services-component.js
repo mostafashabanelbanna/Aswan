@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType, clearDirectoryCategory} from "../../../../store/actions/E-Services";
+import { getEServices ,clearEServices, getAllCities, getAllDirectoryCategory, getAllDirectoryType, clearDirectoryCategory} from "../store/actions/E-Services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink, faCity, faUserTie, faPhoneAlt, faMapMarkerAlt, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import {} from "../../../../Styles/EServices.css";
+import {} from "../Styles/EServices.css";
 import { Col, Container, Row } from "react-bootstrap";
-import SearchSection from "../../../ui/search-section";
-import PaginationSection from "../../../ui/pagination-section";
-import ListSkeleton from "../../../loading-skeleton/list-skiliton";
+import SearchSection from "./ui/search-section";
+import PaginationSection from "./ui/pagination-section";
+import ListSkeleton from "./loading-skeleton/list-skiliton";
 
 
-const EmergencyNumbers = (props) => {
+const ServicesComponent = (props) => {
+  const typeId = props.match.params.typeid;
   const [currentPage, setCurrentPage] = useState(0);
   const [renderFlag, setRenderFlag] = useState(1);
   const [name, setName] = useState(null);
-  const [directoryTypeId, setDirectoryTypeId] = useState(18);
-  const [directoryCategoryId, setDirectoryCategoryId] = useState(29);
+  const [directoryTypeId, setDirectoryTypeId] = useState(null);
+  const [directoryCategoryId, setDirectoryCategoryId] = useState(parseInt(typeId));
   const [cityId, setCityId] = useState(null);
   const [dataFlag, setDataFlag] = useState(0);
 
   
   let dataFilled = { name, directoryTypeId, directoryCategoryId, cityId }
   let pageCount;
-  
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -69,9 +69,8 @@ const EmergencyNumbers = (props) => {
   }
 
   useEffect(() => {
-    if(renderFlag){
-      props.getEServices(currentPage + 1, data(dataFilled));
-    }
+    props.getEServices(currentPage + 1, data(dataFilled));
+
     if (!props.cities)
       props.getAllCities();
     
@@ -89,7 +88,8 @@ const EmergencyNumbers = (props) => {
   }, [currentPage,directoryTypeId]);
 
   if (props.services) {
-    let cityName = props.cities.result.map(({ id, name }) => ({ value: id, label: name}));
+    console.log(props.services)
+    let cityName = props.cities.result.map(({ id, name }) => ({ value: id, label: name }));
     let dirCatVal;
     if(props.directoryCategories != null){
       dirCatVal = props.directoryCategories.result.map((item) => ({ value: item.id, label: item.nameA }));
@@ -264,4 +264,4 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getEServices,clearEServices, clearDirectoryCategory, getAllCities, getAllDirectoryCategory, getAllDirectoryType}, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmergencyNumbers);
+export default connect(mapStateToProps, mapDispatchToProps)(ServicesComponent);

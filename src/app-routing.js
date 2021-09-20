@@ -37,6 +37,7 @@ import AdvertismentDetails from "./components/ads/adsDetails";
 import FilterVideos from "./components/home-page/videos/filter-videos";
 import InvestorHome from "./components/investor-home/investor-home-page";
 import Ads from "./components/ads/ads";
+import ServicesComponent from "./components/services-component";
 
 const AppRouting = () => {
   return (
@@ -49,6 +50,7 @@ const AppRouting = () => {
         <Route exact path="/projectslist" component={ProjectsList} />
         <Route exact path="/newsdetails/:id" component={NewsDetails} />
         <Route exact path="/eservices" component={EServices} />
+        <Route exact path='/services/:typeid' component={ServicesComponent}/>
         <Route
           exact
           path="/eservicesdirectories"

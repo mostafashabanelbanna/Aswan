@@ -128,14 +128,14 @@ const PhotoDetails = (props) => {
             <h3>{ReactHtmlParser(details.titleA)}</h3>
           </div>
           <div className="d-flex justify-content-end">
-            <div className="text-muted text-start fa-1x p-3 mb-1 detailsSectorName">
             <Link
             to={`/filterphotos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
             className=" d-flex justify-content-center align-items-center text-center text-muted fa-1x"
             >
+            <div className="text-muted text-center fa-1x p-3 mb-1 detailsSectorName">
                 {ReactHtmlParser(details.sectorName)}
-            </Link>
             </div>
+            </Link>
           </div>
           <hr className="text-muted m-0" />
         </div>

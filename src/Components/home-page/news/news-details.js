@@ -26,8 +26,10 @@ const NewsDetails = (props) => {
   }, []);
 
   if (props.newsdetail) {
+    console.log(props.newsdetail)
     let sectorName = props.newsdetail.result.sectorName;
     let sectorid = props.newsdetail.result.sectorId;
+    let newsCategoryId = props.newsdetail.result.newsCategoryId;
     let date = props.newsdetail.result.publishDate.split("-");
     let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
     return (

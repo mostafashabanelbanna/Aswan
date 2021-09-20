@@ -16,11 +16,11 @@ const TouristHome = () => {
                 </div>
                 <div className='d-flex text-muted align-items-center text-decoration-underline'>السائح</div>
             </div>
-            <TourStart/>
+            <TourStart pagePath={'tourist'}/>
             <TouristAttraction/>
             <TrainingAgenda title={'اجندة الاحداث'} type={18}/>
             <Video pagePath={'tourist'}/>
-            <PhotosAlbum pagePath={'tourist'}/>
+            <PhotosAlbum pagePath={'tourist'} title={'البوم الصور'}/>
             <Contact />
         </div>
     );

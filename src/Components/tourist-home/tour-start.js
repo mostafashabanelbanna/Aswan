@@ -68,7 +68,7 @@ const TourStart = (props) => {
             {props.sliderNews.result.map((item, index) => {
               return (
                 <Link
-                  to={`/NewsDetails/${item.id}`}
+                  to={`/newsdetails/${item.id}`}
                   className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
                 >
                   <div className="hoverTitle">

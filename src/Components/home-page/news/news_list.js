@@ -16,12 +16,11 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
-import { getSenate } from "../../../store/actions/local-leaders-actions";
 
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
-  const [sector, setSector] = useState(null);
+  const [sectorSourceId, setSector] = useState(null);
   const [flag, setFlag] = useState(0);
   const [newsCategoryId, setNewsCategoryId] = useState(null);
   const [publishDateFrom, setPublishDateFrom] = useState(null);
@@ -30,10 +29,11 @@ const NewsList = (props) => {
   let dataFilled = {
     title,
     publishDateFrom,
-    sector,
+    sectorSourceId,
     publishDateTo,
     newsCategoryId,
   };
+
   let pageCount;
 
   const submitHandler = (e) => {
@@ -97,14 +97,12 @@ const NewsList = (props) => {
 
     if (!props.categories) props.getNewsCategory();
     if (!props.sectors) props.getNewsSectors();
-
     // return () => {
     //   props.clearNewsList();
     // }
-  }, [currentPage]);
+  }, [currentPage, sectorSourceId]);
 
   if (props.newslist && props.categories && props.sectors) {
-    console.log("sdsdsd",props.newslist)
     let catName = props.categories.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -133,7 +131,7 @@ const NewsList = (props) => {
             dropdownOneName={catName}
             dropdownOnePlaceholder='القسم'
             classNameDropdownOne='col-sm-4 col-12'
-            dropdownTwoVal={sectorsName.find(e => e.value == sector)}
+            dropdownTwoVal={sectorsName.find(e => e.value == sectorSourceId)}
             dropdownTwoHandler={sectorHandler}
             dropdownTwoPlaceholder='القطاع'
             dropdownTwoName={sectorsName}
@@ -162,6 +160,7 @@ const NewsList = (props) => {
                         date={`${moment(new Date(publishedDate)).format("LL")}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
+                        hoverTitle='hoverTitle'
                       />
                     </Link>
                   </Col>

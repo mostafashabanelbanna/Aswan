@@ -34,6 +34,7 @@ export async function getAllCities() {
   try {
     let res = await axios.get("/CityAPI/GetAll");
     payload = res.data;
+    console.log(payload)
   } catch (e) {}
   return {
     type: "CITY_CATEGORY",

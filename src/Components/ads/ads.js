@@ -13,7 +13,7 @@ const Ads = (props) => {
     props.getAllAds();
   },[])
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const openAds = () => {
     setShow(!show);
   };
