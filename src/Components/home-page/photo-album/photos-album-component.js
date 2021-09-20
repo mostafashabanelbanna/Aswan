@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getAllPhotos } from "../../../store/actions/photos-album-actions";
-import {photoAlbum} from '../../../store/actions/tourist-action/photos'
+import { photoAlbum } from '../../../store/actions/tourist-action/photos'
+import { investorPhotoAlbum } from '../../../store/actions/investor-actions/photos'
 import { useEffect } from "react";
 import { paths } from "../../../paths/paths";
 import "../../../Styles/photo-album-style.css";
@@ -11,10 +12,21 @@ import { Link } from "react-router-dom";
 const PhotosAlbum = (props) => {
   let photos 
   useEffect(() => {
-    props.pagePath=='home'? props.getAllPhotos(): props.photoAlbum();
+    if(props.pagePath=='home'){
+      props.getAllPhotos()
+    } else if (props.pagePath=='investor'){
+      props.investorPhotoAlbum();
+    } else {
+      props.photoAlbum();
+    }
   }, []);
-  props.homePhotos==undefined? photos=props.touristPhotos: photos = props.homePhotos;
-
+  if (props.pagePath=='investor'){
+    photos = props.investorPhotos
+  } else if(props.pagePath=='home'){
+    photos = props.homePhotos
+  } else {
+    photos = props.touristPhotos
+  }
   const renderAlbum = () => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
@@ -44,7 +56,7 @@ const PhotosAlbum = (props) => {
   };
 
   if (photos) {
-    
+    console.log(photos)
     return (
       <div>
         <div className="container mt-5">
@@ -72,9 +84,10 @@ export default connect(
     return {
       homePhotos: state.homeComponents.photosAlbum,
       touristPhotos: state.touristHome.photosAlbum,
+      investorPhotos: state.investorHome.photosAlbum
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllPhotos, photoAlbum }, dispatch);
+    return bindActionCreators({ getAllPhotos, photoAlbum, investorPhotoAlbum }, dispatch);
   }
 )(PhotosAlbum);

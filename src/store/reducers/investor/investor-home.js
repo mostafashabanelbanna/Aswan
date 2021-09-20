@@ -1,4 +1,4 @@
-export function touristHome(state = {}, action) {
+export function investorHome(state = {}, action) {
     switch (action.type) {
         case "SLIDER_VIDEO":
             return { ...state, slidervideo: action.payload };
@@ -8,7 +8,7 @@ export function touristHome(state = {}, action) {
             return { ...state, mainVideo: action.payload };
         case "SLIDER_NEWS":
             return { ...state, sliderNews: action.payload };
-            
+
         default:
             return state;
     }

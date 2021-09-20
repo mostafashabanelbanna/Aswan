@@ -30,7 +30,6 @@ export async function getAllAdvertismentType() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
     payload = res.data;
-    console.log("Hi", payload);
   } catch (e) {}
   return {
     type: "ADVERTISMENT_TYPE",
