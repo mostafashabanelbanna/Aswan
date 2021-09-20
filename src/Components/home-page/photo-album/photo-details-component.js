@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  getPhotoDetails, clearPhotoDetails
+  getPhotoDetails,
+  clearPhotoDetails,
 } from "../../../store/actions/photos-album-actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -11,11 +12,10 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
-import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
+import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 
 import { Link } from "react-router-dom";
-
 
 const PhotoDetails = (props) => {
   useEffect(() => {
@@ -31,14 +31,12 @@ const PhotoDetails = (props) => {
   }, []);
 
   const [show, setShow] = useState(false);
-  const [content, setContent] = useState({})
+  const [content, setContent] = useState({});
   // const [photosLength , setPhotosLength]=useState(1)
 
   const onShow = () => {
     setShow(true);
   };
-
-  
 
   var settings = {
     dots: false,
@@ -105,15 +103,15 @@ const PhotoDetails = (props) => {
   };
 
   const renderModal = (content) => {
-    return(
-    <SliderDetailsModalComponent
-      content={content}
-      show={show}
-      onHide={() => setShow(false)}
-      pathName={paths.ProjectPhotos}
-    />
-    )
-  }
+    return (
+      <SliderDetailsModalComponent
+        content={content}
+        show={show}
+        onHide={() => setShow(false)}
+        pathName={paths.ProjectPhotos}
+      />
+    );
+  };
 
   if (props.photoDetails) {
     let details = Object.assign({}, props.photoDetails.result);
@@ -141,9 +139,12 @@ const PhotoDetails = (props) => {
         </div>
         <div className="row my-4 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
-              <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
-                {ReactHtmlParser(details.photoCaptionA)}
-              </p>
+            <p
+              className="text-muted"
+              style={{ lineHeight: "30px", fontSize: "1rem" }}
+            >
+              {ReactHtmlParser(details.photoCaptionA)}
+            </p>
           </div>
           <div className="col-lg-5 detailsPhoto p-0 h-100">
             <img
@@ -154,37 +155,39 @@ const PhotoDetails = (props) => {
           </div>
         </div>
 
-        {details.photos?<div className="my-3">
-          <Slider {...settings} style={{ width: "100%" }}>
-            {details.photos.map((photo, index) => {
-              let title = photo.title;
-              if (photo.title === null) {
-                title = photo.caption;
-              }
-              return (
-                <div
-                  className="mx-auto p-3 hoverTitle"
-                  key={photo.id}
-                  onClick={() => {
-                    onShow();
-                    setContent(photo);
-                  }}
-                >
-                  <div className="holder">
-                    <div
-                      style={{
-                        position: "relative",
-                        backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${photo.photo})`,
-                      }}
-                      className="imageAlbum"
-                    ></div>
+        {details.photos ? (
+          <div className="my-3">
+            <Slider {...settings} style={{ width: "100%" }}>
+              {details.photos.map((photo, index) => {
+                let title = photo.title;
+                if (photo.title === null) {
+                  title = photo.caption;
+                }
+                return (
+                  <div
+                    className="mx-auto p-3 hoverTitle"
+                    key={photo.id}
+                    onClick={() => {
+                      onShow();
+                      setContent(photo);
+                    }}
+                  >
+                    <div className="holder">
+                      <div
+                        style={{
+                          position: "relative",
+                          backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${photo.photo})`,
+                        }}
+                        className="imageAlbum"
+                      ></div>
+                    </div>
+                    <p className="text-center my-2">{title}</p>
                   </div>
-                  <p className="text-center my-2">{title}</p>
-                </div>
-              );
-            })}
-          </Slider>
-        </div>:null}
+                );
+              })}
+            </Slider>
+          </div>
+        ) : null}
         <Link
           to={"/photoslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
@@ -203,7 +206,7 @@ const PhotoDetails = (props) => {
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons/>
+  return <GeneralThreeOthersSkeletons />;
 };
 
 export default connect(
@@ -213,6 +216,6 @@ export default connect(
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getPhotoDetails, clearPhotoDetails}, dispatch);
+    return bindActionCreators({ getPhotoDetails, clearPhotoDetails }, dispatch);
   }
 )(PhotoDetails);
