@@ -43,7 +43,7 @@ const DocumentLibraryDetails = (props) => {
                 <a
                   target="_blank"
                   href={props.documentLibraryDetail.result.url}
-                  style={{cursor:'pointer'}}
+                  style={{ cursor: "pointer" }}
                 >
                   الرابط
                 </a>
@@ -58,7 +58,10 @@ const DocumentLibraryDetails = (props) => {
                 ></FontAwesomeIcon>{" "}
               </div>
               <div>
-              {`${moment(new Date(props.documentLibraryDetail.result.publishDate)).format("LL")}`}</div>
+                {`${moment(
+                  new Date(props.documentLibraryDetail.result.publishDate)
+                ).format("LL")}`}
+              </div>
             </div>
           </div>
           <Link
@@ -79,27 +82,31 @@ const DocumentLibraryDetails = (props) => {
               {ReactHtmlParser(props.documentLibraryDetail.result.content)}
             </div>
             <div className="col-md-4 p-3 col-12">
-              {props.documentLibraryDetail.result.photo?<img
-                className="w-100"
-                src={
-                  paths.DocumentLibraryPhotos +
-                  props.documentLibraryDetail.result.id +
-                  "/" +
-                  props.documentLibraryDetail.result.photo
-                }
-              />:null}
+              {props.documentLibraryDetail.result.photo ? (
+                <img
+                  className="w-100"
+                  src={
+                    paths.DocumentLibraryPhotos +
+                    props.documentLibraryDetail.result.id +
+                    "/" +
+                    props.documentLibraryDetail.result.photo
+                  }
+                />
+              ) : null}
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-12">
-              {props.documentLibraryDetail.result.attachment?<iframe
-                frameborder="0"
-                src={`${paths.DocumentLibrarAttachment}${props.documentLibraryDetail.result.id}/${props.documentLibraryDetail.result.attachment}`}
-                width="100%"
-                height="800px"
-              ></iframe>:null}
+              {props.documentLibraryDetail.result.attachment ? (
+                <iframe
+                  frameborder="0"
+                  src={`${paths.DocumentLibrarAttachment}${props.documentLibraryDetail.result.id}/${props.documentLibraryDetail.result.attachment}`}
+                  width="100%"
+                  height="800px"
+                ></iframe>
+              ) : null}
             </div>
           </div>
         </div>
@@ -107,7 +114,7 @@ const DocumentLibraryDetails = (props) => {
     );
   }
 
-  return <OnePieaceSkeleton/>;
+  return <OnePieaceSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {
