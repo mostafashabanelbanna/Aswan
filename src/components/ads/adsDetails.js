@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -14,13 +14,19 @@ import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 
 const AdvertismentDetails = (props) => {
-  const id = props.match.params.id;
+  let id = props.match.params.id;
+
   useEffect(() => {
-    props.advertismentDetails(id);
+    // const resolver = async () => {
+    //   await setId(props.match.params.id)
+    // }
+
+    // resolver();
+      props.advertismentDetails(id);
     return () => {
       props.clearAdvertismentDetails();
     };
-  }, []);
+  }, [id]);
 
   var settings = {
     dots: true,
@@ -34,6 +40,7 @@ const AdvertismentDetails = (props) => {
   };
 
   if (props.advertismentDetail) {
+    console.log(props.advertismentDetail)
     return (
       <div className="pt-4">
         <Container fluid className="px-0">

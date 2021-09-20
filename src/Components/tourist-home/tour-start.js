@@ -1,76 +1,112 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import Slider from "react-slick";
+import { touristNewsSlider } from "../../store/actions/tourist-action/slider";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import { paths } from "../../paths/paths";
+import { Link } from "react-router-dom";
 
-const TourStart =()=>{
+const TourStart = (props) => {
+  useEffect(() => {
+    props.touristNewsSlider();
+  }, []);
 
-    var settings = {
-        dots: false,
-        arrows:false,
-        centerMode:true,
-      infinite: true,
-      centerPadding: "80px",
+  var settings = {
+    dots: false,
+    arrows: false,
+    centerMode: true,
+    infinite: true,
+    centerPadding: "80px",
 
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
-            },
-            {
-                breakpoint: 800,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
-    return (<div className=''>
-        <div className='text-center d-flex justify-content-center my-4'>
-                <div className='mx-3'>
-                    <img src='/images/icons/Tourist-0٢.png' />
-                </div>
-                <div className='d-flex align-items-center'><h2>رحلتك تبدء من هنا</h2> </div>
-            </div>
-        <div style={{ backgroundColor: '#eeecec' }} className=" me-3 ms-3">
-            <Slider {...settings}  >
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-                <div className="mt-4 text-center p-4">
-                    <img src={'/images/cover.jpg'} className="rounded-3" width='100%' />
-                </div>
-            </Slider>
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  if(props.sliderNews){
+  return (
+    <div className="">
+      <div className="text-center d-flex justify-content-center my-4">
+        <div className="mx-3">
+          <img src="/images/icons/Tourist-0٢.png" />
         </div>
-    </div>)
-}
+        <div className="d-flex align-items-center">
+          <h2>رحلتك تبدء من هنا</h2>{" "}
+        </div>
+      </div>
+      <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
+        <div className="container p-0">
+          <Slider {...settings}>
+            {props.sliderNews.result.map((item, index) => {
+              return (
+                <Link
+                  to={`/NewsDetails/${item.id}`}
+                  className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                >
+                  <div className="hoverTitle">
+                    <div
+                      key={item.id}
+                      className="holder shadow-none"
+                      style={{ borderRadius: "0px" }}
+                    >
+                      <img
+                        className="rounded-3 "
+                        width="100%"
+                        height="205px"
+                        src={paths.NewsPhotos +item.id + "/" + item.photo}
+                        alt={item.caption}
+                      />
+                      <div className="mt-4  container p-2">{item.title}</div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </Slider>
+        </div>
+      </div>
+    </div>
+  );
+    } else {
+        return <OnePieaceSkeleton/>
+    }
+};
 
-export default TourStart;
+export default connect(
+  (state) => {
+    return {
+      sliderNews: state.touristHome.sliderNews,
+    };
+  },
+  (dispatch) => {
+    return bindActionCreators({ touristNewsSlider }, dispatch);
+  }
+)(TourStart);

@@ -26,7 +26,6 @@ export async function getAllAdvertismentType() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
     payload = res.data;
-    console.log("Hi", payload);
   } catch (e) {}
   return {
     type: "ADVERTISMENT_TYPE",
@@ -92,6 +91,19 @@ export async function getCareer(pageNumber, keywords = {}, pageSize = 2) {
   };
 }
 
+//ads
+export async function getAllAds() {
+  let payload = null;
+  try {
+    let res = await axios.get("/AdvertismentAPI/GetPaidads");
+    payload = res.data;
+  } catch (e) {}
+  return {
+    type: "ADS",
+    payload,
+  };
+}
+
 // Details
 export async function advertismentDetails(advertismentId) {
   let payload = null;
@@ -108,7 +120,7 @@ export async function advertismentDetails(advertismentId) {
 }
 
 export async function clearAdvertismentDetails() {
-  let payload;
+  let payload = null;
 
   return {
     type: "CLEAR_ADVERTISMENT_DETAILS",

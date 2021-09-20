@@ -15,7 +15,6 @@ import ImportantPortals from "./important-portals";
 import TrainingAgenda from "./training-agenda";
 import BgAttachment from "../bg-attachment";
 import HayahKarima from "./good-life/haya-carima";
-import Ads from "../ads/ads";
 import Advertising from "./advertisment/advertising";
 class HomeComponent extends Component {
   constructor(props) {
@@ -29,12 +28,11 @@ class HomeComponent extends Component {
         <InfoNews {...this.props} />
         {/* <BgAttachment /> */}
         <GovernmentProjects {...this.props} />
-        <Ads {...this.props} />
         <Advertising {...this.props} />
         <HayahKarima />
         <CitizenServices {...this.props} />
         <LocalLeaders {...this.props} />
-        <TrainingAgenda {...this.props}  title={'اطروحات استثمارية'} type={2}/>
+        <TrainingAgenda {...this.props}  title={'اجندة التدريب'} type={4}/>
         <Video {...this.props}  pagePath={'home'}/>
         <GovernmentFamous {...this.props} />
         <PhotosAlbum {...this.props} pagePath={'home'} title={'البوم الصور'}/>

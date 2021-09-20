@@ -13,6 +13,7 @@ export async function sliderNews() {
     payload,
   };
 }
+
 export async function mainNews() {
   let payload = null;
   try {

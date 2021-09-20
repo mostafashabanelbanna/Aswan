@@ -10,6 +10,9 @@ export function advertismentComponents(state = {}, action) {
       return { ...state, youthemp: action.payload };
     case "CAREER":
       return { ...state, career: action.payload };
+
+    case "ADS":
+      return { ...state, ads: action.payload };
     case "ADVERTISMENT_DETAILS":
       return { ...state, advertismentDetails: action.payload };
     case "CLEAR_ADVERTISMENT_DETAILS":

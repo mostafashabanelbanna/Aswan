@@ -37,6 +37,8 @@ import AdvertismentDetails from "./components/ads/adsDetails";
 import FilterVideos from "./components/home-page/videos/filter-videos";
 import InvestorHome from "./components/investor-home/investor-home-page";
 import TouristAttractionDetails from "./components/touristAttraction/touristAttractionDetails";
+import Ads from "./components/ads/ads";
+
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -109,7 +111,8 @@ const AppRouting = () => {
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>
-      <Footer />
+      <Ads/>
+      <Footer/>
     </BrowserRouter>
   );
 };
