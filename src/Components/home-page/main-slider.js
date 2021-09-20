@@ -6,13 +6,14 @@ import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "../../Styles/navbar.css";
+import MainSliderSkeleton from "../loading-skeleton/mainSlider";
 const MainSlider = () => {
   const [mainSlider, setMainSlider] = useState([]);
 
   const getMainSlider = async () => {
     //fetch data
     const response = await axios
-      .get("/TouristAttraction/GetSlider")
+      .get("/TouristAttractionnn/GetSlider")
       .catch((err) => console.log("Error", err)); //handle errors
     if (response && response.data) {
       setMainSlider(response.data.result);
@@ -27,7 +28,6 @@ const MainSlider = () => {
 
   return (
     <div className="mainSlider" style={{ height: "80vh" }}>
-      {console.log(mainSlider)}
       <Carousel fade={true}>
         {!noMainSlider &&
           mainSlider.map((item, idx) => {
@@ -60,6 +60,7 @@ const MainSlider = () => {
             );
           })}
       </Carousel>
+      {noMainSlider && <MainSliderSkeleton />}
     </div>
   );
 };
