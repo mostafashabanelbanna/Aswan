@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getAllPhotos } from "../../../store/actions/photos-album-actions";
+import {photoAlbum} from '../../../store/actions/tourist-action/photos'
 import { useEffect } from "react";
 import { paths } from "../../../paths/paths";
 import "../../../Styles/photo-album-style.css";
@@ -8,16 +9,16 @@ import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
 
 const PhotosAlbum = (props) => {
+  let photos 
   useEffect(() => {
-    props.getAllPhotos();
+    props.pagePath=='home'? props.getAllPhotos(): props.photoAlbum();
   }, []);
-
-  // let photos = props.photos.result;
+  props.homePhotos==undefined? photos=props.touristPhotos: photos = props.homePhotos;
 
   const renderAlbum = () => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
-        {props.photos.result.map((item, index) => {
+        {photos.result.map((item, index) => {
           return (
             <Link to={`photodetails/${item.id}`} className='text-muted col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3'>
             <div
@@ -42,8 +43,8 @@ const PhotosAlbum = (props) => {
     );
   };
 
-  if (props.photos) {
-    console.log(props.photos)
+  if (photos) {
+    
     return (
       <div>
         <div className="container mt-5">
@@ -55,7 +56,7 @@ const PhotosAlbum = (props) => {
             />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2 text-secondary">البوم الصور</h3>
+              <h3 className="mt-4 me-2 text-secondary">{props.title}</h3>
             </div>
           </div>
           {renderAlbum()}
@@ -69,10 +70,11 @@ const PhotosAlbum = (props) => {
 export default connect(
   (state) => {
     return {
-      photos: state.homeComponents.photosAlbum,
+      homePhotos: state.homeComponents.photosAlbum,
+      touristPhotos: state.touristHome.photosAlbum,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllPhotos }, dispatch);
+    return bindActionCreators({ getAllPhotos, photoAlbum }, dispatch);
   }
 )(PhotosAlbum);

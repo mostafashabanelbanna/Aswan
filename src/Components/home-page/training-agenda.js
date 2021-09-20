@@ -15,21 +15,17 @@ import { useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
 import moment from "moment";
 import "moment/locale/ar";
+import OnePieaceSkeleton from '../loading-skeleton/one-pieace'
 const TrainingAgenda = (props) => {
 
   const [message, setMessage] = useState();
   const [show, setShow] = useState();
-  const eventsArr = [
-    { title: "إعلان", date: "2021-09-13" },
-    { title: "مناقصة", date: "2021-09-01" },
-    { title: "إعلان", date: "2021-09-01" },
-    { title: "مؤتمرات", date: "2021-09-01" },
-  ];
+  const eventsArr = [{}];
 
   let day;
 
   useEffect (() => {
-    props.getAllEvents();
+    props.getAllEvents(props.type);
   }, [])
 
   if(props.eventsList){
@@ -41,7 +37,7 @@ const TrainingAgenda = (props) => {
             <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2  text-secondary"> أطروحات إستثمارية </h3>
+              <h3 className="mt-4 me-2  text-secondary">{props.title} </h3>
             </div>
           </div>
         </div>
@@ -74,6 +70,8 @@ const TrainingAgenda = (props) => {
               const brief = item.content;
               slicedContent = brief.substring(0, 250).concat(" ...");
             }
+            eventsArr.push({title: item.title, start: item.startDateTime,
+            end: item.endDateTime})
             return (
             <Fade dalay={200}>
               <div>
@@ -117,7 +115,7 @@ const TrainingAgenda = (props) => {
       </div>
     );
   } else {
-    return <div className='text-center text-muted'>لا يوجد نتائج</div>
+    return <OnePieaceSkeleton/>
   }
 };
 

@@ -8,10 +8,10 @@ const FocusedGeneralIndicatorSkeleton = () => {
     return (
         <>
         <Container>
-            <div className="d-flex justify-content-between">
-                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
-                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
-                <div className="col-md-3"><Skeleton width="100%" height={50}/></div>
+            <div className="d-flex justify-content-between my-3">
+                <div className="col-md-3"><Skeleton width="100%" height={200}/></div>
+                <div className="col-md-3"><Skeleton width="100%" height={200}/></div>
+                <div className="col-md-3"><Skeleton width="100%" height={200}/></div>
             </div>
             <div className="d-flex justify-content-between">
                 <Skeleton width="100%" height={400}/>

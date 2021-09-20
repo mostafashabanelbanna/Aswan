@@ -35,33 +35,25 @@ const Main_navbar = () => {
           </div>
           <div className=" d-none d-md-block">|</div>
 
-          <div
+         
+          <Link to='/touristhome'
             style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
+            className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
-            <img className="mx-2 imgsz" src="/images/icons/citizen-0١.png" />{" "}
-            <span className="spansz">المواطن</span>
-          </div>
-
+            <div>
+              <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
+              <span className="spansz">المستثمر</span>
+            </div>
+          </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <div
+          <Link to="/tourist"
             style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
-          >
-            <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
-            <span className="spansz">المستثمر</span>
-          </div>
-
-          <div className=" d-none d-md-block">|</div>
-
-          <div
-            style={{ cursor: "pointer" }}
-            className="col-3  col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img className="mx-2 imgsz" src="/images/icons/Tourist-0٢.png" />
             <span className="spansz">السائح</span>
-          </div>
+          </Link>
         </div>
         <div
           style={{ color: "#7f807f" }}

@@ -42,11 +42,11 @@ const TourStart =()=>{
         ]
     };
     return (<div className=''>
-        <div className='text-center d-flex justify-content-center my-4'>
+        <div className='text-center d-flex align-content-center align-items-center justify-content-center my-4'>
                 <div className='mx-3'>
-                    <img src='/images/icons/Tourist-0٢.png' />
+                    <img src='/images/icons/Investor-0١.png' />
                 </div>
-                <div className='d-flex align-items-center'><h2>رحلتك تبدء من هنا</h2> </div>
+                <div className='d-flex align-self-end fw-bold'><h2>اخبار إستثمارية</h2> </div>
             </div>
         <div style={{ backgroundColor: '#eeecec' }} className=" me-3 ms-3">
             <Slider {...settings}  >
