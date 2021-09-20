@@ -13,7 +13,7 @@ const MainSlider = () => {
   const getMainSlider = async () => {
     //fetch data
     const response = await axios
-      .get("/TouristAttractionnn/GetSlider")
+      .get("/TouristAttraction/GetSlider")
       .catch((err) => console.log("Error", err)); //handle errors
     if (response && response.data) {
       setMainSlider(response.data.result);
