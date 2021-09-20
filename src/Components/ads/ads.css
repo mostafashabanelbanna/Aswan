@@ -1,5 +1,5 @@
 .ads_container {
-  height: 200px;
+  height: 125px;
   display: block;
   width: 100% !important;
   bottom: 0px;
@@ -26,7 +26,7 @@
 }
 
 .ads_container_sink {
-  bottom: -170px;
+  bottom: -95px;
   -webkit-transition: all 0.7s ease-out;
   -moz-transition: all 0.7s ease-out;
   -ms-transition: all 0.7s ease-out;

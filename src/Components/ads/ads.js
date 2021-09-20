@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getAllAds } from '../../store/actions/ads'
+import { getAllAds } from '../../store/actions/advertisment-action'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./ads.css";
+import { Link } from "react-router-dom";
 
 const Ads = (props) => {
 
@@ -32,7 +33,7 @@ const Ads = (props) => {
       <div className="ads_inner_content h-100">
         <div className="container h-100 pt-2">
           <div className="row h-100 ">
-            <div className="col-sm-4">
+            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[0].id}`}>
               <div
                 style={{
                   backgroundColor: "rgb(255 220 110 / 80%)",
@@ -41,11 +42,11 @@ const Ads = (props) => {
                   textAlign:'justify'
                 }}
                 >
-                <h3 className="m-0" style={{fontSize:'22px'}}>{props.ads.result[0].title}</h3>
-              </div>
+                <h3 className="m-0" style={{fontSize:'14px'}}>{props.ads.result[0].title}</h3>
             </div>
+            </Link>
 
-            <div className="col-sm-4">
+            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[1].id}`}>
               <div
                 style={{
                   backgroundColor: "#a4e1bf",
@@ -54,11 +55,11 @@ const Ads = (props) => {
                   textAlign:'justify'
                 }}
                 >
-                <h3 className="m-0" style={{fontSize:'22px'}}>{props.ads.result[1].title}</h3>
-              </div>
+                <h3 className="m-0" style={{fontSize:'14px'}}>{props.ads.result[1].title}</h3>
             </div>
+            </Link>
 
-            <div className="col-sm-4">
+            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[2].id}`}>
               <div
                 style={{
                   backgroundColor: "rgb(34 168 155 / 50%) ",
@@ -67,21 +68,21 @@ const Ads = (props) => {
                   textAlign:'justify'
                 }}
                 >
-                <h3 className="m-0" style={{fontSize:'22px'}}>{props.ads.result[2].title}</h3>
-              </div>
+                <h3 className="m-0" style={{fontSize:'14px'}}>{props.ads.result[2].title}</h3>
             </div>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
-  } return <div className='text-center fa-1x'>جاري التحميل</div>
+  } return null
 };
 
 export default connect(
   (state) => {
     return {
-      ads: state.adsComponents.ads,
+      ads: state.advertismentComponents.ads,
     };
   },
   (dispatch) => {

@@ -7,7 +7,6 @@ import { DocumentLibrary } from "./document-library";
 import { advertismentComponents } from "./advertisment";
 import { touristHome } from "./tourist/tourist-home";
 import { investorHome } from "./investor/investor-home";
-import { adsComponents } from './ads'
 
 export default combineReducers({
   homeComponents,
@@ -18,5 +17,4 @@ export default combineReducers({
   advertismentComponents,
   touristHome,
   investorHome,
-  adsComponents
 });
