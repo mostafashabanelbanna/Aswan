@@ -28,14 +28,15 @@ import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
 import documentLibraryDetails from "./components/document-library-page/document-library-details";
 import Footer from "./components/footer";
-import VideosList from './components/home-page/videos/video-list-component'
-import VideoDetails from './components/home-page/videos/video-details-component'
+import VideosList from "./components/home-page/videos/video-list-component";
+import VideoDetails from "./components/home-page/videos/video-details-component";
 import PhotoDetails from "./components/home-page/photo-album/photo-details-component";
 import PhotosList from "./components/home-page/photo-album/photos-list-component";
 import FilterPhotos from "./components/home-page/photo-album/filter-photos";
 import AdvertismentDetails from "./components/ads/adsDetails";
 import FilterVideos from "./components/home-page/videos/filter-videos";
 import InvestorHome from "./components/investor-home/investor-home-page";
+import TouristAttractionDetails from "./components/touristAttraction/touristAttractionDetails";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -65,7 +66,7 @@ const AppRouting = () => {
         <Route exact path="/photoslist" component={PhotosList} />
         <Route exact path="/photodetails/:id" component={PhotoDetails} />
         <Route exact path="/tourist" component={TouristHome} />
-        <Route exact path='/touristhome' component={InvestorHome}/>
+        <Route exact path="/touristhome" component={InvestorHome} />
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/filterphotos/:info" component={FilterPhotos} />
@@ -100,10 +101,15 @@ const AppRouting = () => {
           path="/advertisment-details/:id"
           component={AdvertismentDetails}
         />
+        <Route
+          exact
+          path="/tourist-attraction-details/:id"
+          component={TouristAttractionDetails}
+        />
         <Route exact path="/leaders" component={Leaders}></Route>
         <Route path="*" component={Error} />
       </Switch>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 };

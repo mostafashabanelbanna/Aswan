@@ -66,7 +66,6 @@ a {
   text-align: center;
 } */
 
-
 .slick-next {
   right: -20px;
   top: 45%;
@@ -187,13 +186,12 @@ a {
   cursor: pointer;
   margin: 5px;
 }
-.MuiOutlinedInput-input{
-  padding:  6px 14px !important;
+.MuiOutlinedInput-input {
+  padding: 6px 14px !important;
 }
 
-#standard-basic{
+#standard-basic {
   padding: 6px 14px;
-
 }
 .myButton span {
   cursor: pointer;
@@ -266,7 +264,7 @@ a {
   width: 100%;
 }
 .city_name_inner {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgb(161 161 161 / 60%);
   color: #fff;
 }
 
@@ -283,7 +281,7 @@ a {
   color: #212529 !important;
 }
 
-.hvr-shutter-out-vertical{
+.hvr-shutter-out-vertical {
   background-color: transparent !important;
 }
 
@@ -338,10 +336,10 @@ a {
   transform: translateY(-10px);
 }
 
-.pagination{
-  padding: 0!important;
+.pagination {
+  padding: 0 !important;
 }
 
-.MuiFormControl-root{
+.MuiFormControl-root {
   width: 100% !important;
 }
