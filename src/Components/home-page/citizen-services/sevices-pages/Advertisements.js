@@ -132,14 +132,6 @@ const Advertisements = (props) => {
         </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.advertisementsList.result.map((item, index) => {
-            console.log(item)
-              // let date = new Date(item.publishDate.split('T')[0]);
-              // let months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
-              //   "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
-              // ];
-              // let days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
-              // let delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
-            
               let slicedDescription = item.description;
                   if (item.description !== null && item.description.length > 500) {
                     const desc = item.description;
@@ -180,7 +172,6 @@ const Advertisements = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a style={{ textDecoration: "none", cursor: "pointer" }}>
-                      {/* {item.publishDate.split('T')[0]}{delDateString}*/}
                       {`${moment(new Date(item.publishDate)).format("LL")}`}
                     </a>
                   </div>
@@ -216,3 +207,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Advertisements);
+
+
+/*
+              // let date = new Date(item.publishDate.split('T')[0]);
+              // let months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+              //   "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+              // ];
+              // let days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+              // let delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+            */

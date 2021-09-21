@@ -1,0 +1,7 @@
+.MuiPickersToolbar-toolbar, .MuiPickersDay-daySelected {
+    background-color: #fecf55 !important;
+}
+
+.MuiButton-textPrimary {
+    color: #fecf55 !important;
+}

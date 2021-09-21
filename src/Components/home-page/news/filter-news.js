@@ -91,7 +91,6 @@ const FilterNews = (props) => {
         setCurrentPage(selectedPage)
     };
     if (props.data) {
-        console.log(props.data)
         let catName = props.categories.result.map(({ id, nameA }) => ({
             value: id,
             label: nameA,
@@ -139,11 +138,13 @@ const FilterNews = (props) => {
             {props.data.result? props.data.result.map((item) => {
                 let date = item.publishDate.replace(/\//g,'-').split('-');
                 let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                 <div className='mb-4 col-lg-4 col-sm-6 col-12'>
                 <Link to={`/newsdetails/${item.id}`} className="h-100">
                     <ListWithImage
-                        imgSrc={paths.NewsPhotos + item.id + "/" + item.photo}
+                        imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(publishedDate)).format("LL")}`}
                         category={item.newsCategoryName}

@@ -7,7 +7,6 @@ export async function getHayaDetails(id){
      let res =  await  axios.get('/GoodLifeInitiativeAPI/Details/'+id)
         payload =  res.data
     }catch(e){
-        console.log(e)
     }
 
     return {

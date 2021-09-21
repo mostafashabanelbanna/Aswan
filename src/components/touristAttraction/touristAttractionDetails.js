@@ -101,6 +101,9 @@ const TouristAttractionDetails = (props) => {
     ],
   };
 
+  let pName = touristAttraction.photo;
+  let newPath  = pName.replaceAll(' ','%20')
+
   return (
     <>
       {renderModal(content)}
@@ -109,7 +112,7 @@ const TouristAttractionDetails = (props) => {
           <div
             className="city_name_attachment"
             style={{
-              backgroundImage: `url(${paths.MainSlider}${touristAttraction.id}/${touristAttraction.photo})`,
+              backgroundImage: `url(${paths.MainSlider}${touristAttraction.id}/${newPath})`,
             }}
           >
             <div
@@ -127,8 +130,10 @@ const TouristAttractionDetails = (props) => {
             </div>
             <Slider {...settings} style={{ width: "100%" }}>
               {touristAttraction.photos.map((photo, index) => {
+                let pName = photo.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 let title = photo.title;
-                let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${photo.photo})`;
+                let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${newPath})`;
                 if (photo.title === null) {
                   title = photo.caption;
                 }

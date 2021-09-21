@@ -5,7 +5,6 @@ export async function photoAlbum() {
     let res = await axios.get("/PhotoLibraryAPI/GetAllSliderTourist");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {

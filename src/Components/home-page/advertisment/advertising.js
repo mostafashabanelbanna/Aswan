@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Advertising = () => {
     return (<>
-        <div className='bg-light mt-3'>
+        <div className='bg-light mt-3 py-3'>
         <div className=" container p-0 ">
         <div className="my-3 d-flex">
           <img

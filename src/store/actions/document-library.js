@@ -18,7 +18,6 @@ export async function DocumentLibraryList(
     let res = countResponse.data.result;
     payload = { ...response.data, count: res };
   } catch (e) {
-    console.log(e)
   }
   return {
     type: "Document_Library_LIST",

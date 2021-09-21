@@ -34,7 +34,6 @@ export async function getAllCities() {
   try {
     let res = await axios.get("/CityAPI/GetAll");
     payload = res.data;
-    console.log(payload)
   } catch (e) {}
   return {
     type: "CITY_CATEGORY",
@@ -53,7 +52,6 @@ export async function getAllDirectoryCategory(id) {
     else res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory`);
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "DIRECTORY_CATEGORY",
@@ -75,7 +73,6 @@ export async function getAllDirectoryType() {
     let res = await axios.get("/LookUpAPI/GetAllDirectoryType");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "DIRECTORY_TYPE",
@@ -104,7 +101,6 @@ export async function getEServiceDirectories(
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "ESERVICE_DIRECTORIES",
@@ -126,7 +122,6 @@ export async function getAllServiceDirectoryTypes() {
     let res = await axios.get("/LookUpAPI/GetAllServiceCategory");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "ESERVICE_DIRECTORY_TYPES",
@@ -151,7 +146,6 @@ export async function getDirectorates(pageNumber, keywords = {}, pageSize = 9) {
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "DIRECTORATES",
@@ -188,7 +182,6 @@ export async function getAdvertisements(
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "ADVERTISEMENTS",
@@ -210,7 +203,6 @@ export async function getAllAdvertisementTypes() {
     let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "ADVERTISEMENT_TYPES",

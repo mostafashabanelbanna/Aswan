@@ -35,7 +35,6 @@ const AdvertismentList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(check(dataFilled));
     check(dataFilled) == false && advertismentTypeId != null
       ? props.getAllAdvertisment(currentPage + 1)
       : props.getAdvertisment(currentPage + 1, data(dataFilled));
@@ -67,7 +66,6 @@ const AdvertismentList = (props) => {
   function check(a) {
     for (let property in a) {
       if (a[property] != null && a[property] != "0") {
-        console.log(a[property]);
         return true;
       }
     }
@@ -86,7 +84,6 @@ const AdvertismentList = (props) => {
   };
 
   useEffect(() => {
-    console.log(advertismentTypeId, check(dataFilled));
     if (flag) {
       check(dataFilled) == false
         ? advertismentTypeId == 0
@@ -149,6 +146,8 @@ const AdvertismentList = (props) => {
           <Container>
             <Row className="my-4">
               {props.advertisment.result.map((item, index) => {
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link
@@ -156,7 +155,7 @@ const AdvertismentList = (props) => {
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.ads + item.id + "/" + item.photo}
+                        imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(item.publishDate)).format(
                           "LL"
@@ -187,7 +186,6 @@ const AdvertismentList = (props) => {
   return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     advertisment: state.advertismentComponents.advertisment,
     advertismentTypes: state.advertismentComponents.advertismentTypes,

@@ -22,10 +22,12 @@ const ExConservatives = (props) => {
         <div className="container mt-5">
           <div className="row ">
             {props.exconservatives.result.map((item) => {
+              let pName = item.photo;
+              let newPath  = pName.replaceAll(' ','%20')
               return (
                 <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12">
                   <ListWithImage
-                    imgSrc={paths.Governer + item.id + "/" + item.photo}
+                    imgSrc={paths.Governer + item.id + "/" + newPath}
                     title={item.name}
                     date={`${moment(new Date(item.jobStartDate)).format("LL")} إلى ${moment(new Date(item.jobEndDate)).format("LL")}`}
                     center="yes"

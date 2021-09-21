@@ -6,7 +6,6 @@ export async function getAllPhotos() {
     let response = await axios.get("/PhotoLibraryAPI/GetAllSliderGovernment");
     payload = await response.data;
   } catch (error) {
-    console.log(error);
   }
   return {
     type: "PHOTOS_ALBUM",
@@ -25,7 +24,6 @@ export async function getPhotosList(pageNumber, keywords = {}, pageSize = 9) {
     let res = countResponse.data.result;
     payload = { ...response.data,page: pageNumber, count: res };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "PHOTOS_LIST",
@@ -47,7 +45,6 @@ export async function getPhotoDetails(id = 0) {
     let response = await axios.get(`/PhotoLibraryAPI/Details/${id}`);
     payload = await response.data;
   } catch (error) {
-    console.log(error);
   }
   return {
     type: "PHOTO_DETAILS",

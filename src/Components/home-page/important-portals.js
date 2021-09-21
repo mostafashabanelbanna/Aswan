@@ -79,7 +79,7 @@ const ImportantPortals = (props) => {
       let portals = Object.assign({}, props.portalsList);
       return (
         <div>
-          <div className="container my-5">
+          <div className="container my-5 p-0">
             <div className="d-flex my-2">
               <img src="./images/icons/web_titel-0١.png" alt="" width="80px" />
               <div className="underline">

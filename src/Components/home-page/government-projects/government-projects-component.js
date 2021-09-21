@@ -11,6 +11,7 @@ import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import "../../../Styles/government-projects-style.css";
 import {Link } from "react-router-dom";
 import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
+import Slider from "react-slick";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -27,53 +28,98 @@ const GovernmentProjects = (props) => {
   const [rightIcon, setRightIcon] = useState();
   const slider = useRef();
 
-  const onRightClickHandler = () => {
-    if (counter < props.projects.result.length - 1) {
-      setCounter(() => counter + 1);
-    } else {
-      setCounter(0);
-    }
+  var settings = {
+    dots: false,
+    autoplay:true,
+    autoplaySpeed: 500,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    swipeToSlide:true,
+    fade:true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          fade:false,
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          fade:false,
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          fade:false,
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+    ],
   };
 
-  const onLeftClickHandler = () => {
-    if (counter <= 0) {
-      setCounter(() => props.projects.result.length - 1);
-    } else if (counter) {
-      setCounter(() => counter - 1);
-    }
-  };
+  // const onRightClickHandler = () => {
+  //   if (counter < props.projects.result.length - 1) {
+  //     setCounter(() => counter + 1);
+  //   } else {
+  //     setCounter(0);
+  //   }
+  // };
 
-  const _onSelect = (active, direction) => {
-    // console.log(`active=${active} && direction=${direction}`);
-  };
-  const _visiableOnSelect = (active) => {
-    // console.log(`visiable onSelect active=${active}`);
-  };
-  const _slideNext = () => {
-    slider.current.slideNext();
-  };
-  const _slidePrev = () => {
-    slider.current.slidePrev();
-  };
-  const _goToSlide = () => {
-    slider.current.goToSlide(1);
-  };
-  const _autoplay = () => {
-    setAutoPlay(!autoplay);
-  };
-  const _changeIcon = () => {
-    leftIcon = leftIcon ? undefined : icon_glass;
-    rightIcon = rightIcon ? undefined : icon_music;
-    setLeftIcon(leftIcon);
-    setRightIcon(rightIcon);
-  };
+  // const onLeftClickHandler = () => {
+  //   if (counter <= 0) {
+  //     setCounter(() => props.projects.result.length - 1);
+  //   } else if (counter) {
+  //     setCounter(() => counter - 1);
+  //   }
+  // };
+
+  // const _onSelect = (active, direction) => {
+  // };
+  // const _visiableOnSelect = (active) => {
+  // };
+  // const _slideNext = () => {
+  //   slider.current.slideNext();
+  // };
+  // const _slidePrev = () => {
+  //   slider.current.slidePrev();
+  // };
+  // const _goToSlide = () => {
+  //   slider.current.goToSlide(1);
+  // };
+  // const _autoplay = () => {
+  //   setAutoPlay(!autoplay);
+  // };
+  // const _changeIcon = () => {
+  //   leftIcon = leftIcon ? undefined : icon_glass;
+  //   rightIcon = rightIcon ? undefined : icon_music;
+  //   setLeftIcon(leftIcon);
+  //   setRightIcon(rightIcon);
+  // };
 
   if (props.projects) {
     
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (
-        <div className="container mb-5">
+        <div className="container my-5 p-0">
           <div className="d-flex my-2 ">
             <img
               src="./images/icons/projects_titel-0٢.png"
@@ -86,9 +132,8 @@ const GovernmentProjects = (props) => {
             </div>
           </div>
 
-          <Row>
-            <Col span={12} style={{ marginTop: 20 }}>
-              <RBCarousel
+          
+              {/* <RBCarousel
                 animation={true}
                 autoplay={autoplay}
                 slideshowSpeed={4000}
@@ -99,9 +144,11 @@ const GovernmentProjects = (props) => {
                 ref={slider}
                 version={4}
                 className="carousel-fade"
-              >
+              > */}
+              <Slider {...settings}>
                 {projects.map((project, index) => {
-                 
+                  let pName = project.photo;
+                  let newPath  = pName.replaceAll(' ','%20')
                   let slicedBrief = project.brief;
                   if (project.brief !== null && project.brief.length > 750) {
                     const brief = project.brief;
@@ -109,8 +156,8 @@ const GovernmentProjects = (props) => {
                   }
 
                   return (
-                    <div className="d-flex justify-content-around projectsDiv">
-                      <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
+                    <div className=" d-flex justify-content-around projectsDiv">
+                      <div className="d-flex h-100 w-100 flex-lg-row-reverse flex-column-reverse mx-auto align-items-center align-items-md-stretch">
                         <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 bg-light">
                           <h3 className="titles mb-2">
                             {ReactHtmlParser(project.name)}
@@ -145,16 +192,15 @@ const GovernmentProjects = (props) => {
                         <div
                           className="mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
                           style={{
-                            backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${project.photo})`,
+                            backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${newPath})`,
                           }}
                         ></div>
                       </div>
                     </div>
                   );
                 })}
-              </RBCarousel>
-            </Col>
-          </Row>
+                </Slider>
+              {/* </RBCarousel> */}
         </div>
       );
     }

@@ -26,7 +26,6 @@ const NewsDetails = (props) => {
   }, []);
 
   if (props.newsdetail) {
-    console.log(props.newsdetail)
     let sectorName = props.newsdetail.result.sectorName;
     let sectorid = props.newsdetail.result.sectorId;
     let newsCategoryId = props.newsdetail.result.newsCategoryId;
@@ -73,7 +72,7 @@ const NewsDetails = (props) => {
             </div>
             <div className="col-md-4 p-3 col-12">
               <img
-                className="w-100"
+                className="w-100 holder h-100"
                 src={
                   paths.NewsPhotos +
                   props.newsdetail.result.id +

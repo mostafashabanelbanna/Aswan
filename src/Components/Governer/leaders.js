@@ -14,13 +14,15 @@ const Leaders = (props) => {
     }, []);
 
     if (props.leader) {
+        let pName = props.leader.curr.photo;
+        let newPath  = pName.replaceAll(' ','%20')
         return (<>
          <div className=" container underline  my-5">
             <h3>قيادات المحافظة </h3>
           </div>
         <div className='container d-flex justify-content-center my-4'>
             <ListWithImage 
-                imgSrc={paths.Governer + props.leader.curr.id + "/" + props.leader.curr.photo}
+                imgSrc={paths.Governer + props.leader.curr.id + "/" + newPath}
                 title={props.leader.curr.name}
                 imgHeight="270px"
                 hoverTitle='hoverTitle'
@@ -28,10 +30,13 @@ const Leaders = (props) => {
         </div>
         <div className='container'>
         <div className=' row d-flex justify-content-around my-4'>
-             {props.leader.result.map((item)=>{return(
+             {props.leader.result.map((item)=>{
+                 let pName = item.photo;
+                 let newPath  = pName.replaceAll(' ','%20')
+            return(
              <div key={item.id} className='col-sm-6 col-md-4 my-2'>
              <ListWithImage 
-                 imgSrc={paths.Leader + item.id + "/" + item.photo}
+                 imgSrc={paths.Leader + item.id + "/" + newPath}
                  title={item.name}
                  imgHeight="200px"
                  hoverTitle='hoverTitle'

@@ -159,6 +159,8 @@ const PhotoDetails = (props) => {
           <div className="my-3">
             <Slider {...settings} style={{ width: "100%" }}>
               {details.photos.map((photo, index) => {
+                let pName = photo.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 let title = photo.title;
                 if (photo.title === null) {
                   title = photo.caption;
@@ -176,7 +178,7 @@ const PhotoDetails = (props) => {
                       <div
                         style={{
                           position: "relative",
-                          backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${photo.photo})`,
+                          backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${newPath})`,
                         }}
                         className="imageAlbum"
                       ></div>

@@ -5,7 +5,6 @@ export async function investorPhotoAlbum() {
     let res = await axios.get("/PhotoLibraryAPI/GetAllSliderInvestor");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {

@@ -36,7 +36,7 @@ const Main_navbar = () => {
           <div className=" d-none d-md-block">|</div>
 
          
-          <Link to='/touristhome'
+          <Link to='/investor'
             style={{ cursor: "pointer" }}
             className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >

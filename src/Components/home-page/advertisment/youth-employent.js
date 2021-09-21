@@ -36,7 +36,6 @@ const YouthEmp = (props) => {
   function check(a) {
     for (let property in a) {
       if (a[property] != null) {
-        console.log(a[property]);
         return true;
       }
     }
@@ -86,7 +85,8 @@ const YouthEmp = (props) => {
           <Container>
             <Row className="my-4">
               {props.youthemp.result.map((item, index) => {
-                console.log(props.youthemp.result);
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link
@@ -94,7 +94,7 @@ const YouthEmp = (props) => {
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.youth + item.id + "/" + item.photo}
+                        imgSrc={paths.youth + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(item.startDate)).format(
                           "LL"
@@ -123,7 +123,6 @@ const YouthEmp = (props) => {
   return <ListSkeleton></ListSkeleton>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     youthemp: state.advertismentComponents.youthemp,
   };

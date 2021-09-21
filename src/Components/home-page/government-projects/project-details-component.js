@@ -151,10 +151,13 @@ const ProjectDetails = (props) => {
             />
           </div>
         </div>
-
+        
+        {details.photos.length > 3?
         <div className="my-3">
           <Slider {...settings} style={{ width: "100%" }}>
             {details.photos.map((photo, index) => {
+              let pName = photo.photo;
+              let newPath  = pName.replaceAll(' ','%20')
               let title = photo.title;
               if (photo.title === null) {
                 title = photo.caption;
@@ -172,7 +175,7 @@ const ProjectDetails = (props) => {
                     <div
                       style={{
                         position: "relative",
-                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${photo.photo})`,
+                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
                       }}
                       className="imageAlbum"
                     ></div>
@@ -183,6 +186,39 @@ const ProjectDetails = (props) => {
             })}
           </Slider>
         </div>
+        :
+        <div className="d-flex flex-wrap my-3">
+            {details.photos.map((photo, index) => {
+              let pName = photo.photo;
+              let newPath  = pName.replaceAll(' ','%20')
+              let title = photo.title;
+              if (photo.title === null) {
+                title = photo.caption;
+              }
+              return (
+                <div
+                  className="mx-auto p-3 hoverTitle"
+                  key={photo.id}
+                  onClick={() => {
+                    onShow();
+                    setContent(photo);
+                  }}
+                >
+                  <div className="holder">
+                    <div
+                      style={{
+                        position: "relative",
+                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                      }}
+                      className="imageAlbum"
+                    ></div>
+                  </div>
+                  <p className="text-center my-2">{title}</p>
+                </div>
+              );
+            })}
+        </div>
+        }
 
         <div
           className="embed-responsive embed-responsive-16by9 mx-3 my-5 "

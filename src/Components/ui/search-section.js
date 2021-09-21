@@ -9,6 +9,7 @@ import {
 import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import "moment/locale/ar";
+import './MUIcalender.css'
 
 const SearchSection = (props) => {
   return (
@@ -89,6 +90,7 @@ const SearchSection = (props) => {
                   libInstance={moment}
                   utils={MomentUtils}
                   locale={"sw"}
+                  className='bg-danger'
                 >
                   <KeyboardDatePicker
                     format="L"

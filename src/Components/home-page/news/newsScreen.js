@@ -52,17 +52,18 @@ const News = (props) => {
       {
         breakpoint: 480,
         settings: {
+          arrows:false,
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots:true
         },
       },
     ],
   };
   if (props.mainews && props.news) {
-    // console.log(props.mainews.result.value.result);
     return (
       <div className="container fluid mb-4 px-0">
-        <div className="container">
+        <div className="container p-0">
           <div className="my-3 d-flex">
             <img src="/images/icons/news_titel-0١.png" width="80px" />
             <div className="  underline">
@@ -70,17 +71,30 @@ const News = (props) => {
             </div>
           </div>
           {/*  */}
-          <Link to={`/NewsDetails/${props.mainews.result.value.result[0].id}`} className='text-muted'>
-          <div className="row">
-            <div className="col-lg-6">
-              <div className="h-100">
-                <h4 className="mb-3">
-                  {props.mainews.result.value.result[0].title}
-                </h4>
-                <div>
+          <div>
+            <h4 className="mb-3">
+              {props.mainews.result.value.result[0].title}
+            </h4>
+          </div>
+          <Link
+            to={`/NewsDetails/${props.mainews.result.value.result[0].id}`}
+            className="text-muted"
+          >
+            <div className="d-flex flex-md-row flex-column-reverse">
+              <div className="col-md-6 col-12">
+                <div id="newscontent" className='p-3 py-md-0 px-md-2' style={{textAlign:'justify'}}>
+                  {" "}
+                  {ReactHtmlParser(
+                    props.mainews.result.value.result[0].content
+                  )}
+                </div>
+              </div>
+
+              <div className="col-md-6 col-12">
+                <div className="holder">
                   <img
                     style={{ borderRadius: "10px", maxWidth: "100%" }}
-                    className="img-fluid d-lg-none d-block"
+                    className="img-fluid h-100 w-100"
                     src={
                       paths.NewsPhotos +
                       props.mainews.result.value.result[0].id +
@@ -89,31 +103,9 @@ const News = (props) => {
                     }
                     alt={props.mainews.result.value.result[0].title}
                   />
-                  <div id="newscontent">
-                    {" "}
-                    {ReactHtmlParser(
-                      props.mainews.result.value.result[0].content
-                    )}
-                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 holder p-0">
-              <div className="d-none d-lg-block h-100">
-                <img
-                  className="img-fluid"
-                  style={{ borderRadius: "10px" }}
-                  src={
-                    paths.NewsPhotos +
-                    props.mainews.result.value.result[0].id +
-                    "/" +
-                    props.mainews.result.value.result[0].photo
-                  }
-                  alt={props.mainews.result.value.result[0].title}
-                />
-              </div>
-            </div>
-          </div>
           </Link>
         </div>
         <div>
@@ -123,12 +115,16 @@ const News = (props) => {
                 return (
                   <Link
                     to={`/NewsDetails/${item.id}`}
-                    className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                    className="col-sm-3 text-decoration-none text-muted col-12 mt-5 text-center px-3 "
                   >
                     <div className="hoverTitle">
-                      <div key={item.id} className="holder shadow-none" style={{borderRadius:'0px'}}>
+                      <div
+                        key={item.id}
+                        className=""
+                        style={{ borderRadius: "0px" }}
+                      >
                         <img
-                          className="rounded-3 "
+                          className="rounded-3"
                           width="100%"
                           height="205px"
                           src={paths.NewsPhotos + +item.id + "/" + item.photo}

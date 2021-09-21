@@ -5,7 +5,7 @@ import ProjectDetails from "./components/home-page/government-projects/project-d
 import ProjectsList from "./components/home-page/government-projects/government-projects-list-component";
 import NewsDetails from "./components/home-page/news/news-details";
 import Main_navbar from "./main-navbar";
-import TouristHome from "./components/tourist-home/tourist-home-page";
+import TouristHome from "./components/tourist-page/tourist-home-page";
 import EServices from "./components/home-page/citizen-services/sevices-pages/E-Services";
 import news_list from "./components/home-page/news/news_list";
 import FilterNews from "./components/home-page/news/filter-news";
@@ -35,7 +35,7 @@ import PhotosList from "./components/home-page/photo-album/photos-list-component
 import FilterPhotos from "./components/home-page/photo-album/filter-photos";
 import AdvertismentDetails from "./components/ads/adsDetails";
 import FilterVideos from "./components/home-page/videos/filter-videos";
-import InvestorHome from "./components/investor-home/investor-home-page";
+import InvestorHome from "./components/investor-page/investor-home-page";
 import TouristAttractionDetails from "./components/touristAttraction/touristAttractionDetails";
 import Ads from "./components/ads/ads";
 import ServicesComponent from "./components/services-component";
@@ -70,7 +70,7 @@ const AppRouting = () => {
         <Route exact path="/photoslist" component={PhotosList} />
         <Route exact path="/photodetails/:id" component={PhotoDetails} />
         <Route exact path="/tourist" component={TouristHome} />
-        <Route exact path="/touristhome" component={InvestorHome} />
+        <Route exact path="/investor" component={InvestorHome} />
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/filterphotos/:info" component={FilterPhotos} />

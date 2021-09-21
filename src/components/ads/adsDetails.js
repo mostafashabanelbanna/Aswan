@@ -40,7 +40,6 @@ const AdvertismentDetails = (props) => {
   };
 
   if (props.advertismentDetail) {
-    console.log(props.advertismentDetail)
     return (
       <div className="pt-4">
         <Container fluid className="px-0">

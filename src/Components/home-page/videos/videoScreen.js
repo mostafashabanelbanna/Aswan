@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import { sliderVideo,getMainVideo } from "../../../store/actions/News_Action";
 import {video,getMainVideoTourist} from "../../../store/actions/tourist-action/videos"
 import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
+import ThreePieacesHorizontalSkeleton from '../../loading-skeleton/three-pieaces-horizontal'
 const Video = (props) => {
   useEffect(() => {
     if(props.pagePath=='home'){
@@ -32,7 +33,7 @@ const Video = (props) => {
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     swipeToSlide:true,
@@ -74,7 +75,7 @@ const Video = (props) => {
       <div>
         <div className=" container  py-4">
           <div className="p-0 m-0 ">
-            <div className="m-3 mb-5 d-flex">
+            <div className="my-3 d-flex">
               <img src="/images/icons/video_titel-0٢.png" width="80px" />
               <div className="underline">
                 {" "}
@@ -96,10 +97,10 @@ const Video = (props) => {
                 src={
                   "https://www.youtube.com/embed/" +
                   mainVid.youtubeId
-                } /*src='videos/1. Welcome!.mp4'*/
+                }
               ></iframe>
             </div>
-
+            {videos.result.length > 3?
             <div className=" me-3 ms-3">
               <Slider {...settings}>
                 {videos.result.map((item, index) => {
@@ -125,12 +126,42 @@ const Video = (props) => {
                 })}
               </Slider>
             </div>
+            :
+            <div className="d-flex flex-wrap me-3 ms-3">
+                {videos.result.map((item, index) => {
+                  return (
+                    <Link to={`videodetails/${item.id}`} className='text-muted col-lg-4 col-sm-6 col-12'>
+                    <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
+                      <div className='holder'>
+                      <img
+                        src={
+                          "https://img.youtube.com/vi/" +
+                          item.youtubeId +
+                          "/" +
+                          "hqdefault.jpg"
+                        }
+                        className="rounded-3 imageAlbum"
+                        width="100%"
+                      />
+                      </div>
+                      <div className="mt-4">{item.title}</div>
+                    </div>
+                    </Link>
+                  );
+                })}
+            </div>
+            }
           </div>
         </div>
       </div>
     );
   }
-  return <OnePieaceSkeleton/>;
+  return (
+    <div>
+      <OnePieaceSkeleton/>
+      <ThreePieacesHorizontalSkeleton/>
+    </div>
+  )
 };
 const mapStateToProps = (state) => {
   return { 

@@ -343,3 +343,15 @@ a {
 .MuiFormControl-root {
   width: 100% !important;
 }
+
+.slick-slider .slick-slide {
+  -webkit-transform: scale(1) !important;
+  -ms-transform: scale(1) !important;
+  transform: scale(1) !important;
+  transition: all 4000ms ease !important;
+  opacity: 1;
+}
+
+.width-48{
+  width:48% !important;
+}

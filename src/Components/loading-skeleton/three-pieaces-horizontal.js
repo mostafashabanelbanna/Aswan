@@ -8,7 +8,7 @@ const ThreePieacesHorizontalSkeleton = () => {
     return (
         <>
         <Container>
-            <div className="row">
+            <div className="row my-4">
                 <div className="col-md-4"><Skeleton width="100%" height={200}/></div>
                 <div className="col-md-4"><Skeleton width="100%" height={200}/></div>
                 <div className="col-md-4"><Skeleton width="100%" height={200}/></div>

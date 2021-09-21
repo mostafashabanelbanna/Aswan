@@ -6,7 +6,6 @@ export async function getAllProjects() {
     let response = await axios.get("/NationalProjectAPI/GETALLSlider");
     payload = await response.data;
   } catch (error) {
-    console.log(error);
   }
   return {
     type: "PROJECTS_SLIDER",
@@ -20,7 +19,6 @@ export async function getProjectDetails(id = 0) {
     let response = await axios.get(`/NationalProjectAPI/Details/${id}`);
     payload = await response.data;
   } catch (error) {
-    console.log(error);
   }
   return {
     type: "PROJECT_DETAILS",
@@ -55,7 +53,6 @@ export async function getProjectsList(
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "PROJECTS_LIST",
@@ -77,7 +74,6 @@ export async function getAllProjectsCategories() {
     let res = await axios.get("/LookUpAPI/GetAllNationalProjectSector");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "NATIONAL_PROJECTS_SECTORS",

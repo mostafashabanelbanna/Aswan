@@ -72,6 +72,8 @@ const GovernmentFamous = (props) => {
             </div>
             <Slider {...settings}>
               {famousPeopleList.result.map((person, index) => {
+                let pName = person.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <div
                     key={person.id}
@@ -81,7 +83,7 @@ const GovernmentFamous = (props) => {
                       <div
                         className="innerPolygon"
                         style={{
-                          backgroundImage: `url(${paths.FamousPeople}${person.id}/${person.photo})`,
+                          backgroundImage: `url(${paths.FamousPeople}${person.id}/${newPath})`,
                         }}
                       ></div>
                     </div>

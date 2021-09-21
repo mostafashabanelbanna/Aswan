@@ -151,11 +151,13 @@ const NewsList = (props) => {
               {props.newslist.result.map((item, index) => {
                 let date = item.publishDate.replace(/\//g,'-').split('-');
                 let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link to={`/newsdetails/${item.id}`} className="h-100">
                       <ListWithImage
-                        imgSrc={paths.NewsPhotos + item.id + "/" + item.photo}
+                        imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(publishedDate)).format("LL")}`}
                         category={item.newsCategoryName}

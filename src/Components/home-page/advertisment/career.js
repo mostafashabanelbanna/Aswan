@@ -36,7 +36,6 @@ const Career = (props) => {
   function check(a) {
     for (let property in a) {
       if (a[property] != null) {
-        console.log(a[property]);
         return true;
       }
     }
@@ -86,6 +85,8 @@ const Career = (props) => {
           <Container>
             <Row className="my-4">
               {props.career.result.map((item, index) => {
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link
@@ -93,7 +94,7 @@ const Career = (props) => {
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.ads + item.id + "/" + item.photo}
+                        imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         imgHeight="200px"
                       />
@@ -119,7 +120,6 @@ const Career = (props) => {
   return <ListSkeleton></ListSkeleton>;
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     career: state.advertismentComponents.career,
   };

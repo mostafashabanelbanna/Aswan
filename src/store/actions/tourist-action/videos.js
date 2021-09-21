@@ -5,7 +5,6 @@ export async function video() {
     let res = await axios.get("/VideoLibraryAPI/GetAllSliderTourist");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {
@@ -20,7 +19,6 @@ export async function getMainVideoTourist() {
       let response = await axios.get("/VideoLibraryAPI/GetMainVideoGovernment");
       payload = response.data;
     } catch (error) {
-      console.log(error);
     }
     return {
       type: "MAIN_VIDEO",

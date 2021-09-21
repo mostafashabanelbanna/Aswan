@@ -26,7 +26,6 @@ const FilterVideos = (props) => {
         setCurrentPage(selectedPage)
     };
     if (props.videosList) {
-        console.log(props.videosList)
         pageCount = Math.ceil(props.videosList.count / 9);
         return (<>
         <div className='container mt-5'>
@@ -34,11 +33,13 @@ const FilterVideos = (props) => {
             {props.videosList.result.map((item) => {
                 let date = item.publishDate.replace(/\//g,'-').split('-');
                 let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                 <div className='mb-4 col-lg-4 col-sm-6 col-12'>
                 <Link to={`/photodetails/${item.id}`} className="h-100">
                 <ListWithImage
-                            imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + item.photo}
+                            imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}
                             title={item.title}
                             content={ReactHtmlParser(item.content)}
                             date={`${moment(new Date(publishedDate)).format("LL")}`}

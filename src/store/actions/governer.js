@@ -5,7 +5,6 @@ export async function getEx_Conservatives() {
     let res = await axios.get("/GovernorAPI/GetAll");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {
@@ -22,7 +21,6 @@ export async function leaders() {
     let res = currleader.data.result;
     payload = { ...leaders.data, curr: res };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "LEADERS",

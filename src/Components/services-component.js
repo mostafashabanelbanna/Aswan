@@ -69,15 +69,20 @@ const ServicesComponent = (props) => {
   }
 
   useEffect(() => {
-    props.getEServices(currentPage + 1, data(dataFilled));
+    if(renderFlag){
+      props.getEServices(currentPage + 1, data(dataFilled));
+      setDirectoryTypeId(typeId)
+    }
+
 
     if (!props.cities)
       props.getAllCities();
     
     if (!props.directoryTypes)
       props.getAllDirectoryType();
-    
-    props.getAllDirectoryCategory(directoryTypeId);
+      
+    if(!props.directoryCategories)
+      props.getAllDirectoryCategory(directoryTypeId);
     
     setRenderFlag(1)
 
@@ -88,7 +93,6 @@ const ServicesComponent = (props) => {
   }, [currentPage,directoryTypeId]);
 
   if (props.services) {
-    console.log(props.services)
     let cityName = props.cities.result.map(({ id, name }) => ({ value: id, label: name }));
     let dirCatVal;
     if(props.directoryCategories != null){

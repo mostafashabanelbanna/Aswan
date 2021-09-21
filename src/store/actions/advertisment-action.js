@@ -2,7 +2,6 @@ import axios from "../../Axios/Axios_Config";
 
 export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
-  console.log(keywords);
   try {
     let response = await axios.post(
       "/AdvertismentAPI/Search/" + pageNumber + "/" + pageSize,
@@ -12,7 +11,6 @@ export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
       "/AdvertismentAPI/GetResultCount",
       keywords
     );
-    console.log(keywords);
     let res = countResponse.data.result;
     payload = { ...response.data, count: res };
   } catch (e) {}
@@ -42,7 +40,6 @@ export async function getAllAdvertisment(pageNumber, pageSize = 9) {
     let countRes = await axios.get(`/AdvertismentAPI/GetAdsBidsCount`);
     let count = countRes.data.result;
     payload = { ...res.data, count };
-    console.log("Hi", payload);
   } catch (e) {}
   return {
     type: "ADVERTISMENT_ALL",
@@ -52,7 +49,6 @@ export async function getAllAdvertisment(pageNumber, pageSize = 9) {
 
 export async function youthEmployment(pageNumber, keywords = {}, pageSize = 2) {
   let payload = null;
-  console.log(keywords);
   try {
     let response = await axios.post(
       "/YouthEmploymentAPI/Search/" + pageNumber + "/" + pageSize,
@@ -62,7 +58,6 @@ export async function youthEmployment(pageNumber, keywords = {}, pageSize = 2) {
       "/YouthEmploymentAPI/GetResultCount",
       keywords
     );
-    console.log(keywords);
     let res = countResponse.data.result;
     payload = { ...response.data, count: res };
   } catch (e) {}
@@ -74,14 +69,12 @@ export async function youthEmployment(pageNumber, keywords = {}, pageSize = 2) {
 
 export async function getCareer(pageNumber, keywords = {}, pageSize = 2) {
   let payload = null;
-  console.log(keywords);
   try {
     let response = await axios.post(
       "/CareerAPI/Search/" + pageNumber + "/" + pageSize,
       keywords
     );
     let countResponse = await axios.post("/CareerAPI/GetResultCount", keywords);
-    console.log(keywords);
     let res = countResponse.data.result;
     payload = { ...response.data, count: res };
   } catch (e) {}

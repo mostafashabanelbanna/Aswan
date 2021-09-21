@@ -6,7 +6,9 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllEvents } from "../../store/actions/agenda-actions";
+import { getAllEventsHome } from "../../store/actions/agenda-actions";
+import { getAllEventsInvestor } from '../../store/actions/investor-actions/agenda-actions'
+import { getAllEventsTourist } from '../../store/actions/tourist-action/agenda-actions'
 import Fade from "react-reveal/Fade";
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -22,16 +24,29 @@ const TrainingAgenda = (props) => {
   const [show, setShow] = useState();
   const eventsArr = [{}];
 
-  let day;
+  let agendaProps;
 
   useEffect (() => {
-    props.getAllEvents(props.type);
+    if(props.pagePath == 'investor'){
+      props.getAllEventsInvestor();
+    } else if(props.pagePath == 'tourist'){
+      props.getAllEventsTourist();
+    } else {
+      props.getAllEventsHome();
+    }
   }, [])
 
-  if(props.eventsList){
-    console.log(props.eventsList)
+  if(props.pagePath == 'investor'){
+    agendaProps = props.eventsListInvestor
+  } else if(props.pagePath == 'tourist'){
+    agendaProps = props.eventsListTourist
+  } else {
+    agendaProps = props.eventsListHome
+  }
+
+  if(agendaProps){
     return (
-      <div className="pt-5 bg-light">
+      <div className="pt-5 bg-light mt-5">
         <div className="container">
           <div className="d-flex my-2">
             <img src="./images/icons/calender_titel-0١.png" alt="" width="80px" />
@@ -64,7 +79,7 @@ const TrainingAgenda = (props) => {
             />
           </div>
           <div className="col-xl-6 col-12 px-3">
-          {props.eventsList.result.map((item,index) => {
+          {agendaProps.result.map((item,index) => {
             let slicedContent = item.content;
             if (item.content !== null && item.content.length > 250) {
               const brief = item.content;
@@ -86,7 +101,7 @@ const TrainingAgenda = (props) => {
                     {ReactHtmlParser(slicedContent)}
                   </p>  
                 </div>
-                <div className="d-flex justify-content-between mt-5">
+                <div className="d-flex flex-wrap justify-content-between mt-5">
                   <div className="p-3 bg_gradient">{`${moment(new Date(item.startDateTime)).format("LL")} إلى ${moment(new Date(item.endDateTime)).format("LL")}`}</div>
                   <div className="align-items-center d-flex">
                     <button
@@ -122,10 +137,12 @@ const TrainingAgenda = (props) => {
 export default connect(
   (state) => {
     return {
-      eventsList: state.homeComponents.eventsList,
+      eventsListHome: state.homeComponents.eventsList,
+      eventsListInvestor: state.investorHome.eventsList,
+      eventsListTourist: state.touristHome.eventsList
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllEvents }, dispatch);
+    return bindActionCreators({ getAllEventsHome, getAllEventsInvestor, getAllEventsTourist }, dispatch);
   }
 )(TrainingAgenda);

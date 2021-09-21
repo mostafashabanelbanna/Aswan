@@ -31,6 +31,8 @@ const MainSlider = () => {
       <Carousel fade={true}>
         {!noMainSlider &&
           mainSlider.map((item, idx) => {
+            let pName = item.photo;
+            let newPath  = pName.replaceAll(' ','%20')
             return (
               <Carousel.Item style={{ height: "80vh" }}>
                 <Link
@@ -39,7 +41,7 @@ const MainSlider = () => {
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${paths.MainSlider}${item.id}/${item.photo})`,
+                      backgroundImage: `url(${paths.MainSlider}${item.id}/${newPath})`,
                     }}
                     className="item_conatainer position-relative"
                   >

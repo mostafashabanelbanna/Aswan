@@ -18,7 +18,7 @@ const TouristHome = () => {
             </div>
             <TourStart pagePath={'tourist'}/>
             <TouristAttraction/>
-            <TrainingAgenda title={'اجندة الاحداث'} type={18}/>
+            <TrainingAgenda title={'اجندة الاحداث السياحية'} pagePath={'tourist'}/>
             <Video pagePath={'tourist'}/>
             <PhotosAlbum pagePath={'tourist'} title={'البوم الصور'}/>
             <Contact />

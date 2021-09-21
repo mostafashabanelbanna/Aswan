@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getAllPhotos } from "../../../store/actions/photos-album-actions";
 import { photoAlbum } from '../../../store/actions/tourist-action/photos'
-import { investorPhotoAlbum } from '../../../store/actions/investor-actions/photos'
 import { useEffect } from "react";
 import { paths } from "../../../paths/paths";
 import "../../../Styles/photo-album-style.css";
@@ -14,15 +13,11 @@ const PhotosAlbum = (props) => {
   useEffect(() => {
     if(props.pagePath=='home'){
       props.getAllPhotos()
-    } else if (props.pagePath=='investor'){
-      props.investorPhotoAlbum();
     } else {
       props.photoAlbum();
     }
   }, []);
-  if (props.pagePath=='investor'){
-    photos = props.investorPhotos
-  } else if(props.pagePath=='home'){
+  if(props.pagePath=='home'){
     photos = props.homePhotos
   } else {
     photos = props.touristPhotos
@@ -31,6 +26,8 @@ const PhotosAlbum = (props) => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
         {photos.result.map((item, index) => {
+          let pName = item.photo;
+          let newPath  = pName.replaceAll(' ','%20')
           return (
             <Link to={`photodetails/${item.id}`} className='text-muted col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3'>
             <div
@@ -40,7 +37,7 @@ const PhotosAlbum = (props) => {
               <div className="holder mb-4">
                 <div
                   style={{
-                    backgroundImage: `url(${paths.PhotoLibraryAlbum}${item.id}/${item.photo})`,
+                    backgroundImage: `url(${paths.PhotoLibraryAlbum}${item.id}/${newPath})`,
                   }}
                   className="imageAlbum"
                   alt={item.titleA}
@@ -56,7 +53,6 @@ const PhotosAlbum = (props) => {
   };
 
   if (photos) {
-    console.log(photos)
     return (
       <div>
         <div className="container mt-5">
@@ -83,11 +79,10 @@ export default connect(
   (state) => {
     return {
       homePhotos: state.homeComponents.photosAlbum,
-      touristPhotos: state.touristHome.photosAlbum,
-      investorPhotos: state.investorHome.photosAlbum
+      touristPhotos: state.touristHome.photosAlbum
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllPhotos, photoAlbum, investorPhotoAlbum }, dispatch);
+    return bindActionCreators({ getAllPhotos, photoAlbum }, dispatch);
   }
 )(PhotosAlbum);

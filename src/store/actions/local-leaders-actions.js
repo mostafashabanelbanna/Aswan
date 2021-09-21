@@ -13,7 +13,6 @@ export async function getTribe(pageNumber, keywords = {}, pageSize = 9) {
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "TRIBE",
@@ -35,7 +34,6 @@ export async function getAllCities() {
     let res = await axios.get("CityAPI/GetAll");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "TRIBE_CITY",
@@ -51,7 +49,6 @@ export async function getParliament() {
     let res = await axios.get("/StaticContentAPI/GetAll/1001");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {
@@ -68,7 +65,6 @@ export async function getSenate() {
     let res = await axios.get("/StaticContentAPI/GetAll/1002");
     payload = res.data;
   } catch (e) {
-    console.log(e);
   }
 
   return {

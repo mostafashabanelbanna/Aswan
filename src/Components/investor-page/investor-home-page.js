@@ -4,8 +4,10 @@ import Contact from '../home-page/contact_us';
 import PhotosAlbum from '../home-page/photo-album/photos-album-component';
 import TrainingAgenda from '../home-page/training-agenda';
 import Video from '../home-page/videos/videoScreen';
-import TourStart from './investor-start';
-import TouristAttraction from './investor-attractions';
+import InvestorStart from './investor-start';
+import InvestorMap from './investor-map';
+import InvestmentOpportunities from './investment-opportunities';
+import InvestorAlbum from './static-investor-album';
 const InvestorHome = () => {
     
     return (
@@ -16,11 +18,11 @@ const InvestorHome = () => {
                 </div>
                 <div className='d-flex text-muted align-items-center text-decoration-underline'>المستثمر</div>
             </div>
-            <TourStart/>
-            <TrainingAgenda title={'إطروحات إستثمارية'} type={18}/>
-            <TouristAttraction/>
-            <Video pagePath={'investor'}/>
-            <PhotosAlbum pagePath={'investor'} title={'مجالات الإستثمار'}/>
+            <InvestorStart/>
+            <TrainingAgenda title={'إطروحات إستثمارية'} pagePath={'investor'}/>
+            <InvestmentOpportunities/>
+            <InvestorMap/>
+            <InvestorAlbum/>
             <Contact />
         </div>
     );

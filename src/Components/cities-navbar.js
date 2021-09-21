@@ -30,6 +30,8 @@ const CitiesNavBar = (props) => {
           </div>
           <div className="row ">
             {props.citiesList.result.map((item) => {
+              let pName = item.photo;
+              let newPath  = pName.replaceAll(' ','%20')
               return (
                 <div
                   key={item.id}
@@ -37,7 +39,7 @@ const CitiesNavBar = (props) => {
                   className="shadow-none mb-4 col-lg-4 col-sm-6 col-12"
                 >
                   <ListWithImage
-                    imgSrc={paths.NavBarCities + item.id + "/" + item.photo}
+                    imgSrc={paths.NavBarCities + item.id + "/" + newPath}
                     title={item.name}
                     center="yes"
                     imgHeight='250px'

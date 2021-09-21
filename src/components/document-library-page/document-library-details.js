@@ -23,7 +23,6 @@ const DocumentLibraryDetails = (props) => {
     };
   }, []);
 
-  console.log(props.documentLibraryDetail);
 
   if (props.documentLibraryDetail) {
     let sectorName = props.documentLibraryDetail.result.sectorName;

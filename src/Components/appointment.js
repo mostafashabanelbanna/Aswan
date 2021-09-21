@@ -116,11 +116,13 @@ const Appointment = (props) => {
           <div className='container'>
             <div className="my-4 row">
               {props.apointment.result.map((item, index) => {
+                let pName = item.photo;
+                let newPath  = pName.replaceAll(' ','%20')
                 return (
                   <div  key={item.id} className="col-md-4 col-sm-6 mb-4">
                     <Link  className="h-100">
                       <ListWithImage
-                        imgSrc={paths.Appointment + item.id + "/" + item.photo}
+                        imgSrc={paths.Appointment + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(item.appointmentDate)).format("LL")}`}
                         category={item.appointmentTypeName}
