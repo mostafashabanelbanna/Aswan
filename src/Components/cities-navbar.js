@@ -30,8 +30,12 @@ const CitiesNavBar = (props) => {
           </div>
           <div className="row ">
             {props.citiesList.result.map((item) => {
-              let pName = item.photo;
-              let newPath  = pName.replaceAll(' ','%20')
+              let pName;
+              let newPath;
+              if(item.photo != null){
+                pName = item.photo;
+                newPath  = pName.replaceAll(' ','%20')
+              }
               return (
                 <div
                   key={item.id}

@@ -101,13 +101,16 @@ const TouristAttractionDetails = (props) => {
     ],
   };
 
-  let pName = touristAttraction.photo;
-  let newPath  = pName.replaceAll(' ','%20')
-
+  if(!noTouristAttraction){
+    let pName;
+    let newPath;
+    if(touristAttraction.photo != null){
+    pName = touristAttraction.photo;
+    newPath  = pName.replaceAll(' ','%20')
+    }
   return (
     <>
       {renderModal(content)}
-      {!noTouristAttraction && (
         <div className="my-5">
           <div
             className="city_name_attachment"
@@ -128,10 +131,15 @@ const TouristAttractionDetails = (props) => {
             <div className="my-4">
               {ReactHtmlParser(touristAttraction.description)}
             </div>
+            {touristAttraction.photos.length > 2?
             <Slider {...settings} style={{ width: "100%" }}>
               {touristAttraction.photos.map((photo, index) => {
-                let pName = photo.photo;
-                let newPath  = pName.replaceAll(' ','%20')
+                let pName;
+                let newPath;
+                if(photo.photo != null){
+                  pName = photo.photo;
+                  newPath  = pName.replaceAll(' ','%20')
+                }
                 let title = photo.title;
                 let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${newPath})`;
                 if (photo.title === null) {
@@ -139,12 +147,12 @@ const TouristAttractionDetails = (props) => {
                 }
                 return (
                   <div
-                    className="mx-auto p-3 hoverTitle"
-                    key={photo.id}
-                    onClick={() => {
-                      onShow();
-                      setContent(photo);
-                    }}
+                  className="mx-auto p-3 hoverTitle"
+                  key={photo.id}
+                  onClick={() => {
+                    onShow();
+                    setContent(photo);
+                  }}
                   >
                     <div className="holder">
                       <div
@@ -153,19 +161,56 @@ const TouristAttractionDetails = (props) => {
                           backgroundImage: imgPath,
                         }}
                         className="imageAlbum"
-                      ></div>
+                        ></div>
                     </div>
                     <p className="text-center my-2">{title}</p>
                   </div>
                 );
               })}
             </Slider>
+        :<div className='d-flex justify-content-around'>
+          {touristAttraction.photos.map((photo, index) => {
+                let pName;
+                let newPath;
+                if(photo.photo != null){
+                  pName = photo.photo;
+                  newPath  = pName.replaceAll(' ','%20')
+                }
+                let title = photo.title;
+                let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${newPath})`;
+                if (photo.title === null) {
+                  title = photo.caption;
+                }
+                return (
+                  <div
+                  className="mx-auto p-3 col-md-4 col-sm-6 col-12 hoverTitle"
+                  key={photo.id}
+                  onClick={() => {
+                    onShow();
+                    setContent(photo);
+                  }}
+                  >
+                    <div className="holder">
+                      <div
+                        style={{
+                          // position: "relative",
+                          backgroundImage: imgPath,
+                        }}
+                        className="imageAlbum"
+                        ></div>
+                    </div>
+                    <p className="text-center my-2">{title}</p>
+                  </div>
+                );
+              })}
+          </div>}
           </Container>
-        </div>
-      )}
-      {noTouristAttraction ? <TouristAttractionSkeleton /> : null}
-    </>
-  );
+          </div>
+          </>
+          );
+        } else {
+          return <TouristAttractionSkeleton /> 
+}
 };
 
 export default TouristAttractionDetails;

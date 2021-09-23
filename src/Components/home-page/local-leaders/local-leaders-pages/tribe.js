@@ -98,7 +98,7 @@ const Tribe = (props) => {
                 submit={submitHandler}
                 TextFieldOneHandler={nameHandler}
                 labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-12"
+                classNameTextFieldOne="col-sm-6 col-12"
                 dropdownOneVal={cityName.find((e) => e.value == cityId)}
                 dropdownOneHandler={cityIdHandler}
                 dropdownOnePlaceholder="كل المدن"

@@ -23,7 +23,7 @@ const GovernmentFamous = (props) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    swipeToSlide:true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1400,
@@ -72,8 +72,12 @@ const GovernmentFamous = (props) => {
             </div>
             <Slider {...settings}>
               {famousPeopleList.result.map((person, index) => {
-                let pName = person.photo;
-                let newPath  = pName.replaceAll(' ','%20')
+                let pName;
+                let newPath;
+                if (person.photo != null) {
+                  pName = person.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
                 return (
                   <div
                     key={person.id}
@@ -98,7 +102,7 @@ const GovernmentFamous = (props) => {
       );
     }
   }
-  return <OnePieaceSkeleton/>;
+  return <OnePieaceSkeleton />;
 };
 
 export default connect(

@@ -12,7 +12,7 @@ import InfoNews from "./info_and_news";
 import CitizenServices from "./citizen-services/citizen_services";
 import LocalLeaders from "./local-leaders/local-leaders";
 import ImportantPortals from "./important-portals";
-import TrainingAgenda from "./training-agenda";
+import TrainingAgenda from "../agenda/training-agenda";
 import BgAttachment from "../bg-attachment";
 import HayahKarima from "./good-life/haya-carima";
 import Advertising from "./advertisment/advertising";

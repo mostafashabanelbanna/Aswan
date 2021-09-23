@@ -26,8 +26,12 @@ const PhotosAlbum = (props) => {
     return (
       <div className="d-flex justify-content-around flex-wrap flex-column flex-sm-row">
         {photos.result.map((item, index) => {
-          let pName = item.photo;
-          let newPath  = pName.replaceAll(' ','%20')
+                          let pName;
+                          let newPath;
+                          if(item.photo != null){
+                          pName = item.photo;
+                          newPath  = pName.replaceAll(' ','%20')
+                          }
           return (
             <Link to={`photodetails/${item.id}`} className='text-muted col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3'>
             <div

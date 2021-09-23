@@ -86,6 +86,7 @@ const SearchSection = (props) => {
             ) : null}
             {props.publishFromHandler ? (
               <div className={`${props.classNameDPFrom} mt-4`}>
+                <label className='my-2'>{props.DPFromLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -106,8 +107,10 @@ const SearchSection = (props) => {
                 </MuiPickersUtilsProvider>
               </div>
             ) : null}
+            
             {props.publishToHandler ? (
               <div className={`${props.classNameDPTo} mt-4`}>
+                <label className='my-2'>{props.DPToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -128,6 +131,55 @@ const SearchSection = (props) => {
                 </MuiPickersUtilsProvider>
               </div>
             ) : null}
+
+{props.endDateFromHandler ? (
+              <div className={`${props.classNameEDFTo} mt-4`}>
+                <label className='my-2'>{props.EDFToLabel}</label>
+                <MuiPickersUtilsProvider
+                  libInstance={moment}
+                  utils={MomentUtils}
+                  locale={"sw"}
+                  className='bg-danger'
+                >
+                  <KeyboardDatePicker
+                    format="L"
+                    inputVariant="outlined"
+                    value={props.endDateFrom}
+                    variant="dialog"
+                    maxDateMessage=""
+                    mask="__-__-____"
+                    placeholder="يوم/شهر/سنة"
+                    onChange={props.endDateFromHandler}
+                    views={["year", "month", "date"]}
+                  />
+                </MuiPickersUtilsProvider>
+              </div>
+            ) : null}
+            
+            {props.endDateToHandler ? (
+              <div className={`${props.classNameEDTTo} mt-4`}>
+                <label className='my-2'>{props.EDTToLabel}</label>
+                <MuiPickersUtilsProvider
+                  libInstance={moment}
+                  utils={MomentUtils}
+                  locale={"sw"}
+                  className='bg-danger'
+                >
+                  <KeyboardDatePicker
+                    format="L"
+                    inputVariant="outlined"
+                    value={props.endDateTo}
+                    variant="dialog"
+                    maxDateMessage=""
+                    mask="__-__-____"
+                    placeholder="يوم/شهر/سنة"
+                    onChange={props.endDateToHandler}
+                    views={["year", "month", "date"]}
+                  />
+                </MuiPickersUtilsProvider>
+              </div>
+            ) : null}
+
             <div
               className={`${props.classNameBtn} col-12 d-flex justify-content-end`}
             >

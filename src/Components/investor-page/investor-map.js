@@ -100,8 +100,12 @@ const InvestorMap = (props) => {
         </div>
         <Slider {...settings}>
           {props.sliderMap.result.map((item, index) => {
-            let pName = item.photo;
-            let newPath = pName.replaceAll(" ", "%20");
+                            let pName;
+                            let newPath;
+                            if(item.photo != null){
+                            pName = item.photo;
+                            newPath  = pName.replaceAll(' ','%20')
+                            }
             let title = item.title;
             let imgPath = `url(${paths.DocumentLibraryPhotos}${item.id}/${newPath})`;
             return (

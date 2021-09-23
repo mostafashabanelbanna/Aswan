@@ -21,6 +21,23 @@ const ServicesComponent = (props) => {
   const [cityId, setCityId] = useState(null);
   const [dataFlag, setDataFlag] = useState(0);
 
+  let title;
+  if(parseInt(typeId) == 8)
+    title = 'مطاعم'
+  else if(parseInt(typeId) == 26)
+    title = 'بازارات وأسواق'
+  else if(parseInt(typeId) == 40)
+    title = 'إنتقال سياحي'
+  else if(parseInt(typeId) == 9)
+    title = 'بنوك'
+  else if(parseInt(typeId) == 72)
+    title = 'الحنطور'
+  else if(parseInt(typeId) == 1)
+    title = 'فنادق'
+  else if(parseInt(typeId) == 16)
+    title = 'شركات سياحية'
+  else if(parseInt(typeId) == 39)
+    title = 'شركات طيران'
   
   let dataFilled = { name, directoryTypeId, directoryCategoryId, cityId }
   let pageCount;
@@ -111,7 +128,7 @@ const ServicesComponent = (props) => {
       <>
         <Container fluid>
           <div className=" container underline my-4">
-            <h3>أرقام الطوارئ</h3>
+            <h3>{title}</h3>
           </div>
           <div className=" bg-light p-3">
             <SearchSection

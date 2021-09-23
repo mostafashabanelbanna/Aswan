@@ -17,7 +17,12 @@ const Main_navbar = () => {
       <div className="row p-0 m-0 sticky-top bg-light">
         <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
-            <img className="main_logo" src="/images/icons/logo_banner-0١.png" />
+            <Link to="/home">
+              <img
+                className="main_logo"
+                src="/images/icons/logo_banner-0١.png"
+              />
+            </Link>
           </div>
         </div>
         <div
@@ -35,8 +40,8 @@ const Main_navbar = () => {
           </div>
           <div className=" d-none d-md-block">|</div>
 
-         
-          <Link to='/investor'
+          <Link
+            to="/investor"
             style={{ cursor: "pointer" }}
             className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
@@ -47,7 +52,8 @@ const Main_navbar = () => {
           </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <Link to="/tourist"
+          <Link
+            to="/tourist"
             style={{ cursor: "pointer" }}
             className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
@@ -100,16 +106,23 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to={'/leaders'} className="nav-link text-light">قيادات المحافظة</Link>
+                    <Link to={"/leaders"} className="nav-link text-light">
+                      قيادات المحافظة
+                    </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link className="nav-link text-light" to={'/exconservatives'}>المحافظون السابقون</Link>
+                    <Link
+                      className="nav-link text-light"
+                      to={"/exconservatives"}
+                    >
+                      المحافظون السابقون
+                    </Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <Link to={'appointment'} className="nav-link text-light">
+                    <Link to={"/appointment"} className="nav-link text-light">
                       لقاءات و قرارات السيد المحافظ{" "}
                     </Link>
                   </li>
@@ -120,16 +133,22 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to='/cities' className="nav-link text-light">مدن المحافظة</Link>
+                    <Link to="/cities" className="nav-link text-light">
+                      مدن المحافظة
+                    </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link to='/parliament' className="nav-link text-light">مجلس النواب</Link>
+                    <Link to="/parliament" className="nav-link text-light">
+                      مجلس النواب
+                    </Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <Link to='/senate' className="nav-link text-light">مجلس الشيوخ</Link>
+                    <Link to="/senate" className="nav-link text-light">
+                      مجلس الشيوخ
+                    </Link>
                   </li>
 
                   <li

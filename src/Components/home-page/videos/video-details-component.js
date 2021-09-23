@@ -111,12 +111,14 @@ const VideoDetails = (props) => {
               <div>{`${moment(new Date(publishedDate)).format("LL")}`}</div>
             </div>
           </div>
-          <Link
+          {details.sectorName?
+            <Link
             to={`/filtervideos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
             className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
-          >
+            >
             {ReactHtmlParser(details.sectorName)}
           </Link>
+          :null}
         </div>
         <hr className="container my-2"></hr>
 
@@ -147,13 +149,9 @@ const VideoDetails = (props) => {
           className="justify-content-center text-decoration-none align-items-center d-flex my-4"
         >
           <button
-            className="btn "
-            style={{
-              background:
-                "-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)",
-            }}
+            className="myButton"
           >
-            عرض المزيد
+            <span>عرض المزيد</span>
           </button>
         </Link>
       </div>

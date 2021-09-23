@@ -5,61 +5,57 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
 import {
-  newsdetails,
-  clearNewsdetails,
-} from "../../../store/actions/News_Action";
-import { paths } from "../../../paths/paths";
+  getEventDetails, clearEventDetails
+} from "../../store/actions/events-actions.js";
+import { paths } from "../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserTie, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-import DetailsSkeleton from "../../loading-skeleton/Details";
+import { faCalendarAlt, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import DetailsSkeleton from "../loading-skeleton/Details";
 import moment from "moment";
 import "moment/locale/ar";
 
-const NewsDetails = (props) => {
+const AgendaDetails = (props) => {
   const id = props.match.params.id;
   useEffect(() => {
-    props.newsdetails(id);
+    props.getEventDetails(id);
 
     return () => {
-      props.clearNewsdetails();
+      props.clearEventDetails();
     };
   }, []);
 
-  if (props.newsdetail) {
-    let sectorName = props.newsdetail.result.sectorName;
-    let sectorid = props.newsdetail.result.sectorId;
-    let newsCategoryId = props.newsdetail.result.newsCategoryId;
-    let date = props.newsdetail.result.publishDate.split("-");
-    let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
+  if (props.eventDetails) {
+    let sectorName = props.eventDetails.result.sectorName;
+    let sectorId = props.eventDetails.result.sectorId;
+    let eventTypeId = props.eventDetails.result.eventTypeId;
     return (
       <div>
         <div className="underline container mt-5">
-          <h3>{props.newsdetail.result.title}</h3>
+          <h3>{props.eventDetails.result.title}</h3>
         </div>
         <div className="container d-flex justify-content-between mt-4">
           <div className="col-7 text-muted align-items-end fa-1x">
-            <div className="d-flex my-1">
+            {props.eventDetails.result.location?<div className="d-flex my-1">
               <div className="mx-3">
-                <FontAwesomeIcon icon={faUserTie} size={26}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faMapMarkerAlt} size={26}></FontAwesomeIcon>
               </div>
-              <div> {props.newsdetail.result.author}</div>
-            </div>
+              <div> {props.eventDetails.result.location}</div>
+            </div>:null}
             <div className="d-flex my-1">
               <div className="mx-3">
-                {" "}
                 <FontAwesomeIcon
                   icon={faCalendarAlt}
                   size={26}
-                ></FontAwesomeIcon>{" "}
+                ></FontAwesomeIcon>
               </div>
-              <div>{`${moment(new Date(publishedDate)).format("LL")}`}</div>
+              <div>{`${moment(new Date(props.eventDetails.result.startDateTime)).format("LL")} إلى ${moment(new Date(props.eventDetails.result.endDateTime)).format("LL")}`}</div>
             </div>
           </div>
           <Link
-            to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
+            to={`/filterevents/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
             className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
           >
-            {ReactHtmlParser(props.newsdetail.result.sectorName)}
+            {ReactHtmlParser(props.eventDetails.result.sectorName)}
           </Link>
         </div>
 
@@ -68,25 +64,26 @@ const NewsDetails = (props) => {
         <div class="container mb-3">
           <div class="row">
             <div class="col-12 text-justify">
-              <p class="text-justify">
+              {props.eventDetails.result.photo?<p class="text-justify">
                 <img class="img-fluid detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3" src={
-                  paths.NewsPhotos +
-                  props.newsdetail.result.id +
+                  paths.EventsPhotos +
+                  props.eventDetails.result.id +
                   "/" +
-                  props.newsdetail.result.photo
-                } alt="President Photo"/>
+                  props.eventDetails.result.photo
+                } alt={props.eventDetails.result.title}/>
               </p>
+              :null}
               <div
                 className="text-muted text-justify ps-lg-3 ps-0"
                 style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
               >
-                {ReactHtmlParser(props.newsdetail.result.content)}
+                {ReactHtmlParser(props.eventDetails.result.content)}
               </div>
             </div>
           </div>
         </div>
         <Link
-          to={"/newslist"}
+          to={"/eventlist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-4"
         >
           <button
@@ -103,11 +100,11 @@ const NewsDetails = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    newsdetail: state.homeComponents.newsdetails,
+    eventDetails: state.eventsComponents.eventDetails,
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ newsdetails, clearNewsdetails }, dispatch);
+  return bindActionCreators({ getEventDetails, clearEventDetails }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(AgendaDetails);

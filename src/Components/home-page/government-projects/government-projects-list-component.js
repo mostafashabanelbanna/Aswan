@@ -105,8 +105,12 @@ const ProjectsList = (props) => {
           </Container>
           <div className="col-10 mx-auto my-4 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.projectsList.result.map((item, index) => {
-              let pName = item.photo;
-              let newPath  = pName.replaceAll(' ','%20')
+                              let pName;
+                              let newPath;
+                              if(item.photo != null){
+                              pName = item.photo;
+                              newPath  = pName.replaceAll(' ','%20')
+                              }
               return (
                 <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
                     <Link to={`projectDetails/${item.id}`} className="h-100 text-decoration-none">

@@ -9,9 +9,11 @@ import {
 import { paths } from "../../paths/paths";
 import moment from "moment";
 import "moment/locale/ar";
-import AdsDetails from "../loading-skeleton/adsDetails";
+import DetailsSkeleton from "../loading-skeleton/Details";
 import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 const AdvertismentDetails = (props) => {
   let id = props.match.params.id;
@@ -46,16 +48,19 @@ const AdvertismentDetails = (props) => {
           <div className="container underline  my-4">
             <h4>{props.advertismentDetail.result.title}</h4>
           </div>
-          <div className="container">
-            <p>
-              {`${moment(
-                new Date(props.advertismentDetail.result.publishDate)
-              ).format("LL")}`}
-            </p>
-          </div>
+          <div className="d-flex container my-1">
+              <div className="mx-3">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faCalendarAlt}
+                  size={26}
+                ></FontAwesomeIcon>{" "}
+              </div>
+              <div>{`${moment(new Date(props.advertismentDetail.result.publishDate)).format("LL")}`}</div>
+            </div>
           <div className=" bg-light h-100">
             <div className="container">
-              <Row>
+              <div className='d-flex flex-column-reverse flex-lg-row'>
                 <Col lg={8} className=" p-3">
                   <div className="d-flex justify-content-end">
                     <div
@@ -88,7 +93,7 @@ const AdvertismentDetails = (props) => {
                     }
                   />
                 </Col>
-              </Row>
+              </div>
               {/* Show Slider if album is not empty */}
               {props.advertismentDetail.result.advertismentTypeId === 5 ? (
                 <Row>
@@ -108,7 +113,7 @@ const AdvertismentDetails = (props) => {
       </div>
     );
   }
-  return <AdsDetails />;
+  return <DetailsSkeleton />;
 };
 
 const mapStateToProps = (state) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import '../../Styles/tourist-home.css'
 import Contact from '../home-page/contact_us';
 import PhotosAlbum from '../home-page/photo-album/photos-album-component';
-import TrainingAgenda from '../home-page/training-agenda';
+import TrainingAgenda from '../agenda/training-agenda';
 import Video from '../home-page/videos/videoScreen';
 import InvestorStart from './investor-start';
 import InvestorMap from './investor-map';

@@ -63,8 +63,8 @@ const TourStart = (props) => {
           <div className="mx-3">
             <img src="/images/icons/Tourist-0٢.png" />
           </div>
-          <div className="d-flex align-items-center">
-            <h2>رحلتك تبدء من هنا</h2>{" "}
+          <div className="d-flex align-items-center underline">
+            <h2 className='mb-5'>رحلتك تبدء من هنا</h2>{" "}
           </div>
         </div>
         {props.slider.result.length > 3 ? (
@@ -74,7 +74,7 @@ const TourStart = (props) => {
                 {props.slider.result.map((item, index) => {
                   return (
                     <Link
-                      to={`/newsdetails/${item.id}`}
+                      to={`/tourist-attraction-details/${item.id}`}
                       className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">
@@ -107,7 +107,7 @@ const TourStart = (props) => {
                 {props.slider.result.map((item, index) => {
                   return (
                     <Link
-                      to={`/newsdetails/${item.id}`}
+                    to={`/tourist-attraction-details/${item.id}`}
                       className="col-lg-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAppointments,getAppointmentsTypes } from "../store/actions/appointment-action";
-import ListWithImage from "./ui/list-with-image";
-import SearchSection from "./ui/search-section";
+import { getAppointments,getAppointmentsTypes } from "../../store/actions/appointment-action";
+import ListWithImage from "../ui/list-with-image";
+import SearchSection from "../ui/search-section";
 import moment from "moment";
 import "moment/locale/ar";
-import { paths } from "../paths/paths";
+import { paths } from "../../paths/paths";
 import { Link } from "react-router-dom";
-import PaginationSection from "./ui/pagination-section";
-import ListSkeleton from "./loading-skeleton/list-skiliton";
+import PaginationSection from "../ui/pagination-section";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
 const Appointment = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
@@ -116,17 +116,22 @@ const Appointment = (props) => {
           <div className='container'>
             <div className="my-4 row">
               {props.apointment.result.map((item, index) => {
-                let pName = item.photo;
-                let newPath  = pName.replaceAll(' ','%20')
+                let pName;
+                let newPath;
+                if(item.photo != null){
+                  pName = item.photo;
+                  newPath  = pName.replaceAll(' ','%20')
+                }
                 return (
                   <div  key={item.id} className="col-md-4 col-sm-6 mb-4">
-                    <Link  className="h-100">
+                    <Link to={`/appointmentdetails/${item.id}`} className="h-100">
                       <ListWithImage
                         imgSrc={paths.Appointment + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(item.appointmentDate)).format("LL")}`}
                         category={item.appointmentTypeName}
                         imgHeight="200px"
+                        hoverTitle='hoverTitle'
                       />
                     </Link>
                   </div>

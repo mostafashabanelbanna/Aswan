@@ -111,8 +111,12 @@ const DocumentLibrary = (props) => {
                 <>
                   {props.documentLibrary.result.map((item) => {
                     let publishedDate = `${item.publishDate}T00:00:00`
-                    let pName = item.photo;
-                    let newPath  = pName.replaceAll(' ','%20')
+                    let pName;
+                    let newPath;
+                    if(item.photo != null){
+                      pName = item.photo;
+                      newPath  = pName.replaceAll(' ','%20')
+                    }
                     return (
                       <Col lg={4} md={4} sm={6} key={item.id} className="my-4">
                         <Link

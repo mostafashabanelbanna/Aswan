@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const AdsDetailsSkeleton = () => {
+const DetailsSkeleton = () => {
   return (
     <>
       <Container>
@@ -28,4 +28,4 @@ const AdsDetailsSkeleton = () => {
     </>
   );
 };
-export default AdsDetailsSkeleton;
+export default DetailsSkeleton;

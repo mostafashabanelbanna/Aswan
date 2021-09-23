@@ -5,6 +5,8 @@ import { getSenate } from "../../../../store/actions/local-leaders-actions";
 import ListWithImage from "../../../ui/list-with-image";
 import { paths } from "../../../../paths/paths";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
+import ReactHtmlParser from "react-html-parser";
+
 
 const Senate = (props) => {
   useEffect(() => {
@@ -20,14 +22,19 @@ const Senate = (props) => {
         <div className="container mt-5">
           <div className="row ">
             {props.allSenate.result.map((item) => {
-              let pName = item.photo;
-              let newPath  = pName.replaceAll(' ','%20')
+              console.log(item)
+              let pName;
+              let newPath;
+              if(item.photo != null){
+                pName = item.photo;
+                newPath  = pName.replaceAll(' ','%20')
+              }
               return (
-                <div style={{ cursor: "pointer" }} className="mb-4 col-lg-4 col-sm-6 col-12">
+                <div className="mb-4 col-lg-4 col-sm-6 col-12">
                   <ListWithImage
                     imgSrc={paths.SenatePhotos + item.id + "/" + newPath}
                     title={item.title}
-                    content={item.content}
+                    content={ReactHtmlParser(item.content)}
                     center="yes"
                     imgHeight='250px'
                     hoverTitle="hoverTitle"

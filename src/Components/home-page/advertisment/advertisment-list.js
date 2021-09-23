@@ -146,8 +146,12 @@ const AdvertismentList = (props) => {
           <Container>
             <Row className="my-4">
               {props.advertisment.result.map((item, index) => {
-                let pName = item.photo;
-                let newPath  = pName.replaceAll(' ','%20')
+                                let pName;
+                                let newPath;
+                                if(item.photo != null){
+                                pName = item.photo;
+                                newPath  = pName.replaceAll(' ','%20')
+                                }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link

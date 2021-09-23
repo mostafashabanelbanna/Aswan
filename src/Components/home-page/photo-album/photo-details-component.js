@@ -12,10 +12,10 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
-import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 
 import { Link } from "react-router-dom";
+import DetailsSkeleton from "../../loading-skeleton/Details";
 
 const PhotoDetails = (props) => {
   useEffect(() => {
@@ -117,7 +117,6 @@ const PhotoDetails = (props) => {
     let details = Object.assign({}, props.photoDetails.result);
     let sectorName = props.photoDetails.result.sectorName;
     let sectorId = props.photoDetails.result.sectorId;
-    // photosLength = props.photoDetails.result.photos.length;
     return (
       <div className="container">
         <div>
@@ -125,17 +124,23 @@ const PhotoDetails = (props) => {
             {" "}
             <h3>{ReactHtmlParser(details.titleA)}</h3>
           </div>
-          <div className="d-flex justify-content-end">
-            <Link
-            to={`/filterphotos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
-            className=" d-flex justify-content-center align-items-center text-center text-muted fa-1x"
-            >
-            <div className="text-muted text-center fa-1x p-3 mb-1 detailsSectorName">
-                {ReactHtmlParser(details.sectorName)}
+          {details.sectorName ? (
+            <div>
+            <div className="d-flex justify-content-end">
+              <Link
+                to={`/filterphotos/${
+                  sectorId + "&&" + sectorName + "&&" + "sector"
+                }`}
+                className=" d-flex justify-content-center align-items-center text-center text-muted fa-1x"
+              >
+                <div className="text-muted text-center fa-1x p-3 mb-1 detailsSectorName">
+                  {ReactHtmlParser(details.sectorName)}
+                </div>
+              </Link>
             </div>
-            </Link>
-          </div>
           <hr className="text-muted m-0" />
+          </div>
+          ) : null}
         </div>
         <div className="row my-4 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
@@ -159,8 +164,12 @@ const PhotoDetails = (props) => {
           <div className="my-3">
             <Slider {...settings} style={{ width: "100%" }}>
               {details.photos.map((photo, index) => {
-                let pName = photo.photo;
-                let newPath  = pName.replaceAll(' ','%20')
+                let pName;
+                let newPath;
+                if (photo.photo != null) {
+                  pName = photo.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
                 let title = photo.title;
                 if (photo.title === null) {
                   title = photo.caption;
@@ -178,7 +187,7 @@ const PhotoDetails = (props) => {
                       <div
                         style={{
                           position: "relative",
-                          backgroundImage: `url(${paths.PhotoLibraryAlbum}${photo.id}/${newPath})`,
+                          backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
                         }}
                         className="imageAlbum"
                       ></div>
@@ -195,20 +204,16 @@ const PhotoDetails = (props) => {
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button
-            className="btn "
-            style={{
-              background:
-                "-webkit-linear-gradient(right, #a4e1bf 0%,  #fef9a4 100%)",
-            }}
+            className="myButton"
           >
-            عرض المزيد
+            <span>عرض المزيد</span>
           </button>
         </Link>
         {renderModal(content)}
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons />;
+  return <DetailsSkeleton />;
 };
 
 export default connect(

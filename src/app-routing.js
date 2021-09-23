@@ -19,7 +19,7 @@ import TechnologyCenterServices from "./components/home-page/citizen-services/se
 import CitiesNavbar from "./components/cities-navbar";
 import Leaders from "./components/Governer/leaders";
 import DocumentLibrary from "./components/document-library-page/document-library";
-import appointment from "./components/appointment";
+import Appointment from "./components/appointment/appointment";
 import Tribe from "./components/home-page/local-leaders/local-leaders-pages/tribe";
 import Parliament from "./components/home-page/local-leaders/local-leaders-pages/parliament";
 import Senate from "./components/home-page/local-leaders/local-leaders-pages/senate";
@@ -39,6 +39,9 @@ import InvestorHome from "./components/investor-page/investor-home-page";
 import TouristAttractionDetails from "./components/touristAttraction/touristAttractionDetails";
 import Ads from "./components/ads/ads";
 import ServicesComponent from "./components/services-component";
+import AppointmentDetails from "./components/appointment/appointment-details";
+import AgendaList from './components/agenda/list-agenda'
+import AgendaDetails from './components/agenda/agenda-details'
 
 const AppRouting = () => {
   return (
@@ -85,7 +88,8 @@ const AppRouting = () => {
           path="/HayaKarimaDetails/:id"
           component={HayaKarimaDetails}
         />
-        <Route exact path="/appointment" component={appointment}></Route>
+        <Route exact path="/appointment" component={Appointment}></Route>
+        <Route exact path='/appointmentdetails/:id' component={AppointmentDetails}/>
         <Route
           exact
           path="/document-library/:type"
@@ -111,6 +115,9 @@ const AppRouting = () => {
           component={TouristAttractionDetails}
         />
         <Route exact path="/leaders" component={Leaders}></Route>
+        <Route exact path='/eventlist' component={AgendaList}/>
+        <Route exact path='/eventdetails/:id' component={AgendaDetails}/>
+        <Route exact path='/filterevents/:info' component={AgendaList}/>
         <Route path="*" component={Error} />
       </Switch>
       <Ads/>

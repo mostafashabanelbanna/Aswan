@@ -10,7 +10,7 @@ import {
 } from "../../store/actions/document-library";
 import { paths } from "../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faLink } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "moment/locale/ar";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
@@ -52,7 +52,7 @@ const DocumentLibraryDetails = (props) => {
               <div className="mx-3">
                 {" "}
                 <FontAwesomeIcon
-                  icon={faCalendar}
+                  icon={faCalendarAlt}
                   size={26}
                 ></FontAwesomeIcon>{" "}
               </div>

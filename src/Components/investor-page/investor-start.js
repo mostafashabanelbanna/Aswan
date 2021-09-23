@@ -103,7 +103,7 @@ const InvestorStart = (props) => {
                 return (
                   <Link
                     to={`/newsdetails/${item.id}`}
-                    className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                    className="col-md-6 col-lg-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div

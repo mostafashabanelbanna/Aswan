@@ -31,8 +31,12 @@ const MainSlider = () => {
       <Carousel fade={true}>
         {!noMainSlider &&
           mainSlider.map((item, idx) => {
-            let pName = item.photo;
-            let newPath  = pName.replaceAll(' ','%20')
+            let pName;
+            let newPath;
+            if(item.photo != null){
+            pName = item.photo;
+            newPath  = pName.replaceAll(' ','%20')
+            }
             return (
               <Carousel.Item style={{ height: "80vh" }}>
                 <Link

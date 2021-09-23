@@ -13,10 +13,9 @@ import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
-import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
+import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
-
 
 const ProjectDetails = (props) => {
   useEffect(() => {
@@ -32,7 +31,7 @@ const ProjectDetails = (props) => {
   }, []);
 
   const [show, setShow] = useState(false);
-  const [content, setContent] = useState({})
+  const [content, setContent] = useState({});
 
   const onShow = () => {
     setShow(true);
@@ -93,15 +92,15 @@ const ProjectDetails = (props) => {
   };
 
   const renderModal = (content) => {
-    return(
-    <SliderDetailsModalComponent
-      content={content}
-      show={show}
-      onHide={() => setShow(false)}
-      pathName={paths.ProjectPhotos}
-    />
-    )
-  }
+    return (
+      <SliderDetailsModalComponent
+        content={content}
+        show={show}
+        onHide={() => setShow(false)}
+        pathName={paths.ProjectPhotos}
+      />
+    );
+  };
 
   if (props.projectDetails) {
     let details = Object.assign({}, props.projectDetails.result);
@@ -137,27 +136,69 @@ const ProjectDetails = (props) => {
           </div>
           <hr className="text-muted m-0" />
         </div>
-        <div className="row my-4 flex-column-reverse flex-lg-row">
-          <div className="col-lg-7 my-3 my-lg-0">
-              <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
-                {ReactHtmlParser(details.description)}
+        <div class="container mb-3">
+          <div class="row">
+            <div class="col-12 text-justify">
+              <p class="text-justify">
+                <img class="img-fluid detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3" src={`${paths.ProjectPhoto}${details.id}/${details.photo}`} alt="President Photo"/>
               </p>
-          </div>
-          <div className="col-lg-5 detailsPhoto p-0 h-100">
-            <img
-              className="img-fluid w-100"
-              style={{ borderRadius: 17 }}
-              src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
-            />
+              <div
+                className="text-muted text-justify ps-lg-3 ps-0"
+                style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
+              >
+                {ReactHtmlParser(details.description)}
+              </div>
+            </div>
           </div>
         </div>
-        
-        {details.photos.length > 3?
-        <div className="my-3">
-          <Slider {...settings} style={{ width: "100%" }}>
+
+        {details.photos.length > 3 ? (
+          <div className="my-3">
+            <Slider {...settings} style={{ width: "100%" }}>
+              {details.photos.map((photo, index) => {
+                let pName;
+                let newPath;
+                if (photo.photo != null) {
+                  pName = photo.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                let title = photo.title;
+                if (photo.title === null) {
+                  title = photo.caption;
+                }
+                return (
+                  <div
+                    className="mx-auto p-3 hoverTitle"
+                    key={photo.id}
+                    onClick={() => {
+                      onShow();
+                      setContent(photo);
+                    }}
+                  >
+                    <div className="holder">
+                      <div
+                        style={{
+                          position: "relative",
+                          backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                        }}
+                        className="imageAlbum"
+                      ></div>
+                    </div>
+                    <p className="text-center my-2">{title}</p>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+        ) : (
+          <div className="d-flex flex-wrap my-3">
             {details.photos.map((photo, index) => {
-              let pName = photo.photo;
-              let newPath  = pName.replaceAll(' ','%20')
+              let pName;
+              let newPath;
+              if (photo.photo != null) {
+                pName = photo.photo;
+                newPath = pName.replaceAll(" ", "%20");
+              }
               let title = photo.title;
               if (photo.title === null) {
                 title = photo.caption;
@@ -184,41 +225,8 @@ const ProjectDetails = (props) => {
                 </div>
               );
             })}
-          </Slider>
-        </div>
-        :
-        <div className="d-flex flex-wrap my-3">
-            {details.photos.map((photo, index) => {
-              let pName = photo.photo;
-              let newPath  = pName.replaceAll(' ','%20')
-              let title = photo.title;
-              if (photo.title === null) {
-                title = photo.caption;
-              }
-              return (
-                <div
-                  className="mx-auto p-3 hoverTitle"
-                  key={photo.id}
-                  onClick={() => {
-                    onShow();
-                    setContent(photo);
-                  }}
-                >
-                  <div className="holder">
-                    <div
-                      style={{
-                        position: "relative",
-                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
-                      }}
-                      className="imageAlbum"
-                    ></div>
-                  </div>
-                  <p className="text-center my-2">{title}</p>
-                </div>
-              );
-            })}
-        </div>
-        }
+          </div>
+        )}
 
         <div
           className="embed-responsive embed-responsive-16by9 mx-3 my-5 "
@@ -238,7 +246,7 @@ const ProjectDetails = (props) => {
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons/>
+  return <GeneralThreeOthersSkeletons />;
 };
 
 export default connect(

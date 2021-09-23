@@ -77,7 +77,7 @@ const News = (props) => {
             </h4>
           </div>
           <Link
-            to={`/NewsDetails/${props.mainews.result.value.result[0].id}`}
+            to={`/newsdetails/${props.mainews.result.value.result[0].id}`}
             className="text-muted"
           >
             <div className="d-flex flex-md-row flex-column-reverse">
@@ -114,7 +114,7 @@ const News = (props) => {
               {props.news.result.map((item, index) => {
                 return (
                   <Link
-                    to={`/NewsDetails/${item.id}`}
+                    to={`/newsdetails/${item.id}`}
                     className="col-sm-3 text-decoration-none text-muted col-12 mt-5 text-center px-3 "
                   >
                     <div className="hoverTitle">
@@ -138,6 +138,16 @@ const News = (props) => {
               })}
             </Slider>
           </div>
+        </div>
+        <div className='container d-flex justify-content-end'>
+          <Link to="/newslist" className="text-muted">
+            <button
+              className="myButton mx-1 mb-2 mb-sm-0"
+              style={{ verticalAlign: "middle" }}
+            >
+              <span>عرض الكل</span>
+            </button>
+          </Link>
         </div>
       </div>
     );

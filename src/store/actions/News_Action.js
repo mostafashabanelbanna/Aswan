@@ -114,9 +114,10 @@ export async function getVideoDetails(id = 0) {
 }
 
 export function clearVideoDetails() {
+  let payload = null;
   return {
     type: "CLEAR_VIDEO_DETAILS",
-    payload: null,
+    payload,
   };
 }
 
@@ -167,8 +168,9 @@ export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
     );
     let countResponse = await axios.post("/NewsAPI/GetResultCount", keywords);
     let res = countResponse.data.result;
-    payload = { ...response.data, count: res };
+    payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
+    console.log(e);
   }
   return {
     type: "NEWS_LIST",

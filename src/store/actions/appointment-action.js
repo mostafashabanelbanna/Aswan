@@ -24,3 +24,25 @@ export async function getAppointmentsTypes(pageNumber ,keyword={}, pageSize=9  )
         payload
     }
 }
+
+export async function getAppointmentDetails(id) {
+    let payload = null;
+    try {
+      let response = await axios.get("/AppointmentAPI/Details/" + id);
+      payload = response.data;
+    } catch (error) {
+    }
+    return {
+      type: "APPOINTMENT_DETAILS",
+      payload,
+    };
+  }
+  
+  export async function clearAppointmentDetails() {
+    let payload = null;
+  
+    return {
+      type: "CLEAR_APPOINTMENT_DETAILS",
+      payload,
+    };
+  }

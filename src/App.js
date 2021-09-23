@@ -9,8 +9,7 @@ import './Styles/hover.css'
 import rtl from 'jss-rtl';
 import { create } from 'jss';
 import { StylesProvider, jssPreset , createTheme  , ThemeProvider} from '@material-ui/core/styles';
-import { useEffect, useState } from "react";
-import OnePieaceSkeleton from './components/loading-skeleton/one-pieace'
+
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const theme = createTheme({
@@ -19,31 +18,15 @@ const theme = createTheme({
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 function App() {
-
-  const [isLoading, setIsLoading] = useState(true)
-  useEffect(() => {
-    setIsLoading(false)
-  },[])
-
-  if(!isLoading){
-    return (
-      <Provider store={createStoreWithMW(rootReducer)}>
-      <StylesProvider jss={jss}>
-        <ThemeProvider theme={theme}>
-          <AppRouting />
-        </ThemeProvider>
-      </StylesProvider>
-    </Provider>
-    );
-  } else {
-    return (
-      <div className="text-center container">
-        <OnePieaceSkeleton/>
-        <OnePieaceSkeleton/>
-        <OnePieaceSkeleton/>
-      </div>
-      )
-  }
+  return (
+    <Provider store={createStoreWithMW(rootReducer)}>
+    <StylesProvider jss={jss}>
+      <ThemeProvider theme={theme}>
+        <AppRouting />
+      </ThemeProvider>
+    </StylesProvider>
+  </Provider>
+  );
 }
 
 export default App;

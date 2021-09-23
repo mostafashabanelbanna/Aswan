@@ -114,8 +114,12 @@ const publishToHandler = (dateChanged) =>
             {props.photosList.result.map((item, index) => {
             let date = item.publishDate.replace(/\//g,'-').split('-');
             let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
-            let pName = item.photo;
-            let newPath  = pName.replaceAll(' ','%20')
+            let pName;
+            let newPath;
+            if(item.photo != null){
+            pName = item.photo;
+            newPath  = pName.replaceAll(' ','%20')
+            }
               return (
                 <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
                     <Link to={`/photodetails/${item.id}`} className="h-100 text-decoration-none">

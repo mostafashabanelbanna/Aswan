@@ -6,6 +6,7 @@ import {
   faYoutube,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div
@@ -50,11 +51,11 @@ const Footer = () => {
                 </div>
 
                 <div className="lh-lg d-flex flex-column">
-                  <a>المحافظون السابقون</a>
-                  <a>قيادات المحافظة</a>
+                  <Link to='/exconservatives' className='text-white'>المحافظون السابقون</Link>
+                  <Link to='/leaders' className='text-white'>قيادات المحافظة</Link>
                   <a>الديوان العام</a>
-                  <a>مشروعات المحافظة</a>
-                  <a>لقاءات و قرارات السيد المحافظ</a>
+                  <Link to='/projectslist' className='text-white'>مشروعات المحافظة</Link>
+                  <Link to='/appointment' className='text-white'>لقاءات و قرارات السيد المحافظ</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -64,9 +65,10 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="lh-lg d-flex flex-column">
-                  <a>الاخبار</a>
-                  <a>ألبوم الصور</a>
-                  <a>مكتبة الفيديو</a>
+                  <Link to='/newslist' className='text-white'>الاخبار</Link>
+                  <Link to='/photoslist' className='text-white'>ألبوم الصور</Link>
+                  <Link to='/videoslist' className='text-white'>مكتبة الفيديو</Link>
+                  <Link to='/eventlist' className='text-white'>الاحداث</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -76,9 +78,9 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className=" lh-lg d-flex flex-column">
-                  <a>ادلة المحافظة</a>
-                  <a>المديريات</a>
-                  <a>إعلانات و مناقصات</a>
+                  <Link to='/eservices' className='text-white'>ادلة المحافظة</Link>
+                  <Link to='/directorates' className='text-white'>المديريات</Link>
+                  <Link to='/ads/0' className='text-white'>إعلانات و مناقصات</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -88,8 +90,8 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="lh-lg d-flex flex-column">
-                  <a>الجمعيات الاهلية</a>
-                  <a>المجالس القومية</a>
+                  <Link to='/parliament' className='text-white'>مجلس النواب</Link>
+                  <Link to='/senate' className='text-white'>مجلس الشيوخ</Link>
                 </div>
               </div>
             </div>
