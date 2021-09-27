@@ -108,13 +108,13 @@ a {
 
 .content,
 .titles {
-  color: #808278;
+  color: black;
 }
 
 .ContainerDiv {
   background-color: #fdd10b;
   border-radius: 20px;
-  box-shadow: 3px 3px 3px 3px #808278;
+  box-shadow: 3px 3px 3px 3px black;
   min-width: 50%;
 }
 
@@ -178,15 +178,6 @@ a {
 
 .hovering:hover {
   transform: scale(1.05);
-}
-
-.fc .fc-daygrid-day-number {
-  color: grey;
-  text-decoration: none;
-}
-
-.fc-col-header-cell-cushion {
-  text-decoration: none;
 }
 
 .bg_gradient {
@@ -286,7 +277,7 @@ a {
   width: 100%;
 }
 .city_name_inner {
-  background-color: rgb(161 161 161 / 60%);
+  background-color: rgb(161 161 161 / 80%);
   color: #fff;
 }
 
@@ -356,6 +347,7 @@ a {
 .hoverTitle:hover {
   color: #faa74a;
   transform: translateY(-10px);
+  font-weight: bold;
 }
 
 .pagination {
@@ -374,6 +366,12 @@ a {
   opacity: 1;
 }
 
-.width-48{
-  width:48% !important;
+.new-line {
+  white-space: pre-line;
+}
+
+.brightness { filter: brightness(0.25); }
+
+#link {
+  color: black
 }

@@ -84,7 +84,6 @@ const DocumentLibrary = (props) => {
         ? props.DocumentLibraryList(currentPage + 1)
         : props.DocumentLibraryList(currentPage + 1, data(dataFilled));
     else props.DocumentLibraryList(currentPage + 1, data(dataFilled));
-    // props.DocumentLibraryList(currentPage + 1);
   }, [currentPage]);
 
   useEffect(() => {
@@ -102,86 +101,96 @@ const DocumentLibrary = (props) => {
 
   const render = () => {
     if (props.documentLibrary) {
-      pageCount = Math.ceil(props.documentLibrary.count / 2);
-      return (
-        <>
-          <Container>
-            <Row>
-              {props.documentLibrary.result.length ? (
-                <>
-                  {props.documentLibrary.result.map((item) => {
-                    let publishedDate = `${item.publishDate}T00:00:00`
-                    let pName;
-                    let newPath;
-                    if(item.photo != null){
-                      pName = item.photo;
-                      newPath  = pName.replaceAll(' ','%20')
-                    }
-                    return (
-                      <Col lg={4} md={4} sm={6} key={item.id} className="my-4">
-                        <Link
-                          to={`/document-library-details/${item.id}`}
-                          className="h-100"
+      pageCount = Math.ceil(props.documentLibrary.count / 9);
+      if (props.documentLibrary.page == currentPage + 1) {
+        return (
+          <>
+            <Container>
+              <Row>
+                {props.documentLibrary.result.length ? (
+                  <>
+                    {props.documentLibrary.result.map((item) => {
+                      let publishedDate = `${item.publishDate}T00:00:00`;
+                      let pName;
+                      let newPath;
+                      if (item.photo != null) {
+                        pName = item.photo;
+                        newPath = pName.replaceAll(" ", "%20");
+                      }
+                      return (
+                        <Col
+                          lg={4}
+                          md={4}
+                          sm={6}
+                          key={item.id}
+                          className="my-5"
                         >
-                          <ListWithImage
-                            imgSrc={item.photo?(
-                              paths.DocumentLibraryPhotos +
-                              item.id +
-                              "/" +
-                              newPath):null
-                            }
-                            title={item.title}
-                            date={`${moment(new Date(publishedDate)).format("LL")}`}
-                            category={item.documentTypeName}
-                            imgHeight="200px"
-                          />
-                        </Link>
-                      </Col>
-                    );
-                  })}
+                          <Link
+                            id="link"
+                            to={`/document-library-details/${item.id}`}
+                            className="h-100"
+                          >
+                            <ListWithImage
+                              imgSrc={
+                                item.photo
+                                  ? paths.DocumentLibraryPhotos +
+                                    item.id +
+                                    "/" +
+                                    newPath
+                                  : null
+                              }
+                              title={item.title}
+                              date={`${moment(new Date(publishedDate)).format(
+                                "LL"
+                              )}`}
+                              category={item.documentTypeName}
+                              imgHeight="200px"
+                            />
+                          </Link>
+                        </Col>
+                      );
+                    })}
 
-                  <Col xs={12}>
-                    <PaginationSection
-                      currentPage={currentPage}
-                      pageCount={pageCount}
-                      handlePageClick={handlePageClick}
-                    />
-                  </Col>
-                </>
-              ) : (
-                <div className="text-center my-5">لا توجد نتائج</div>
-              )}
-            </Row>
-          </Container>
-        </>
-      );
+                    <Col xs={12}>
+                      <PaginationSection
+                        currentPage={currentPage}
+                        pageCount={pageCount}
+                        handlePageClick={handlePageClick}
+                      />
+                    </Col>
+                  </>
+                ) : (
+                  <div className="text-center my-5">لا توجد نتائج</div>
+                )}
+              </Row>
+            </Container>
+          </>
+        );
+      }
     }
     return (
-      // <Container fluid>
-      //   <div className=" d-flex justify-content-center align-items-center">
-      //     Loading
-      //   </div>
-      // </Container>
-      <ListSkeleton/>
+      <ListSkeleton />
     );
   };
 
   let pageTitle;
 
-  if(id == '1'){
-    pageTitle = 'إحصائيات'
-  } else if(id == '2'){
-    pageTitle = 'نشرات شهرية'
-  } else if(id == '3'){
-    pageTitle = 'إحصائيات نشرات سكانية'
+  if (id == "1") {
+    pageTitle = "إحصائيات";
+  } else if (id == "2") {
+    pageTitle = "نشرات شهرية";
+  } else if (id == "3") {
+    pageTitle = "إحصائيات نشرات سكانية";
+  } else if (id == "6") {
+    pageTitle = "دراسات جدوى";
   } else {
-    pageTitle = 'دعم القرار'
+    pageTitle = "دعم القرار";
   }
 
   return (
     <div>
       <Container fluid>
-        <div className=" container underline  my-4">
+        <div className=" container underline mt-5 mb-4">
           <h3>{pageTitle}</h3>
         </div>
         <div className=" bg-light p-3">
@@ -189,18 +198,18 @@ const DocumentLibrary = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={titleHandler}
             labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-sm-6 col-12 order-1"
+            classNameTextFieldOne='col-md-3 col-sm-6 col-12 order-1'
             dropdownOneVal={catName.find((e) => e.value == documentTypeId)}
             dropdownOneHandler={documentTypeHandler}
             dropdownOneName={catName}
             dropdownOnePlaceholder="القسم"
-            classNameDropdownOne="col-sm-6 col-12 order-0"
+            classNameDropdownOne='col-md-3 col-sm-6 col-12 order-0'
             publishDateFrom={publishDateFrom}
             publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-sm-6 col-12 order-2"
+            classNameDPFrom='col-md-3 col-sm-6 col-12 order-2'
             publishDateTo={publishDateTo}
             publishToHandler={publishToHandler}
-            classNameDPTo="col-sm-6 col-12 order-3"
+            classNameDPTo='col-md-3 col-sm-6 col-12 order-3'
             classNameBtn="order-4"
           />
         </div>

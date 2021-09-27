@@ -26,3 +26,23 @@ export async function clearNavbarCities() {
     payload,
   };
 }
+
+export async function getCityDetails(id) {
+  let payload = null;
+  try {
+    let response = await axios.get(`/CityAPI/Details/${id}`);
+    payload = await response.data;
+  } catch (error) {
+  }
+  return {
+    type: "CITY_DETAILS",
+    payload,
+  };
+}
+
+export function clearCityDetails() {
+  return {
+    type: "CLEAR_CITY_DETAILS",
+    payload: null,
+  };
+}

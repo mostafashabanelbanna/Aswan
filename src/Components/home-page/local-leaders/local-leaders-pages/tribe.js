@@ -90,7 +90,7 @@ const Tribe = (props) => {
       return (
         <>
           <Container fluid>
-            <div className=" container underline  my-4">
+            <div className=" container underline  my-5">
               <h3>شيوخ القبائل</h3>
             </div>
             <div className=" bg-light p-3">
@@ -107,7 +107,7 @@ const Tribe = (props) => {
               />
             </div>
           </Container>
-          <div className="col-10 mx-auto my-4 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+          <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.allTribe.result.map((item, index) => {
               return (
                 <div className="col-md-6">

@@ -17,7 +17,7 @@ const Main_navbar = () => {
       <div className="row p-0 m-0 sticky-top bg-light">
         <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
-            <Link to="/home">
+            <Link id='link' to="/home">
               <img
                 className="main_logo"
                 src="/images/icons/logo_banner-0١.png"
@@ -29,21 +29,17 @@ const Main_navbar = () => {
           style={{ color: "#7f807f" }}
           className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
         >
-          <div
-            style={{ cursor: "pointer" }}
-            className="col-3 col-sm-2 hvr-float-shadow d-flex justify-content-center align-items-center"
-          >
-            <Link to="/" className="text-decoration-none text-muted">
+          <Link id='link' to="/home" className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center">
+          <div>
               <img className="mx-2 imgsz" src="/images/icons/home-0١.png" />
               <span className="spansz">الرئيسية</span>
-            </Link>
           </div>
+          </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <Link
+          <Link id='link'
             to="/investor"
-            style={{ cursor: "pointer" }}
-            className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
               <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
@@ -52,10 +48,9 @@ const Main_navbar = () => {
           </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <Link
+          <Link id='link'
             to="/tourist"
-            style={{ cursor: "pointer" }}
-            className="col-3 text-muted col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img className="mx-2 imgsz" src="/images/icons/Tourist-0٢.png" />
             <span className="spansz">السائح</span>
@@ -77,7 +72,7 @@ const Main_navbar = () => {
           variant="dark"
         >
           <Container className="py-1">
-            <div className="navbar-brand d-lg-block d-none text-secondary">
+            <div className="navbar-brand d-lg-block d-none text-dark">
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
                 src="/images/icons/footer_logo-0١.png"
@@ -100,18 +95,19 @@ const Main_navbar = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <li className={`nav-item `}>
-                    <a className="nav-link text-light"> عن المحافظة</a>
+                  
+                    <Link id='link' to='/statichome/2001/aboutgovernment' className="nav-link text-light"> عن المحافظة</Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <Link to={"/leaders"} className="nav-link text-light">
+                    <Link id='link' to={"/leaders"} className="nav-link text-light">
                       قيادات المحافظة
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link
+                    <Link id='link'
                       className="nav-link text-light"
                       to={"/exconservatives"}
                     >
@@ -122,7 +118,7 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to={"/appointment"} className="nav-link text-light">
+                    <Link id='link' to={"/appointment"} className="nav-link text-light">
                       لقاءات و قرارات السيد المحافظ{" "}
                     </Link>
                   </li>
@@ -133,12 +129,12 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to="/cities" className="nav-link text-light">
+                    <Link id='link' to="/cities" className="nav-link text-light">
                       مدن المحافظة
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link to="/parliament" className="nav-link text-light">
+                    <Link id='link' to="/parliament" className="nav-link text-light">
                       مجلس النواب
                     </Link>
                   </li>
@@ -146,7 +142,7 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link to="/senate" className="nav-link text-light">
+                    <Link id='link' to="/senate" className="nav-link text-light">
                       مجلس الشيوخ
                     </Link>
                   </li>

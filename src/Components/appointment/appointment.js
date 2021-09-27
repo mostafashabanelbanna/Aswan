@@ -114,7 +114,7 @@ const Appointment = (props) => {
       </div>
       {props.apointment.result.length ? (
           <div className='container'>
-            <div className="my-4 row">
+            <div className="my-5 row">
               {props.apointment.result.map((item, index) => {
                 let pName;
                 let newPath;
@@ -124,7 +124,7 @@ const Appointment = (props) => {
                 }
                 return (
                   <div  key={item.id} className="col-md-4 col-sm-6 mb-4">
-                    <Link to={`/appointmentdetails/${item.id}`} className="h-100">
+                    <Link id='link' to={`/appointmentdetails/${item.id}`} className="h-100">
                       <ListWithImage
                         imgSrc={paths.Appointment + item.id + "/" + newPath}
                         title={item.title}

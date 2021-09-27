@@ -142,7 +142,7 @@ const AgendaList = (props) => {
       return (
         <>
           <Container fluid>
-            <div className=" container underline  my-4">
+            <div className=" container underline  my-5">
               <h3>الأحداث</h3>
             </div>
             <div className=" bg-light p-3">
@@ -208,7 +208,7 @@ const AgendaList = (props) => {
                   style={{ cursor: "pointer" }}
                   className="mb-4 col-lg-4 col-sm-6 col-12 p-3"
                 >
-                  <Link
+                  <Link id='link'
                     to={`/eventdetails/${item.id}`}
                     className="h-100 text-decoration-none"
                   >

@@ -14,7 +14,7 @@ const MainSlider = () => {
     //fetch data
     const response = await axios
       .get("/TouristAttraction/GetSlider")
-      .catch((err) => console.log("Error", err)); //handle errors
+      .catch((err) => ("Error", err)); //handle errors
     if (response && response.data) {
       setMainSlider(response.data.result);
     }
@@ -39,7 +39,7 @@ const MainSlider = () => {
             }
             return (
               <Carousel.Item style={{ height: "80vh" }}>
-                <Link
+                <Link id='link'
                   to={`tourist-attraction-details/${item.id}`}
                   className="h-100"
                 >

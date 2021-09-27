@@ -12,7 +12,6 @@ const Leaders = (props) => {
   }, []);
 
   if (props.leader) {
-      console.log(props.leader)
     let pName;
     let newPath;
     if (props.leader.curr.photo != null) {
@@ -24,7 +23,7 @@ const Leaders = (props) => {
         <div className=" container underline  my-5">
           <h3>قيادات المحافظة </h3>
         </div>
-        <div className="container d-flex justify-content-center my-4">
+        <div className="container d-flex justify-content-center my-5">
           <ListWithImage
             imgSrc={paths.Governer + props.leader.curr.id + "/" + newPath}
             title={props.leader.curr.name}
@@ -33,7 +32,7 @@ const Leaders = (props) => {
           />
         </div>
         <div className="container">
-          <div className=" row d-flex justify-content-around my-4">
+          <div className=" row d-flex justify-content-around my-5">
             {props.leader.result.map((item) => {
               let pName;
               let newPath;

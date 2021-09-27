@@ -127,7 +127,7 @@ const GovernmentProjects = (props) => {
             />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2 text-secondary">مشروعات المحافظة</h3>
+              <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
             </div>
           </div>
 
@@ -168,7 +168,7 @@ const GovernmentProjects = (props) => {
                         {ReactHtmlParser(slicedBrief)}
                       </p>
                       <div className="projectsButtons d-flex flex-sm-row flex-column">
-                        <Link to={`/projectDetails/${project.id}`}>
+                        <Link id='link' to={`/projectDetails/${project.id}`}>
                           <button
                             className="myButton mx-1 mb-2 mb-sm-0"
                             // onClick={() => {
@@ -181,7 +181,7 @@ const GovernmentProjects = (props) => {
                             <span>عرض التفاصيل</span>
                           </button>
                         </Link>
-                        <Link to={`/projectslist`}>
+                        <Link id='link' to={`/projectslist`}>
                           <button
                             className="myButton mx-1 mb-2 mb-sm-0"
                             style={{ verticalAlign: "middle" }}

@@ -18,11 +18,11 @@ const Ads = (props) => {
     setShow(!show);
   };
 
-  if(props.ads){
+  if(props?.ads?.result?.length > 0){
     return (
       <div className={`ads_container ${show ? "" : "ads_container_sink"}`}>
       <div>
-        <span className="ads_toggle_btn" onClick={openAds}>
+        <span style={{cursor:'pointer'}} className="ads_toggle_btn" onClick={openAds}>
           <FontAwesomeIcon
             className={` ${show ? "" : "icon_chavron_rotate"}`}
             icon={faChevronDown}
@@ -33,7 +33,7 @@ const Ads = (props) => {
       <div className="ads_inner_content h-100">
         <div className="container h-100 pt-2">
           <div className="row h-100 ">
-            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[0].id}`}>
+            <Link id='link' className='col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[0].id}`}>
               <div
                 style={{
                   backgroundColor: "rgb(255 220 110 / 80%)",
@@ -46,7 +46,7 @@ const Ads = (props) => {
             </div>
             </Link>
 
-            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[1].id}`}>
+            <Link id='link' className='col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[1].id}`}>
               <div
                 style={{
                   backgroundColor: "#a4e1bf",
@@ -59,7 +59,7 @@ const Ads = (props) => {
             </div>
             </Link>
 
-            <Link className='text-muted col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[2].id}`}>
+            <Link id='link' className='col-sm-4 px-2' to={`/advertisment-details/${props.ads.result[2].id}`}>
               <div
                 style={{
                   backgroundColor: "rgb(34 168 155 / 50%) ",

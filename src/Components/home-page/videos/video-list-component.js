@@ -92,7 +92,7 @@ const publishToHandler = (dateChanged) =>
       return (
         <>
           <Container fluid>
-            <div className=" container underline  my-4">
+            <div className=" container underline  my-5">
               <h3>الفيديوهات</h3>
             </div>
             <div className=" bg-light p-3">
@@ -110,13 +110,13 @@ const publishToHandler = (dateChanged) =>
             />
             </div>
           </Container>
-          <div className="col-10 mx-auto my-4 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+          <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.videosList.result.map((item, index) => {
             let date = item.publishDate.replace(/\//g,'-').split('-');
             let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
               return (
                 <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
-                    <Link to={`/videodetails/${item.id}`} className="h-100 text-decoration-none">
+                    <Link id='link' to={`/videodetails/${item.id}`} className="h-100 text-decoration-none">
                         <ListWithImage
                             imgSrc={
                                 "https://img.youtube.com/vi/" +

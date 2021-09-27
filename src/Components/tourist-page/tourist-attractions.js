@@ -11,7 +11,7 @@ const TouristAttraction = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    swipeToSlide:true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -33,7 +33,7 @@ const TouristAttraction = () => {
       {
         breakpoint: 480,
         settings: {
-          arrows:false,
+          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -42,103 +42,134 @@ const TouristAttraction = () => {
   };
 
   return (
-    <div className="container">
-      <div className="d-flex my-4">
+    <div className="container my-5">
+      <div className="d-flex my-5">
         <div className="mx-3">
-          <img height="50" width="60" src="/images/icons/Tourist-0٢.png" />
+          <img
+            height="50"
+            width="60"
+            src="/images/tourist-photos/خدمات سياحية-01.png"
+          />
         </div>
         <div className="d-flex align-items-center underline">
           <h3 className="mb-5">خدمات سياحية</h3>{" "}
         </div>
       </div>
-
       <Slider {...settings}>
-        <Link
+        <Link id='link'
           to={`/services/8`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100 p-3 col-sm-6 col-lg-2 col-12 hvr-sweep-to-bottom "
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img className="w-50" src="/images/tourist-photos/مطاعم-01.png" />
+            </div>
+            <div className="mt-2 fw-bold text-center">مطاعم</div>
           </div>
-          <div className="mt-2 fw-bold text-center">مطاعم</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/26`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100 p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img className="w-50" src="/images/tourist-photos/بازات-01.png" />
+            </div>
+            <div className="mt-2 fw-bold text-center">بازارات وأسواق</div>
           </div>
-          <div className="mt-2 fw-bold text-center">بازارات وأسواق</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/40`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100 p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img
+                className="w-50"
+                src="/images/tourist-photos/انتقال سياحي-01.png"
+              />
+            </div>
+            <div className="mt-2 fw-bold text-center">إنتقال سياحي</div>
           </div>
-          <div className="mt-2 fw-bold text-center">إنتقال سياحي</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/9`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img className="w-50" src="/images/tourist-photos/بنوك-01.png" />
+            </div>
+            <div className="mt-2 fw-bold text-center">بنوك</div>
           </div>
-          <div className="mt-2 fw-bold text-center">بنوك</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/72`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img
+                className="w-50"
+                src="/images/tourist-photos/الحنطور-01.png"
+              />
+            </div>
+            <div className="mt-2 fw-bold text-center">الحنطور</div>
           </div>
-          <div className="mt-2 fw-bold text-center">الحنطور</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/1`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img className="w-50" src="/images/tourist-photos/فنادق-01.png" />
+            </div>
+            <div className="mt-2 fw-bold text-center">فنادق</div>
           </div>
-          <div className="mt-2 fw-bold text-center">فنادق</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/16`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img
+                className="w-50"
+                src="/images/tourist-photos/شركات سياحة-01.png"
+              />
+            </div>
+            <div className="mt-2 fw-bold text-center">شركات سياحية</div>
           </div>
-          <div className="mt-2 fw-bold text-center">شركات سياحية</div>
         </Link>
 
-        <Link
+        <Link id='link'
           to={`/services/39`}
-          className=" p-3 col-sm-6 col-lg-2 col-12 text-muted"
+          className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
         >
-          <div className="d-flex justify-content-center">
-            {" "}
-            <img className="w-75" src="/images/icons/Tourist-0٢.png" />
+          <div style={{ height: "160px" }}>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <img
+                className="w-50"
+                src="/images/tourist-photos/شركات طيران-01.png"
+              />
+            </div>
+            <div className="mt-2 fw-bold text-center">شركات طيران</div>
           </div>
-          <div className="mt-2 fw-bold text-center">شركات طيران</div>
         </Link>
       </Slider>
     </div>

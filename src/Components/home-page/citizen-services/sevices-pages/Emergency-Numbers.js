@@ -106,7 +106,7 @@ const EmergencyNumbers = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline my-4">
+          <div className=" container underline my-5">
             <h3>أرقام الطوارئ</h3>
           </div>
           <div className=" bg-light p-3">
@@ -114,22 +114,22 @@ const EmergencyNumbers = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne='الاسم'
-            classNameTextFieldOne='col-sm-6 col-12'
+            classNameTextFieldOne='col-md-3 col-sm-6 col-12'
             dropdownThreeVal={cityName.find(e => e.value == cityId)}
             dropdownThreeHandler={cityIdHandler}
             dropdownThreePlaceholder='المدينة'
             dropdownThreeName={cityName}
-            classNameDropdownThree='col-sm-6 col-12'
+            classNameDropdownThree='col-md-3 col-sm-6 col-12'
             dropdownTwoVal={dirCatVal.find(e => e.value == directoryCategoryId)}
             dropdownTwoHandler={directoryCategoryHandler}
             dropdownTwoPlaceholder='كل التصنيفات'
             dropdownTwoName={dirCatVal}
-            classNameDropdownTwo='col-sm-6 col-12'
+            classNameDropdownTwo='col-md-3 col-sm-6 col-12'
             dropdownOneVal={dirTypeVal.find(e => e.value == directoryTypeId)}
             dropdownOneHandler={directoryTypeHandler}
             dropdownOnePlaceholder='كل الأنواع'
             dropdownOneName={dirTypeVal}
-            classNameDropdownOne='col-sm-6 col-12'
+            classNameDropdownOne='col-md-3 col-sm-6 col-12'
             />
           </div>
         </Container>
@@ -137,19 +137,19 @@ const EmergencyNumbers = (props) => {
           {props.services.result.map((item, index) => {
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-end d-flex my-3 text-muted">
+                <div className="justify-content-end d-flex my-3 ">
                   <span className="py-1 px-2 fa-1x"  style={{backgroundColor:'rgb(255 220 110 / 30%)', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.directoryTypeName}-{item.directoryCategoryName}</span>
                 </div>
 
-                <div className="justify-content-center d-flex my-2 text-muted">
+                <div className="justify-content-center d-flex my-2 ">
                   <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -163,7 +163,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -177,7 +177,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -191,7 +191,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -205,7 +205,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                 </div>
 
-                {item.manger?<div className="d-flex my-3 text-muted">
+                {item.manger?<div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -220,7 +220,7 @@ const EmergencyNumbers = (props) => {
                 </div>:null
                 }
 
-                {item.mapUrl?<div className="d-flex my-3 text-muted">
+                {item.mapUrl?<div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -230,7 +230,7 @@ const EmergencyNumbers = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a className='text-muted text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
+                    <a className=' text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
                       الرابط
                     </a>
                   </div>

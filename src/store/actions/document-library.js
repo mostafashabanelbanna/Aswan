@@ -3,7 +3,7 @@ import axios from "../../Axios/Axios_Config";
 export async function DocumentLibraryList(
   pageNumber,
   keywords = {},
-  pageSize = 2
+  pageSize = 9
 ) {
   let payload = null;
   try {
@@ -16,7 +16,7 @@ export async function DocumentLibraryList(
       keywords
     );
     let res = countResponse.data.result;
-    payload = { ...response.data, count: res };
+    payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
   }
   return {

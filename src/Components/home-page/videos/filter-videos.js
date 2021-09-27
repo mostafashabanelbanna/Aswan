@@ -41,7 +41,7 @@ const FilterVideos = (props) => {
                 }
                 return (
                 <div className='mb-4 col-lg-4 col-sm-6 col-12'>
-                <Link to={`/photodetails/${item.id}`} className="h-100">
+                <Link id='link' to={`/photodetails/${item.id}`} className="h-100">
                 <ListWithImage
                             imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}
                             title={item.title}

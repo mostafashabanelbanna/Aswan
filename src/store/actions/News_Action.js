@@ -170,7 +170,6 @@ export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {
-    console.log(e);
   }
   return {
     type: "NEWS_LIST",

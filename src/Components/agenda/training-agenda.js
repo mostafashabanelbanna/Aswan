@@ -46,17 +46,22 @@ const TrainingAgenda = (props) => {
 
   if (agendaProps) {
     return (
-      <div className="pt-5 bg-light mt-5">
+      <div className="pt-5 bg-light">
         <div className="container">
           <div className="d-flex my-2">
-            <img
-              src="./images/icons/calender_titel-0١.png"
+            {props.photo?<img
+              src={props.photo}
               alt=""
-              width="80px"
-            />
+              width="60px"
+            />:
+            <img
+              src="/images/icons/calender_titel-0١.png"
+              alt=""
+              width="60px"
+            />}
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2  text-secondary">{props.title} </h3>
+              <h3 className="mt-4 me-2  text-dark">{props.title} </h3>
             </div>
           </div>
         </div>
@@ -75,11 +80,11 @@ const TrainingAgenda = (props) => {
               }}
               eventBackgroundColor={"#fbbf3c"}
               eventTextColor={"black"}
-              eventBorderColor={false}
-              headerToolbar={{ start: "", center: "title", end: "" }}
+              eventBorderColor={true}
+              headerToolbar={{start: "", center: "title"}}
               editable={false}
               locale="ar"
-              height={"841px"}
+              height={"600px"}
             />
           </div>
           <div className="col-xl-6 col-12 px-3">
@@ -113,9 +118,8 @@ const TrainingAgenda = (props) => {
                         new Date(item.endDateTime)
                       ).format("LL")}`}</div>
                       <div className="align-items-center d-flex">
-                        <Link
+                        <Link id='link'
                           to={`/eventdetails/${item.id}`}
-                          className="text-muted"
                         >
                           <button
                             className="myButton mx-1 mb-2 mb-sm-0"
@@ -142,7 +146,7 @@ const TrainingAgenda = (props) => {
           </div>
         </div>
         <div className='container d-flex justify-content-end'>
-          <Link to="/eventslist" className="text-muted">
+          <Link id='link' to="/eventlist">
             <button
               className="myButton mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}

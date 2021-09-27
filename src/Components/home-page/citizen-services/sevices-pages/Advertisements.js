@@ -105,7 +105,7 @@ const Advertisements = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-4">
+          <div className=" container underline  my-5">
             <h3>إعلانات ومناقصات</h3>
           </div>
           <div className=" bg-light p-3">
@@ -140,11 +140,11 @@ const Advertisements = (props) => {
             
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                {item.advertismentTypeName?<div className="justify-content-end d-flex my-3 text-muted">
+                {item.advertismentTypeName?<div className="justify-content-end d-flex my-3">
                     <span
                       className="py-1 px-2 fa-1x"
                       style={{
@@ -157,11 +157,11 @@ const Advertisements = (props) => {
                     </span>
                   </div>:null}
 
-                <div className="justify-content-start d-flex my-2 text-muted">
+                <div className="justify-content-start d-flex my-2">
                   <span className="py-1 px-2 fa-1x">{slicedDescription}</span>
                 </div>
 
-                {item.publishDate?<div className="d-flex my-3 text-muted">
+                {item.publishDate?<div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -186,7 +186,7 @@ const Advertisements = (props) => {
         currentPage={currentPage}
         pageCount={pageCount}
         handlePageClick={handlePageClick}
-      />:<div className="text-center mt-5">لا يوجد نتائج</div>
+      />:<div className="text-center my-5">لا يوجد نتائج</div>
     }
       </>
     );}

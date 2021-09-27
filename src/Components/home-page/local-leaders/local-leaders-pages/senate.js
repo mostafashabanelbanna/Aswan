@@ -22,7 +22,6 @@ const Senate = (props) => {
         <div className="container mt-5">
           <div className="row ">
             {props.allSenate.result.map((item) => {
-              console.log(item)
               let pName;
               let newPath;
               if(item.photo != null){

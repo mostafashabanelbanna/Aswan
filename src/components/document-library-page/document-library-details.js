@@ -33,7 +33,7 @@ const DocumentLibraryDetails = (props) => {
           <h3>{props.documentLibraryDetail.result.title}</h3>
         </div>
         <div className="container d-flex justify-content-between mt-4">
-          <div className="col-7   text-muted align-items-end  fa-1x  ">
+          <div className="col-7 align-items-end fa-1x">
             <div className="d-flex ">
               <div className="mx-3">
                 <FontAwesomeIcon icon={faLink} size={26}></FontAwesomeIcon>
@@ -63,9 +63,9 @@ const DocumentLibraryDetails = (props) => {
               </div>
             </div>
           </div>
-          <Link
+          <Link id='link'
             to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
-            className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
+            className=" d-flex justify-content-center align-items-center text-center fa-1x detailsSectorName"
           >
             {ReactHtmlParser(
               props.documentLibraryDetail.result.documentTypeName

@@ -28,22 +28,20 @@ const NewsDetails = (props) => {
   if (props.newsdetail) {
     let sectorName = props.newsdetail.result.sectorName;
     let sectorid = props.newsdetail.result.sectorId;
-    let newsCategoryId = props.newsdetail.result.newsCategoryId;
-    let date = props.newsdetail.result.publishDate.split("-");
-    let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
     return (
       <div>
         <div className="underline container mt-5">
           <h3>{props.newsdetail.result.title}</h3>
         </div>
         <div className="container d-flex justify-content-between mt-4">
-          <div className="col-7 text-muted align-items-end fa-1x">
-            <div className="d-flex my-1">
+          <div className="col-7  align-items-end fa-1x">
+            {props.newsdetail.result.author?<div className="d-flex my-1">
               <div className="mx-3">
                 <FontAwesomeIcon icon={faUserTie} size={26}></FontAwesomeIcon>
               </div>
               <div> {props.newsdetail.result.author}</div>
-            </div>
+            </div>:null}
+            {props.newsdetail.result.publishDate?
             <div className="d-flex my-1">
               <div className="mx-3">
                 {" "}
@@ -52,12 +50,12 @@ const NewsDetails = (props) => {
                   size={26}
                 ></FontAwesomeIcon>{" "}
               </div>
-              <div>{`${moment(new Date(publishedDate)).format("LL")}`}</div>
-            </div>
+              <div>{`${moment(new Date(props.newsdetail.result.publishDate)).format("LL")}`}</div>
+            </div>:null}
           </div>
-          <Link
+          <Link id='link'
             to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
-            className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
+            className=" d-flex justify-content-center align-items-center text-center    fa-1x   detailsSectorName"
           >
             {ReactHtmlParser(props.newsdetail.result.sectorName)}
           </Link>
@@ -77,7 +75,7 @@ const NewsDetails = (props) => {
                 } alt="President Photo"/>
               </p>
               <div
-                className="text-muted text-justify ps-lg-3 ps-0"
+                className=" text-justify ps-lg-3 ps-0"
                 style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
               >
                 {ReactHtmlParser(props.newsdetail.result.content)}
@@ -85,9 +83,9 @@ const NewsDetails = (props) => {
             </div>
           </div>
         </div>
-        <Link
+        <Link id='link'
           to={"/newslist"}
-          className="justify-content-center text-decoration-none align-items-center d-flex my-4"
+          className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button
             className="myButton"
@@ -101,6 +99,7 @@ const NewsDetails = (props) => {
     return <DetailsSkeleton />;
   }
 };
+
 const mapStateToProps = (state) => {
   return {
     newsdetail: state.homeComponents.newsdetails,

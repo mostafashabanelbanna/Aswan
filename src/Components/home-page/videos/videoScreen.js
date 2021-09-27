@@ -79,7 +79,7 @@ const Video = (props) => {
               <img src="/images/icons/video_titel-0٢.png" width="80px" />
               <div className="underline">
                 {" "}
-                <h3 className="mt-4 me-2 text-secondary"> مكتبة الفيديو </h3>
+                <h3 className="mt-4 me-2 text-dark"> مكتبة الفيديو </h3>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ const Video = (props) => {
               <Slider {...settings}>
                 {videos.result.map((item, index) => {
                   return (
-                    <Link to={`videodetails/${item.id}`} className='text-muted'>
+                    <Link id='link' to={`videodetails/${item.id}`} className=''>
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
                       <div className='holder'>
                       <img
@@ -130,7 +130,7 @@ const Video = (props) => {
             <div className="d-flex flex-wrap me-3 ms-3">
                 {videos.result.map((item, index) => {
                   return (
-                    <Link to={`videodetails/${item.id}`} className='text-muted col-lg-4 col-sm-6 col-12'>
+                    <Link id='link' to={`videodetails/${item.id}`} className=' col-lg-4 col-sm-6 col-12'>
                     <div key={item.id} className="mt-4 text-center p-4 hoverTitle">
                       <div className='holder'>
                       <img

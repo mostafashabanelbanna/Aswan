@@ -5,6 +5,10 @@ export function homeComponents(state = {}, action) {
       return { ...state, citiesList: action.payload };
     case "CLEAR_CITIES":
       return { ...state, citiesList: action.payload };
+    case "CITY_DETAILS":
+      return { ...state, cityDetails: action.payload };
+    case "CLEAR_CITY_DETAILS":
+      return { ...state, cityDetails: action.payload };
 
     //government projects reducers
     case "PROJECTS_SLIDER":

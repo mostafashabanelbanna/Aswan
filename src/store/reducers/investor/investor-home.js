@@ -21,6 +21,35 @@ export function investorHome(state = {}, action) {
 
     case "CLEAR_MAP_SLIDER":
       return { ...state, sliderMap: action.payload };
+
+    //investment Opportunities
+    case "FOCUSED_OPPORTUNITIES":
+      return { ...state, focusedOpportunities: action.payload };
+    
+    case "INVESTOR_OPPORTUNITIES_LIST":
+      return { ...state, investorOpportunitiesList: action.payload };
+
+    case "CLEAR_INVESTOR_OPPORTUNITIES_LIST":
+      return { ...state, investorOpportunitiesList: action.payload };
+
+    case "Investment_Payment_System":
+      return { ...state, investorPaymentSystem: action.payload };
+
+    case "Investment_Specialty_Type":
+      return { ...state, investorSpecialtyType: action.payload };
+
+    case "Activity":
+      return { ...state, activity: action.payload };
+
+    case "Industrial_Zone":
+      return { ...state, industrialZone: action.payload };
+
+    case "INVESTMENT_OPPORTUNITIES_DETAILS":
+      return { ...state, investmentOpportunitiesDetails: action.payload };
+
+    case "CLEAR_INVESTMENT_OPPORTUNITIES_DETAILS":
+      return { ...state, investmentOpportunitiesDetails: action.payload };
+
     default:
       return state;
   }

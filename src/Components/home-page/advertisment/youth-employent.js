@@ -69,7 +69,7 @@ const YouthEmp = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-4">
+          <div className=" container underline  my-5">
             <h3>توظيف الشباب</h3>
           </div>
           <div className=" bg-light p-3">
@@ -83,18 +83,19 @@ const YouthEmp = (props) => {
         </Container>
         {props.youthemp.result.length ? (
           <Container>
-            <Row className="my-4">
+            <Row className="my-5">
               {props.youthemp.result.map((item, index) => {
-                                let pName;
-                                let newPath;
-                                if(item.photo != null){
-                                pName = item.photo;
-                                newPath  = pName.replaceAll(' ','%20')
-                                }
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link
-                      to={`/advertisment-details/${item.id}`}
+                    <Link id='link'
+                      //to={`/advertisment-details/${item.id}`}
+                      style={{cursor:'unset'}}
                       className="h-100"
                     >
                       <ListWithImage

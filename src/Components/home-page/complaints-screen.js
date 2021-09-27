@@ -23,7 +23,7 @@ const Complaints = (props) => {
             <div className="my-3 d-flex">
               <img src="/images/icons/complaints_titel-0٢.png" width="80px" />
               <div className="underline">
-                <h3 className="mt-4 me-2 text-secondary"> الشكاوى </h3>
+                <h3 className="mt-4 me-2 text-dark"> الشكاوى </h3>
               </div>
             </div>
           </div>

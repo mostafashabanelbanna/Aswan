@@ -112,7 +112,7 @@ const ProjectDetails = (props) => {
             <h3>{ReactHtmlParser(details.name)}</h3>
           </div>
           <div className="d-flex justify-content-end">
-            <div className="text-muted text-start fa-1x p-3 mb-1 detailsSectorName">
+            <div className=" text-start fa-1x p-3 mb-1 detailsSectorName">
               <h6 className="mb-0 text-center">
                 {ReactHtmlParser(details.sectorName)}
               </h6>
@@ -134,7 +134,7 @@ const ProjectDetails = (props) => {
               </div>
             )}
           </div>
-          <hr className="text-muted m-0" />
+          <hr className=" m-0" />
         </div>
         <div class="container mb-3">
           <div class="row">
@@ -143,7 +143,7 @@ const ProjectDetails = (props) => {
                 <img class="img-fluid detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3" src={`${paths.ProjectPhoto}${details.id}/${details.photo}`} alt="President Photo"/>
               </p>
               <div
-                className="text-muted text-justify ps-lg-3 ps-0"
+                className=" text-justify ps-lg-3 ps-0"
                 style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
               >
                 {ReactHtmlParser(details.description)}

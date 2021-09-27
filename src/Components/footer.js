@@ -51,11 +51,11 @@ const Footer = () => {
                 </div>
 
                 <div className="lh-lg d-flex flex-column">
-                  <Link to='/exconservatives' className='text-white'>المحافظون السابقون</Link>
-                  <Link to='/leaders' className='text-white'>قيادات المحافظة</Link>
+                  <Link id='link' to='/exconservatives' className='text-white'>المحافظون السابقون</Link>
+                  <Link id='link' to='/leaders' className='text-white'>قيادات المحافظة</Link>
                   <a>الديوان العام</a>
-                  <Link to='/projectslist' className='text-white'>مشروعات المحافظة</Link>
-                  <Link to='/appointment' className='text-white'>لقاءات و قرارات السيد المحافظ</Link>
+                  <Link id='link' to='/projectslist' className='text-white'>مشروعات المحافظة</Link>
+                  <Link id='link' to='/appointment' className='text-white'>لقاءات و قرارات السيد المحافظ</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -65,10 +65,10 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="lh-lg d-flex flex-column">
-                  <Link to='/newslist' className='text-white'>الاخبار</Link>
-                  <Link to='/photoslist' className='text-white'>ألبوم الصور</Link>
-                  <Link to='/videoslist' className='text-white'>مكتبة الفيديو</Link>
-                  <Link to='/eventlist' className='text-white'>الاحداث</Link>
+                  <Link id='link' to='/newslist' className='text-white'>الاخبار</Link>
+                  <Link id='link' to='/photoslist' className='text-white'>ألبوم الصور</Link>
+                  <Link id='link' to='/videoslist' className='text-white'>مكتبة الفيديو</Link>
+                  <Link id='link' to='/eventlist' className='text-white'>الاحداث</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -78,9 +78,9 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className=" lh-lg d-flex flex-column">
-                  <Link to='/eservices' className='text-white'>ادلة المحافظة</Link>
-                  <Link to='/directorates' className='text-white'>المديريات</Link>
-                  <Link to='/ads/0' className='text-white'>إعلانات و مناقصات</Link>
+                  <Link id='link' to='/eservices' className='text-white'>ادلة المحافظة</Link>
+                  <Link id='link' to='/directorates' className='text-white'>المديريات</Link>
+                  <Link id='link' to='/ads/0' className='text-white'>إعلانات و مناقصات</Link>
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
@@ -90,8 +90,8 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="lh-lg d-flex flex-column">
-                  <Link to='/parliament' className='text-white'>مجلس النواب</Link>
-                  <Link to='/senate' className='text-white'>مجلس الشيوخ</Link>
+                  <Link id='link' to='/parliament' className='text-white'>مجلس النواب</Link>
+                  <Link id='link' to='/senate' className='text-white'>مجلس الشيوخ</Link>
                 </div>
               </div>
             </div>

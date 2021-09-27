@@ -147,10 +147,8 @@ const NewsList = (props) => {
         </Container>
         {props.newslist.result.length ? (
           <Container>
-            <Row className="my-4">
+            <Row className="my-5">
               {props.newslist.result.map((item, index) => {
-                let date = item.publishDate.replace(/\//g,'-').split('-');
-                let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
                 let pName;
                 let newPath;
                 if(item.photo != null){
@@ -159,11 +157,11 @@ const NewsList = (props) => {
                 }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link to={`/newsdetails/${item.id}`} className="h-100">
+                    <Link id='link' to={`/newsdetails/${item.id}`} className="h-100">
                       <ListWithImage
                         imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}
-                        date={`${moment(new Date(publishedDate)).format("LL")}`}
+                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
                         hoverTitle='hoverTitle'

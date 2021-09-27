@@ -8,7 +8,7 @@ const OnePieaceSkeleton = () => {
     return (
         <>
         <Container>
-            <Skeleton className="my-4" width="100%" height={400}/> 
+            <Skeleton className="my-5" width="100%" height={400}/> 
         </Container>
         </>
     );

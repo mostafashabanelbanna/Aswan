@@ -56,15 +56,14 @@ const TourStart = (props) => {
   };
 
   if (props.slider) {
-    console.log(props.slider)
     return (
       <div className="">
-        <div className="text-center d-flex justify-content-center my-4">
+        <div className="text-center d-flex justify-content-center my-5">
           <div className="mx-3">
-            <img src="/images/icons/Tourist-0٢.png" />
+            <img src="/images/tourist-photos/رحلتك-01.png" />
           </div>
-          <div className="d-flex align-items-center underline">
-            <h2 className='mb-5'>رحلتك تبدء من هنا</h2>{" "}
+          <div className="d-flex flex-column-reverse underline">
+            <h2>رحلتك تبدء من هنا</h2>{" "}
           </div>
         </div>
         {props.slider.result.length > 3 ? (
@@ -73,9 +72,9 @@ const TourStart = (props) => {
               <Slider {...settings}>
                 {props.slider.result.map((item, index) => {
                   return (
-                    <Link
+                    <Link id='link'
                       to={`/tourist-attraction-details/${item.id}`}
-                      className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                      className="col-sm-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">
                         <div
@@ -106,9 +105,9 @@ const TourStart = (props) => {
             <div className="container p-0 d-flex flex-lg-row flex-column">
                 {props.slider.result.map((item, index) => {
                   return (
-                    <Link
+                    <Link id='link'
                     to={`/tourist-attraction-details/${item.id}`}
-                      className="col-lg-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                      className="col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">
                         <div

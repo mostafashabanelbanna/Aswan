@@ -47,7 +47,7 @@ const InvestorMap = (props) => {
         settings: {
           centerMode: true,
           centerPadding: "40px",
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -59,7 +59,7 @@ const InvestorMap = (props) => {
           centerMode: true,
           centerPadding: "40px",
           arrows: false,
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -85,32 +85,32 @@ const InvestorMap = (props) => {
   };
 
   if (props.sliderMap) {
-    console.log(props.sliderMap);
 
     return (
-      <div className="container">
+      <div className="bg-light">
+        <div className='container'>
         {renderModal(content)}
-        <div className="d-flex my-4">
+        <div className="d-flex py-5">
           <div className="mx-3">
-            <img height="50" width="60" src="/images/icons/Tourist-0٢.png" />
+            <img height="50" width="60" src="/images/investor-photos/خريطة استثمارية-01.png" />
           </div>
           <div className="d-flex align-items-center underline">
-            <h3 className='mb-5'>الخريطة الإستثمارية</h3>{" "}
+            <h3 className="mb-5">الخريطة الإستثمارية</h3>{" "}
           </div>
         </div>
         <Slider {...settings}>
           {props.sliderMap.result.map((item, index) => {
-                            let pName;
-                            let newPath;
-                            if(item.photo != null){
-                            pName = item.photo;
-                            newPath  = pName.replaceAll(' ','%20')
-                            }
+            let pName;
+            let newPath;
+            if (item.photo != null) {
+              pName = item.photo;
+              newPath = pName.replaceAll(" ", "%20");
+            }
             let title = item.title;
             let imgPath = `url(${paths.DocumentLibraryPhotos}${item.id}/${newPath})`;
             return (
               <div
-                className="mx-auto p-3 width-48"
+                className="mx-auto p-3"
                 key={item.id}
                 onClick={() => {
                   onShow();
@@ -121,8 +121,8 @@ const InvestorMap = (props) => {
                   <div
                     style={{
                       backgroundImage: imgPath,
-                      backgroundSize:'contain',
-                      backgroundRepeat:'no-repeat'
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
                     }}
                     className="imageAlbum"
                   ></div>
@@ -132,6 +132,8 @@ const InvestorMap = (props) => {
             );
           })}
         </Slider>
+        </div>
+        <div className="line mt-5"></div>
       </div>
     );
   } else {

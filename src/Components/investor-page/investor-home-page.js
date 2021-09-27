@@ -1,13 +1,12 @@
 import React from 'react'
 import '../../Styles/tourist-home.css'
 import Contact from '../home-page/contact_us';
-import PhotosAlbum from '../home-page/photo-album/photos-album-component';
 import TrainingAgenda from '../agenda/training-agenda';
-import Video from '../home-page/videos/videoScreen';
 import InvestorStart from './investor-start';
 import InvestorMap from './investor-map';
 import InvestmentOpportunities from './investment-opportunities';
 import InvestorAlbum from './static-investor-album';
+import InvestorGuide from './investment-guide';
 const InvestorHome = () => {
     
     return (
@@ -16,12 +15,13 @@ const InvestorHome = () => {
                 <div className='col-1'>
                     <img className='w-75' src='/images/icons/Investor-0١.png' />
                 </div>
-                <div className='d-flex text-muted align-items-center text-decoration-underline'>المستثمر</div>
+                <div style={{fontSize:'22px'}} className='d-flex  align-items-center text-decoration-underline'>المستثمر</div>
             </div>
             <InvestorStart/>
-            <TrainingAgenda title={'إطروحات إستثمارية'} pagePath={'investor'}/>
+            <TrainingAgenda title={'إطروحات إستثمارية'} pagePath={'investor'} photo={'/images/investor-photos/اطروحات-01.png'}/>
             <InvestmentOpportunities/>
             <InvestorMap/>
+            <InvestorGuide/>
             <InvestorAlbum/>
             <Contact />
         </div>

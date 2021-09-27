@@ -86,7 +86,7 @@ const ProjectsList = (props) => {
       return (
         <>
           <Container fluid>
-            <div className=" container underline  my-4">
+            <div className=" container underline  my-5">
               <h3>مشروعات المحافظة</h3>
             </div>
             <div className=" bg-light p-3">
@@ -103,7 +103,7 @@ const ProjectsList = (props) => {
               />
             </div>
           </Container>
-          <div className="col-10 mx-auto my-4 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+          <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.projectsList.result.map((item, index) => {
                               let pName;
                               let newPath;
@@ -113,7 +113,7 @@ const ProjectsList = (props) => {
                               }
               return (
                 <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
-                    <Link to={`projectDetails/${item.id}`} className="h-100 text-decoration-none">
+                    <Link id='link' to={`projectDetails/${item.id}`} className="h-100 text-decoration-none">
                         <ListWithImage
                             imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}
                             title={item.name}

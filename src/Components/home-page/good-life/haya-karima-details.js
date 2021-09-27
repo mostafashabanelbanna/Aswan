@@ -28,7 +28,7 @@ const HayaKarimaDetails = (props) => {
           }
         return (<>
             <div className="underline container mt-5"><h3>{props.hayadata.result.name}</h3></div>
-            <div className=" container mt-4 text-muted"><h6>{ReactHtmlParser(props.hayadata.result.description)}</h6></div>
+            <div className=" container mt-4 "><h6>{ReactHtmlParser(props.hayadata.result.description)}</h6></div>
             <div className=' container d-flex flex-wrap flex-sm-nowrap'>
                 <div className='col-lg-4 col-sm-6 col-12 px-4 d-flex align-items-center'>
                     <table class="table table-striped table-bordered">

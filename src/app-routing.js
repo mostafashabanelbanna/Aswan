@@ -16,7 +16,7 @@ import Advertisements from "./components/home-page/citizen-services/sevices-page
 import HayaKarimaDetails from "./components/home-page/good-life/haya-karima-details";
 import ExConservatives from "./components/Governer/ex-conservatives";
 import TechnologyCenterServices from "./components/home-page/citizen-services/sevices-pages/Technology-Center-Services";
-import CitiesNavbar from "./components/cities-navbar";
+import CitiesNavbar from "./components/government-cities/cities-navbar";
 import Leaders from "./components/Governer/leaders";
 import DocumentLibrary from "./components/document-library-page/document-library";
 import Appointment from "./components/appointment/appointment";
@@ -42,6 +42,9 @@ import ServicesComponent from "./components/services-component";
 import AppointmentDetails from "./components/appointment/appointment-details";
 import AgendaList from './components/agenda/list-agenda'
 import AgendaDetails from './components/agenda/agenda-details'
+import investmentOpportunitiesList from "./components/investor-page/investment-opportunities/investment-opportunities-list";
+import StaticContentHome from "./components/static-content/static-content-home";
+import CityDetails from "./components/government-cities/city-details";
 
 const AppRouting = () => {
   return (
@@ -74,12 +77,14 @@ const AppRouting = () => {
         <Route exact path="/photodetails/:id" component={PhotoDetails} />
         <Route exact path="/tourist" component={TouristHome} />
         <Route exact path="/investor" component={InvestorHome} />
+        <Route exact path="/statichome/:id/:title" component={StaticContentHome} />
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/filterphotos/:info" component={FilterPhotos} />
         <Route exact path="/filtervideos/:info" component={FilterVideos} />
         <Route exact path="/exconservatives" component={ExConservatives} />
         <Route exact path="/cities" component={CitiesNavbar} />
+        <Route exact path='/citydetails/:id' component={CityDetails}/>
         <Route exact path="/tribe" component={Tribe} />
         <Route exact path="/parliament" component={Parliament} />
         <Route exact path="/senate" component={Senate} />
@@ -118,6 +123,8 @@ const AppRouting = () => {
         <Route exact path='/eventlist' component={AgendaList}/>
         <Route exact path='/eventdetails/:id' component={AgendaDetails}/>
         <Route exact path='/filterevents/:info' component={AgendaList}/>
+        <Route exact path='/opportunitiesdetails/:id' component={AgendaList}/>
+        <Route exact path='/opportunitieslist' component={investmentOpportunitiesList}/>
         <Route path="*" component={Error} />
       </Switch>
       <Ads/>

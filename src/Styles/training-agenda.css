@@ -1,12 +1,13 @@
-.fc-theme-standard .fc-scrollgrid,
+/* .fc-theme-standard .fc-scrollgrid,
 .fc td, .fc th {
     border: 3px solid white !important;
-}
+} */
 
 .fc-col-header-cell .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion{
     color: #c2c2c2;
 }
 
+/* 
 .fc-scrollgrid  thead tr td .fc-scroller-harness{
     margin-bottom: 1.5rem;
 }
@@ -28,11 +29,7 @@
     height: 65px;
 }
 
-.fc-day-today .fc-daygrid-day-top{
-    background-color: rgba(233, 203, 126, 0.5);
-    width: 65px;
-    height: 65px;
-}
+
 
 .fc-toolbar-title{
     color: #d8b65e;
@@ -57,8 +54,30 @@
 .fc .fc-daygrid-day.fc-day-today{
     background-color: transparent !important;
 }
-
-.fc-scrollgrid-sync-table {
-    height: 500px !important;
+*/
+.fc-daygrid-day.fc-day.fc-day-sun.fc-day-past
+.fc .fc-daygrid-day.fc-day-today, .fc .fc-daygrid-day.fc-day-future{
+    height: 5rem !important;
 }
 
+
+.fc .fc-daygrid-day-number {
+    color: grey;
+    text-decoration: none;
+  }
+  
+  .fc-col-header-cell-cushion {
+    text-decoration: none;
+  }
+
+  .fc .fc-today-button{
+      display: none;
+  }
+
+  .fc .fc-button-primary{
+      background-color: orange !important;
+  }
+
+  .fc .fc-button-primary:hover, .fc .fc-button-primary:active:before{
+    background-color: #faa74a !important;
+}

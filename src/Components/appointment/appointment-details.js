@@ -25,7 +25,6 @@ const AppointmentDetails = (props) => {
   }, []);
 
   if (props.appointmentDetails) {
-      console.log(props.appointmentDetails)
     let appointmentTypeName = props.appointmentDetails.result.appointmentTypeName;
     let appointmentTypeId = props.appointmentDetails.result.appointmentTypeId;
     return (
@@ -34,7 +33,7 @@ const AppointmentDetails = (props) => {
           <h3>{props.appointmentDetails.result.title}</h3>
         </div>
         <div className="container d-flex justify-content-between mt-4">
-          <div className="col-7 text-muted align-items-end fa-1x">
+          <div className="col-7 align-items-end fa-1x">
             <div className="d-flex my-1">
               <div className="mx-3">
                 <FontAwesomeIcon icon={faUserTie} size={26}></FontAwesomeIcon>
@@ -52,9 +51,9 @@ const AppointmentDetails = (props) => {
               <div>{`${moment(new Date(props.appointmentDetails.result.appointmentDate)).format("LL")}`}</div>
             </div>
           </div>
-          <Link
+          <Link id='link'
             to={`/filterappointments/${appointmentTypeId + "&&" + appointmentTypeName + "&&" + "appointment"}`}
-            className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
+            className=" d-flex justify-content-center align-items-center text-center fa-1x detailsSectorName"
           >
             {ReactHtmlParser(appointmentTypeName)}
           </Link>
@@ -80,9 +79,9 @@ const AppointmentDetails = (props) => {
             </div>
           </div>
         </div>
-        <Link
+        <Link id='link'
           to={"/appointment"}
-          className="justify-content-center text-decoration-none align-items-center d-flex my-4"
+          className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button
             className="myButton"

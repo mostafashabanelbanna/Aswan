@@ -3,7 +3,6 @@ import axios from "../../Axios/Axios_Config";
 export async function getEventsList(pageNumber, keywords = {}, pageSize = 9) {
     let payload = null;
     try {
-      console.log(payload)
 
       let response = await axios.post(
         "/EventAPI/Search/" + pageNumber + "/" + pageSize,
@@ -12,7 +11,6 @@ export async function getEventsList(pageNumber, keywords = {}, pageSize = 9) {
       let countResponse = await axios.post("/EventAPI/GetResultCount", keywords);
       let res = countResponse.data.result;
       payload = { ...response.data, count: res, page: pageNumber };
-      console.log(payload)
     } catch (e) {
     }
     return {

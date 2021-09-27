@@ -8,7 +8,7 @@ import { advertismentComponents } from "./advertisment";
 import { touristHome } from "./tourist/tourist-home";
 import { investorHome } from "./investor/investor-home";
 import { eventsComponents } from "./events";
-
+import { staticContent } from './static-content'
 export default combineReducers({
   homeComponents,
   EServicesComponents,
@@ -18,5 +18,6 @@ export default combineReducers({
   advertismentComponents,
   touristHome,
   investorHome,
-  eventsComponents
+  eventsComponents,
+  staticContent
 });

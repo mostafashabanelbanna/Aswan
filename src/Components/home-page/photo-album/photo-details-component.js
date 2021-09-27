@@ -127,25 +127,25 @@ const PhotoDetails = (props) => {
           {details.sectorName ? (
             <div>
             <div className="d-flex justify-content-end">
-              <Link
+              <Link id='link'
                 to={`/filterphotos/${
                   sectorId + "&&" + sectorName + "&&" + "sector"
                 }`}
-                className=" d-flex justify-content-center align-items-center text-center text-muted fa-1x"
+                className=" d-flex justify-content-center align-items-center text-center  fa-1x"
               >
-                <div className="text-muted text-center fa-1x p-3 mb-1 detailsSectorName">
+                <div className=" text-center fa-1x p-3 mb-1 detailsSectorName">
                   {ReactHtmlParser(details.sectorName)}
                 </div>
               </Link>
             </div>
-          <hr className="text-muted m-0" />
+          <hr className=" m-0" />
           </div>
           ) : null}
         </div>
-        <div className="row my-4 flex-column-reverse flex-lg-row">
+        <div className="row my-5 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
             <p
-              className="text-muted"
+              className=""
               style={{ lineHeight: "30px", fontSize: "1rem" }}
             >
               {ReactHtmlParser(details.photoCaptionA)}
@@ -199,7 +199,7 @@ const PhotoDetails = (props) => {
             </Slider>
           </div>
         ) : null}
-        <Link
+        <Link id='link'
           to={"/photoslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >

@@ -84,7 +84,7 @@ const ImportantPortals = (props) => {
               <img src="./images/icons/web_titel-0١.png" alt="" width="80px" />
               <div className="underline">
                 {" "}
-                <h3 className="mt-4 me-2 text-secondary">روابط هامة</h3>
+                <h3 className="mt-4 me-2 text-dark">روابط هامة</h3>
               </div>
             </div>
             <div className="portalsBorder mt-4 p-5 justify-content-center">

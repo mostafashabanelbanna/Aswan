@@ -45,7 +45,7 @@ const AdvertismentDetails = (props) => {
     return (
       <div className="pt-4">
         <Container fluid className="px-0">
-          <div className="container underline  my-4">
+          <div className="container underline  my-5">
             <h4>{props.advertismentDetail.result.title}</h4>
           </div>
           <div className="d-flex container my-1">

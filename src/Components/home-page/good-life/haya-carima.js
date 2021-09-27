@@ -1,17 +1,17 @@
 import React from "react";
 import logo from "../../../assets/img/haya_karima_logo.jpg";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 const HayahKarima = () => {
   return (
-    <div className=" my-5 pt-4">
+    <div className="pt-4">
       <div className=" container p-0 mb-4">
         <div className="mt-2 d-flex ">
-          <div className="underline">
-            {" "}
-            <h3 className="mt-4 me-2 text-secondary ">
+          <div className="my-3 d-flex">
+            <img src="/images/icons/حياه كريمة-01.png" width="80px" />
+            <div className="underline">
               {" "}
-              محاور مبادرة حياه كريمة{" "}
-            </h3>
+              <h3 className="mt-4 me-2 text-dark"> محاور مبادرة حياه كريمة </h3>
+            </div>
           </div>
         </div>
       </div>
@@ -27,69 +27,85 @@ const HayahKarima = () => {
               style={{ zIndex: 1 }}
             >
               <div className="row justify-content-center py-3 text-center ">
-               <Link to={`/HayaKarimaDetails/${1}`} className="mb-4 col-md-4 col-sm-6 ">  
-           
+                <Link id='link'
+                  to={`/HayaKarimaDetails/${1}`}
+                  className="mb-4 col-md-4 col-sm-6 "
+                >
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className=" p-2"
                       src={"/images/haya_karima/1.png"}
                     />
-                    <div className="mt-4 mb-1  text-dark">                   
-                      محور البنية الأساسية <br/> و المرافق                  
+                    <div className="mt-4 mb-1  text-dark">
+                      محور البنية الأساسية <br /> و المرافق
+                    </div>
                   </div>
-                  
-                </div>
-                    </Link>
+                </Link>
 
-                <Link to={`/HayaKarimaDetails/${2}`} className="mb-4 col-md-4 col-sm-6 ">
+                <Link id='link'
+                  to={`/HayaKarimaDetails/${2}`}
+                  className="mb-4 col-md-4 col-sm-6 "
+                >
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/2.png"}
                     />
-                    <div  className="mt-4 mb-1  text-dark"> محور خدمات المواطن 
+                    <div className="mt-4 mb-1  text-dark">
+                      {" "}
+                      محور خدمات المواطن
+                    </div>
                   </div>
-                </div>
-                    </Link>
+                </Link>
 
-                <Link to={`/HayaKarimaDetails/${3}`} className="mb-4 col-md-4 col-sm-6 ">
+                <Link id='link'
+                  to={`/HayaKarimaDetails/${3}`}
+                  className="mb-4 col-md-4 col-sm-6 "
+                >
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/3.png"}
                     />
-                    <div  className="mt-4 mb-1  text-dark">
+                    <div className="mt-4 mb-1  text-dark">
                       {" "}
                       المحور الثقافى و الإجتماعي{" "}
+                    </div>
                   </div>
-                </div>
-                      </Link>
-                <Link to={`/HayaKarimaDetails/${4}`} className="mb-4 col-md-4 col-sm-6 ">
+                </Link>
+                <Link id='link'
+                  to={`/HayaKarimaDetails/${4}`}
+                  className="mb-4 col-md-4 col-sm-6 "
+                >
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/4.png"}
                     />
-                    <div  className="mt-4 mb-1  text-dark"> المحور الإقتصادي 
+                    <div className="mt-4 mb-1  text-dark">
+                      {" "}
+                      المحور الإقتصادي
+                    </div>
                   </div>
-                </div>
-                    </Link>
+                </Link>
 
-                <Link to={`/HayaKarimaDetails/${5}`}  className="mb-4 col-md-4 col-sm-6 ">
+                <Link id='link'
+                  to={`/HayaKarimaDetails/${5}`}
+                  className="mb-4 col-md-4 col-sm-6 "
+                >
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
                       className="p-2"
                       src={"/images/haya_karima/5.png"}
                     />
-                    <div className="mt-4 mb-1  text-dark"> سكن كريم 
+                    <div className="mt-4 mb-1  text-dark"> سكن كريم</div>
                   </div>
-                </div>
-                    </Link>
+                </Link>
               </div>
             </div>
             <div className="col-6 "></div>

@@ -12,13 +12,14 @@ export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
       keywords
     );
     let res = countResponse.data.result;
-    payload = { ...response.data, count: res };
+    payload = { ...response.data, count: res, page: pageNumber };
   } catch (e) {}
   return {
     type: "ADVERTISMENT_LIST",
     payload,
   };
 }
+
 export async function getAllAdvertismentType() {
   let payload = null;
   try {

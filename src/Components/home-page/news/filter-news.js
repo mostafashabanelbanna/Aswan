@@ -146,7 +146,7 @@ const FilterNews = (props) => {
                 }
                 return (
                 <div className='mb-4 col-lg-4 col-sm-6 col-12'>
-                <Link to={`/newsdetails/${item.id}`} className="h-100">
+                <Link id='link' to={`/newsdetails/${item.id}`} className="h-100">
                     <ListWithImage
                         imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}

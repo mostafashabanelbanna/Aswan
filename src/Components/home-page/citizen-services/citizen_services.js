@@ -11,7 +11,7 @@ const CitizenServices = () => {
 
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2 text-secondary ">خدمات المواطنين </h3>
+            <h3 className="mt-4 me-2 text-dark ">خدمات المواطنين </h3>
           </div>
         </div>
       </div>
@@ -31,9 +31,9 @@ const CitizenServices = () => {
               style={{ zIndex: 1 }}
             >
               <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">
-                <Link
+                <Link id='link'
                   to="/eservices"
-                  className="text-decoration-none text-muted"
+                  className="text-decoration-none"
                 >
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
@@ -45,9 +45,9 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <Link
+                <Link id='link'
                   to="/eservicesdirectories"
-                  className="text-decoration-none text-muted"
+                  className="text-decoration-none"
                 >
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
@@ -59,7 +59,7 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <a href='http://agriprice.gov.eg/' className='text-muted' target="_blank">
+                <a id='link' href='http://agriprice.gov.eg/' target="_blank">
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -70,7 +70,7 @@ const CitizenServices = () => {
                   </div>
                 </a>
 
-                <Link to='/directorates' className="text-decoration-none text-muted">
+                <Link id='link' to='/directorates' className="text-decoration-none">
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -81,7 +81,7 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <Link to={'/emergencynumbers'} className="text-decoration-none text-muted">
+                <Link id='link' to={'/emergencynumbers'} className="text-decoration-none">
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -92,7 +92,7 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                {/* <Link to='/advertisements' className="text-decoration-none text-muted">
+                {/* <Link to='/advertisements' className="text-decoration-none">
                   <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -103,7 +103,7 @@ const CitizenServices = () => {
                   </div>
                 </Link> */}
 
-                <Link to='/techcenterservices' className="text-decoration-none text-muted">
+                <Link id='link' to='/techcenterservices' className="text-decoration-none">
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}

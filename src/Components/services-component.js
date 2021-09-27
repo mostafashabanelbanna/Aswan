@@ -127,7 +127,7 @@ const ServicesComponent = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline my-4">
+          <div className=" container underline my-5">
             <h3>{title}</h3>
           </div>
           <div className=" bg-light p-3">
@@ -158,19 +158,19 @@ const ServicesComponent = (props) => {
           {props.services.result.map((item, index) => {
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-end d-flex my-3 text-muted">
+                <div className="justify-content-end d-flex my-3">
                   <span className="py-1 px-2 fa-1x"  style={{backgroundColor:'rgb(255 220 110 / 30%)', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.directoryTypeName}-{item.directoryCategoryName}</span>
                 </div>
 
-                <div className="justify-content-center d-flex my-2 text-muted">
+                <div className="justify-content-center d-flex my-2">
                   <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -184,7 +184,7 @@ const ServicesComponent = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -198,7 +198,7 @@ const ServicesComponent = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -212,7 +212,7 @@ const ServicesComponent = (props) => {
                   </div>
                 </div>
 
-                <div className="d-flex my-3 text-muted">
+                <div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -226,7 +226,7 @@ const ServicesComponent = (props) => {
                   </div>
                 </div>
 
-                {item.manger?<div className="d-flex my-3 text-muted">
+                {item.manger?<div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -241,7 +241,7 @@ const ServicesComponent = (props) => {
                 </div>:null
                 }
 
-                {item.mapUrl?<div className="d-flex my-3 text-muted">
+                {item.mapUrl?<div className="d-flex my-3">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -251,7 +251,7 @@ const ServicesComponent = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a className='text-muted text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
+                    <a className='text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
                       الرابط
                     </a>
                   </div>

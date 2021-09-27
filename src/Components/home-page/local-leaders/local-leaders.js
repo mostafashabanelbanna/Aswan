@@ -16,12 +16,12 @@ const LocalLeaders = (props) => {
 
               <div className="underline">
                 {" "}
-                <h3 className="mt-4 me-2  text-secondary">قيادات محلية</h3>
+                <h3 className="mt-4 me-2  text-dark">قيادات محلية</h3>
               </div>
             </div>
             <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">
               
-              <Link to='/tribe' className="text-muted text-decoration-none">
+              <Link id='link' to='/tribe' className=" text-decoration-none">
                 <div className="col-lg-3 col-12 col-sm-6 mb-5 hvr-grow">
                   <img
                     src="./images/icons/tribes-0١.png"
@@ -32,7 +32,7 @@ const LocalLeaders = (props) => {
                 </div>
               </Link>
 
-              <Link to='/parliament' className="text-muted text-decoration-none">
+              <Link id='link' to='/parliament' className=" text-decoration-none">
                 <div className="col-lg-3 col-12 col-sm-6 mb-5 hvr-grow">
                   <img
                     src="./images/icons/deputies-0١.png"
@@ -43,7 +43,7 @@ const LocalLeaders = (props) => {
                 </div>
               </Link>
 
-              <Link to='/senate' className="text-muted text-decoration-none">
+              <Link id='link' to='/senate' className=" text-decoration-none">
                 <div className="col-lg-3 col-12 col-sm-6 mb-5 hvr-grow">
                   <img
                     src="./images/icons/elders-0١.png"

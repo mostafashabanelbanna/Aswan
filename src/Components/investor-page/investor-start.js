@@ -56,23 +56,23 @@ const InvestorStart = (props) => {
   if (props.sliderNews) {
     return (
       <div className="">
-        <div className="text-center d-flex align-content-center align-items-center justify-content-center my-4">
+        <div className="text-center d-flex align-content-center align-items-center justify-content-center my-5">
           <div className="mx-3">
-            <img src="/images/icons/Investor-0١.png" />
+            <img src="/images/investor-photos/اخبار استثمارية-01.png" />
           </div>
           <div className="d-flex align-items-end fw-bold underline">
             <h2 className='mb-3'>اخبار إستثمارية</h2>
           </div>
         </div>
         {props.sliderNews.result.length > 3 ?
-        <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
+        <div className=" me-3 ms-3">
           <div className="container p-0">
             <Slider {...settings}>
               {props.sliderNews.result.map((item, index) => {
                 return (
-                  <Link
+                  <Link id='link'
                     to={`/newsdetails/${item.id}`}
-                    className="col-sm-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                    className="col-sm-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div
@@ -97,13 +97,13 @@ const InvestorStart = (props) => {
           </div>
         </div>
         :
-        <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
+        <div className=" me-3 ms-3">
           <div className="container p-0 d-flex flex-wrap">
               {props.sliderNews.result.map((item, index) => {
                 return (
-                  <Link
+                  <Link id='link'
                     to={`/newsdetails/${item.id}`}
-                    className="col-md-6 col-lg-3 text-decoration-none text-muted col-12 mt-4 text-center px-3 "
+                    className="col-md-6 col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div

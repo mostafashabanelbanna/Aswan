@@ -72,7 +72,7 @@ const TechCenterServices = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-4">
+          <div className=" container underline  my-5">
             <h3>خدمات المراكز التكنولوجية</h3>
           </div>
           <div className=" bg-light p-3">
@@ -94,19 +94,19 @@ const TechCenterServices = (props) => {
           {props.serviceDirectories.result.map((item, index) => {
             return (
               <div
-                className="text-center rounded-3 my-4 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
+                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
                 key={item.id}
                 style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
-                <div className="justify-content-start d-flex my-2 text-muted">
+                <div className="justify-content-start d-flex my-2 ">
                   <span className="py-1 px-2 fa-1x">{item.serviceCategoryName}</span>
                 </div>
 
-                <div className="justify-content-center d-flex my-2 text-muted">
+                <div className="justify-content-center d-flex my-2 ">
                   <span className="py-1 px-2 rounded-3 h4" style={{backgroundColor:'rgb(255 220 110 / 30%)'}}>{item.name}</span>
                 </div>
 
-                {item.url?<div className="d-flex my-3 text-muted">
+                {item.url?<div className="d-flex my-3 ">
                   <div className="mx-2">
                     {" "}
                     <FontAwesomeIcon
@@ -116,7 +116,7 @@ const TechCenterServices = (props) => {
                   </div>
                   <div className="mx-2">
                     {" "}
-                    <a className='text-muted text-decoration-none' style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl} target='_blank'>
+                    <a className=' text-decoration-none' style={{ textDecoration: "none", cursor: "pointer" }} href={item.mapUrl} target='_blank'>
                       الرابط
                     </a>
                   </div>
@@ -131,7 +131,7 @@ const TechCenterServices = (props) => {
         currentPage={currentPage}
         pageCount={pageCount}
         handlePageClick={handlePageClick}
-      />:<div className="text-center mt-5">لا يوجد نتائج</div>
+      />:<div className="text-center my-5">لا يوجد نتائج</div>
     }
       </>
     );}

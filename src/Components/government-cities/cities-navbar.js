@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllCities, clearNavbarCities } from "../store/actions/navbar";
-import ListWithImage from "./ui/list-with-image";
-import { paths } from "../paths/paths";
-import PaginationSection from "./ui/pagination-section";
-import ListSkeleton from "./loading-skeleton/list-skiliton";
+import { getAllCities, clearNavbarCities } from "../../store/actions/navbar";
+import ListWithImage from "../ui/list-with-image";
+import { paths } from "../../paths/paths";
+import PaginationSection from "../ui/pagination-section";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
+import { Link } from "react-router-dom";
 
 const CitiesNavBar = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -37,9 +38,9 @@ const CitiesNavBar = (props) => {
                 newPath  = pName.replaceAll(' ','%20')
               }
               return (
-                <div
+                <Link
                   key={item.id}
-                  style={{ cursor: "pointer" }}
+                  to={`/citydetails/${item.id}`}
                   className="shadow-none mb-4 col-lg-4 col-sm-6 col-12"
                 >
                   <ListWithImage
@@ -49,7 +50,7 @@ const CitiesNavBar = (props) => {
                     imgHeight='250px'
                     hoverTitle="hoverTitle"
                   />
-                </div>
+                </Link>
               );
             })}
           </div>

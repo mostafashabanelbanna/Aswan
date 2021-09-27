@@ -113,7 +113,7 @@ const AdvertismentList = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-4">
+          <div className=" container underline my-5">
             {advertismentTypeId == 5 ? (
               <h3>منتجات يدوية</h3>
             ) : (
@@ -144,17 +144,17 @@ const AdvertismentList = (props) => {
         </Container>
         {props.advertisment.result.length ? (
           <Container>
-            <Row className="my-4">
+            <Row className="my-5">
               {props.advertisment.result.map((item, index) => {
-                                let pName;
-                                let newPath;
-                                if(item.photo != null){
-                                pName = item.photo;
-                                newPath  = pName.replaceAll(' ','%20')
-                                }
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link
+                    <Link id='link'
                       to={`/advertisment-details/${item.id}`}
                       className="h-100"
                     >

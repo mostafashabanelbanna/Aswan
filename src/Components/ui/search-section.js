@@ -43,7 +43,7 @@ const SearchSection = (props) => {
             {props.dropdownOneHandler ? (
               <div
                 style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownOne} form-group my-4`}
+                className={`${props.classNameDropdownOne} form-group my-5`}
               >
                 <Select
                   isDisabled={props.disableOne ?? false}
@@ -58,7 +58,7 @@ const SearchSection = (props) => {
             {props.dropdownTwoHandler ? (
               <div
                 style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownTwo} form-group my-4`}
+                className={`${props.classNameDropdownTwo} form-group my-5`}
               >
                 <Select
                   isDisabled={props.disableTwo ?? false}
@@ -73,7 +73,7 @@ const SearchSection = (props) => {
             {props.dropdownThreeHandler ? (
               <div
                 style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownThree} form-group my-4`}
+                className={`${props.classNameDropdownThree} form-group my-5`}
               >
                 <Select
                   isDisabled={props.disableThree ?? false}
@@ -84,6 +84,22 @@ const SearchSection = (props) => {
                 />
               </div>
             ) : null}
+
+              {props.dropdownFourHandler ? (
+              <div
+                style={{ height: "1.1rem" }}
+                className={`${props.classNameDropdownFour} form-group my-5`}
+              >
+                <Select
+                  isDisabled={props.disableFour ?? false}
+                  value={props.dropdownFourVal}
+                  onChange={props.dropdownFourHandler}
+                  placeholder={props.dropdownFourPlaceholder}
+                  options={props.dropdownFourName}
+                />
+              </div>
+            ) : null}
+
             {props.publishFromHandler ? (
               <div className={`${props.classNameDPFrom} mt-4`}>
                 <label className='my-2'>{props.DPFromLabel}</label>
@@ -186,7 +202,7 @@ const SearchSection = (props) => {
               {" "}
               <button
                 type={"submit"}
-                className="myButton mx-1 my-4"
+                className="myButton mx-1 my-5"
                 style={{ verticalAlign: "middle" }}
               >
                 <span>بحث</span>

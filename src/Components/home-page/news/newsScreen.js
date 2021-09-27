@@ -67,7 +67,7 @@ const News = (props) => {
           <div className="my-3 d-flex">
             <img src="/images/icons/news_titel-0١.png" width="80px" />
             <div className="  underline">
-              <h3 className="mt-4 me-2 text-secondary"> اخبار المحافظة </h3>
+              <h3 className="mt-4 me-2 text-dark"> اخبار المحافظة </h3>
             </div>
           </div>
           {/*  */}
@@ -76,9 +76,9 @@ const News = (props) => {
               {props.mainews.result.value.result[0].title}
             </h4>
           </div>
-          <Link
+          <Link id='link'
             to={`/newsdetails/${props.mainews.result.value.result[0].id}`}
-            className="text-muted"
+            className=""
           >
             <div className="d-flex flex-md-row flex-column-reverse">
               <div className="col-md-6 col-12">
@@ -113,9 +113,9 @@ const News = (props) => {
             <Slider {...settings}>
               {props.news.result.map((item, index) => {
                 return (
-                  <Link
+                  <Link id='link'
                     to={`/newsdetails/${item.id}`}
-                    className="col-sm-3 text-decoration-none text-muted col-12 mt-5 text-center px-3 "
+                    className="col-sm-3 text-decoration-none  col-12 mt-5 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div
@@ -140,7 +140,7 @@ const News = (props) => {
           </div>
         </div>
         <div className='container d-flex justify-content-end'>
-          <Link to="/newslist" className="text-muted">
+          <Link id='link' to="/newslist" className="">
             <button
               className="myButton mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}

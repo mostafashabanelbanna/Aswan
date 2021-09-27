@@ -99,7 +99,7 @@ const VideoDetails = (props) => {
             <h3>{ReactHtmlParser(details.title)}</h3>
           </div>
           <div className="container d-flex justify-content-between mt-4">
-          <div className="col-7 text-muted align-items-end fa-1x">
+          <div className="col-7  align-items-end fa-1x">
             <div className="d-flex my-1">
               <div className="ms-2">
                 {" "}
@@ -112,9 +112,9 @@ const VideoDetails = (props) => {
             </div>
           </div>
           {details.sectorName?
-            <Link
+            <Link id='link'
             to={`/filtervideos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
-            className=" d-flex justify-content-center align-items-center text-center text-muted   fa-1x   detailsSectorName"
+            className=" d-flex justify-content-center align-items-center text-center    fa-1x   detailsSectorName"
             >
             {ReactHtmlParser(details.sectorName)}
           </Link>
@@ -122,9 +122,9 @@ const VideoDetails = (props) => {
         </div>
         <hr className="container my-2"></hr>
 
-        <div className="row my-4 flex-column-reverse flex-lg-row">
+        <div className="row my-5 flex-column-reverse flex-lg-row">
           {details.content?<div className="col-12 my-3 my-lg-0">
-              <p className="text-muted" style={{ lineHeight: "30px", fontSize: "1rem" }}>
+              <p className="" style={{ lineHeight: "30px", fontSize: "1rem" }}>
                 {ReactHtmlParser(details.content)}
               </p>
           </div>:null}
@@ -144,9 +144,9 @@ const VideoDetails = (props) => {
             src={`https://www.youtube.com/embed/${details.youtubeId}`}
           ></iframe>
         </div>
-        <Link
+        <Link id='link'
           to={"/videoslist"}
-          className="justify-content-center text-decoration-none align-items-center d-flex my-4"
+          className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button
             className="myButton"

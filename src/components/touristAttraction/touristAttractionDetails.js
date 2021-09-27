@@ -128,7 +128,7 @@ const TouristAttractionDetails = (props) => {
             </div>
           </div>
           <Container>
-            <div className="my-4">
+            <div className="my-5">
               {ReactHtmlParser(touristAttraction.description)}
             </div>
             {touristAttraction.photos.length > 2?

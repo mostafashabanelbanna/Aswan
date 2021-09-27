@@ -20,7 +20,7 @@ const ListWithImage = (props) => {
       <div className="my-2 p-2" style={{fontSize:'22px'}}>
         <div  className={`${props.center?'text-center':''}`}>{props.title}</div>
       </div>
-      {props.content?<div className="my-2 p-2">
+      {props.content?<div className="my-2 p-2 new-line">
         <div  className={`${props.center?'text-center':''}`}>{props.content}</div>
       </div>:null}
     </div>
