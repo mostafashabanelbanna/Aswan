@@ -11,7 +11,6 @@ import { getAllEventsInvestor } from "../../store/actions/investor-actions/agend
 import { getAllEventsTourist } from "../../store/actions/tourist-action/agenda-actions";
 import Fade from "react-reveal/Fade";
 import ReactDOM from "react-dom";
-import $ from "jquery";
 import "../../Styles/training-agenda.css";
 import { useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
