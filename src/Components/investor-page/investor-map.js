@@ -84,7 +84,7 @@ const InvestorMap = (props) => {
     );
   };
 
-  if (props.sliderMap) {
+  if (props?.sliderMap?.result) {
 
     return (
       <div className="bg-light">

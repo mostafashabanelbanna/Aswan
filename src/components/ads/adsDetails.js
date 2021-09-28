@@ -41,7 +41,7 @@ const AdvertismentDetails = (props) => {
     initialSlide: 0,
   };
 
-  if (props.advertismentDetail) {
+  if (props?.advertismentDetail?.result) {
     return (
       <div className="pt-4">
         <Container fluid className="px-0">

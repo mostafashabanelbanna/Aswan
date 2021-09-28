@@ -24,7 +24,7 @@ const AppointmentDetails = (props) => {
     };
   }, []);
 
-  if (props.appointmentDetails) {
+  if (props?.appointmentDetails?.result) {
     let appointmentTypeName = props.appointmentDetails.result.appointmentTypeName;
     let appointmentTypeId = props.appointmentDetails.result.appointmentTypeId;
     return (

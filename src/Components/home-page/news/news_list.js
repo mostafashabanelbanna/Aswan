@@ -102,7 +102,7 @@ const NewsList = (props) => {
     // }
   }, [currentPage, sectorSourceId]);
 
-  if (props.newslist && props.categories && props.sectors) {
+  if (props?.newslist?.result && props?.categories?.result && props?.sectors?.result) {
     let catName = props.categories.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,

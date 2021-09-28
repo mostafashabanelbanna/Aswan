@@ -76,7 +76,7 @@ const Directorates = (props) => {
     };
   }, [currentPage]);
 
-  if (props.directorates) {
+  if (props?.directorates?.result) {
     pageCount = Math.ceil(props.directorates.count / 9);
     if (props.directorates.page == currentPage + 1) {
       return (

@@ -114,7 +114,7 @@ const GovernmentProjects = (props) => {
     setRightIcon(rightIcon);
   };
 
-  if (props.projects) {
+  if (props?.projects?.result) {
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (

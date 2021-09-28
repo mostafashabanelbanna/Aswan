@@ -69,7 +69,7 @@ const Video = (props) => {
   props.homeVideos==undefined? videos=props.touristVideos: videos = props.homeVideos;
   props.homeMainVideo==undefined? mainVid=props.touristMainVideo: mainVid = props.homeMainVideo;
     
-  if (videos&&mainVid){
+  if (videos?.result && mainVid?.result){
     // vidCount = videos.result.length
     return (
       <div>

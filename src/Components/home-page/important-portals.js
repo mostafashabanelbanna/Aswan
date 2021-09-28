@@ -74,7 +74,7 @@ const ImportantPortals = (props) => {
     ],
   };
 
-  if (props.portalsList) {
+  if (props?.portalsList?.result) {
     if (props.portalsList.result.length) {
       let portals = Object.assign({}, props.portalsList);
       return (

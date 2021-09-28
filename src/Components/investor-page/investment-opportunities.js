@@ -60,7 +60,7 @@ const InvestmentOpportunities = (props) => {
     );
   };
 
-  if (props.focusedOpportunities) {
+  if (props?.focusedOpportunities?.result) {
     return (
       <div>
         <div

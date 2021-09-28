@@ -25,7 +25,7 @@ const FilterVideos = (props) => {
         props.clearVideosList();
         setCurrentPage(selectedPage)
     };
-    if (props.videosList) {
+    if (props?.videosList?.result) {
         pageCount = Math.ceil(props.videosList.count / 9);
         return (<>
         <div className='container mt-5'>

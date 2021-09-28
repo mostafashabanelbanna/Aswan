@@ -13,7 +13,7 @@ const Senate = (props) => {
     props.getSenate();
   }, []);
 
-  if (props.allSenate)
+  if (props?.allSenate?.result)
     return (
       <>
         <div className=" container underline  my-5">

@@ -121,3 +121,17 @@ export async function clearAdvertismentDetails() {
     payload,
   };
 }
+
+
+//on load Modal ad
+export async function getFocusedAd() {
+  let payload = null;
+  try {
+    let res = await axios.get("/AdvertismentAPI/GetFocus");
+    payload = res.data;
+  } catch (e) {}
+  return {
+    type: "FOCUSED_AD",
+    payload,
+  };
+}

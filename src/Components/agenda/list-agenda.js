@@ -125,7 +125,7 @@ const AgendaList = (props) => {
     };
   }, [currentPage]);
 
-  if (props.eventsList && props.eventsSectors && props.eventsTypes) {
+  if (props?.eventsList?.result && props?.eventsSectors?.result && props?.eventsTypes?.result) {
     let eventsTypeName = props.eventsTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,

@@ -44,7 +44,7 @@ const TrainingAgenda = (props) => {
     agendaProps = props.eventsListHome;
   }
 
-  if (agendaProps) {
+  if (agendaProps?.result) {
     return (
       <div className="pt-5 bg-light">
         <div className="container">

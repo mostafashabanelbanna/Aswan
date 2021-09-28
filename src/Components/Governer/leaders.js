@@ -11,7 +11,7 @@ const Leaders = (props) => {
     props.leaders();
   }, []);
 
-  if (props.leader) {
+  if (props?.leader?.result) {
     let pName;
     let newPath;
     if (props.leader.curr.photo != null) {

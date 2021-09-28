@@ -53,7 +53,7 @@ const InvestorStart = (props) => {
       },
     ],
   };
-  if (props.sliderNews) {
+  if (props?.sliderNews?.result) {
     return (
       <div className="">
         <div className="text-center d-flex align-content-center align-items-center justify-content-center my-5">

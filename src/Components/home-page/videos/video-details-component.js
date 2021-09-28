@@ -86,7 +86,7 @@ const VideoDetails = (props) => {
     ],
   };
 
-  if (props.videoDetails) {
+  if (props?.videoDetails?.result) {
     let details = Object.assign({}, props.videoDetails.result);
     let date = props.videoDetails.result.publishDate.split("-");
     let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;

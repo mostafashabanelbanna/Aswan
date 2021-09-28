@@ -16,7 +16,10 @@ export function advertismentComponents(state = {}, action) {
     case "ADVERTISMENT_DETAILS":
       return { ...state, advertismentDetails: action.payload };
     case "CLEAR_ADVERTISMENT_DETAILS":
-      return { ...state, clearAdvertismentDetails: action.payload };
+      return { ...state, advertismentDetails: action.payload };
+
+    case "FOCUSED_AD":
+      return { ...state, focusedAd: action.payload };
 
     default:
       return state;

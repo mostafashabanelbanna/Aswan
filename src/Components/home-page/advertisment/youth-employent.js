@@ -64,7 +64,7 @@ const YouthEmp = (props) => {
     setFlag(0);
   }, [currentPage]);
 
-  if (props.youthemp) {
+  if (props?.youthemp?.result) {
     pageCount = Math.ceil(props.youthemp.count / 2);
     return (
       <>

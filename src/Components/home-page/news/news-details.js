@@ -25,7 +25,7 @@ const NewsDetails = (props) => {
     };
   }, []);
 
-  if (props.newsdetail) {
+  if (props?.newsdetail?.result) {
     let sectorName = props.newsdetail.result.sectorName;
     let sectorid = props.newsdetail.result.sectorId;
     return (

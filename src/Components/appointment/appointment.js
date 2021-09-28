@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAppointments,getAppointmentsTypes } from "../../store/actions/appointment-action";
+import {
+  getAppointments,
+  getAppointmentsTypes,
+} from "../../store/actions/appointment-action";
 import ListWithImage from "../ui/list-with-image";
 import SearchSection from "../ui/search-section";
 import moment from "moment";
@@ -45,7 +48,7 @@ const Appointment = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-     props.getAppointments(currentPage + 1, data(dataFilled));
+    props.getAppointments(currentPage + 1, data(dataFilled));
     setFlag(1);
     setCurrentPage(0);
   };
@@ -68,9 +71,9 @@ const Appointment = (props) => {
         .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
     );
 
-    const handlePageClick = ({ selected: selectedPage }) => {
-        setCurrentPage(selectedPage);
-      };
+  const handlePageClick = ({ selected: selectedPage }) => {
+    setCurrentPage(selectedPage);
+  };
   useEffect(() => {
     if (flag)
       check(dataFilled) == false
@@ -80,64 +83,70 @@ const Appointment = (props) => {
     if (!props.apointmenttypes) props.getAppointmentsTypes();
   }, [currentPage]);
 
-  if(props.apointment&&props.apointmenttypes){
+  if (props?.apointment?.result && props?.apointmenttypes?.result) {
     pageCount = Math.ceil(props.apointment.count / 9);
     let typesName = props.apointmenttypes.result.map(({ id, nameA }) => ({
-        value: id,
-        label: nameA,
-      }));
-      typesName.unshift({ value: null, label: "كل الانواع" });
+      value: id,
+      label: nameA,
+    }));
+    typesName.unshift({ value: null, label: "كل الانواع" });
 
-  return (
-    <>
-      <div className=" container underline  my-5">
-        <h3> لقاءات و قرارات السيد المحافظ </h3>
-      </div>
-      <div className="container-fluid bg-light">
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-sm-6 col-12"
-           dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
-          dropdownOneHandler={typeHandler}
-           dropdownOneName={typesName}
-          dropdownOnePlaceholder="القسم"
-          classNameDropdownOne="col-sm-6 col-12"
-          publishDateFrom={appointmentDateFrom}
-          publishFromHandler={publishFromHandler}
-          classNameDPFrom="col-6"
-          publishDateTo={appointmentDateTo}
-          publishToHandler={publishToHandler}
-          classNameDPTo="col-6"
-        />
-      </div>
-      {props.apointment.result.length ? (
-          <div className='container'>
+    return (
+      <>
+        <div className=" container underline  my-5">
+          <h3> لقاءات و قرارات السيد المحافظ </h3>
+        </div>
+        <div className="container-fluid bg-light">
+          <SearchSection
+            submit={submitHandler}
+            TextFieldOneHandler={titleHandler}
+            labelTextFieldOne="العنوان"
+            classNameTextFieldOne="col-sm-6 col-12"
+            dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
+            dropdownOneHandler={typeHandler}
+            dropdownOneName={typesName}
+            dropdownOnePlaceholder="القسم"
+            classNameDropdownOne="col-sm-6 col-12"
+            publishDateFrom={appointmentDateFrom}
+            publishFromHandler={publishFromHandler}
+            classNameDPFrom="col-6"
+            publishDateTo={appointmentDateTo}
+            publishToHandler={publishToHandler}
+            classNameDPTo="col-6"
+          />
+        </div>
+        {props.apointment.result.length ? (
+          <div className="container">
             <div className="my-5 row">
               {props.apointment.result.map((item, index) => {
                 let pName;
                 let newPath;
-                if(item.photo != null){
+                if (item.photo != null) {
                   pName = item.photo;
-                  newPath  = pName.replaceAll(' ','%20')
+                  newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <div  key={item.id} className="col-md-4 col-sm-6 mb-4">
-                    <Link id='link' to={`/appointmentdetails/${item.id}`} className="h-100">
+                  <div key={item.id} className="col-md-4 col-sm-6 mb-4">
+                    <Link
+                      id="link"
+                      to={`/appointmentdetails/${item.id}`}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={paths.Appointment + item.id + "/" + newPath}
                         title={item.title}
-                        date={`${moment(new Date(item.appointmentDate)).format("LL")}`}
+                        date={`${moment(new Date(item.appointmentDate)).format(
+                          "LL"
+                        )}`}
                         category={item.appointmentTypeName}
                         imgHeight="200px"
-                        hoverTitle='hoverTitle'
+                        hoverTitle="hoverTitle"
                       />
                     </Link>
                   </div>
                 );
               })}
-              <div className='col-12'>
+              <div className="col-12">
                 <PaginationSection
                   currentPage={currentPage}
                   pageCount={pageCount}
@@ -149,17 +158,21 @@ const Appointment = (props) => {
         ) : (
           <div className=" text-center">لا يوجد نتائج</div>
         )}
-    </>
-  );}
-  return(<ListSkeleton/>)
+      </>
+    );
+  }
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {
     apointment: state.GovernerComponents.apointment,
-    apointmenttypes:state.GovernerComponents.apointmenttypes
+    apointmenttypes: state.GovernerComponents.apointmenttypes,
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getAppointments,getAppointmentsTypes }, dispatch);
+  return bindActionCreators(
+    { getAppointments, getAppointmentsTypes },
+    dispatch
+  );
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Appointment);

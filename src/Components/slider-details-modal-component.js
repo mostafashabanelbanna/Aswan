@@ -23,7 +23,12 @@ const SliderDetailsModalComponent = (props) => {
             <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} className="w-100"/>
           </Modal.Body>
           <Modal.Footer>
-            <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>إغلاق</Button>
+            {props.details?<a href={props.details} className='col d-flex'>
+              <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>عرض التفاصيل</Button>
+            </a>:null}
+            <div className='d-flex'>
+              <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>إغلاق</Button>
+            </div>
           </Modal.Footer>
         </Modal>
       );

@@ -12,7 +12,7 @@ const Parliament = (props) => {
     props.getParliament();
   }, []);
 
-  if (props.allParliament) {
+  if (props?.allParliament?.result) {
     return (
       <>
         <div className=" container underline  my-5">

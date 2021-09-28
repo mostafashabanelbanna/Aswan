@@ -80,7 +80,7 @@ const Tribe = (props) => {
     };
   }, [currentPage]);
 
-  if (props.allTribe) {
+  if (props?.allTribe?.result) {
     let cityName = props.allCities.result.map(({ id, name }) => ({
       value: id,
       label: name,

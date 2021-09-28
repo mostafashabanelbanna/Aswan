@@ -86,7 +86,7 @@ const publishToHandler = (dateChanged) =>
     };
   }, [currentPage]);
 
-  if (props.videosList) {
+  if (props?.videosList?.result) {
     pageCount = Math.ceil(props.videosList.count / 9);
     if (props.videosList.page == currentPage + 1) {
       return (

@@ -24,7 +24,7 @@ const AgendaDetails = (props) => {
     };
   }, []);
 
-  if (props.eventDetails) {
+  if (props?.eventDetails?.result) {
     let sectorName = props.eventDetails.result.sectorName;
     let sectorId = props.eventDetails.result.sectorId;
     let eventTypeId = props.eventDetails.result.eventTypeId;

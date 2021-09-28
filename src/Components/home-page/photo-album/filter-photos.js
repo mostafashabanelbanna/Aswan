@@ -25,7 +25,7 @@ const FilterPhotos = (props) => {
         props.clearPhotosList();
         setCurrentPage(selectedPage)
     };
-    if (props.data) {
+    if (props?.data?.result) {
         pageCount = Math.ceil(props.data.count / 9);
         return (<>
         <div className='container mt-5'>

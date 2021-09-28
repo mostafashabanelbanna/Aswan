@@ -13,7 +13,7 @@ const HayaKarimaDetails = (props) => {
         props.getHayaDetails(id);
         return () => { props.clearHayaDetails() }
     }, [])
-    if (props.hayadata) {
+    if (props?.hayadata?.result) {
         const state = {
             labels: props.hayadata.result.rates.map((item)=>item.changeDate),
             datasets: [

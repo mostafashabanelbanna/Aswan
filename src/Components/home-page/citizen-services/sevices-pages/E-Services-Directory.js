@@ -70,7 +70,7 @@ const EServiceDirectories = (props) => {
     };
   }, [currentPage]);
 
-  if (props.serviceDirectories) {
+  if (props?.serviceDirectories?.result) {
     let serviceDirVal = props.serviceTypes.result.map(({ id, nameA }) => ({ value: id, label: nameA }));
     serviceDirVal.unshift({ value: null, label: "كل الخدمات" })
     pageCount = Math.ceil(props.serviceDirectories.count / 9);

@@ -90,7 +90,7 @@ const FilterNews = (props) => {
         props.clearNewsList();
         setCurrentPage(selectedPage)
     };
-    if (props.data) {
+    if (props?.data?.result) {
         let catName = props.categories.result.map(({ id, nameA }) => ({
             value: id,
             label: nameA,

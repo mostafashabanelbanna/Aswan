@@ -94,7 +94,7 @@ const Advertisements = (props) => {
     }
   }, [currentPage]);
 
-  if (props.advertisementsList && props.advertisementTypes) {
+  if (props?.advertisementsList?.result && props?.advertisementTypes?.result) {
     let advName = props.advertisementTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,

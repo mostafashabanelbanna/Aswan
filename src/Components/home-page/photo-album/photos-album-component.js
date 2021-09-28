@@ -58,7 +58,7 @@ const PhotosAlbum = (props) => {
     );
   };
 
-  if (photos) {
+  if (photos?.result) {
     return (
       <div>
         <div className="container mt-5">

@@ -293,7 +293,7 @@ const CityDetails = (props) => {
                       style={{ borderBottom: "1px solid #e98718" }}
                     >
                       <h5 className="mb-4" style={{ color: "#e98718" }}>
-                        رئيس مدينة{" "}
+                        رئيس {props.cityDetails.result.cityCategoryName}
                       </h5>
                       <h5>{props.cityDetails.result.president}</h5>
                     </div>
@@ -304,7 +304,7 @@ const CityDetails = (props) => {
                       style={{ borderBottom: "1px solid #e98718" }}
                     >
                       <h5 className="mb-4" style={{ color: "#e98718" }}>
-                        نائب رئيس مدينة{" "}
+                        نائب {props.cityDetails.result.cityCategoryName}
                       </h5>
                       <h5>{props.cityDetails.result.president}</h5>
                     </div>
@@ -315,7 +315,7 @@ const CityDetails = (props) => {
                       style={{ borderBottom: "1px solid #e98718" }}
                     >
                       <h5 className="mb-4" style={{ color: "#e98718" }}>
-                        سكرتير مدينة{" "}
+                        سكرتير {props.cityDetails.result.cityCategoryName}
                       </h5>
                       <h5>{props.cityDetails.result.secretary}</h5>
                     </div>
@@ -326,26 +326,26 @@ const CityDetails = (props) => {
           </div>
         </div>
 
-        <div className="container col-12 my-4">
-        <div className="d-flex justify-content-center">
-              <div className="w-75">
-                <h5
-                  className="text-center "
-                  style={{
-                    background: "rgb(30, 116, 188)",
-                    background:
-                      "radial-gradient( circle, #faa74a 0%, #faa74a 25%, #e98718 69%, orange 100%, orange 100%, #faa74a 100% )",
-                    color: "#fff",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                    padding: "0.5rem",
-                    marginBottom: "0",
-                  }}
-                >
-                  القرى
-                </h5>
-              </div>
+        {props.cityDetails.result.villages?<div className="container col-12 my-4">
+          <div className="d-flex justify-content-center">
+            <div className="w-75">
+              <h5
+                className="text-center "
+                style={{
+                  background: "rgb(30, 116, 188)",
+                  background:
+                    "radial-gradient( circle, #faa74a 0%, #faa74a 25%, #e98718 69%, orange 100%, orange 100%, #faa74a 100% )",
+                  color: "#fff",
+                  borderTopLeftRadius: "10px",
+                  borderTopRightRadius: "10px",
+                  padding: "0.5rem",
+                  marginBottom: "0",
+                }}
+              >
+                القرى
+              </h5>
             </div>
+          </div>
           <div className="tab-content ml-1" id="nav-tabContent">
             <div
               className="tab-pane fade row show active"
@@ -354,40 +354,36 @@ const CityDetails = (props) => {
             >
               <div className="col-12 p-4 mr-1">
                 <div className="d-flex justify-content-center">
-                  {props.cityDetails.result.villages ? (
-                    props.cityDetails.result.villages.map((item, index) => {
-                      return (
-                        <Link
-                          className="col-md-4 mb-2 text-dark"
-                          to={`/citydetails/${item.id}`}
+                  {props.cityDetails.result.villages.map((item, index) => {
+                    return (
+                      <Link
+                        className="col-md-4 mb-2 text-dark"
+                        to={`/citydetails/${item.id}`}
+                        style={{
+                          visibility: "visible",
+                          animationName: "slideInUp",
+                        }}
+                      >
+                        <div
+                          className="w-100 hvr-bob card card-wrapper text-center align-items-center justify-content-center p-4"
                           style={{
-                            visibility: "visible",
-                            animationName: "slideInUp",
+                            boxShadow:
+                              "3px 4px 16px 6px rgb(179 179 179 / 36%)",
+                            borderRadius: "35px",
+                            height: "100%",
+                            fontSize: "1.125rem",
                           }}
                         >
-                          <div
-                            className="w-100 hvr-bob card card-wrapper text-center align-items-center justify-content-center p-4"
-                            style={{
-                              boxShadow:
-                                "3px 4px 16px 6px rgb(179 179 179 / 36%)",
-                              borderRadius: "35px",
-                              height: "100%",
-                              fontSize: "1.125rem",
-                            }}
-                          >
-                            قرية {item.name}
-                          </div>
-                        </Link>
-                      );
-                    })
-                  ) : (
-                    <div className="text-center my-5">لا توجد قرى</div>
-                  )}
+                          قرية {item.name}
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>:null}
         {renderModal(content)}
       </>
     );

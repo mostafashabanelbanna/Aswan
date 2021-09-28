@@ -100,7 +100,7 @@ const DocumentLibrary = (props) => {
   }
 
   const render = () => {
-    if (props.documentLibrary) {
+    if (props?.documentLibrary?.result) {
       pageCount = Math.ceil(props.documentLibrary.count / 9);
       if (props.documentLibrary.page == currentPage + 1) {
         return (

@@ -86,7 +86,7 @@ const publishToHandler = (dateChanged) =>
     };
   }, [currentPage]);
 
-  if (props.photosList) {
+  if (props?.photosList?.result) {
     pageCount = Math.ceil(props.photosList.count / 9);
     if (props.photosList.page == currentPage + 1) {
       return (

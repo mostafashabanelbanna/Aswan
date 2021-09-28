@@ -109,7 +109,7 @@ const ServicesComponent = (props) => {
 
   }, [currentPage,directoryTypeId]);
 
-  if (props.services) {
+  if (props?.services?.result) {
     let cityName = props.cities.result.map(({ id, name }) => ({ value: id, label: name }));
     let dirCatVal;
     if(props.directoryCategories != null){

@@ -24,7 +24,7 @@ const DocumentLibraryDetails = (props) => {
   }, []);
 
 
-  if (props.documentLibraryDetail) {
+  if (props?.documentLibraryDetail?.result) {
     let sectorName = props.documentLibraryDetail.result.sectorName;
     let sectorid = props.documentLibraryDetail.result.sectorId;
     return (

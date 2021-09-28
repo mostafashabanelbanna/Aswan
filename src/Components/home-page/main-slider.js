@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import "../../Styles/navbar.css";
 import MainSliderSkeleton from "../loading-skeleton/mainSlider";
+import OnloadModal from "../onload-modal";
 const MainSlider = () => {
   const [mainSlider, setMainSlider] = useState([]);
 
@@ -67,6 +68,7 @@ const MainSlider = () => {
           })}
       </Carousel>
       {noMainSlider && <MainSliderSkeleton />}
+      <OnloadModal/>
     </div>
   );
 };

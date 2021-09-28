@@ -13,7 +13,7 @@ const ExConservatives = (props) => {
     props.getEx_Conservatives();
   }, []);
 
-  if (props.exconservatives){
+  if (props?.exconservatives?.result){
     return (
       <>
         <div className=" container underline  my-5">

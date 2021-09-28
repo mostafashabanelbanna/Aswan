@@ -60,7 +60,7 @@ const News = (props) => {
       },
     ],
   };
-  if (props.mainews && props.news) {
+  if (props?.mainews?.result && props?.news?.result) {
     return (
       <div className="container fluid mb-4 px-0">
         <div className="container p-0">

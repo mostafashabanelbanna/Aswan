@@ -64,7 +64,7 @@ const Career = (props) => {
     setFlag(0);
   }, [currentPage]);
 
-  if (props.career) {
+  if (props?.career?.result) {
     pageCount = Math.ceil(props.career.count / 2);
     return (
       <>

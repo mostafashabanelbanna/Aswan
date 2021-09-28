@@ -113,7 +113,7 @@ const PhotoDetails = (props) => {
     );
   };
 
-  if (props.photoDetails) {
+  if (props?.photoDetails?.result) {
     let details = Object.assign({}, props.photoDetails.result);
     let sectorName = props.photoDetails.result.sectorName;
     let sectorId = props.photoDetails.result.sectorId;

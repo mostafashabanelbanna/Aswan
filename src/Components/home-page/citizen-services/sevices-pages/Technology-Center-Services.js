@@ -58,7 +58,7 @@ const TechCenterServices = (props) => {
     };
   }, [currentPage]);
 
-  if (props.serviceDirectories) {
+  if (props?.serviceDirectories?.result) {
     let serviceDirVal;
     if(props.serviceTypes != null){
         serviceDirVal = props.serviceTypes.result.map((item) => ({ value: item.id, label: item.nameA }));

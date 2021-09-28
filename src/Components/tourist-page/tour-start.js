@@ -55,7 +55,7 @@ const TourStart = (props) => {
     ],
   };
 
-  if (props.slider) {
+  if (props?.slider?.result) {
     return (
       <div className="">
         <div className="text-center d-flex justify-content-center my-5">

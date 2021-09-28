@@ -114,11 +114,11 @@ const InvestmentOpportunitiesList = (props) => {
   }, [currentPage]);
 
   if (
-    props.investorOpportunitiesList &&
-    props.investorPaymentSystem &&
-    props.investorSpecialtyType &&
-    props.activity &&
-    props.industrialZone
+    props?.investorOpportunitiesList?.result &&
+    props?.investorPaymentSystem?.result &&
+    props?.investorSpecialtyType?.result &&
+    props?.activity?.result &&
+    props?.industrialZone?.result
   ) {
     let investorPaymentSystemVal,
       investorSpecialtyTypeVal,

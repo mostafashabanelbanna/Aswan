@@ -21,7 +21,7 @@ const CitiesNavBar = (props) => {
     props.getAllCities(currentPage + 1, {});
   }, [currentPage]);
 
-  if (props.citiesList) {
+  if (props?.citiesList?.result) {
     pageCount = Math.ceil(props.citiesList.count / 9);
     return (
       <>

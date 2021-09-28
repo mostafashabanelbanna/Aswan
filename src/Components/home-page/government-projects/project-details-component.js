@@ -102,7 +102,7 @@ const ProjectDetails = (props) => {
     );
   };
 
-  if (props.projectDetails) {
+  if (props?.projectDetails?.result) {
     let details = Object.assign({}, props.projectDetails.result);
     return (
       <div className="container">

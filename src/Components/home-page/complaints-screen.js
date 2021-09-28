@@ -15,7 +15,7 @@ const Complaints = (props) => {
     if (newWindow) newWindow.opener = null;
   };
 
-  if (props.complaint) {
+  if (props?.complaint?.result) {
     if (props.complaint.result.length) {
       return (
         <div>

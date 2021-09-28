@@ -54,7 +54,7 @@ const GovernmentFamous = (props) => {
     ],
   };
 
-  if (props.famousPeople) {
+  if (props?.famousPeople?.result) {
     if (props.famousPeople.result.length) {
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (

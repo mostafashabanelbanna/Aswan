@@ -75,7 +75,7 @@ const ProjectsList = (props) => {
     };
   }, [currentPage]);
 
-  if (props.projectsList) {
+  if (props?.projectsList?.result) {
     let sectorName = props.projectsSectors.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
