@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import Slider from "react-slick";
-import { touristSlider, clearTouristSlider } from "../../store/actions/tourist-action/slider";
+import {
+  touristSlider,
+  clearTouristSlider,
+} from "../../store/actions/tourist-action/slider";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
@@ -13,7 +16,7 @@ const TourStart = (props) => {
 
     return () => {
       props.clearTouristSlider();
-    }
+    };
   }, []);
 
   var settings = {
@@ -57,8 +60,8 @@ const TourStart = (props) => {
 
   if (props?.slider?.result) {
     return (
-      <div className="">
-        <div className="text-center d-flex justify-content-center my-5">
+      <div className="bg-light">
+        <div className="text-center d-flex justify-content-center py-3">
           <div className="mx-3">
             <img src="/images/tourist-photos/رحلتك-01.png" />
           </div>
@@ -67,12 +70,13 @@ const TourStart = (props) => {
           </div>
         </div>
         {props.slider.result.length > 3 ? (
-          <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
+          <div className=" me-3 ms-3">
             <div className="container p-0">
               <Slider {...settings}>
                 {props.slider.result.map((item, index) => {
                   return (
-                    <Link id='link'
+                    <Link
+                      id="link"
                       to={`/tourist-attraction-details/${item.id}`}
                       className="col-sm-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                     >
@@ -89,9 +93,7 @@ const TourStart = (props) => {
                             src={paths.MainSlider + item.id + "/" + item.photo}
                             alt={item.name}
                           />
-                          <div className="mt-4  container p-2">
-                            {item.name}
-                          </div>
+                          <div className="mt-4  container p-2">{item.name}</div>
                         </div>
                       </div>
                     </Link>
@@ -103,36 +105,36 @@ const TourStart = (props) => {
         ) : (
           <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
             <div className="container p-0 d-flex flex-lg-row flex-column">
-                {props.slider.result.map((item, index) => {
-                  return (
-                    <Link id='link'
+              {props.slider.result.map((item, index) => {
+                return (
+                  <Link
+                    id="link"
                     to={`/tourist-attraction-details/${item.id}`}
-                      className="col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
-                    >
-                      <div className="hoverTitle">
-                        <div
-                          key={item.id}
-                          className="holder shadow-none"
-                          style={{ borderRadius: "0px" }}
-                        >
-                          <img
-                            className="rounded-3 "
-                            width="100%"
-                            height="205px"
-                            src={paths.MainSlider + item.id + "/" + item.photo}
-                            alt={item.name}
-                          />
-                          <div className="mt-4  container p-2">
-                            {item.name}
-                          </div>
-                        </div>
+                    className="col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
+                  >
+                    <div className="hoverTitle">
+                      <div
+                        key={item.id}
+                        className="holder shadow-none"
+                        style={{ borderRadius: "0px" }}
+                      >
+                        <img
+                          className="rounded-3 "
+                          width="100%"
+                          height="205px"
+                          src={paths.MainSlider + item.id + "/" + item.photo}
+                          alt={item.name}
+                        />
+                        <div className="mt-4  container p-2">{item.name}</div>
                       </div>
-                    </Link>
-                  );
-                })}
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
+        <div className="line mx-auto"></div>
       </div>
     );
   } else {

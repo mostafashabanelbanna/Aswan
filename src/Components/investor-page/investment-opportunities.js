@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
-import { getFocusedInvestorOpportunities } from '../../store/actions/investor-actions/investment-opportunities'
+import { getFocusedInvestorOpportunities } from "../../store/actions/investor-actions/investment-opportunities";
 import { paths } from "../../paths/paths";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 import { Link } from "react-router-dom";
 
-
 const InvestmentOpportunities = (props) => {
-
   useEffect(() => {
     props.getFocusedInvestorOpportunities();
-  }, [])
+  }, []);
 
   const renderAlbum = () => {
     return (
@@ -25,7 +23,8 @@ const InvestmentOpportunities = (props) => {
             newPath = pName.replaceAll(" ", "%20");
           }
           return (
-            <Link id='link'
+            <Link
+              id="link"
               // to={`/opportunitiesdetails/${item.id}`}
               className="text-white col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
             >
@@ -46,8 +45,8 @@ const InvestmentOpportunities = (props) => {
             </Link>
           );
         })}
-        <div className='container d-flex justify-content-end'>
-          <Link id='link' to="/opportunitieslist" className="">
+        <div className="container d-flex justify-content-end">
+          <Link id="link" to="/opportunitieslist" className="">
             <button
               className="myButton mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}
@@ -73,17 +72,23 @@ const InvestmentOpportunities = (props) => {
             className="city_name_inner d-flex flex-column align-items-center p-5"
             // style={{ padding: "3rem" }}
           >
-          <div className="d-flex container my-5">
-            <div className="mx-3">
-              <img className='brightness' height="50" width="60" src="/images/investor-photos/فرص استثمارية-01.png" />
+            <div className="d-flex container my-5">
+              <div className="mx-3">
+                <img
+                  className="brightness"
+                  height="50"
+                  width="60"
+                  src="/images/investor-photos/فرص استثمارية-01.png"
+                />
+              </div>
+              <div className="d-flex align-items-center underline">
+                <h3 className="mb-5">الفرص الإستثمارية</h3>
+              </div>
             </div>
-            <div className="d-flex align-items-center underline">
-              <h3 className="mb-5">الفرص الإستثمارية</h3>
-            </div>
-          </div>
             {renderAlbum()}
           </div>
         </div>
+        <div className="line mx-auto"></div>
       </div>
     );
   }
@@ -93,7 +98,7 @@ const InvestmentOpportunities = (props) => {
 export default connect(
   (state) => {
     return {
-      focusedOpportunities: state.investorHome.focusedOpportunities
+      focusedOpportunities: state.investorHome.focusedOpportunities,
     };
   },
   (dispatch) => {
