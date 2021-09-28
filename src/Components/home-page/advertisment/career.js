@@ -93,15 +93,17 @@ const Career = (props) => {
                 }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link id='link'
+                    <Link
+                      id="link"
                       //to={`/advertisment-details/${item.id}`}
-                      style={{cursor:'unset'}}
+                      style={{ cursor: "unset" }}
                       className="h-100"
                     >
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         imgHeight="200px"
+                        button={true}
                       />
                     </Link>
                   </Col>

@@ -17,7 +17,7 @@ const Advertising = () => {
         <div className="container ">
           <div className="row text-center justify-content-around">
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
-              <Link id='link' to="ads/0" className="text-decoration-none">
+              <Link id='link' to="/ads/0" className="text-decoration-none">
                 <img
                   style={{ width: 150 }}
                   className="px-4 imgfilter"
@@ -27,7 +27,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
-              <Link id='link' to="career" className="text-decoration-none">
+              <Link id='link' to="/career" className="text-decoration-none">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
@@ -37,7 +37,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
-              <Link id='link' to="youth" className="text-decoration-none">
+              <Link id='link' to="/youth" className="text-decoration-none">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
@@ -47,7 +47,7 @@ const Advertising = () => {
               </Link>
             </div>
             <div className="col-lg-3 p-3 col-5 mb-4 hvr-shutter-out-vertical">
-              <Link id='link' to="ads/5" className="text-decoration-none">
+              <Link id='link' to="/ads/5" className="text-decoration-none">
                 <img
                   style={{ width: 150 }}
                   className="  px-4 imgfilter"
