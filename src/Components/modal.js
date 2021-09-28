@@ -5,10 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function ContactUsModal(props) {
-  // {props.dialogClassName != "danger"
-  // ? Swal.fire("Good job!", "You clicked the button!", "success")
-  // : Swal.fire("bad job!", "You clicked the button!", "success")
-  // }
   return (
     <Modal
       {...props}
@@ -16,11 +12,6 @@ function ContactUsModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      {/* <Modal.Header >
-          <Modal.Title id="contained-modal-title-vcenter">
-           {props.dialogClassName=='danger'?"yeeeeeeees":'nooooooooooooooo'}
-          </Modal.Title>
-        </Modal.Header> */}
       <Modal.Body>
         {props.dialogClassName != "danger" ? (
           <div className='d-flex flex-column align-items-center'>
