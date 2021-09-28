@@ -112,11 +112,12 @@ const ImportantPortals = (props) => {
               </Slider>
             </div>
           </div>
+          <div className="line mx-auto"></div>
         </div>
       );
     }
   }
-  return <OnePieaceSkeleton/>;
+  return <OnePieaceSkeleton />;
 };
 
 export default connect(

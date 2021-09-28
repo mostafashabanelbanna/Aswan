@@ -59,8 +59,8 @@ const GovernmentFamous = (props) => {
       let famousPeopleList = Object.assign({}, props.famousPeople);
       return (
         <div className="bg-light">
-          <div className="container mt-5 mb-2">
-            <div className="d-flex my-3 py-4">
+          <div className="container py-4 mb-2">
+            <div className="d-flex">
               <img
                 src="./images/icons/Famous_titel-0٢.png"
                 alt=""

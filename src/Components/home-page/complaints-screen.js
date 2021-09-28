@@ -18,9 +18,9 @@ const Complaints = (props) => {
   if (props?.complaint?.result) {
     if (props.complaint.result.length) {
       return (
-        <div>
-          <div className=" container p-0 mb-4">
-            <div className="my-3 d-flex">
+        <div className='bg-light'>
+          <div className=" container py-3">
+            <div className="d-flex">
               <img src="/images/icons/complaints_titel-0٢.png" width="80px" />
               <div className="underline">
                 <h3 className="mt-4 me-2 text-dark"> الشكاوى </h3>

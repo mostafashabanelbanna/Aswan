@@ -91,10 +91,8 @@ const GovernmentProjects = (props) => {
     }
   };
 
-  const _onSelect = (active, direction) => {
-  };
-  const _visiableOnSelect = (active) => {
-  };
+  const _onSelect = (active, direction) => {};
+  const _visiableOnSelect = (active) => {};
   const _slideNext = () => {
     slider.current.slideNext();
   };
@@ -118,91 +116,94 @@ const GovernmentProjects = (props) => {
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (
-        <div className="container my-5 p-0">
-          <div className="d-flex my-2 ">
-            <img
-              src="./images/icons/projects_titel-0٢.png"
-              alt=""
-              width="80px"
-            />
-            <div className="underline">
-              {" "}
-              <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
+        <div>
+          <div className="container my-5 p-0">
+            <div className="d-flex my-2 ">
+              <img
+                src="./images/icons/projects_titel-0٢.png"
+                alt=""
+                width="80px"
+              />
+              <div className="underline">
+                {" "}
+                <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
+              </div>
             </div>
-          </div>
 
-          <RBCarousel
-                animation={true}
-                autoplay={autoplay}
-                slideshowSpeed={4000}
-                defaultActiveIndex={0}
-                leftIcon={leftIcon}
-                rightIcon={rightIcon}
-                onSelect={_onSelect}
-                ref={slider}
-                version={4}
-                className="carousel-fade"
-              >
-          {/* <Slider {...settings}> */}
-            {projects.map((project, index) => {
-              let pName;
-              let newPath;
-              if (project.photo != null) {
-                pName = project.photo;
-                newPath = pName.replaceAll(" ", "%20");
-              }
-              let slicedBrief = project.brief;
-              if (project.brief !== null && project.brief.length > 750) {
-                const brief = project.brief;
-                slicedBrief = brief.substring(0, 740).concat(" ...");
-              }
+            <RBCarousel
+              animation={true}
+              autoplay={autoplay}
+              slideshowSpeed={4000}
+              defaultActiveIndex={0}
+              leftIcon={leftIcon}
+              rightIcon={rightIcon}
+              onSelect={_onSelect}
+              ref={slider}
+              version={4}
+              className="carousel-fade"
+            >
+              {/* <Slider {...settings}> */}
+              {projects.map((project, index) => {
+                let pName;
+                let newPath;
+                if (project.photo != null) {
+                  pName = project.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                let slicedBrief = project.brief;
+                if (project.brief !== null && project.brief.length > 750) {
+                  const brief = project.brief;
+                  slicedBrief = brief.substring(0, 740).concat(" ...");
+                }
 
-              return (
-                <div className=" d-flex justify-content-around projectsDiv">
-                  <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
-                    <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 bg-light">
-                      <h3 className="titles mb-2">
-                        {ReactHtmlParser(project.name)}
-                      </h3>
-                      <p className="content overflow-hidden">
-                        {ReactHtmlParser(slicedBrief)}
-                      </p>
-                      <div className="projectsButtons d-flex flex-sm-row flex-column">
-                        <Link id='link' to={`/projectDetails/${project.id}`}>
-                          <button
-                            className="myButton mx-1 mb-2 mb-sm-0"
-                            // onClick={() => {
-                            //   props.history.push(
-                            //     `/projectDetails/${project.id}`
-                            //   );
-                            // }}
-                            style={{ verticalAlign: "middle" }}
-                          >
-                            <span>عرض التفاصيل</span>
-                          </button>
-                        </Link>
-                        <Link id='link' to={`/projectslist`}>
-                          <button
-                            className="myButton mx-1 mb-2 mb-sm-0"
-                            style={{ verticalAlign: "middle" }}
-                          >
-                            <span>مزيد من المشروعات</span>
-                          </button>
-                        </Link>
+                return (
+                  <div className=" d-flex justify-content-around projectsDiv">
+                    <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
+                      <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 bg-light">
+                        <h3 className="titles mb-2">
+                          {ReactHtmlParser(project.name)}
+                        </h3>
+                        <p className="content overflow-hidden">
+                          {ReactHtmlParser(slicedBrief)}
+                        </p>
+                        <div className="projectsButtons d-flex flex-sm-row flex-column">
+                          <Link id="link" to={`/projectDetails/${project.id}`}>
+                            <button
+                              className="myButton mx-1 mb-2 mb-sm-0"
+                              // onClick={() => {
+                              //   props.history.push(
+                              //     `/projectDetails/${project.id}`
+                              //   );
+                              // }}
+                              style={{ verticalAlign: "middle" }}
+                            >
+                              <span>عرض التفاصيل</span>
+                            </button>
+                          </Link>
+                          <Link id="link" to={`/projectslist`}>
+                            <button
+                              className="myButton mx-1 mb-2 mb-sm-0"
+                              style={{ verticalAlign: "middle" }}
+                            >
+                              <span>مزيد من المشروعات</span>
+                            </button>
+                          </Link>
+                        </div>
                       </div>
+                      <div
+                        className="mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
+                        style={{
+                          backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${newPath})`,
+                        }}
+                      ></div>
                     </div>
-                    <div
-                      className="mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
-                      style={{
-                        backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${newPath})`,
-                      }}
-                    ></div>
                   </div>
-                </div>
-              );
-            })}
-          {/* </Slider> */}
-          </RBCarousel>
+                );
+              })}
+              {/* </Slider> */}
+            </RBCarousel>
+          </div>
+          <div className="line mx-auto"></div>
         </div>
       );
     }

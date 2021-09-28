@@ -30,7 +30,7 @@ const Contact = () => {
   return (
     <div>
       <div className="bg-light">
-        <div className="container p-0 mt-3 py-4">
+        <div className="container p-0 py-4">
           <div className="mt-2 d-flex">
             <img src="/images/icons/contact_titel-0٢.png" width="80px" />
             <div className="  underline">

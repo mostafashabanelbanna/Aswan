@@ -49,9 +49,8 @@ const StaticContentDetails = (props) => {
               {data.photo?<div
                   className="m-2 text-center"
                   style={{
-                    backgroundColor: "#faa74a",
                     boxShadow: "3px 4px 16px 6px rgb(179 179 179 / 36%)",
-                    border: "8px solid #faa74a",
+                    border: "4px solid #faa74a",
                     borderRadius: "10px",
                     width: "fit-content",
                   }}

@@ -33,7 +33,8 @@ const PhotosAlbum = (props) => {
             newPath = pName.replaceAll(" ", "%20");
           }
           return (
-            <Link id='link'
+            <Link
+              id="link"
               to={`/photodetails/${item.id}`}
               className=" col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
             >
@@ -75,6 +76,7 @@ const PhotosAlbum = (props) => {
           </div>
           {renderAlbum()}
         </div>
+        <div className="line mx-auto"></div>
       </div>
     );
   }
