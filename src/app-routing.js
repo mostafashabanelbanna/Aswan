@@ -40,11 +40,12 @@ import TouristAttractionDetails from "./components/touristAttraction/touristAttr
 import Ads from "./components/ads/ads";
 import ServicesComponent from "./components/services-component";
 import AppointmentDetails from "./components/appointment/appointment-details";
-import AgendaList from './components/agenda/list-agenda'
-import AgendaDetails from './components/agenda/agenda-details'
+import AgendaList from "./components/agenda/list-agenda";
+import AgendaDetails from "./components/agenda/agenda-details";
 import investmentOpportunitiesList from "./components/investor-page/investment-opportunities/investment-opportunities-list";
 import StaticContentHome from "./components/static-content/static-content-home";
 import CityDetails from "./components/government-cities/city-details";
+import OrgChartRender from "./components/orgChart/orgChartRender";
 
 const AppRouting = () => {
   return (
@@ -57,7 +58,7 @@ const AppRouting = () => {
         <Route exact path="/projectslist" component={ProjectsList} />
         <Route exact path="/newsdetails/:id" component={NewsDetails} />
         <Route exact path="/eservices" component={EServices} />
-        <Route exact path='/services/:typeid' component={ServicesComponent}/>
+        <Route exact path="/services/:typeid" component={ServicesComponent} />
         <Route
           exact
           path="/eservicesdirectories"
@@ -77,14 +78,18 @@ const AppRouting = () => {
         <Route exact path="/photodetails/:id" component={PhotoDetails} />
         <Route exact path="/tourist" component={TouristHome} />
         <Route exact path="/investor" component={InvestorHome} />
-        <Route exact path="/statichome/:id/:title" component={StaticContentHome} />
+        <Route
+          exact
+          path="/statichome/:id/:title"
+          component={StaticContentHome}
+        />
         <Route exact path="/newslist" component={news_list} />
         <Route exact path="/filternews/:info" component={FilterNews} />
         <Route exact path="/filterphotos/:info" component={FilterPhotos} />
         <Route exact path="/filtervideos/:info" component={FilterVideos} />
         <Route exact path="/exconservatives" component={ExConservatives} />
         <Route exact path="/cities" component={CitiesNavbar} />
-        <Route exact path='/citydetails/:id' component={CityDetails}/>
+        <Route exact path="/citydetails/:id" component={CityDetails} />
         <Route exact path="/tribe" component={Tribe} />
         <Route exact path="/parliament" component={Parliament} />
         <Route exact path="/senate" component={Senate} />
@@ -94,7 +99,11 @@ const AppRouting = () => {
           component={HayaKarimaDetails}
         />
         <Route exact path="/appointment" component={Appointment}></Route>
-        <Route exact path='/appointmentdetails/:id' component={AppointmentDetails}/>
+        <Route
+          exact
+          path="/appointmentdetails/:id"
+          component={AppointmentDetails}
+        />
         <Route
           exact
           path="/document-library/:type"
@@ -120,15 +129,20 @@ const AppRouting = () => {
           component={TouristAttractionDetails}
         />
         <Route exact path="/leaders" component={Leaders}></Route>
-        <Route exact path='/eventlist' component={AgendaList}/>
-        <Route exact path='/eventdetails/:id' component={AgendaDetails}/>
-        <Route exact path='/filterevents/:info' component={AgendaList}/>
-        <Route exact path='/opportunitiesdetails/:id' component={AgendaList}/>
-        <Route exact path='/opportunitieslist' component={investmentOpportunitiesList}/>
+        <Route exact path="/eventlist" component={AgendaList} />
+        <Route exact path="/eventdetails/:id" component={AgendaDetails} />
+        <Route exact path="/filterevents/:info" component={AgendaList} />
+        <Route exact path="/opportunitiesdetails/:id" component={AgendaList} />
+        <Route
+          exact
+          path="/opportunitieslist"
+          component={investmentOpportunitiesList}
+        />
+        <Route exact path="/org-chart" component={OrgChartRender} />
         <Route path="*" component={Error} />
       </Switch>
-      <Ads/>
-      <Footer/>
+      <Ads />
+      <Footer />
     </BrowserRouter>
   );
 };

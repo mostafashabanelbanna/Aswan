@@ -25,5 +25,6 @@ export const paths = {
   TouristAttractionSlider: `${MainPath}PhotoLibraryPhoto/Photo/`,
   EventsPhotos: `${MainPath}Event/Photo/`,
   InvestmentPhotos: `${MainPath}Investment/Photo/`,
-  StaticContent: `${MainPath}StaticContent/Photo/`
+  StaticContent: `${MainPath}StaticContent/Photo/`,
+  OrgChart: `${MainPath}Leader/Photo/`,
 };

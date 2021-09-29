@@ -17,7 +17,7 @@ const Main_navbar = () => {
       <div className="row p-0 m-0 sticky-top bg-light">
         <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
-            <Link id='link' to="/home">
+            <Link id="link" to="/home">
               <img
                 className="main_logo"
                 src="/images/icons/logo_banner-0١.png"
@@ -29,15 +29,20 @@ const Main_navbar = () => {
           style={{ color: "#7f807f" }}
           className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
         >
-          <Link id='link' to="/home" className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center">
-          <div>
+          <Link
+            id="link"
+            to="/home"
+            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+          >
+            <div>
               <img className="mx-2 imgsz" src="/images/icons/home-0١.png" />
               <span className="spansz">الرئيسية</span>
-          </div>
+            </div>
           </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <Link id='link'
+          <Link
+            id="link"
             to="/investor"
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
@@ -48,7 +53,8 @@ const Main_navbar = () => {
           </Link>
           <div className=" d-none d-md-block">|</div>
 
-          <Link id='link'
+          <Link
+            id="link"
             to="/tourist"
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
@@ -95,19 +101,30 @@ const Main_navbar = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <li className={`nav-item `}>
-                  
-                    <Link id='link' to='/statichome/2001/aboutgovernment' className="nav-link text-light"> عن المحافظة</Link>
+                    <Link
+                      id="link"
+                      to="/statichome/2001/aboutgovernment"
+                      className="nav-link text-light"
+                    >
+                      {" "}
+                      عن المحافظة
+                    </Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <Link id='link' to={"/leaders"} className="nav-link text-light">
+                    <Link
+                      id="link"
+                      to={"/leaders"}
+                      className="nav-link text-light"
+                    >
                       قيادات المحافظة
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link id='link'
+                    <Link
+                      id="link"
                       className="nav-link text-light"
                       to={"/exconservatives"}
                     >
@@ -118,23 +135,37 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link id='link' to={"/appointment"} className="nav-link text-light">
+                    <Link
+                      id="link"
+                      to={"/appointment"}
+                      className="nav-link text-light"
+                    >
                       لقاءات و قرارات السيد المحافظ{" "}
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <a className="nav-link text-light">الديوان العام</a>
+                    <Link
+                      id="link"
+                      to={"/org-chart"}
+                      className="nav-link text-light"
+                    >
+                      الديوان العام{" "}
+                    </Link>
                   </li>
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <Link id='link' to="/cities" className="nav-link text-light">
+                    <Link
+                      id="link"
+                      to="/cities"
+                      className="nav-link text-light"
+                    >
                       مدن المحافظة
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link id='link' to="/parliament" className="nav-link text-light">
+                    <Link to="/parliament" className="nav-link text-light">
                       مجلس النواب
                     </Link>
                   </li>
@@ -142,7 +173,11 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <Link id='link' to="/senate" className="nav-link text-light">
+                    <Link
+                      id="link"
+                      to="/senate"
+                      className="nav-link text-light"
+                    >
                       مجلس الشيوخ
                     </Link>
                   </li>
