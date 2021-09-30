@@ -15,6 +15,7 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import AdvertisementRequire from "../../forms/ads-form";
 
 const AdvertismentList = (props) => {
   let id = props.match.params.id;
@@ -24,6 +25,21 @@ const AdvertismentList = (props) => {
   const [advertismentTypeId, setAdvertismentTypeId] = useState(parseInt(id));
   const [publishDateFrom, setPublishDateFrom] = useState(null);
   const [publishDateTo, setPublishDateTo] = useState(null);
+
+  const [show, setShow] = useState(false);
+
+  const onShow = () => {
+    setShow(true);
+  };
+
+  const renderModal = () => {
+    return (
+      <AdvertisementRequire
+        showAdvertisementModal={show}
+        onHideAdvertisementModal={() => setShow(false)}
+      />
+    );
+  };
 
   let dataFilled = {
     title,
@@ -142,6 +158,25 @@ const AdvertismentList = (props) => {
             />
           </div>
         </Container>
+        <Container>
+          {advertismentTypeId == 5 ? (
+            <div
+              className="col-12 d-flex justify-content-end"
+              style={{ bottom: 0 }}
+              onClick={() => {
+                onShow();
+              }}
+            >
+              <button
+                type="button"
+                className="myButton mx-1 my-4"
+                style={{ verticalAlign: "middle" }}
+              >
+                <span>طلب إعلان</span>
+              </button>
+            </div>
+          ) : null}
+        </Container>
         {props.advertisment.result.length ? (
           <Container>
             <Row className="my-5">
@@ -154,7 +189,8 @@ const AdvertismentList = (props) => {
                 }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link id='link'
+                    <Link
+                      id="link"
                       to={`/advertisment-details/${item.id}`}
                       className="h-100"
                     >
@@ -184,6 +220,7 @@ const AdvertismentList = (props) => {
         ) : (
           <div className="text-center my-5">لا يوجد نتائج</div>
         )}
+        {renderModal()}
       </>
     );
   }

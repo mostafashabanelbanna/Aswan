@@ -19,5 +19,5 @@ export default combineReducers({
   touristHome,
   investorHome,
   eventsComponents,
-  staticContent
+  staticContent,
 });

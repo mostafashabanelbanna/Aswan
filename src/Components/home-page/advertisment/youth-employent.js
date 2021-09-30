@@ -11,11 +11,30 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import YouthForm from "../../forms/youth-form";
 
 const YouthEmp = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
   const [flag, setFlag] = useState(0);
+
+  
+  const [show, setShow] = useState(false);
+  const [content, setContent] = useState({});
+
+  const onShow = () => {
+    setShow(true);
+  };
+
+  const renderModal = (content) => {
+    return (
+      <YouthForm
+        content={content}
+        showYouthModal={show}
+        onHideYouthModal={() => setShow(false)}
+      />
+    );
+  };
 
   let dataFilled = {
     title,
@@ -81,7 +100,7 @@ const YouthEmp = (props) => {
             />
           </div>
         </Container>
-        {props.youthemp.result.length ? (
+        {props?.youthemp?.result?.length ? (
           <Container>
             <Row className="my-5">
               {props.youthemp.result.map((item, index) => {
@@ -94,7 +113,6 @@ const YouthEmp = (props) => {
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
                     <Link id='link'
-                      //to={`/advertisment-details/${item.id}`}
                       style={{cursor:'unset'}}
                       className="h-100"
                     >
@@ -106,6 +124,10 @@ const YouthEmp = (props) => {
                         )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
                         imgHeight="200px"
                         youthButton={true}
+                        renderModal={() => {
+                          onShow()
+                          setContent(item)
+                        }}
                       />
                     </Link>
                   </Col>
@@ -123,6 +145,7 @@ const YouthEmp = (props) => {
         ) : (
           <div className=" text-center">لا يوجد نتائج</div>
         )}
+        {renderModal(content)}
       </>
     );
   }

@@ -4,24 +4,6 @@ import CareerForm from "../forms/career-form";
 import { paths } from "../../paths/paths";
 
 const ListWithImage = (props) => {
-  const [show, setShow] = useState(false);
-  const [content, setContent] = useState({});
-
-  const onShow = () => {
-    setShow(true);
-  };
-
-  const renderModal = (content) => {
-    return (
-      <CareerForm
-        content={content}
-        show={show}
-        onHide={() => setShow(false)}
-        pathName={paths.ProjectPhotos}
-      />
-    );
-  };
-
   return (
     <div className={`${props.hoverTitle} list_container position-relative`}>
       <div className="list_img_container">
@@ -52,9 +34,9 @@ const ListWithImage = (props) => {
         </div>
       ) : null}
       {props.careerButton == true ? (
-        <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}}>
+        <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}} onClick={props.renderModal}>
           <button
-            type={"submit"}
+            type="button"
             className="myButton mx-1 my-4"
             style={{ verticalAlign: "middle"}}
           >
@@ -63,9 +45,9 @@ const ListWithImage = (props) => {
         </div>
       ) : null}
       {props.youthButton == true ? (
-        <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}}>
+        <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}} onClick={props.renderModal}>
           <button
-            type={"submit"}
+            type='button'
             className="myButton mx-1 my-4"
             style={{ verticalAlign: "middle"}}
           >

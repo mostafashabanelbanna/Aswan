@@ -42,7 +42,7 @@ const OnLoadModal = (props) => {
         </div>
     );
   } else {
-    return <MainSliderSkeleton />;
+    return null;
   }
 }
 

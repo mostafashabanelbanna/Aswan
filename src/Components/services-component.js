@@ -130,7 +130,7 @@ const ServicesComponent = (props) => {
           <div className=" container underline my-5">
             <h3>{title}</h3>
           </div>
-          <div className=" bg-light p-3">
+          <div className="bg-light">
             <SearchSection
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
