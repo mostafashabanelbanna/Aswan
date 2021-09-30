@@ -27,7 +27,8 @@ const HayahKarima = () => {
               style={{ zIndex: 1 }}
             >
               <div className="row justify-content-center py-3 text-center ">
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`/HayaKarimaDetails/${1}`}
                   className="mb-4 col-md-4 col-sm-6 "
                 >
@@ -43,7 +44,8 @@ const HayahKarima = () => {
                   </div>
                 </Link>
 
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`/HayaKarimaDetails/${2}`}
                   className="mb-4 col-md-4 col-sm-6 "
                 >
@@ -60,7 +62,8 @@ const HayahKarima = () => {
                   </div>
                 </Link>
 
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`/HayaKarimaDetails/${3}`}
                   className="mb-4 col-md-4 col-sm-6 "
                 >
@@ -76,7 +79,8 @@ const HayahKarima = () => {
                     </div>
                   </div>
                 </Link>
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`/HayaKarimaDetails/${4}`}
                   className="mb-4 col-md-4 col-sm-6 "
                 >
@@ -93,7 +97,8 @@ const HayahKarima = () => {
                   </div>
                 </Link>
 
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`/HayaKarimaDetails/${5}`}
                   className="mb-4 col-md-4 col-sm-6 "
                 >
@@ -112,7 +117,6 @@ const HayahKarima = () => {
           </div>
         </div>
       </div>
-      <div className="line mx-auto"></div>
     </div>
   );
 };

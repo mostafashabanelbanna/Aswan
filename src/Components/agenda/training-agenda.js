@@ -45,19 +45,18 @@ const TrainingAgenda = (props) => {
 
   if (agendaProps?.result) {
     return (
-      <div className="pt-5 bg-light">
+      <div className="pt-5 custom_bg_light">
         <div className="container">
           <div className="d-flex my-2">
-            {props.photo?<img
-              src={props.photo}
-              alt=""
-              width="60px"
-            />:
-            <img
-              src="/images/icons/calender_titel-0١.png"
-              alt=""
-              width="60px"
-            />}
+            {props.photo ? (
+              <img src={props.photo} alt="" width="60px" />
+            ) : (
+              <img
+                src="/images/icons/calender_titel-0١.png"
+                alt=""
+                width="60px"
+              />
+            )}
             <div className="underline">
               {" "}
               <h3 className="mt-4 me-2  text-dark">{props.title} </h3>
@@ -80,7 +79,7 @@ const TrainingAgenda = (props) => {
               eventBackgroundColor={"#fbbf3c"}
               eventTextColor={"black"}
               eventBorderColor={true}
-              headerToolbar={{start: "", center: "title"}}
+              headerToolbar={{ start: "", center: "title" }}
               editable={false}
               locale="ar"
               height={"600px"}
@@ -117,11 +116,9 @@ const TrainingAgenda = (props) => {
                         new Date(item.endDateTime)
                       ).format("LL")}`}</div>
                       <div className="align-items-center d-flex">
-                        <Link id='link'
-                          to={`/eventdetails/${item.id}`}
-                        >
+                        <Link id="link" to={`/eventdetails/${item.id}`}>
                           <button
-                            className="myButton mx-1 mb-2 mb-sm-0"
+                            className="btn_orange mx-1 mb-2 mb-sm-0"
                             style={{ verticalAlign: "middle" }}
                           >
                             <span>المزيد</span>
@@ -144,10 +141,10 @@ const TrainingAgenda = (props) => {
             })}
           </div>
         </div>
-        <div className='container d-flex justify-content-end'>
-          <Link id='link' to="/eventlist">
+        <div className="container d-flex justify-content-end">
+          <Link id="link" to="/eventlist">
             <button
-              className="myButton mx-1 mb-2 mb-sm-0"
+              className="btn_blue mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}
             >
               <span>عرض الكل</span>

@@ -66,7 +66,10 @@ const News = (props) => {
         <div className="container fluid mb-4 px-0">
           <div className="container p-0">
             <div className="my-3 d-flex">
-              <img src="/images/icons/news_titel-0١.png" width="80px" />
+              <img
+                src="/images/icons_black/news_titel-0١.png"
+                style={{ width: "50px" }}
+              />
               <div className="  underline">
                 <h3 className="mt-4 me-2 text-dark"> اخبار المحافظة </h3>
               </div>
@@ -124,10 +127,10 @@ const News = (props) => {
                       to={`/newsdetails/${item.id}`}
                       className="col-sm-3 text-decoration-none  col-12 mt-5 text-center px-3 "
                     >
-                      <div className="hoverTitle">
+                      <div className="hoverTitle custom_bg_light rounded">
                         <div
                           key={item.id}
-                          className=""
+                          className="p-2"
                           style={{ borderRadius: "0px" }}
                         >
                           <img
@@ -148,10 +151,10 @@ const News = (props) => {
               </Slider>
             </div>
           </div>
-          <div className="container d-flex justify-content-end">
+          <div className="container d-flex justify-content-end my-3">
             <Link id="link" to="/newslist" className="">
               <button
-                className="myButton mx-1 mb-2 mb-sm-0"
+                className="btn_blue mx-1 mb-2 mb-sm-0"
                 style={{ verticalAlign: "middle" }}
               >
                 <span>عرض الكل</span>
@@ -159,7 +162,6 @@ const News = (props) => {
             </Link>
           </div>
         </div>
-        <div className="line mx-auto"></div>
       </div>
     );
   }

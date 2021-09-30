@@ -112,7 +112,6 @@ const ImportantPortals = (props) => {
               </Slider>
             </div>
           </div>
-          <div className="line mx-auto"></div>
         </div>
       );
     }

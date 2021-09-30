@@ -1,16 +1,28 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import bgImg from "../../assets/img/info_bg.png";
 
 const InfoNews = () => {
   return (
-    <div className="bg-light pt-4">
+    <div
+      className="custom_bg_light pt-4"
+      style={{
+        backgroundImage: `url(${bgImg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div className=" container p-0 ">
-        <div className="my-3 d-flex">
-          <img src="/images/icons/information_titel-0١.png" width="80px" />
+        <div className="my-3 d-flex align-items-end">
+          <img
+            src="/images/icons_black/information_titel-0١.png"
+            height="50px"
+          />
 
           <div className="  underline">
-            <h3 className="mt-4 me-2 text-dark"> معلومات ودراسات ونشرات </h3>
+            <h3 className="mt-4 me-2 text-white"> معلومات ودراسات ونشرات </h3>
           </div>
         </div>
       </div>
@@ -83,7 +95,6 @@ const InfoNews = () => {
           </Fade>
         </div>
       </div>
-      <div className="line mx-auto"></div>
     </div>
   );
 };

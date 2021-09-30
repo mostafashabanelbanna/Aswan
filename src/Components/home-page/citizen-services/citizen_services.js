@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
   return (
-    <div className="bg-light pt-4">
+    <div className="custom_bg_light pt-4">
       <div className=" container p-0 mt-2">
         <div className="my-3 d-flex ">
           <img src="/images/icons/services_titel-0١.png" width="80px" />
@@ -27,11 +27,12 @@ const CitizenServices = () => {
           <div className=" row justify-content-around ">
             <div className="col-6 "></div>
             <div
-              className="col-lg-6 col-md-9 col-12  bg-light py-4"
+              className="col-lg-6 col-md-9 col-12 custom_bg_light py-4"
               style={{ zIndex: 1 }}
             >
               <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">
-                <Link id='link'
+                <Link
+                  id="link"
                   to="/eservices"
                   className="text-decoration-none"
                 >
@@ -45,7 +46,8 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <Link id='link'
+                <Link
+                  id="link"
                   to="/eservicesdirectories"
                   className="text-decoration-none"
                 >
@@ -59,7 +61,7 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <a id='link' href='http://agriprice.gov.eg/' target="_blank">
+                <a id="link" href="http://agriprice.gov.eg/" target="_blank">
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -70,7 +72,11 @@ const CitizenServices = () => {
                   </div>
                 </a>
 
-                <Link id='link' to='/directorates' className="text-decoration-none">
+                <Link
+                  id="link"
+                  to="/directorates"
+                  className="text-decoration-none"
+                >
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -81,7 +87,11 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <Link id='link' to={'/emergencynumbers'} className="text-decoration-none">
+                <Link
+                  id="link"
+                  to={"/emergencynumbers"}
+                  className="text-decoration-none"
+                >
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
@@ -103,14 +113,21 @@ const CitizenServices = () => {
                   </div>
                 </Link> */}
 
-                <Link id='link' to='/techcenterservices' className="text-decoration-none">
+                <Link
+                  id="link"
+                  to="/techcenterservices"
+                  className="text-decoration-none"
+                >
                   <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
                       src={"/images/icons/centersServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> خدمات المراكز التكنولوجية </div>
+                    <div className="mt-4 mb-1 ">
+                      {" "}
+                      خدمات المراكز التكنولوجية{" "}
+                    </div>
                   </div>
                 </Link>
               </div>
@@ -118,7 +135,6 @@ const CitizenServices = () => {
           </div>
         </div>
       </div>
-      <div className="line mx-auto"></div>
     </div>
   );
 };

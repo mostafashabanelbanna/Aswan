@@ -76,7 +76,6 @@ const PhotosAlbum = (props) => {
           </div>
           {renderAlbum()}
         </div>
-        <div className="line mx-auto"></div>
       </div>
     );
   }

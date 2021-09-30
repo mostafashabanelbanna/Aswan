@@ -14,7 +14,10 @@ import { Link } from "react-router-dom";
 const Main_navbar = () => {
   return (
     <div>
-      <div className="row p-0 m-0 sticky-top bg-light">
+      <div
+        className="row p-0 m-0 sticky-top"
+        style={{ backgroundColor: "#ffe990" }}
+      >
         <div className="col-2 d-none d-lg-block p-0">
           <div className="position-relative">
             <Link id="link" to="/home">
@@ -35,8 +38,8 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
-              <img className="mx-2 imgsz" src="/images/icons/home-0١.png" />
-              <span className="spansz">الرئيسية</span>
+              <img className="mx-2 " src="/images/icons_black/citiezen.png" />
+              <span className="spansz">المواطن</span>
             </div>
           </Link>
           <div className=" d-none d-md-block">|</div>
@@ -47,7 +50,10 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
-              <img className="mx-2 imgsz" src="/images/icons/Investor-0١.png" />
+              <img
+                className="mx-2 imgsz"
+                src="/images/icons_black/Investor-0١.png"
+              />
               <span className="spansz">المستثمر</span>
             </div>
           </Link>
@@ -58,24 +64,27 @@ const Main_navbar = () => {
             to="/tourist"
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
-            <img className="mx-2 imgsz" src="/images/icons/Tourist-0٢.png" />
+            <img
+              className="mx-2 imgsz"
+              src="/images/icons_black/Tourist-0٢.png"
+            />
             <span className="spansz">السائح</span>
           </Link>
         </div>
-        <div
-          style={{ color: "#7f807f" }}
-          className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3"
-        >
+        <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3">
           <div className="col-3 fsiz">خريطة الموقع</div>
           <div className="col-2 d-flex justify-content-center">|</div>
           <div className="col-3 fsiz">تواصل معانا</div>
         </div>
 
         <Navbar
-          className="py-0 bg-secondary"
+          className="py-0"
           collapseOnSelect
           expand="lg"
           variant="dark"
+          style={{
+            backgroundColor: "#06496a",
+          }}
         >
           <Container className="py-1">
             <div className="navbar-brand d-lg-block d-none text-dark">

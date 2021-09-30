@@ -159,7 +159,7 @@ const GovernmentProjects = (props) => {
                 return (
                   <div className=" d-flex justify-content-around projectsDiv">
                     <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
-                      <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 bg-light">
+                      <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 custom_bg_light">
                         <h3 className="titles mb-2">
                           {ReactHtmlParser(project.name)}
                         </h3>
@@ -169,7 +169,7 @@ const GovernmentProjects = (props) => {
                         <div className="projectsButtons d-flex flex-sm-row flex-column">
                           <Link id="link" to={`/projectDetails/${project.id}`}>
                             <button
-                              className="myButton mx-1 mb-2 mb-sm-0"
+                              className="btn_orange mx-1 mb-2 mb-sm-0"
                               // onClick={() => {
                               //   props.history.push(
                               //     `/projectDetails/${project.id}`
@@ -182,7 +182,7 @@ const GovernmentProjects = (props) => {
                           </Link>
                           <Link id="link" to={`/projectslist`}>
                             <button
-                              className="myButton mx-1 mb-2 mb-sm-0"
+                              className="btn_blue mx-1 mb-2 mb-sm-0"
                               style={{ verticalAlign: "middle" }}
                             >
                               <span>مزيد من المشروعات</span>
@@ -203,7 +203,6 @@ const GovernmentProjects = (props) => {
               {/* </Slider> */}
             </RBCarousel>
           </div>
-          <div className="line mx-auto"></div>
         </div>
       );
     }

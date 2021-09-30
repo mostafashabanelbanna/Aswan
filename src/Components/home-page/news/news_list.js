@@ -102,7 +102,11 @@ const NewsList = (props) => {
     // }
   }, [currentPage, sectorSourceId]);
 
-  if (props?.newslist?.result && props?.categories?.result && props?.sectors?.result) {
+  if (
+    props?.newslist?.result &&
+    props?.categories?.result &&
+    props?.sectors?.result
+  ) {
     let catName = props.categories.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -121,27 +125,29 @@ const NewsList = (props) => {
             <h3>الاخبار</h3>
           </div>
           <div className=" bg-light p-3">
-            <SearchSection 
-            submit={submitHandler} 
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne='العنوان'
-            classNameTextFieldOne='col-sm-4 col-12'
-            dropdownOneVal={catName.find(e => e.value == newsCategoryId)}
-            dropdownOneHandler={catHandler}
-            dropdownOneName={catName}
-            dropdownOnePlaceholder='القسم'
-            classNameDropdownOne='col-sm-4 col-12'
-            dropdownTwoVal={sectorsName.find(e => e.value == sectorSourceId)}
-            dropdownTwoHandler={sectorHandler}
-            dropdownTwoPlaceholder='القطاع'
-            dropdownTwoName={sectorsName}
-            classNameDropdownTwo='col-sm-4 col-12'
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom='col-sm-6 col-12'
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo='col-sm-6 col-12'
+            <SearchSection
+              submit={submitHandler}
+              TextFieldOneHandler={titleHandler}
+              labelTextFieldOne="العنوان"
+              classNameTextFieldOne="col-sm-4 col-12"
+              dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
+              dropdownOneHandler={catHandler}
+              dropdownOneName={catName}
+              dropdownOnePlaceholder="القسم"
+              classNameDropdownOne="col-sm-4 col-12"
+              dropdownTwoVal={sectorsName.find(
+                (e) => e.value == sectorSourceId
+              )}
+              dropdownTwoHandler={sectorHandler}
+              dropdownTwoPlaceholder="القطاع"
+              dropdownTwoName={sectorsName}
+              classNameDropdownTwo="col-sm-4 col-12"
+              publishDateFrom={publishDateFrom}
+              publishFromHandler={publishFromHandler}
+              classNameDPFrom="col-sm-6 col-12"
+              publishDateTo={publishDateTo}
+              publishToHandler={publishToHandler}
+              classNameDPTo="col-sm-6 col-12"
             />
           </div>
         </Container>
@@ -151,20 +157,26 @@ const NewsList = (props) => {
               {props.newslist.result.map((item, index) => {
                 let pName;
                 let newPath;
-                if(item.photo != null){
-                pName = item.photo;
-                newPath  = pName.replaceAll(' ','%20')
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link id='link' to={`/newsdetails/${item.id}`} className="h-100">
+                    <Link
+                      id="link"
+                      to={`/newsdetails/${item.id}`}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}
-                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
+                        date={`${moment(new Date(item.publishDate)).format(
+                          "LL"
+                        )}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
-                        hoverTitle='hoverTitle'
+                        hoverTitle="hoverTitle"
                       />
                     </Link>
                   </Col>
@@ -185,7 +197,7 @@ const NewsList = (props) => {
       </>
     );
   }
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {
