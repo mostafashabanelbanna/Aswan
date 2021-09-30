@@ -145,6 +145,7 @@ const DocumentLibrary = (props) => {
                               )}`}
                               category={item.documentTypeName}
                               imgHeight="200px"
+                              hoverTitle="hoverTitle"
                             />
                           </Link>
                         </Col>

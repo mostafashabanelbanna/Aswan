@@ -11,6 +11,7 @@ function ContactUsModal(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      style={{zIndex: 100000000,}}
     >
       <Modal.Body>
         {props.dialogClassName != "danger" ? (
@@ -19,7 +20,7 @@ function ContactUsModal(props) {
               icon={faCheck}
               className="align-self-center text-success my-5 fa-3x"
             />
-            <h4>تم إرسال رأيك بنجاح</h4>
+            <h4>تم الإرسال بنجاح</h4>
           </div>
         ) : (
           <div className='d-flex flex-column align-items-center'>
@@ -27,7 +28,8 @@ function ContactUsModal(props) {
               icon={faTimes}
               className="align-self-center text-danger my-5 fa-3x"
             />
-            <h4>لم يتم الإرسال أعد المحاول مرة اخرى</h4>
+            <h4>لم يتم الإرسال هناك خطأ في البيانات </h4>
+            <h4>أعد المحاول مرة اخرى</h4>
           </div>
         )}
       </Modal.Body>

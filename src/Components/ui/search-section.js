@@ -9,7 +9,7 @@ import {
 import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import "moment/locale/ar";
-import './MUIcalender.css'
+import "./MUIcalender.css";
 
 const SearchSection = (props) => {
   return (
@@ -20,7 +20,7 @@ const SearchSection = (props) => {
             {props.TextFieldOneHandler ? (
               <div className={`${props.classNameTextFieldOne} form-group mt-4`}>
                 <TextField
-                variant="outlined"
+                  variant="outlined"
                   onChange={props.TextFieldOneHandler}
                   className="w-100"
                   id="standard-basic"
@@ -85,7 +85,7 @@ const SearchSection = (props) => {
               </div>
             ) : null}
 
-              {props.dropdownFourHandler ? (
+            {props.dropdownFourHandler ? (
               <div
                 style={{ height: "1.1rem" }}
                 className={`${props.classNameDropdownFour} form-group my-5`}
@@ -102,12 +102,12 @@ const SearchSection = (props) => {
 
             {props.publishFromHandler ? (
               <div className={`${props.classNameDPFrom} mt-4`}>
-                <label className='my-2'>{props.DPFromLabel}</label>
+                <label className="my-2">{props.DPFromLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
                   locale={"sw"}
-                  className='bg-danger'
+                  className="bg-danger"
                 >
                   <KeyboardDatePicker
                     format="L"
@@ -123,10 +123,10 @@ const SearchSection = (props) => {
                 </MuiPickersUtilsProvider>
               </div>
             ) : null}
-            
+
             {props.publishToHandler ? (
               <div className={`${props.classNameDPTo} mt-4`}>
-                <label className='my-2'>{props.DPToLabel}</label>
+                <label className="my-2">{props.DPToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -148,14 +148,14 @@ const SearchSection = (props) => {
               </div>
             ) : null}
 
-{props.endDateFromHandler ? (
+            {props.endDateFromHandler ? (
               <div className={`${props.classNameEDFTo} mt-4`}>
-                <label className='my-2'>{props.EDFToLabel}</label>
+                <label className="my-2">{props.EDFToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
                   locale={"sw"}
-                  className='bg-danger'
+                  className="bg-danger"
                 >
                   <KeyboardDatePicker
                     format="L"
@@ -171,15 +171,15 @@ const SearchSection = (props) => {
                 </MuiPickersUtilsProvider>
               </div>
             ) : null}
-            
+
             {props.endDateToHandler ? (
               <div className={`${props.classNameEDTTo} mt-4`}>
-                <label className='my-2'>{props.EDTToLabel}</label>
+                <label className="my-2">{props.EDTToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
                   locale={"sw"}
-                  className='bg-danger'
+                  className="bg-danger"
                 >
                   <KeyboardDatePicker
                     format="L"

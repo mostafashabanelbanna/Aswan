@@ -1,6 +1,8 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { paths } from "../paths/paths";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const SliderDetailsModalComponent = (props) => {
     let title = props.content.title;
@@ -16,17 +18,26 @@ const SliderDetailsModalComponent = (props) => {
         >
           <Modal.Header >
             <Modal.Title id="contained-modal-title-vcenter">
+            <div className='d-flex'>
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={props.onHide}
+              style={{cursor: 'pointer'}}
+              className="align-self-start my-1 ms-2 text-danger fa-1x"
+            />
               {title}
+            </div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+          {props.details?<a href={props.details}>
             <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} className="w-100"/>
+            </a>:
+            <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} className="w-100"/>
+            }
           </Modal.Body>
           <Modal.Footer>
-            {props.details?<a href={props.details} className='col d-flex'>
-              <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>عرض التفاصيل</Button>
-            </a>:null}
-            <div className='d-flex'>
+            <div>
               <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>إغلاق</Button>
             </div>
           </Modal.Footer>

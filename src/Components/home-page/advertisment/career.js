@@ -11,11 +11,29 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import CareerForm from "../../forms/career-form";
 
 const Career = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
   const [flag, setFlag] = useState(0);
+
+  const [show, setShow] = useState(false);
+  const [content, setContent] = useState({});
+
+  const onShow = () => {
+    setShow(true);
+  };
+
+  const renderModal = (content) => {
+    return (
+      <CareerForm
+        content={content}
+        showCareerModal={show}
+        onHideCareerModal={() => setShow(false)}
+      />
+    );
+  };
 
   let dataFilled = {
     title,
@@ -81,7 +99,7 @@ const Career = (props) => {
             />
           </div>
         </Container>
-        {props.career.result.length ? (
+        {props?.career?.result?.length ? (
           <Container>
             <Row className="my-5">
               {props.career.result.map((item, index) => {
@@ -93,9 +111,8 @@ const Career = (props) => {
                 }
                 return (
                   <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link
+                    <div
                       id="link"
-                      //to={`/advertisment-details/${item.id}`}
                       style={{ cursor: "unset" }}
                       className="h-100"
                     >
@@ -104,8 +121,12 @@ const Career = (props) => {
                         title={item.title}
                         imgHeight="200px"
                         careerButton={true}
+                        renderModal={() => {
+                          onShow()
+                          setContent(item)
+                        }}
                       />
-                    </Link>
+                    </div>
                   </Col>
                 );
               })}
@@ -121,10 +142,11 @@ const Career = (props) => {
         ) : (
           <div className=" text-center">لا يوجد نتائج</div>
         )}
+        {renderModal(content)}
       </>
     );
   }
-  return <ListSkeleton></ListSkeleton>;
+  return <ListSkeleton/>;
 };
 const mapStateToProps = (state) => {
   return {
