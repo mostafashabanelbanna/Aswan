@@ -6,8 +6,8 @@ const HayahKarima = () => {
     <div className="pt-4">
       <div className=" container p-0 mb-4">
         <div className="mt-2 d-flex ">
-          <div className="my-3 d-flex">
-            <img src="/images/icons/حياه كريمة-01.png" width="80px" />
+          <div className="my-3 d-flex align-items-center">
+            <img src="/images/icons_black/حياه كريمة-01.png" height="50px" />
             <div className="underline">
               {" "}
               <h3 className="mt-4 me-2 text-dark"> محاور مبادرة حياه كريمة </h3>

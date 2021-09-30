@@ -2,6 +2,7 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import bgImg from "../../assets/img/info_bg.png";
+import cardBg from "../../assets/img/circle-01.png";
 
 const InfoNews = () => {
   return (
@@ -20,7 +21,6 @@ const InfoNews = () => {
             src="/images/icons_black/information_titel-0١.png"
             height="50px"
           />
-
           <div className="  underline">
             <h3 className="mt-4 me-2 text-white"> معلومات ودراسات ونشرات </h3>
           </div>
@@ -34,14 +34,36 @@ const InfoNews = () => {
               <Link
                 id="link"
                 to={`document-library/1`}
-                className="text-decoration-none"
+                className="text-decoration-none d-flex flex-column align-items-center justify-content-center"
               >
-                <img
-                  style={{ width: 150 }}
-                  className="  px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
-                />
-                <div className="mt-4"> إحصائيات </div>
+                <div
+                  className="d-flex flex-column align-items-center justify-content-center"
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    backgroundImage: `url(${cardBg})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <img
+                    style={{ width: 150 }}
+                    className="  px-4 imgfilter"
+                    src={"/images/icons/statistics-0١.png"}
+                  />
+                </div>
+                <div
+                  className="mt-4"
+                  style={{
+                    backgroundColor: "rgb(255, 233, 144)",
+                    padding: ".5rem .75rem",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {" "}
+                  إحصائيات{" "}
+                </div>
               </Link>
             </div>
           </Fade>
@@ -50,14 +72,36 @@ const InfoNews = () => {
               <Link
                 id="link"
                 to={`document-library/2`}
-                className="text-decoration-none"
+                className="text-decoration-none d-flex flex-column align-items-center justify-content-center"
               >
-                <img
-                  style={{ width: 150 }}
-                  className=" px-4 imgfilter"
-                  src={"/images/icons/bulletin-0١.png"}
-                />
-                <div className="mt-4"> نشرات شهرية </div>
+                <div
+                  className="d-flex flex-column align-items-center justify-content-center"
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    backgroundImage: `url(${cardBg})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <img
+                    style={{ width: 150 }}
+                    className=" px-4 imgfilter"
+                    src={"/images/icons/bulletin-0١.png"}
+                  />
+                </div>
+                <div
+                  className="mt-4"
+                  style={{
+                    backgroundColor: "rgb(255, 233, 144)",
+                    padding: ".5rem .75rem",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {" "}
+                  نشرات شهرية{" "}
+                </div>
               </Link>
             </div>
           </Fade>
@@ -66,14 +110,36 @@ const InfoNews = () => {
               <Link
                 id="link"
                 to={`document-library/3`}
-                className="text-decoration-none"
+                className="text-decoration-none d-flex flex-column align-items-center justify-content-center"
               >
-                <img
-                  style={{ width: 150 }}
-                  className=" px-4 imgfilter"
-                  src={"/images/icons/decision-0١.png"}
-                />
-                <div className="mt-4"> إحصائيات نشرات سكانية </div>
+                <div
+                  className="d-flex flex-column align-items-center justify-content-center"
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    backgroundImage: `url(${cardBg})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <img
+                    style={{ width: 150 }}
+                    className=" px-4 imgfilter"
+                    src={"/images/icons/decision-0١.png"}
+                  />
+                </div>
+                <div
+                  className="mt-4"
+                  style={{
+                    backgroundColor: "rgb(255, 233, 144)",
+                    padding: ".5rem .75rem",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {" "}
+                  إحصائيات نشرات سكانية{" "}
+                </div>
               </Link>
             </div>
           </Fade>
@@ -82,14 +148,36 @@ const InfoNews = () => {
               <Link
                 id="link"
                 to={`document-library/4`}
-                className="text-decoration-none"
+                className="text-decoration-none d-flex flex-column align-items-center justify-content-center"
               >
-                <img
-                  style={{ width: 150 }}
-                  className="w px-4 imgfilter"
-                  src={"/images/icons/statistics-0١.png"}
-                />
-                <div className="mt-4"> دعم القرار </div>
+                <div
+                  className="d-flex flex-column align-items-center justify-content-center"
+                  style={{
+                    height: "200px",
+                    width: "200px",
+                    backgroundImage: `url(${cardBg})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <img
+                    style={{ width: 150 }}
+                    className="w px-4 imgfilter"
+                    src={"/images/icons/statistics-0١.png"}
+                  />
+                </div>
+                <div
+                  className="mt-4"
+                  style={{
+                    backgroundColor: "rgb(255, 233, 144)",
+                    padding: ".5rem .75rem",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {" "}
+                  دعم القرار{" "}
+                </div>
               </Link>
             </div>
           </Fade>

@@ -16,6 +16,6 @@
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   height: 300px;
   width: 300px;
-  background-image: linear-gradient(to left, #a4e1bf, #fef9a4);
+  background-image: linear-gradient(to left, rgb(6 73 106), rgb(255 233 144));
   position: relative;
 }

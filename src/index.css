@@ -39,13 +39,13 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f8b03c;
+  background: rgb(6, 73, 106);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffdc6e;
+  background: rgb(6, 73, 106);
 }
 
 a {
@@ -320,7 +320,7 @@ a {
 }
 .hvr-rectangle-out:before {
   border-radius: 10px;
-  background: rgb(255 220 110 / 80%) !important;
+  background: rgb(32 176 202 / 50%) !important;
 }
 .hvr-rectangle-out:hover,
 .hvr-rectangle-out:focus,

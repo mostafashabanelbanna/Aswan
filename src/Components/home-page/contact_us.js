@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { feedBackApi } from '../../store/actions/News_Action'
+import { feedBackApi } from "../../store/actions/News_Action";
 import Alert from "react-bootstrap/Alert";
 import ContactUsModal from "../modal";
 
@@ -40,7 +40,10 @@ const Contact = () => {
           </div>
           <div className=" row p-0 m-0">
             <div className="col-sm-4 col-12 p-0 order-sm-1 order-2">
-              <form className="justify-content-center col-11" onSubmit={feedBack}>
+              <form
+                className="justify-content-center col-11"
+                onSubmit={feedBack}
+              >
                 <div className="form-group mb-3 mt-2">
                   <input
                     required
@@ -94,7 +97,7 @@ const Contact = () => {
                     <button
                       // onClick={}
                       type="submit"
-                      className="myButton mx-1 mb-2 mb-sm-0"
+                      className="btn_orange mx-1 mb-2 mb-sm-0"
                       style={{ verticalAlign: "middle" }}
                     >
                       <span>ارسال</span>
