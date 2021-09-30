@@ -105,7 +105,7 @@ const YouthEmp = (props) => {
                           "LL"
                         )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
                         imgHeight="200px"
-                        button={true}
+                        youthButton={true}
                       />
                     </Link>
                   </Col>

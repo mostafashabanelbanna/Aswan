@@ -103,7 +103,7 @@ const Career = (props) => {
                         imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         imgHeight="200px"
-                        button={true}
+                        careerButton={true}
                       />
                     </Link>
                   </Col>

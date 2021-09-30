@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { feedBackApi } from '../../store/actions/News_Action'
 import Alert from "react-bootstrap/Alert";
-import MyModal from "../modal";
+import ContactUsModal from "../modal";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -39,10 +39,12 @@ const Contact = () => {
             </div>
           </div>
           <div className=" row p-0 m-0">
-            <div className="col-sm-4 col-12   p-0 order-sm-1 order-2">
-              <form className="justify-content-center col-11">
+            <div className="col-sm-4 col-12 p-0 order-sm-1 order-2">
+              <form className="justify-content-center col-11" onSubmit={feedBack}>
                 <div className="form-group mb-3 mt-2">
                   <input
+                    required
+                    value={name}
                     onChange={(e) => {
                       setName(e.currentTarget.value);
                     }}
@@ -53,6 +55,8 @@ const Contact = () => {
                 </div>
                 <div className="form-group mb-3 mt-2">
                   <input
+                    required
+                    value={email}
                     onChange={(e) => {
                       setEmail(e.currentTarget.value);
                     }}
@@ -63,6 +67,8 @@ const Contact = () => {
                 </div>
                 <div className="form-group mb-3 mt-2">
                   <input
+                    required
+                    value={subject}
                     onChange={(e) => {
                       setSubject(e.currentTarget.value);
                     }}
@@ -73,6 +79,8 @@ const Contact = () => {
                 </div>
                 <div className="form-group mb-3 mt-2">
                   <textarea
+                    required
+                    value={message}
                     onChange={(e) => {
                       setMessage(e.currentTarget.value);
                     }}
@@ -84,7 +92,7 @@ const Contact = () => {
                 <div className="mb-2 d-flex justify-content-end">
                   <div className="align-items-center d-flex j">
                     <button
-                      onClick={feedBack}
+                      // onClick={}
                       type="submit"
                       className="myButton mx-1 mb-2 mb-sm-0"
                       style={{ verticalAlign: "middle" }}
@@ -106,12 +114,12 @@ const Contact = () => {
                 tabIndex="0"
               ></iframe>
             </div>
-            <MyModal
+            <ContactUsModal
               dialogClassName="success"
               show={successShow}
               onHide={() => setSuccessShow(false)}
             />
-            <MyModal
+            <ContactUsModal
               dialogClassName="danger"
               show={dangerShow}
               onHide={() => setDangerShow(false)}
