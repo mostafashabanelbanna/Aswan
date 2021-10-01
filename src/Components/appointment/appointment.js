@@ -96,25 +96,23 @@ const Appointment = (props) => {
         <div className=" container underline  my-5">
           <h3> لقاءات و قرارات السيد المحافظ </h3>
         </div>
-        <div className="container-fluid bg-light">
           <SearchSection
             submit={submitHandler}
             TextFieldOneHandler={titleHandler}
             labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-sm-6 col-12"
+            classNameTextFieldOne="col-lg-3 col-md-6 col-12"
             dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
             dropdownOneHandler={typeHandler}
             dropdownOneName={typesName}
             dropdownOnePlaceholder="القسم"
-            classNameDropdownOne="col-sm-6 col-12"
+            classNameDropdownOne="col-lg-3 col-md-6 col-12"
             publishDateFrom={appointmentDateFrom}
             publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-6"
+            classNameDPFrom="col-lg-3 col-md-6 col-12"
             publishDateTo={appointmentDateTo}
             publishToHandler={publishToHandler}
-            classNameDPTo="col-6"
+            classNameDPTo="col-lg-3 col-md-6 col-12"
           />
-        </div>
         {props.apointment.result.length ? (
           <div className="container">
             <div className="my-5 row">

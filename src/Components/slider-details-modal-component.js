@@ -19,28 +19,23 @@ const SliderDetailsModalComponent = (props) => {
           <Modal.Header >
             <Modal.Title id="contained-modal-title-vcenter">
             <div className='d-flex'>
-            <FontAwesomeIcon
-              icon={faTimes}
-              onClick={props.onHide}
-              style={{cursor: 'pointer'}}
-              className="align-self-start my-1 ms-2 text-danger fa-1x"
-            />
               {title}
             </div>
             </Modal.Title>
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={props.onHide}
+              style={{cursor: 'pointer', fontSize: '20px'}}
+              className="align-self-start my-1 ms-2 text-danger"
+            />
           </Modal.Header>
           <Modal.Body>
           {props.details?<a href={props.details}>
-            <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} className="w-100"/>
+            <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} style={{height: '500px'}} className="w-100"/>
             </a>:
             <img src={`${props.pathName}${props.content.id}/${props.content.photo}`} className="w-100"/>
             }
           </Modal.Body>
-          <Modal.Footer>
-            <div>
-              <Button style={{backgroundColor: 'orange', borderColor: 'gray'}} onClick={props.onHide}>إغلاق</Button>
-            </div>
-          </Modal.Footer>
         </Modal>
       );
     }

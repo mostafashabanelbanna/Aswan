@@ -130,7 +130,6 @@ const ServicesComponent = (props) => {
           <div className=" container underline my-5">
             <h3>{title}</h3>
           </div>
-          <div className="bg-light">
             <SearchSection
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
@@ -152,7 +151,6 @@ const ServicesComponent = (props) => {
             dropdownOneName={dirTypeVal}
             classNameDropdownOne='col-sm-6 col-12'
             />
-          </div>
         </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.services.result.map((item, index) => {

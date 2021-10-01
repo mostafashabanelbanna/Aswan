@@ -145,7 +145,7 @@ const AgendaList = (props) => {
             <div className=" container underline  my-5">
               <h3>الأحداث</h3>
             </div>
-            <div className=" bg-light p-3">
+          </Container>
               <SearchSection
                 submit={submitHandler}
                 TextFieldOneHandler={titleHandler}
@@ -187,14 +187,12 @@ const AgendaList = (props) => {
                 classNameEDTTo="col-sm-6 col-12"
                 EDTToLabel='تاريخ نهاية الحدث إلى'
               />
-            </div>
-          </Container>
           <div className="d-flex container flex-wrap justify-content-around flex-column flex-sm-row">
             {props.eventsList.result.map((item, index) => {
               let slicedBrief = item.brief;
-              if (item.brief !== null && item.brief.length > 250) {
+              if (item.brief !== null && item.brief.length > 150) {
                 const brief = item.brief;
-                slicedBrief = brief.substring(0, 240).concat(" ...");
+                slicedBrief = brief.substring(0, 140).concat(" ...");
               }
 
               let pName;

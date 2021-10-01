@@ -13,7 +13,7 @@ import "./MUIcalender.css";
 
 const SearchSection = (props) => {
   return (
-    <>
+    <div style={{backgroundColor:'rgb(6, 73, 106)'}}>
       <div className="container">
         <form onSubmit={props.submit}>
           <div className="row align-items-center">
@@ -30,7 +30,7 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.TextFieldTwoHandler ? (
-              <div className={`${props.classNameTextFieldTwo} form-group mt-4`}>
+              <div className={`${props.classNameTextFieldTwo} form-group mt-3`}>
                 <TextField
                   onChange={props.TextFieldTwoHandler}
                   className="w-100"
@@ -42,8 +42,8 @@ const SearchSection = (props) => {
 
             {props.dropdownOneHandler ? (
               <div
-                style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownOne} form-group my-5`}
+                style={{ height: "1.1rem"}}
+                className={`${props.classNameDropdownOne} align-self-baseline mt-3 form-group`}
               >
                 <Select
                   isDisabled={props.disableOne ?? false}
@@ -58,7 +58,7 @@ const SearchSection = (props) => {
             {props.dropdownTwoHandler ? (
               <div
                 style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownTwo} form-group my-5`}
+                className={`${props.classNameDropdownTwo} align-self-baseline mt-3 form-group`}
               >
                 <Select
                   isDisabled={props.disableTwo ?? false}
@@ -73,7 +73,7 @@ const SearchSection = (props) => {
             {props.dropdownThreeHandler ? (
               <div
                 style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownThree} form-group my-5`}
+                className={`${props.classNameDropdownThree} align-self-baseline mt-3 form-group`}
               >
                 <Select
                   isDisabled={props.disableThree ?? false}
@@ -87,8 +87,8 @@ const SearchSection = (props) => {
 
             {props.dropdownFourHandler ? (
               <div
-                style={{ height: "1.1rem" }}
-                className={`${props.classNameDropdownFour} form-group my-5`}
+                style={{ height: "1.1rem"}}
+                className={`${props.classNameDropdownFour} align-self-baseline form-group mt-3`}
               >
                 <Select
                   isDisabled={props.disableFour ?? false}
@@ -101,8 +101,8 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.publishFromHandler ? (
-              <div className={`${props.classNameDPFrom} mt-4`}>
-                <label className="my-2">{props.DPFromLabel}</label>
+              <div className={`${props.classNameDPFrom} mt-3`}>
+                <label className="my-2" style={{color:'white'}}>{props.DPFromLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -125,8 +125,8 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.publishToHandler ? (
-              <div className={`${props.classNameDPTo} mt-4`}>
-                <label className="my-2">{props.DPToLabel}</label>
+              <div className={`${props.classNameDPTo} mt-3`}>
+                <label className="my-2" style={{color:'white'}}>{props.DPToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -149,8 +149,8 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.endDateFromHandler ? (
-              <div className={`${props.classNameEDFTo} mt-4`}>
-                <label className="my-2">{props.EDFToLabel}</label>
+              <div className={`${props.classNameEDFTo} mt-3`}>
+                <label className="my-2" style={{color:'white'}}>{props.EDFToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -173,8 +173,8 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.endDateToHandler ? (
-              <div className={`${props.classNameEDTTo} mt-4`}>
-                <label className="my-2">{props.EDTToLabel}</label>
+              <div className={`${props.classNameEDTTo} mt-3`}>
+                <label className="my-2" style={{color:'white'}}>{props.EDTToLabel}</label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -202,8 +202,8 @@ const SearchSection = (props) => {
               {" "}
               <button
                 type={"submit"}
-                className="myButton mx-1 my-5"
-                style={{ verticalAlign: "middle" }}
+                className="btn_orange mx-1 my-3"
+                style={{ verticalAlign: "middle", width:'100px' }}
               >
                 <span>بحث</span>
               </button>
@@ -211,7 +211,7 @@ const SearchSection = (props) => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

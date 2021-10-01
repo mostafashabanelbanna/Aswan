@@ -345,7 +345,7 @@ const YouthForm = (props) => {
                     initialState();
                   }}
                 >
-                  إغلاق
+                  إلغاء
                 </Button>
               </div>
             </form>

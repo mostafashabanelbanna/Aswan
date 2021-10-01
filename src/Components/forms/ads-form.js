@@ -377,7 +377,7 @@ const AdvertisementRequire = (props) => {
                     initialState();
                   }}
                 >
-                  إغلاق
+                  إلغاء
                 </Button>
               </div>
             </form>

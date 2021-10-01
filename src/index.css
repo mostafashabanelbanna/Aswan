@@ -18,6 +18,14 @@ light yellow: #ffd5008c;
 light blue:#20b0ca
 */
 
+fieldset{
+  background-color: white;
+}
+
+input, .MuiIconButton-root{
+  z-index: 10;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -392,7 +392,7 @@ const CareerForm = (props) => {
                     initialState();
                     }}
                 >
-                  إغلاق
+                  إلغاء
                 </Button>
               </div>
             </form>
