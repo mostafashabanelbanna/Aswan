@@ -41,7 +41,7 @@ const CitiesNavBar = (props) => {
                 <Link
                   key={item.id}
                   to={`/citydetails/${item.id}`}
-                  className="shadow-none mb-4 col-lg-4 col-sm-6 col-12"
+                  className="shadow-none mb-4 col-md-6 col-xl-4 col-12"
                 >
                   <ListWithImage
                     imgSrc={paths.NavBarCities + item.id + "/" + newPath}
@@ -49,6 +49,7 @@ const CitiesNavBar = (props) => {
                     center="yes"
                     imgHeight='250px'
                     hoverTitle="hoverTitle"
+                    divHeight='20rem'
                   />
                 </Link>
               );

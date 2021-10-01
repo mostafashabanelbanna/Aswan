@@ -12,6 +12,7 @@ const LocalLeaders = (props) => {
                 <img
                   src="./images/icons/leaders_titel-0١.png"
                   alt=""
+                  className='brightness'
                   width="80px"
                 />
 

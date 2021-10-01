@@ -119,9 +119,9 @@ const DocumentLibrary = (props) => {
                       }
                       return (
                         <Col
-                          lg={4}
-                          md={4}
-                          sm={6}
+                          xl={4}
+                          md={6}
+                          sm={12}
                           key={item.id}
                           className="my-5"
                         >
@@ -146,6 +146,7 @@ const DocumentLibrary = (props) => {
                               category={item.documentTypeName}
                               imgHeight="200px"
                               hoverTitle="hoverTitle"
+                              divHeight="23rem"
                             />
                           </Link>
                         </Col>
@@ -169,9 +170,7 @@ const DocumentLibrary = (props) => {
         );
       }
     }
-    return (
-      <ListSkeleton />
-    );
+    return <ListSkeleton />;
   };
 
   let pageTitle;
@@ -194,29 +193,26 @@ const DocumentLibrary = (props) => {
         <div className=" container underline mt-5 mb-4">
           <h3>{pageTitle}</h3>
         </div>
-        <div className=" bg-light p-3">
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne="العنوان"
-            classNameTextFieldOne='col-md-3 col-sm-6 col-12 order-1'
-            dropdownOneVal={catName.find((e) => e.value == documentTypeId)}
-            dropdownOneHandler={documentTypeHandler}
-            dropdownOneName={catName}
-            dropdownOnePlaceholder="القسم"
-            classNameDropdownOne='col-md-3 col-sm-6 col-12 order-0'
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom='col-md-3 col-sm-6 col-12 order-2'
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo='col-md-3 col-sm-6 col-12 order-3'
-            classNameBtn="order-4"
-          />
-        </div>
-
-        {render()}
       </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-md-3 col-sm-6 mt-4 mb-3 col-12 order-0"
+        dropdownOneVal={catName.find((e) => e.value == documentTypeId)}
+        dropdownOneHandler={documentTypeHandler}
+        dropdownOneName={catName}
+        dropdownOnePlaceholder="القسم"
+        classNameDropdownOne="col-md-3 col-sm-6 mt-3 mb-3 col-12 order-1"
+        publishDateFrom={publishDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-md-3 col-sm-6 col-12 mt-4 mb-3 order-2"
+        publishDateTo={publishDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-md-3 col-sm-6 col-12 mt-4 mb-3 order-3"
+        classNameBtn="order-4"
+      />
+      <Container>{render()}</Container>
     </div>
   );
 };

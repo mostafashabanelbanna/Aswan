@@ -83,7 +83,7 @@ const Video = (props) => {
         <div className=" container  py-4">
           <div className="p-0 m-0 ">
             <div className="my-3 d-flex">
-              <img src="/images/icons/video_titel-0٢.png" width="80px" />
+              <img className="brightness" src="/images/icons/video_titel-0٢.png" width="80px" />
               <div className="underline">
                 {" "}
                 <h3 className="mt-4 me-2 text-dark"> مكتبة الفيديو </h3>
@@ -170,6 +170,16 @@ const Video = (props) => {
               </div>
             )}
           </div>
+        <Link id='link'
+          to={"/videoslist"}
+          className="justify-content-end text-decoration-none align-items-center d-flex my-5"
+        >
+          <button
+            className="btn_blue"
+          >
+            <span>عرض الكل</span>
+          </button>
+        </Link>
         </div>
       </div>
     );

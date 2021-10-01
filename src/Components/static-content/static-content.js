@@ -54,7 +54,7 @@ const StaticContent = (props) => {
     return () => {
       props.clearStaticContent();
     };
-  }, []);
+  }, [parseInt(id)]);
 
   if (props?.allStaticContent?.result?.length > 0) {
     if (flag == 0) {

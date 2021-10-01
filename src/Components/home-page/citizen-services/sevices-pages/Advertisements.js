@@ -108,29 +108,27 @@ const Advertisements = (props) => {
           <div className=" container underline  my-5">
             <h3>إعلانات ومناقصات</h3>
           </div>
-          <div className=" bg-light p-3">
+          </Container>
             <SearchSection
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-4 col-12"
+              classNameTextFieldOne="col-lg-3 col-md-6 col-12"
               dropdownOneVal={advName.find(
                 (e) => e.value == advertismentTypeId
               )}
               dropdownOneHandler={advHandler}
               dropdownOneName={advName}
               dropdownOnePlaceholder="الفئة"
-              classNameDropdownOne="col-sm-4 col-12"
+              classNameDropdownOne="col-lg-3 col-md-6 col-12"
               publishDateFrom={publishDateFrom}
               publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-sm-2 col-6"
+              classNameDPFrom="col-lg-3 col-md-6 col-12"
               publishDateTo={publishDateTo}
               publishToHandler={publishToHandler}
-              classNameDPTo="col-sm-2 col-6"
+              classNameDPTo="col-lg-3 col-md-6 col-12"
             />
-          </div>
-        </Container>
-        <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+        <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.advertisementsList.result.map((item, index) => {
               let slicedDescription = item.description;
                   if (item.description !== null && item.description.length > 500) {
@@ -140,15 +138,14 @@ const Advertisements = (props) => {
             
             return (
               <div
-                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
-                style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
                 {item.advertismentTypeName?<div className="justify-content-end d-flex my-3">
                     <span
                       className="py-1 px-2 fa-1x"
                       style={{
-                        backgroundColor: "rgb(255 220 110 / 30%)",
+                        backgroundColor: 'rgb(6, 73, 106)',color: 'white',
                         borderTopRightRadius: "5px",
                         borderBottomRightRadius: "5px",
                       }}

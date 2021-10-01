@@ -16,6 +16,7 @@ import "../../../Styles/photo-album-style.css";
 import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
+import { Link } from "react-router-dom";
 
 const ProjectDetails = (props) => {
   useEffect(() => {
@@ -140,11 +141,19 @@ const ProjectDetails = (props) => {
           <div class="row">
             <div class="col-12 text-justify">
               <p class="text-justify">
-                <img class="img-fluid detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3" src={`${paths.ProjectPhoto}${details.id}/${details.photo}`} alt="President Photo"/>
+                <img
+                  class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3"
+                  src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
+                  alt="President Photo"
+                />
               </p>
               <div
                 className=" text-justify ps-lg-3 ps-0"
-                style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
+                style={{
+                  lineHeight: "30px",
+                  fontSize: "1rem",
+                  textAlign: "justify",
+                }}
               >
                 {ReactHtmlParser(details.description)}
               </div>
@@ -243,6 +252,16 @@ const ProjectDetails = (props) => {
           ></iframe>
         </div>
         {renderModal(content)}
+        <div className="d-flex justify-content-center my-3">
+          <Link id="link" to={`/projectslist`}>
+            <button
+              className="btn_blue mx-1 mb-2 mb-sm-0"
+              style={{ verticalAlign: "middle" }}
+            >
+              <span>مزيد من المشروعات</span>
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

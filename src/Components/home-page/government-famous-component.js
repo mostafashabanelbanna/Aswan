@@ -62,6 +62,7 @@ const GovernmentFamous = (props) => {
           <div className="container py-4 mb-2">
             <div className="d-flex">
               <img
+              className="brightness"
                 src="./images/icons/Famous_titel-0٢.png"
                 alt=""
                 width="80px"

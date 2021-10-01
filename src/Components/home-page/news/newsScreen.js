@@ -62,13 +62,13 @@ const News = (props) => {
   };
   if (props?.mainews?.result && props?.news?.result) {
     return (
-      <div>
+      <div className='custom_bg_light'>
         <div className="container fluid px-0">
-          <div className="container custom_bg_light ">
+          <div className="container">
             <div className="py-3 d-flex align-items-end">
-              <img src="/images/icons_black/news_titel-0١.png" height="50" />
+              <img className="brightness" src="/images/icons_black/news_titel-0١.png" height="50" />
               <div className="  underline">
-                <h3 className="mt-4 me-2 text-dark"> اخبار المحافظة </h3>
+                <h3 className="mt-4 me-2 text-dark"> أخبار المحافظة </h3>
               </div>
             </div>
             {/*  */}

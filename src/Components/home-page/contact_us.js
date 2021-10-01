@@ -28,11 +28,11 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div id='contactus'>
       <div className="bg-light">
         <div className="container p-0 py-4">
           <div className="mt-2 d-flex">
-            <img src="/images/icons/contact_titel-0٢.png" width="80px" />
+            <img className="brightness" src="/images/icons/contact_titel-0٢.png" width="80px" />
             <div className="  underline">
               {" "}
               <h3 className="mt-4 me-2 text-dark">اتصل بنا </h3>

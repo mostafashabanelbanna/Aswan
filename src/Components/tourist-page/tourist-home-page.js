@@ -12,7 +12,7 @@ const TouristHome = () => {
         <div>
             <div className='touristcontainer mt-4 d-flex p-0'>
                 <div className='col-1'>
-                    <img className='w-75' src='/images/icons/Tourist-0٢.png' />
+                    <img className='w-75 brightness' src='/images/icons/Tourist-0٢.png' />
                 </div>
                 <div style={{fontSize:'22px'}} className='d-flex  align-items-center text-decoration-underline'>السائح</div>
             </div>

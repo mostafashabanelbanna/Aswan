@@ -22,8 +22,34 @@ fieldset{
   background-color: white;
 }
 
+
+
+.css-2b097c-container{
+  z-index: 12;
+}
+
 input, .MuiIconButton-root{
   z-index: 10;
+}
+
+.fc .fc-daygrid-event-harness-abs, .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
+  cursor: pointer;
+}
+
+.fc-event-time, .fc-daygrid-event-dot{
+  display: none;
+}
+
+.fc-daygrid-event-harness{
+  background-color: rgba(255, 220, 110, 0.8);
+}
+
+.fc-daygrid-dot-event .fc-event-title{
+  color: black;
+}
+
+.slick-dots{
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 body {
@@ -31,8 +57,8 @@ body {
   padding: 0;
   direction: rtl;
   font-family: "GESSTwo", "PT Sans", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 ::-webkit-scrollbar {

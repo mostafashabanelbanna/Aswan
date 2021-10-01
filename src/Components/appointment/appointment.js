@@ -100,18 +100,18 @@ const Appointment = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={titleHandler}
             labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-lg-3 col-md-6 col-12"
+            classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
             dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
             dropdownOneHandler={typeHandler}
             dropdownOneName={typesName}
             dropdownOnePlaceholder="القسم"
-            classNameDropdownOne="col-lg-3 col-md-6 col-12"
+            classNameDropdownOne="col-lg-3 col-md-6 mt-md-3 mt-0 col-12"
             publishDateFrom={appointmentDateFrom}
             publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-lg-3 col-md-6 col-12"
+            classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
             publishDateTo={appointmentDateTo}
             publishToHandler={publishToHandler}
-            classNameDPTo="col-lg-3 col-md-6 col-12"
+            classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
           />
         {props.apointment.result.length ? (
           <div className="container">
@@ -124,7 +124,7 @@ const Appointment = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <div key={item.id} className="col-md-4 col-sm-6 mb-4">
+                  <div key={item.id} className="col-md-6 col-xl-4 col-12 mb-4">
                     <Link
                       id="link"
                       to={`/appointmentdetails/${item.id}`}
@@ -139,6 +139,7 @@ const Appointment = (props) => {
                         category={item.appointmentTypeName}
                         imgHeight="200px"
                         hoverTitle="hoverTitle"
+                        divHeight='25rem'
                       />
                     </Link>
                   </div>

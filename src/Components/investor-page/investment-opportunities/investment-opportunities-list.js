@@ -153,7 +153,7 @@ const InvestmentOpportunitiesList = (props) => {
             <div className=" container underline my-5">
               <h3>فرص الإستثمار</h3>
             </div>
-            <div className=" bg-light p-3">
+          </Container>
               <SearchSection
                 submit={submitHandler}
                 dropdownOneVal={industrialZoneVal.find(
@@ -183,8 +183,6 @@ const InvestmentOpportunitiesList = (props) => {
                 dropdownFourName={investorPaymentSystemVal}
                 classNameDropdownFour="col-md-3 col-sm-6 col-12"
               />
-            </div>
-          </Container>
           <div className="container mt-5">
             <div className="row ">
               {props.investorOpportunitiesList.result.map((item) => {
@@ -195,9 +193,9 @@ const InvestmentOpportunitiesList = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <div className="mb-4 col-lg-4 col-sm-6 col-12">
-                    <Link id='link'
-                      // to={`/newsdetails/${item.id}`}
+                  <div className="mb-4 col-md-6 col-xl-4 col-12">
+                    <div id='link'
+                      style={{cursor:'auto'}}
                       className="h-100"
                     >
                       <ListWithImage
@@ -214,7 +212,7 @@ const InvestmentOpportunitiesList = (props) => {
                         imgHeight="250px"
                         hoverTitle="hoverTitle"
                       />
-                    </Link>
+                    </div>
                   </div>
                 );
               })}

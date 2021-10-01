@@ -12,6 +12,7 @@ import ListSkeleton from '../../loading-skeleton/list-skiliton'
 import moment from "moment";
 import "moment/locale/ar";
 import ReactHtmlParser from "react-html-parser";
+import { Container } from 'react-bootstrap';
 
 const FilterPhotos = (props) => {
     const [currentPage, setCurrentPage] = useState(0)
@@ -28,6 +29,11 @@ const FilterPhotos = (props) => {
     if (props?.data?.result) {
         pageCount = Math.ceil(props.data.count / 9);
         return (<>
+        <Container fluid>
+            <div className=" container underline  my-5">
+              <h3>البوم الصور</h3>
+            </div>
+            </Container>
         <div className='container mt-5'>
                 <div className='row '>
             {props.data.result.map((item) => {
@@ -40,7 +46,7 @@ const FilterPhotos = (props) => {
                 newPath  = pName.replaceAll(' ','%20')
                 }
                 return (
-                <div className='mb-4 col-lg-4 col-sm-6 col-12'>
+                <div className='mb-4 col-md-6 col-xl-4 col-12'>
                 <Link id='link' to={`/photodetails/${item.id}`} className="h-100">
                 <ListWithImage
                             imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}

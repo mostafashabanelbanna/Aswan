@@ -29,7 +29,7 @@ const Parliament = (props) => {
               }
               return (
                 <div
-                  className="mb-4 col-lg-4 col-sm-6 col-12"
+                  className="mb-4 col-md-6 col-xl-4 col-12"
                 >
                   <ListWithImage
                     imgSrc={paths.SenatePhotos + item.id + "/" + item.photo}

@@ -20,37 +20,42 @@ const TourStart = (props) => {
   }, []);
 
   var settings = {
-    dots: false,
+    dots: true,
     arrows: false,
-    centerMode: true,
     infinite: true,
-    centerPadding: "80px",
-
-    speed: 500,
+    autoplay:true,
+    autoplaySpeed: 1000,
+    infinite: true,
+    speed: 2000,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    swipe: true,
+    swipeToSlide: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
       {
         breakpoint: 800,
         settings: {
           arrows: false,
-          slidesToShow: 2,
+          dots:true,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
+          arrows: false,
+          dots:true,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -63,14 +68,14 @@ const TourStart = (props) => {
       <div className="bg-light">
         <div className="text-center d-flex justify-content-center py-3">
           <div className="mx-3">
-            <img src="/images/tourist-photos/رحلتك-01.png" />
+            <img className='brightness' src="/images/tourist-photos/رحلتك-01.png" />
           </div>
           <div className="d-flex flex-column-reverse underline">
             <h2>رحلتك تبدء من هنا</h2>{" "}
           </div>
         </div>
         {props.slider.result.length > 3 ? (
-          <div className=" me-3 ms-3">
+          <div className=" me-3 ms-3 mb-5">
             <div className="container p-0">
               <Slider {...settings}>
                 {props.slider.result.map((item, index) => {
@@ -84,7 +89,7 @@ const TourStart = (props) => {
                         <div
                           key={item.id}
                           className="holder shadow-none"
-                          style={{ borderRadius: "0px" }}
+                          style={{ borderRadius: "0px", height:'280px' }}
                         >
                           <img
                             className="rounded-3 "
@@ -103,7 +108,7 @@ const TourStart = (props) => {
             </div>
           </div>
         ) : (
-          <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3">
+          <div style={{ backgroundColor: "#eeecec" }} className=" me-3 ms-3 mb-5">
             <div className="container p-0 d-flex flex-lg-row flex-column">
               {props.slider.result.map((item, index) => {
                 return (
@@ -116,7 +121,7 @@ const TourStart = (props) => {
                       <div
                         key={item.id}
                         className="holder shadow-none"
-                        style={{ borderRadius: "0px" }}
+                        style={{ borderRadius: "0px", height:'280px' }}
                       >
                         <img
                           className="rounded-3 "

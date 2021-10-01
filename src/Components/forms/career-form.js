@@ -143,15 +143,15 @@ const CareerForm = (props) => {
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
           <div className='d-flex'>
-            <FontAwesomeIcon
-              icon={faTimes}
-              onClick={props.onHideCareerModal}
-              style={{cursor: 'pointer'}}
-              className="align-self-start my-1 ms-2 text-danger fa-1x"
-            />
               {title}
             </div>
             </Modal.Title>
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={props.onHideCareerModal}
+              style={{ cursor: "pointer", fontSize: "22px" }}
+              className="align-self-start my-1 ms-2 text-danger fa-1x"
+            />
         </Modal.Header>
         <Modal.Body>
           <div

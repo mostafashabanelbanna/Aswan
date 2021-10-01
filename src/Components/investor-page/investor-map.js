@@ -28,18 +28,19 @@ const InvestorMap = (props) => {
   };
 
   var settings = {
-    dots: false,
-    arrows: false,
+    dots: true,
+    arrows: true,
     centerMode: true,
-    // infinite: true,
-    // autoplay: true,
-    // autoplaySpeed: 1000,
-    speed: 3000,
+    autoplay:true,
+    autoplaySpeed: 1000,
+    infinite: true,
+    speed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
-    initialSlide: 0,
     focusOnSelect: true,
     centerMode: true,
+    swipe: true,
+    swipeToSlide: true,
     centerPadding: "60px",
     responsive: [
       {
@@ -92,7 +93,7 @@ const InvestorMap = (props) => {
         {renderModal(content)}
         <div className="d-flex py-5">
           <div className="mx-3">
-            <img height="50" width="60" src="/images/investor-photos/خريطة استثمارية-01.png" />
+            <img className='brightness' height="50" width="60" src="/images/investor-photos/خريطة استثمارية-01.png" />
           </div>
           <div className="d-flex align-items-center underline">
             <h3 className="mb-5">الخريطة الإستثمارية</h3>{" "}

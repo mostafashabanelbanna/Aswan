@@ -40,7 +40,7 @@ const FilterVideos = (props) => {
                 newPath  = pName.replaceAll(' ','%20')
                 }
                 return (
-                <div className='mb-4 col-lg-4 col-sm-6 col-12'>
+                <div className='mb-4 col-md-6 col-xl-4 col-12'>
                 <Link id='link' to={`/photodetails/${item.id}`} className="h-100">
                 <ListWithImage
                             imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}

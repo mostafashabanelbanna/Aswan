@@ -77,6 +77,7 @@ const InvestorAlbum = (props) => {
       <div className="container mt-5">
         <div className="d-flex my-2">
           <img
+          className='brightness'
             src="./images/icons/photoalbum_titel-0٢.png"
             alt=""
             width="80px"

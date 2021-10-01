@@ -129,15 +129,15 @@ const AdvertisementRequire = (props) => {
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             <div className="d-flex">
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.onHideAdvertisementModal}
-                style={{ cursor: "pointer" }}
-                className="align-self-start my-1 ms-2 text-danger fa-1x"
-              />
               طلب إعلان
             </div>
           </Modal.Title>
+              <FontAwesomeIcon
+                icon={faTimes}
+                onClick={props.onHideAdvertisementModal}
+                style={{ cursor: "pointer", fontSize: "22px" }}
+                className="align-self-start my-1 ms-2 text-danger fa-1x"
+              />
         </Modal.Header>
         <Modal.Body>
           <div

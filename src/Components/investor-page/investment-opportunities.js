@@ -23,9 +23,9 @@ const InvestmentOpportunities = (props) => {
             newPath = pName.replaceAll(" ", "%20");
           }
           return (
-            <Link
+            <div
               id="link"
-              // to={`/opportunitiesdetails/${item.id}`}
+              style={{cursor:'auto'}}
               className="text-white col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle" key={item.id}>
@@ -42,16 +42,16 @@ const InvestmentOpportunities = (props) => {
                   {`فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`}
                 </p>
               </div>
-            </Link>
+            </div>
           );
         })}
         <div className="container d-flex justify-content-end">
           <Link id="link" to="/opportunitieslist" className="">
             <button
-              className="myButton mx-1 mb-2 mb-sm-0"
+              className="btn_blue mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}
             >
-              <span>عرض الكل</span>
+              <span style={{color:'white'}}>عرض الكل</span>
             </button>
           </Link>
         </div>

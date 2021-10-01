@@ -7,7 +7,7 @@ const HayahKarima = () => {
       <div className=" container p-0 mb-4">
         <div className="mt-2 d-flex ">
           <div className="my-3 d-flex align-items-center">
-            <img src="/images/icons_black/حياه كريمة-01.png" height="50px" />
+            <img className='brightness' src="/images/icons_black/حياه كريمة-01.png" height="50px" />
             <div className="underline">
               {" "}
               <h3 className="mt-4 me-2 text-dark"> محاور مبادرة حياه كريمة </h3>
@@ -35,7 +35,7 @@ const HayahKarima = () => {
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
-                      className=" p-2"
+                      className="brightness p-2"
                       src={"/images/haya_karima/1.png"}
                     />
                     <div className="mt-4 mb-1  text-dark">
@@ -52,7 +52,7 @@ const HayahKarima = () => {
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
-                      className="p-2"
+                      className="brightness p-2"
                       src={"/images/haya_karima/2.png"}
                     />
                     <div className="mt-4 mb-1  text-dark">
@@ -70,7 +70,7 @@ const HayahKarima = () => {
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
-                      className="p-2"
+                      className="brightness p-2"
                       src={"/images/haya_karima/3.png"}
                     />
                     <div className="mt-4 mb-1  text-dark">
@@ -87,7 +87,7 @@ const HayahKarima = () => {
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
-                      className="p-2"
+                      className="brightness p-2"
                       src={"/images/haya_karima/4.png"}
                     />
                     <div className="mt-4 mb-1  text-dark">
@@ -105,7 +105,7 @@ const HayahKarima = () => {
                   <div className="p-2 h-100 hvr-bob hvr-sweep-to-bottom">
                     <img
                       style={{ height: "100px" }}
-                      className="p-2"
+                      className="brightness p-2"
                       src={"/images/haya_karima/5.png"}
                     />
                     <div className="mt-4 mb-1  text-dark"> سكن كريم</div>

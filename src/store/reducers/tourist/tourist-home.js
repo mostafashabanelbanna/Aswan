@@ -14,6 +14,9 @@ export function touristHome(state = {}, action) {
     //agenda
     case "EVENTS_LIST":
       return { ...state, eventsList: action.payload };
+
+      case "CLEAR_AllEventsTourist":
+        return { ...state, eventsList: action.payload };
     default:
       return state;
   }

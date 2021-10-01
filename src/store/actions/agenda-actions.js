@@ -12,3 +12,12 @@ export async function getAllEventsHome() {
     payload,
   };
 }
+
+export async function clearAllEventsHome() {
+  let payload = null;
+
+  return {
+    type: "CLEAR_AllEventsHome",
+    payload,
+  };
+}

@@ -93,20 +93,19 @@ const Tribe = (props) => {
             <div className=" container underline  my-5">
               <h3>شيوخ القبائل</h3>
             </div>
-            <div className=" bg-light p-3">
+          </Container>
               <SearchSection
                 submit={submitHandler}
                 TextFieldOneHandler={nameHandler}
                 labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-sm-6 col-12"
+                classNameTextFieldOne="col-md-5 mb-md-3 mb-0 col-12"
                 dropdownOneVal={cityName.find((e) => e.value == cityId)}
                 dropdownOneHandler={cityIdHandler}
                 dropdownOnePlaceholder="كل المدن"
                 dropdownOneName={cityName}
-                classNameDropdownOne="col-sm-6 col-12"
+                classNameDropdownOne="col-md-5 mt-4 mb-md-3 mb-0 col-12"
+                classNameBtn='col-md-2 col-12'
               />
-            </div>
-          </Container>
           <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.allTribe.result.map((item, index) => {
               return (

@@ -6,9 +6,9 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllEventsHome } from "../../store/actions/agenda-actions";
-import { getAllEventsInvestor } from "../../store/actions/investor-actions/agenda-actions";
-import { getAllEventsTourist } from "../../store/actions/tourist-action/agenda-actions";
+import { getAllEventsHome, clearAllEventsHome } from "../../store/actions/agenda-actions";
+import { getAllEventsInvestor, clearAllEventsInvestor } from "../../store/actions/investor-actions/agenda-actions";
+import { getAllEventsTourist, clearAllEventsTourist } from "../../store/actions/tourist-action/agenda-actions";
 import Fade from "react-reveal/Fade";
 import ReactDOM from "react-dom";
 import "../../Styles/training-agenda.css";
@@ -17,12 +17,13 @@ import ReactHtmlParser from "react-html-parser";
 import moment from "moment";
 import "moment/locale/ar";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 const TrainingAgenda = (props) => {
   const [message, setMessage] = useState();
   const [show, setShow] = useState();
-  const eventsArr = [{}];
-
+  let eventsArray = [{}]
+  let history = useHistory();
   let agendaProps;
 
   useEffect(() => {
@@ -33,7 +34,12 @@ const TrainingAgenda = (props) => {
     } else {
       props.getAllEventsHome();
     }
-  }, []);
+    return () => {
+      props.clearAllEventsInvestor();
+      props.clearAllEventsTourist();
+      props.clearAllEventsHome();
+    }
+  }, [props.pagePath]);
 
   if (props.pagePath == "investor") {
     agendaProps = props.eventsListInvestor;
@@ -49,12 +55,15 @@ const TrainingAgenda = (props) => {
         <div className="container">
           <div className="d-flex my-2">
             {props.photo ? (
-              <img src={props.photo} alt="" width="60px" />
+              <img 
+              className='brightness' 
+              src={props.photo} alt="" width="60px" />
             ) : (
               <img
+              className='brightness'
                 src="/images/icons/calender_titel-0١.png"
                 alt=""
-                width="60px"
+                width="70px"
               />
             )}
             <div className="underline">
@@ -70,11 +79,11 @@ const TrainingAgenda = (props) => {
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               dayMaxEventRows={2}
-              events={eventsArr}
+              events={eventsArray}
               eventClick={(args) => {
                 setMessage(args.event.title);
                 setShow(true);
-                console.log(args.event._instance.range.start);
+                history.push(`/eventdetails/${parseInt(args.event._def.publicId)}`);
               }}
               eventBackgroundColor={"#fbbf3c"}
               eventTextColor={"black"}
@@ -92,7 +101,8 @@ const TrainingAgenda = (props) => {
                 const brief = item.content;
                 slicedContent = brief.substring(0, 250).concat(" ...");
               }
-              eventsArr.push({
+              eventsArray.push({
+                id:item.id,
                 title: item.title,
                 start: item.startDateTime,
                 end: item.endDateTime,
@@ -169,7 +179,8 @@ export default connect(
   },
   (dispatch) => {
     return bindActionCreators(
-      { getAllEventsHome, getAllEventsInvestor, getAllEventsTourist },
+      { getAllEventsHome, getAllEventsInvestor, getAllEventsTourist,
+      clearAllEventsHome, clearAllEventsInvestor, clearAllEventsTourist },
       dispatch
     );
   }

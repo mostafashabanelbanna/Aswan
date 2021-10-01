@@ -81,30 +81,28 @@ const EServiceDirectories = (props) => {
           <div className=" container underline  my-5">
             <h3>دليل الخدمات الإلكترونية</h3>
           </div>
-          <div className=" bg-light p-3">
+        </Container>
             <SearchSection
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne='الاسم'
-            classNameTextFieldOne='col-sm-6 col-12'
+            classNameTextFieldOne='col-md-5 col-12'
             dropdownOneVal={serviceDirVal.find(e => e.value == serviceCategoryId)}
             dropdownOneHandler={serviceDirectoriesHandler}
             dropdownOnePlaceholder='كل الخدمات'
             dropdownOneName={serviceDirVal}
-            classNameDropdownOne='col-sm-6 col-12'
+            classNameDropdownOne='col-md-5 col-12 mt-md-4 mt-0 mb-0'
+            classNameBtn='col-md-2 col-12'
             />
-          </div>
-        </Container>
-        <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+        <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
           {props.serviceDirectories.result.map((item, index) => {
             return (
               <div
-                className="text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
-                style={{boxShadow: 'rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px'}}
               >
                 <div className="justify-content-end d-flex my-3">
-                  <span className="py-1 px-2 fa-1x" style={{backgroundColor:'rgb(255 220 110 / 30%)', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.serviceCategoryName}</span>
+                  <span className="py-1 px-2 fa-1x" style={{backgroundColor: 'rgb(6, 73, 106)',color: 'white', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.serviceCategoryName}</span>
                 </div>
 
                 <div className="justify-content-center d-flex my-2">

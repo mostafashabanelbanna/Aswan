@@ -134,22 +134,22 @@ const ServicesComponent = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne='الاسم'
-            classNameTextFieldOne='col-sm-6 col-12'
+            classNameTextFieldOne='col-md-6 col-12'
             dropdownThreeVal={cityName.find(e => e.value == cityId)}
             dropdownThreeHandler={cityIdHandler}
             dropdownThreePlaceholder='المدينة'
             dropdownThreeName={cityName}
-            classNameDropdownThree='col-sm-6 col-12'
+            classNameDropdownThree='col-md-6 col-12'
             dropdownTwoVal={dirCatVal.find(e => e.value == directoryCategoryId)}
             dropdownTwoHandler={directoryCategoryHandler}
             dropdownTwoPlaceholder='كل التصنيفات'
             dropdownTwoName={dirCatVal}
-            classNameDropdownTwo='col-sm-6 col-12'
+            classNameDropdownTwo='col-md-6 col-12'
             dropdownOneVal={dirTypeVal.find(e => e.value == directoryTypeId)}
             dropdownOneHandler={directoryTypeHandler}
             dropdownOnePlaceholder='كل الأنواع'
             dropdownOneName={dirTypeVal}
-            classNameDropdownOne='col-sm-6 col-12'
+            classNameDropdownOne='col-md-6 col-12'
             />
         </Container>
         <div className="d-flex flex-wrap justify-content-around flex-column flex-sm-row">
