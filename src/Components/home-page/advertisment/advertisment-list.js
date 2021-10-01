@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   getAdvertisment,
+  clearAdvertisement,
   getAllAdvertisment,
   getAllAdvertismentType,
 } from "../../../store/actions/advertisment-action";
@@ -112,6 +113,10 @@ const AdvertismentList = (props) => {
         : props.getAdvertisment(currentPage + 1, data(dataFilled));
     }
     setFlag(0);
+
+    return () => {
+      props.clearAdvertisement();
+    }
   }, [currentPage]);
 
   useEffect(() => {
@@ -233,7 +238,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType },
+    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType, clearAdvertisement },
     dispatch
   );
 };

@@ -154,7 +154,7 @@ const CityDetails = (props) => {
         ) : (
           <div className="d-flex flex-wrap justify-content-center my-3 container">
             {photos.map((photo, index) => {
-              console.log(photo);
+              // console.log(photo);
               let pName;
               let newPath;
               if (photo.photo != null) {

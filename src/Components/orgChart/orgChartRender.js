@@ -27,7 +27,7 @@ const OrgChartRender = (props) => {
 
   const noOrgChart = !orgChart || (orgChart && orgChart.length === 0); //check if no org Chart
 
-  console.log(orgChart);
+  // console.log(orgChart);
   //   let addNodeChildFunc = null;
 
   //   function addNode() {
@@ -48,7 +48,7 @@ const OrgChartRender = (props) => {
     d3.csv(
       "https://raw.githubusercontent.com/bumbeishvili/sample-data/main/org.csv"
     ).then((data) => {
-      console.log(data[0]);
+      // console.log(data[0]);
       setData(data);
     });
   }, [true]);
