@@ -63,13 +63,10 @@ const News = (props) => {
   if (props?.mainews?.result && props?.news?.result) {
     return (
       <div>
-        <div className="container fluid mb-4 px-0">
-          <div className="container p-0">
-            <div className="my-3 d-flex">
-              <img
-                src="/images/icons_black/news_titel-0١.png"
-                style={{ width: "50px" }}
-              />
+        <div className="container fluid px-0">
+          <div className="container custom_bg_light ">
+            <div className="py-3 d-flex align-items-end">
+              <img src="/images/icons_black/news_titel-0١.png" height="50" />
               <div className="  underline">
                 <h3 className="mt-4 me-2 text-dark"> اخبار المحافظة </h3>
               </div>
@@ -118,7 +115,7 @@ const News = (props) => {
             </Link>
           </div>
           <div>
-            <div className="container p-0">
+            <div className="container custom_bg_light">
               <Slider {...settings}>
                 {props.news.result.map((item, index) => {
                   return (
@@ -127,7 +124,10 @@ const News = (props) => {
                       to={`/newsdetails/${item.id}`}
                       className="col-sm-3 text-decoration-none  col-12 mt-5 text-center px-3 "
                     >
-                      <div className="hoverTitle custom_bg_light rounded">
+                      <div
+                        className="hoverTitle rounded text-white"
+                        style={{ backgroundColor: "rgb(32 176 202 )" }}
+                      >
                         <div
                           key={item.id}
                           className="p-2"
@@ -151,7 +151,7 @@ const News = (props) => {
               </Slider>
             </div>
           </div>
-          <div className="container d-flex justify-content-end my-3">
+          <div className="container custom_bg_light d-flex justify-content-end py-3">
             <Link id="link" to="/newslist" className="">
               <button
                 className="btn_blue mx-1 mb-2 mb-sm-0"

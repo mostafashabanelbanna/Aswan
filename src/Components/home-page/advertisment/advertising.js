@@ -6,8 +6,8 @@ const Advertising = () => {
     <>
       <div className="custom_bg_light py-3">
         <div className=" container p-0 ">
-          <div className="my-3 d-flex">
-            <img src="/images/icons/information_titel-0١.png" width="80px" />
+          <div className="my-3 d-flex align-items-end">
+            <img src="/images/icons_black/ads-0١.png" height="50px" />
 
             <div className="underline">
               <h3 className="mt-4 me-2 text-dark">اعلانات</h3>

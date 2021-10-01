@@ -6,8 +6,8 @@ const CitizenServices = () => {
   return (
     <div className="custom_bg_light pt-4">
       <div className=" container p-0 mt-2">
-        <div className="my-3 d-flex ">
-          <img src="/images/icons/services_titel-0١.png" width="80px" />
+        <div className="my-3 d-flex align-items-end">
+          <img src="/images/icons_black/services_titel-0١.png" height="50px" />
 
           <div className="underline">
             {" "}
@@ -36,7 +36,7 @@ const CitizenServices = () => {
                   to="/eservices"
                   className="text-decoration-none"
                 >
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -51,7 +51,7 @@ const CitizenServices = () => {
                   to="/eservicesdirectories"
                   className="text-decoration-none"
                 >
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -62,7 +62,7 @@ const CitizenServices = () => {
                 </Link>
 
                 <a id="link" href="http://agriprice.gov.eg/" target="_blank">
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -77,7 +77,7 @@ const CitizenServices = () => {
                   to="/directorates"
                   className="text-decoration-none"
                 >
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -92,7 +92,7 @@ const CitizenServices = () => {
                   to={"/emergencynumbers"}
                   className="text-decoration-none"
                 >
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -103,7 +103,7 @@ const CitizenServices = () => {
                 </Link>
 
                 {/* <Link to='/advertisements' className="text-decoration-none">
-                  <div className="mb-4 col-md-3 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-3 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"
@@ -118,7 +118,7 @@ const CitizenServices = () => {
                   to="/techcenterservices"
                   className="text-decoration-none"
                 >
-                  <div className="mb-4 col-md-4 col-sm-6 col-8 hvr-underline-from-center ">
+                  <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
                       className="px-4"

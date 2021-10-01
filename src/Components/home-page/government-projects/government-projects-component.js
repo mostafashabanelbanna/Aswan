@@ -26,54 +26,8 @@ const GovernmentProjects = (props) => {
   const [counter, setCounter] = useState(0);
   const [leftIcon, setLeftIcon] = useState();
   const [rightIcon, setRightIcon] = useState();
-  const slider = useRef();
 
-  // var settings = {
-  //   dots: false,
-  //   // autoplay: true,
-  //   autoplaySpeed: 5000,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   initialSlide: 0,
-  //   swipeToSlide: true,
-  //   fade: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         fade: false,
-  //         arrows: false,
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         dots: true,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 600,
-  //       settings: {
-  //         fade: false,
-  //         arrows: false,
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         initialSlide: 1,
-  //         dots: true,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 480,
-  //       settings: {
-  //         fade: false,
-  //         arrows: false,
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         dots: true,
-  //       },
-  //     },
-  //   ],
-  // };
+  const slider = useRef();
 
   const onRightClickHandler = () => {
     if (counter < props.projects.result.length - 1) {
@@ -90,8 +44,19 @@ const GovernmentProjects = (props) => {
       setCounter(() => counter - 1);
     }
   };
+  const colors = ["#e54648", "#5677b3", "#90c478", "#f1e850"];
+  const [colorCount, setColorCount] = useState(1);
+  const [color, setColor] = useState(colors[0]);
 
-  const _onSelect = (active, direction) => {};
+  const _onSelect = (active, direction) => {
+    if (colorCount < colors.length - 1) {
+      setColorCount(colorCount + 1);
+      setColor(colors[colorCount]);
+    } else {
+      setColorCount(0);
+      setColor(colors[colorCount]);
+    }
+  };
   const _visiableOnSelect = (active) => {};
   const _slideNext = () => {
     slider.current.slideNext();
@@ -116,16 +81,16 @@ const GovernmentProjects = (props) => {
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (
-        <div>
-          <div className="container my-5 p-0">
-            <div className="d-flex my-2 ">
+        <div style={{ backgroundColor: color }}>
+          <div className="container py-5 p-0">
+            <div className="d-flex align-items-end mb-4 ">
               <img
-                src="./images/icons/projects_titel-0٢.png"
+                src="./images/icons_black/projects_titel-0٢.png"
                 alt=""
-                width="80px"
+                height="50px"
               />
               <div className="underline">
-                {" "}
+                {console.log(color)}
                 <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
               </div>
             </div>

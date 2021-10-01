@@ -110,7 +110,7 @@ const TrainingAgenda = (props) => {
                       <p>{ReactHtmlParser(slicedContent)}</p>
                     </div>
                     <div className="d-flex flex-wrap justify-content-between mt-5">
-                      <div className="p-3 bg_gradient">{`${moment(
+                      <div className="p-3 bg_gradient text-white">{`${moment(
                         new Date(item.startDateTime)
                       ).format("LL")} إلى ${moment(
                         new Date(item.endDateTime)
