@@ -8,7 +8,7 @@
   --secondary-color: #920d20;
 }
 
-/* 20. preloader */
+/* 20. preloader
 .preloader {
   background-color: #f7f7f7;
   width: 100%;
@@ -77,8 +77,8 @@
   font-weight: 800;
   color: #dca73a;
   text-transform: uppercase;
-}
-
+} */
+/* 
 @-webkit-keyframes zoom {
   0% {
     -webkit-transform: rotate(0deg);
@@ -113,7 +113,7 @@
     -o-transition: 0.6s;
     transition: 0.6s;
   }
-}
+} */
 
 /*end preloader*/
 /* .btn-pills {
