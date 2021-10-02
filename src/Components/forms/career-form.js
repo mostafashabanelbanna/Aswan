@@ -139,6 +139,7 @@ const CareerForm = (props) => {
         {...props}
         onHide={props.onHideCareerModal}
         show={props.showCareerModal}
+        backdrop="static"
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">

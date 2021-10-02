@@ -60,7 +60,10 @@ const AdvertisementRequire = (props) => {
     obj.append("Url", Url);
     obj.append("attachmentFile", attachmentFile);
     obj.append("photoFile", photoFile);
-    obj.append("PhotoAlbumFile", PhotoAlbumFile);
+    // obj.append("PhotoAlbumFile", PhotoAlbumFile);
+    PhotoAlbumFile.forEach(file => {
+      obj.append("PhotoAlbumFile", file);
+    })
     e.preventDefault();
     // console.log(obj.get('attachmentFile'))
     // console.log(obj.get('photoFile'))
@@ -70,7 +73,9 @@ const AdvertisementRequire = (props) => {
     // console.log(PhotoAlbumFile);
     if (
       Title.trim() !== "" &&
-      photoFile !== undefined
+      AdvertiserName.trim() !== "" &&
+      photoFile !== undefined &&
+      AdvertiserPhone.match(/^01[0125][0-9]{8}$/)
     ) {
       if (disabled) {
         return;
@@ -102,10 +107,11 @@ const AdvertisementRequire = (props) => {
   };
 
   const onPhotoAlbumChange =  (event) => {
-      const x = Object.values(event.target.files)
-      const arr=[...x];
-      // console.log("arrrrr",arr);
-       setPhotoAlbumFile(arr);
+    event.preventDefault();
+    const x = Object.values(event.target.files)
+    const arr=[...x];
+    console.log("arrrrr",arr);
+    setPhotoAlbumFile(arr);
       
   };
 
@@ -125,6 +131,7 @@ const AdvertisementRequire = (props) => {
         {...props}
         onHide={props.onHideAdvertisementModal}
         show={props.showAdvertisementModal}
+        backdrop="static"
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
@@ -149,6 +156,7 @@ const AdvertisementRequire = (props) => {
             <form
               className="panel-content justify-content-center col-12"
               onSubmit={apply}
+              encType="multipart/form-data"
             >
               <div className="form-row d-flex flex-md-row flex-column">
                 <div className="col-12">
@@ -236,6 +244,7 @@ const AdvertisementRequire = (props) => {
                       <input
                         type="file"
                         name="photoFile"
+                        accept=".jpeg, .jpg, .png"
                         className="custom-file-input"
                         id="photoFile_AttachmentInput"
                         style={{ cursor: "pointer" }}
@@ -259,12 +268,13 @@ const AdvertisementRequire = (props) => {
                     <div className="custom-file">
                       <input
                         type="file"
+                        multiple
+                        accept=".jpeg, .pdf, .jpg, .png"
                         name="PhotoAlbumFile"
                         className="custom-file-input"
                         id="PhotoAlbumFile_AttachmentInput"
                         style={{ cursor: "pointer" }}
                         onChange={onPhotoAlbumChange}
-                        multiple
                       />
                       <label
                         id="photoAlbumLabel"
