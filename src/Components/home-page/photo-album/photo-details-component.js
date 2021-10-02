@@ -204,7 +204,7 @@ const PhotoDetails = (props) => {
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button
-            className="myButton"
+            className="btn_blue"
           >
             <span>عرض المزيد</span>
           </button>

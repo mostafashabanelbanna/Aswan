@@ -29,7 +29,7 @@ const ExConservatives = (props) => {
                 newPath  = pName.replaceAll(' ','%20')
               }
               return (
-                <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12">
+                <div style={{cursor:"pointer"}} className="mb-4 col-md-6 col-xl-4 col-12">
                   <ListWithImage
                     imgSrc={paths.Governer + item.id + "/" + item.photo}
                     title={item.name}
@@ -37,6 +37,7 @@ const ExConservatives = (props) => {
                     center="yes"
                     imgHeight='250px'
                     hoverTitle="hoverTitle"
+                    divHeight='23rem'
                   />
                 </div>
               );

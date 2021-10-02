@@ -65,6 +65,7 @@ const PhotosAlbum = (props) => {
         <div className="container mt-5">
           <div className="d-flex my-2">
             <img
+            className="brightness"
               src="./images/icons/photoalbum_titel-0٢.png"
               alt=""
               width="80px"
@@ -75,6 +76,16 @@ const PhotosAlbum = (props) => {
             </div>
           </div>
           {renderAlbum()}
+          <Link id='link'
+          to={"/photoslist"}
+          className="justify-content-end text-decoration-none align-items-center d-flex my-5"
+        >
+          <button
+            className="btn_blue"
+          >
+            <span>عرض الكل</span>
+          </button>
+        </Link>
         </div>
       </div>
     );

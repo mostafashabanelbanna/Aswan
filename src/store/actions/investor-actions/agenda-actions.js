@@ -12,3 +12,12 @@ export async function getAllEventsInvestor() {
     payload,
   };
 }
+
+export async function clearAllEventsInvestor() {
+  let payload = null;
+
+  return {
+    type: "CLEAR_AllEventsInvestor",
+    payload,
+  };
+}

@@ -145,12 +145,12 @@ const AgendaList = (props) => {
             <div className=" container underline  my-5">
               <h3>الأحداث</h3>
             </div>
-            <div className=" bg-light p-3">
+          </Container>
               <SearchSection
                 submit={submitHandler}
                 TextFieldOneHandler={titleHandler}
                 labelTextFieldOne="العنوان"
-                classNameTextFieldOne="col-md-4 col-12"
+                classNameTextFieldOne="col-md-4 mt-md-4 mt-3 mb-md-3 mb-0 col-12"
                 dropdownOneVal={eventsTypeName.find(
                   (e) => e.value == eventTypeId
                 )}
@@ -169,32 +169,31 @@ const AgendaList = (props) => {
 
                 publishDateFrom={eventStartDateFrom}
                 publishFromHandler={eventStartDateFromHandler}
-                classNameDPFrom="col-sm-6 col-12"
+                classNameDPFrom="col-md-3 col-sm-6 col-12 mt-0"
                 DPFromLabel='تاريخ بداية الحدث من'
 
                 publishDateTo={eventStartDateTo}
                 publishToHandler={eventStartDateToHandler}
-                classNameDPTo="col-sm-6 col-12"
+                classNameDPTo="col-md-3 col-sm-6 col-12 mt-0"
                 DPToLabel='تاريخ بداية الحدث إلى'
                 
                 endDateFrom={eventEndDateFrom}
                 endDateFromHandler={eventEndDateFromHandler}
-                classNameEDFTo="col-sm-6 col-12"
+                classNameEDFTo="col-md-3 col-sm-6 col-12 mt-0"
                 EDFToLabel='تاريخ نهاية الحدث من'
 
                 endDateTo={eventEndDateTo}
                 endDateToHandler={eventEndDateToHandler}
-                classNameEDTTo="col-sm-6 col-12"
+                classNameEDTTo="col-md-3 col-sm-6 col-12 mt-0"
                 EDTToLabel='تاريخ نهاية الحدث إلى'
+                
               />
-            </div>
-          </Container>
           <div className="d-flex container flex-wrap justify-content-around flex-column flex-sm-row">
             {props.eventsList.result.map((item, index) => {
               let slicedBrief = item.brief;
-              if (item.brief !== null && item.brief.length > 250) {
+              if (item.brief !== null && item.brief.length > 150) {
                 const brief = item.brief;
-                slicedBrief = brief.substring(0, 240).concat(" ...");
+                slicedBrief = brief.substring(0, 140).concat(" ...");
               }
 
               let pName;

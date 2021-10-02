@@ -7,7 +7,7 @@ const CitizenServices = () => {
     <div className="custom_bg_light pt-4">
       <div className=" container p-0 mt-2">
         <div className="my-3 d-flex align-items-end">
-          <img src="/images/icons_black/services_titel-0١.png" height="50px" />
+          <img className='brightness' src="/images/icons_black/services_titel-0١.png" height="50px" />
 
           <div className="underline">
             {" "}
@@ -39,10 +39,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/cluesServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> ادلة المحافظة </div>
+                    <div className="mt-4 mb-1 fw-bold" > ادلة المحافظة </div>
                   </div>
                 </Link>
 
@@ -54,10 +54,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/electronicServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> دليل الخدمات الالكترونية </div>
+                    <div className="mt-4 mb-1  fw-bold"> دليل الخدمات الالكترونية </div>
                   </div>
                 </Link>
 
@@ -65,10 +65,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/priceServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> أسعار السلع </div>
+                    <div className="mt-4 mb-1  fw-bold"> أسعار السلع </div>
                   </div>
                 </a>
 
@@ -80,10 +80,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/districts_Services-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> خدمات المديريات </div>
+                    <div className="mt-4 mb-1  fw-bold"> خدمات المديريات </div>
                   </div>
                 </Link>
 
@@ -95,10 +95,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/EmergencyServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 "> أرقام الطوارئ </div>
+                    <div className="mt-4 mb-1  fw-bold"> أرقام الطوارئ </div>
                   </div>
                 </Link>
 
@@ -121,10 +121,10 @@ const CitizenServices = () => {
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}
-                      className="px-4"
+                      className="px-4 brightness"
                       src={"/images/icons/centersServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 ">
+                    <div className="mt-4 mb-1  fw-bold">
                       {" "}
                       خدمات المراكز التكنولوجية{" "}
                     </div>

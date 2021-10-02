@@ -5,12 +5,10 @@ const TouristAttraction = () => {
   var settings = {
     dots: true,
     arrows: true,
-    centerMode: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
     swipeToSlide: true,
     responsive: [
       {
@@ -19,13 +17,14 @@ const TouristAttraction = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
       {
         breakpoint: 800,
         settings: {
           arrows: false,
+          dots:true,
           slidesToShow: 2,
           slidesToScroll: 1,
         },
@@ -34,6 +33,7 @@ const TouristAttraction = () => {
         breakpoint: 480,
         settings: {
           arrows: false,
+          dots:true,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -47,6 +47,7 @@ const TouristAttraction = () => {
         <div className="d-flex my-5">
           <div className="mx-3">
             <img
+            className='brightness'
               height="50"
               width="60"
               src="/images/tourist-photos/خدمات سياحية-01.png"
@@ -66,7 +67,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/مطاعم-01.png"
                 />
               </div>
@@ -83,7 +84,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/بازات-01.png"
                 />
               </div>
@@ -100,7 +101,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/انتقال سياحي-01.png"
                 />
               </div>
@@ -117,7 +118,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/بنوك-01.png"
                 />
               </div>
@@ -134,7 +135,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/الحنطور-01.png"
                 />
               </div>
@@ -151,7 +152,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/فنادق-01.png"
                 />
               </div>
@@ -168,7 +169,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/شركات سياحة-01.png"
                 />
               </div>
@@ -185,7 +186,7 @@ const TouristAttraction = () => {
               <div className="d-flex justify-content-center">
                 {" "}
                 <img
-                  className="w-50"
+                  style={{ width: "150px", height: "110px" }}
                   src="/images/tourist-photos/شركات طيران-01.png"
                 />
               </div>

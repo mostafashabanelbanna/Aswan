@@ -1,5 +1,5 @@
 .ads_container {
-  height: 125px;
+  height: 180px;
   display: block;
   width: 100% !important;
   bottom: 0px;
@@ -26,7 +26,7 @@
 }
 
 .ads_container_sink {
-  bottom: -95px;
+  bottom: -150px;
   -webkit-transition: all 0.7s ease-out;
   -moz-transition: all 0.7s ease-out;
   -ms-transition: all 0.7s ease-out;
@@ -47,7 +47,7 @@
   -webkit-box-shadow: 0px -4px 3px rgb(176 176 176 / 75%);
   -moz-box-shadow: 0px -4px 3px rgb(176 176 176 / 75%);
   box-shadow: 0px -4px 3px rgb(176 176 176 / 75%);
-
+  overflow: auto;
   background-color: #fff;
   height: 100%;
 }

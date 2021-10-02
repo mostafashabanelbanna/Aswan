@@ -91,15 +91,14 @@ const YouthEmp = (props) => {
           <div className=" container underline  my-5">
             <h3>توظيف الشباب</h3>
           </div>
-          <div className=" bg-light p-3">
+          </Container>
             <SearchSection
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-12"
+              classNameTextFieldOne="col-sm-10 col-12"
+              classNameBtn='col-sm-2 col-12'
             />
-          </div>
-        </Container>
         {props?.youthemp?.result?.length ? (
           <Container>
             <Row className="my-5">
@@ -111,8 +110,8 @@ const YouthEmp = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
-                    <Link id='link'
+                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                    <div id='link'
                       style={{cursor:'unset'}}
                       className="h-100"
                     >
@@ -128,8 +127,9 @@ const YouthEmp = (props) => {
                           onShow()
                           setContent(item)
                         }}
+                        divHeight='26rem'
                       />
-                    </Link>
+                    </div>
                   </Col>
                 );
               })}

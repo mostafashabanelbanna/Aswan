@@ -46,6 +46,7 @@ import investmentOpportunitiesList from "./components/investor-page/investment-o
 import StaticContentHome from "./components/static-content/static-content-home";
 import CityDetails from "./components/government-cities/city-details";
 import OrgChartRender from "./components/orgChart/orgChartRender";
+import Contact from "./components/home-page/contact_us";
 
 const AppRouting = () => {
   return (
@@ -137,6 +138,11 @@ const AppRouting = () => {
           exact
           path="/opportunitieslist"
           component={investmentOpportunitiesList}
+        />
+        <Route
+          exact
+          path="/contactus"
+          component={Contact}
         />
         <Route exact path="/org-chart" component={OrgChartRender} />
         <Route path="*" component={Error} />

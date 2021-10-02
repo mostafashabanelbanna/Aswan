@@ -81,16 +81,17 @@ const GovernmentProjects = (props) => {
     if (props.projects.result.length) {
       let projects = props.projects.result;
       return (
-        <div style={{ backgroundColor: color }}>
+        //style={{ backgroundColor: color }}
+        <div >
           <div className="container py-5 p-0">
             <div className="d-flex align-items-end mb-4 ">
               <img
+              className="brightness"
                 src="./images/icons_black/projects_titel-0٢.png"
                 alt=""
                 height="50px"
               />
               <div className="underline">
-                {console.log(color)}
                 <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
               </div>
             </div>

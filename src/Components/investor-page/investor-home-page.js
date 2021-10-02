@@ -13,7 +13,7 @@ const InvestorHome = () => {
         <div>
             <div className='touristcontainer mt-4 d-flex p-0'>
                 <div className='col-1'>
-                    <img className='w-75' src='/images/icons/Investor-0١.png' />
+                    <img className='brightness w-75' src='/images/icons/Investor-0١.png' />
                 </div>
                 <div style={{fontSize:'22px'}} className='d-flex  align-items-center text-decoration-underline'>المستثمر</div>
             </div>

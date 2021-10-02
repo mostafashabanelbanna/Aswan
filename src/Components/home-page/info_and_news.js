@@ -18,8 +18,9 @@ const InfoNews = () => {
       <div className=" container p-0 ">
         <div className="my-3 d-flex align-items-end">
           <img
+          style={{filter: 'drop-shadow(2px 4px 6px black)'}}
             src="/images/icons_black/information_titel-0١.png"
-            height="50px"
+            width="50px"
           />
           <div className="  underline">
             <h3 className="mt-4 me-2 text-white"> معلومات ودراسات ونشرات </h3>
@@ -49,7 +50,7 @@ const InfoNews = () => {
                 >
                   <img
                     style={{ width: 150 }}
-                    className="  px-4 imgfilter"
+                    className="brightness px-4 imgfilter"
                     src={"/images/icons/statistics-0١.png"}
                   />
                 </div>
@@ -87,7 +88,8 @@ const InfoNews = () => {
                 >
                   <img
                     style={{ width: 150 }}
-                    className=" px-4 imgfilter"
+                    className="brightness px-4 imgfilter"
+
                     src={"/images/icons/bulletin-0١.png"}
                   />
                 </div>
@@ -125,7 +127,8 @@ const InfoNews = () => {
                 >
                   <img
                     style={{ width: 150 }}
-                    className=" px-4 imgfilter"
+                    className="brightness px-4 imgfilter"
+
                     src={"/images/icons/decision-0١.png"}
                   />
                 </div>
@@ -163,7 +166,8 @@ const InfoNews = () => {
                 >
                   <img
                     style={{ width: 150 }}
-                    className="w px-4 imgfilter"
+                    className="brightness px-4 imgfilter"
+
                     src={"/images/icons/statistics-0١.png"}
                   />
                 </div>

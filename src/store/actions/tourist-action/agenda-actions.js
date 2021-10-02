@@ -12,3 +12,11 @@ export async function getAllEventsTourist() {
     payload,
   };
 }
+export async function clearAllEventsTourist() {
+  let payload = null;
+
+  return {
+    type: "CLEAR_AllEventsTourist",
+    payload,
+  };
+}

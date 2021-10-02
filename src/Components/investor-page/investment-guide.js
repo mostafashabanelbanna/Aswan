@@ -62,7 +62,7 @@ const InvestorGuide = (props) => {
             >
               <div className="d-flex w-50 hvr-grow-rotate justify-content-center">
                 {" "}
-                <img className="w-100" src={item.photo} />
+                <img className="brightness w-100" src={item.photo} />
               </div>
               <div className="mt-2 fw-bold text-center">{item.title}</div>
             </Link>
@@ -77,6 +77,7 @@ const InvestorGuide = (props) => {
       <div className="container py-5">
         <div className="d-flex">
           <img
+          className='brightness'
             src="./images/investor-photos/دليل المسثمر-01.png"
             alt=""
             width="60px"

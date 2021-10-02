@@ -93,23 +93,22 @@ const publishToHandler = (dateChanged) =>
         <>
           <Container fluid>
             <div className=" container underline  my-5">
-              <h3>الصور</h3>
+              <h3>البوم الصور</h3>
             </div>
-            <div className=" bg-light p-3">
+            </Container>
             <SearchSection
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-4 col-12"
+              classNameTextFieldOne="col-md-4 col-sm-6 col-12"
               publishDateFrom={publishDateFrom}
               publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-sm-4 col-6"
+              classNameDPFrom="col-md-3 col-sm-6 col-12 m-0"
               publishDateTo={publishDateTo}
               publishToHandler={publishToHandler}
-              classNameDPTo="col-sm-4 col-6"
+              classNameDPTo="col-md-3 col-sm-6 col-12 m-md-0"
+              classNameBtn='col-md-2 col-sm-6 col-12'
             />
-            </div>
-          </Container>
           <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.photosList.result.map((item, index) => {
             let date = item.publishDate.replace(/\//g,'-').split('-');
@@ -121,7 +120,7 @@ const publishToHandler = (dateChanged) =>
             newPath  = pName.replaceAll(' ','%20')
             }
               return (
-                <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
+                <div style={{cursor:"pointer"}} className="mb-4 col-md-6 col-xl-4 col-12 p-3">
                     <Link id='link' to={`/photodetails/${item.id}`} className="h-100 text-decoration-none">
                         <ListWithImage
                             imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}

@@ -5,7 +5,7 @@ import { paths } from "../../paths/paths";
 
 const ListWithImage = (props) => {
   return (
-    <div className={`${props.hoverTitle} list_container position-relative`}>
+    <div className={`${props.hoverTitle} list_container position-relative`} style={{height:`${props.divHeight}`}}>
       <div className="list_img_container">
         <div
           className="list_img"
@@ -37,10 +37,10 @@ const ListWithImage = (props) => {
         <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}} onClick={props.renderModal}>
           <button
             type="button"
-            className="myButton mx-1 my-4"
+            className="btn_blue mx-1 my-4"
             style={{ verticalAlign: "middle"}}
           >
-            <span>مشاركة</span>
+            <span style={{color:'white'}}>مشاركة</span>
           </button>
         </div>
       ) : null}
@@ -48,10 +48,10 @@ const ListWithImage = (props) => {
         <div className="col-12 d-flex justify-content-center position-absolute" style={{bottom: 0}} onClick={props.renderModal}>
           <button
             type='button'
-            className="myButton mx-1 my-4"
+            className="btn_blue mx-1 my-4"
             style={{ verticalAlign: "middle"}}
           >
-            <span>مشاركة</span>
+            <span style={{color:'white'}}>مشاركة</span>
           </button>
         </div>
       ) : null}

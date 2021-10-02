@@ -20,6 +20,14 @@ export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
   };
 }
 
+export async function clearAdvertisement(){
+  let payload = null;
+  return {
+    type: "CLEAR_ADVERTISMENT_LIST",
+    payload
+  };
+}
+
 export async function getAllAdvertismentType() {
   let payload = null;
   try {

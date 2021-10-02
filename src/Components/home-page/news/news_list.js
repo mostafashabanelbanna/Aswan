@@ -122,9 +122,9 @@ const NewsList = (props) => {
       <>
         <Container fluid>
           <div className=" container underline  my-5">
-            <h3>الاخبار</h3>
+            <h3>الأخبار</h3>
           </div>
-          <div className=" bg-light p-3">
+          </Container>
             <SearchSection
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
@@ -144,13 +144,12 @@ const NewsList = (props) => {
               classNameDropdownTwo="col-sm-4 col-12"
               publishDateFrom={publishDateFrom}
               publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-sm-6 col-12"
+              classNameDPFrom="col-sm-4 col-12"
               publishDateTo={publishDateTo}
               publishToHandler={publishToHandler}
-              classNameDPTo="col-sm-6 col-12"
+              classNameDPTo="col-sm-4 col-12"
+              classNameBtn='col-sm-4 col-12'
             />
-          </div>
-        </Container>
         {props.newslist.result.length ? (
           <Container>
             <Row className="my-5">
@@ -162,7 +161,7 @@ const NewsList = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
+                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <Link
                       id="link"
                       to={`/newsdetails/${item.id}`}

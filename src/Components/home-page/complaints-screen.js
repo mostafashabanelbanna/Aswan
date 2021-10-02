@@ -21,7 +21,7 @@ const Complaints = (props) => {
         <div className='bg-light'>
           <div className=" container py-3">
             <div className="d-flex">
-              <img src="/images/icons/complaints_titel-0٢.png" width="80px" />
+              <img className="brightness" src="/images/icons/complaints_titel-0٢.png" width="80px" />
               <div className="underline">
                 <h3 className="mt-4 me-2 text-dark"> الشكاوى </h3>
               </div>

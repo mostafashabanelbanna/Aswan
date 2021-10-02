@@ -6,18 +6,31 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./ads.css";
 import { Link } from "react-router-dom";
+import { Slider } from "@material-ui/core";
+import { paths } from "../../paths/paths";
+
 
 const Ads = (props) => {
   useEffect(() => {
     props.getAllAds();
+    const timer = setTimeout(() => {
+      setShow(true)
+    }, 10000);
+    return () => clearTimeout(timer);
   }, []);
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const openAds = () => {
     setShow(!show);
   };
 
   if (props?.ads?.result?.length > 0) {
+    // let pName;
+    // let newPath;
+    // if (item.photo != null) {
+    //   pName = item.photo;
+    //   newPath = pName.replaceAll(" ", "%20");
+    // }
     return (
       <div className={`ads_container ${show ? "" : "ads_container_sink"}`}>
         <div>
@@ -36,6 +49,9 @@ const Ads = (props) => {
         <div className="ads_inner_content h-100">
           <div className="container h-100 pt-2">
             <div className="row h-100 ">
+              {/* <Slider>
+
+              </Slider> */}
               {props.ads.result.length >= 1?<Link
                 id="link"
                 className="col-sm-4 px-2"
@@ -43,15 +59,19 @@ const Ads = (props) => {
               >
                 <div
                   style={{
-                    backgroundColor: "rgb(255 220 110 / 80%)",
+                    background: `url(${paths.ads}${props.ads.result[0].id}/${props.ads.result[0].photo})`,
                     borderRadius: "10px",
+                    height:'200px',
+                    width: '100%',
+                    backgroundRepeat:'no-repeat',
+                    backgroundSize:'cover',
                     padding: "10px",
                     textAlign: "justify",
                   }}
                 >
-                  <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[0].title}
-                  </h3>
+                  </h3> */}
                 </div>
               </Link>:null}
 
@@ -62,15 +82,19 @@ const Ads = (props) => {
               >
                 <div
                   style={{
-                    backgroundColor: "#a4e1bf",
+                    background: `url(${paths.ads}${props.ads.result[1].id}/${props.ads.result[1].photo})`,
                     borderRadius: "10px",
+                    height:'200px',
+                    width: '100%',
+                    backgroundRepeat:'no-repeat',
+                    backgroundSize:'cover',
                     padding: "10px",
                     textAlign: "justify",
                   }}
                 >
-                  <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[1].title}
-                  </h3>
+                  </h3> */}
                 </div>
               </Link>:null}
 
@@ -81,15 +105,19 @@ const Ads = (props) => {
               >
                 <div
                   style={{
-                    backgroundColor: "rgb(34 168 155 / 50%) ",
+                    background: `url(${paths.ads}${props.ads.result[2].id}/${props.ads.result[2].photo})`,
                     borderRadius: "10px",
+                    height:'200px',
+                    width: '100%',
+                    backgroundRepeat:'no-repeat',
+                    backgroundSize:'cover',
                     padding: "10px",
                     textAlign: "justify",
                   }}
                 >
-                  <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[2].title}
-                  </h3>
+                  </h3> */}
                 </div>
               </Link>:null}
             </div>

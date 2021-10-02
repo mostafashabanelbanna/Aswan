@@ -89,20 +89,19 @@ const ProjectsList = (props) => {
             <div className=" container underline  my-5">
               <h3>مشروعات المحافظة</h3>
             </div>
-            <div className=" bg-light p-3">
+          </Container>
               <SearchSection
                 submit={submitHandler}
                 TextFieldOneHandler={nameHandler}
                 labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-sm-6 col-12"
+                classNameTextFieldOne="col-md-5 col-12"
                 dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
                 dropdownOneHandler={sectorIdHandler}
                 dropdownOnePlaceholder="كل قطاعات المشروعات"
                 dropdownOneName={sectorName}
-                classNameDropdownOne="col-sm-6 col-12"
+                classNameDropdownOne="col-md-5 my-4 col-12"
+                classNameBtn='col-md-2 col-12'
               />
-            </div>
-          </Container>
           <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.projectsList.result.map((item, index) => {
                               let pName;
@@ -112,7 +111,7 @@ const ProjectsList = (props) => {
                               newPath  = pName.replaceAll(' ','%20')
                               }
               return (
-                <div style={{cursor:"pointer"}} className="mb-4 col-lg-4 col-sm-6 col-12 p-3">
+                <div style={{cursor:"pointer"}} className="mb-4 col-md-6 col-xl-4 col-12 p-3">
                     <Link id='link' to={`projectDetails/${item.id}`} className="h-100 text-decoration-none">
                         <ListWithImage
                             imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}

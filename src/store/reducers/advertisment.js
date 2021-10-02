@@ -2,6 +2,9 @@ export function advertismentComponents(state = {}, action) {
   switch (action.type) {
     case "ADVERTISMENT_LIST":
       return { ...state, advertisment: action.payload };
+    case "CLEAR_ADVERTISMENT_LIST":
+      return { ...state, advertisment: action.payload };
+
     case "ADVERTISMENT_ALL":
       return { ...state, advertisment: action.payload };
     case "ADVERTISMENT_TYPE":

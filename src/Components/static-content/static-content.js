@@ -54,7 +54,7 @@ const StaticContent = (props) => {
     return () => {
       props.clearStaticContent();
     };
-  }, []);
+  }, [parseInt(id)]);
 
   if (props?.allStaticContent?.result?.length > 0) {
     if (flag == 0) {
@@ -72,7 +72,7 @@ const StaticContent = (props) => {
           </div>
         </div>
         <div className="col-12 py-4">
-          <div className="container py-3 col-12 text-center d-flex justify-content-around align-items-center p-0">
+          <div className="container py-3 col-12 text-center flex-wrap d-flex justify-content-around align-items-center p-0">
             {props.allStaticContent.result.map((item) => {
               return (
                 <Link id='link'
@@ -80,7 +80,7 @@ const StaticContent = (props) => {
                     setDetailsID(item.id);
                   }}
                   style={{ cursor: "pointer", border: '1px solid orange', borderRadius: '4px'}}
-                  className="text-decoration-none  col-sm-6 col-md-3 col-12 hvr-grow-shadow hvr-underline-reveal d-flex justify-content-center align-items-center"
+                  className="text-decoration-none my-3 col-sm-6 col-md-3 mx-2 col-9 hvr-grow-shadow hvr-underline-reveal d-flex justify-content-center align-items-center"
                 >
                   <div className="my-2">
                     <span className="spansz">{item.title}</span>

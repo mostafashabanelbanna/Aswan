@@ -106,38 +106,39 @@ const FilterNews = (props) => {
         <>
         <Container fluid>
           <div className=" container underline  my-5">
-            <h3>الاخبار</h3>
+            <h3>الأخبار</h3>
           </div>
-          <div className=" bg-light p-3">
-            <SearchSection 
-            submit={submitHandler} 
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne='العنوان'
-            classNameTextFieldOne='col-sm-4 col-12'
-            dropdownOneVal={catName.find(e => e.value == newsCategoryId)}
-            dropdownOneHandler={catHandler}
-            dropdownOneName={catName}
-            dropdownOnePlaceholder='القسم'
-            classNameDropdownOne='col-sm-4 col-12'
-            dropdownTwoVal={sectorsName.find(e => e.value == sectorSourceId)}
-            dropdownTwoHandler={sectorHandler}
-            dropdownTwoPlaceholder='القطاع'
-            dropdownTwoName={sectorsName}
-            classNameDropdownTwo='col-sm-4 col-12'
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom='col-sm-6 col-12'
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo='col-sm-6 col-12'
+          </Container>
+            <SearchSection
+              submit={submitHandler}
+              TextFieldOneHandler={titleHandler}
+              labelTextFieldOne="العنوان"
+              classNameTextFieldOne="col-sm-4 col-12"
+              dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
+              dropdownOneHandler={catHandler}
+              dropdownOneName={catName}
+              dropdownOnePlaceholder="القسم"
+              classNameDropdownOne="col-sm-4 col-12"
+              dropdownTwoVal={sectorsName.find(
+                (e) => e.value == sectorSourceId
+              )}
+              dropdownTwoHandler={sectorHandler}
+              dropdownTwoPlaceholder="القطاع"
+              dropdownTwoName={sectorsName}
+              classNameDropdownTwo="col-sm-4 col-12"
+              publishDateFrom={publishDateFrom}
+              publishFromHandler={publishFromHandler}
+              classNameDPFrom="col-sm-4 col-12"
+              publishDateTo={publishDateTo}
+              publishToHandler={publishToHandler}
+              classNameDPTo="col-sm-4 col-12"
+              classNameBtn='col-sm-4 col-12'
             />
-          </div>
-        </Container>
         <div className='container mt-5'>
                 <div className='row '>
             {props.data.result? props.data.result.map((item) => {
-                let date = item.publishDate.replace(/\//g,'-').split('-');
-                let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+                // let date = item.publishDate.replace(/\//g,'-').split('-');
+                // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
                 let pName;
                 let newPath;
                 if(item.photo != null){
@@ -145,12 +146,12 @@ const FilterNews = (props) => {
                 newPath  = pName.replaceAll(' ','%20')
                 }
                 return (
-                <div className='mb-4 col-lg-4 col-sm-6 col-12'>
+                <div className='mb-4 col-md-6 col-xl-4 col-12'>
                 <Link id='link' to={`/newsdetails/${item.id}`} className="h-100">
                     <ListWithImage
                         imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
                         title={item.title}
-                        date={`${moment(new Date(publishedDate)).format("LL")}`}
+                        date={`${moment(new Date(item.publishDate)).format("LL")}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
                         hoverTitle='hoverTitle'

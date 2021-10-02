@@ -81,7 +81,7 @@ const ImportantPortals = (props) => {
         <div>
           <div className="container my-5 p-0">
             <div className="d-flex my-2">
-              <img src="./images/icons/web_titel-0١.png" alt="" width="80px" />
+              <img className="brightness" src="./images/icons/web_titel-0١.png" alt="" width="80px" />
               <div className="underline">
                 {" "}
                 <h3 className="mt-4 me-2 text-dark">روابط هامة</h3>

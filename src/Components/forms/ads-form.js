@@ -62,12 +62,12 @@ const AdvertisementRequire = (props) => {
     obj.append("photoFile", photoFile);
     obj.append("PhotoAlbumFile", PhotoAlbumFile);
     e.preventDefault();
-    console.log(obj.get('attachmentFile'))
-    console.log(obj.get('photoFile'))
-    console.log("HIIIIIIIIIIIIIIII",obj.get('PhotoAlbumFile'))
-    console.log(obj.get('PublishDate'))
-    console.log(obj.get('Title'));
-    console.log(PhotoAlbumFile);
+    // console.log(obj.get('attachmentFile'))
+    // console.log(obj.get('photoFile'))
+    // console.log("HIIIIIIIIIIIIIIII",obj.get('PhotoAlbumFile'))
+    // console.log(obj.get('PublishDate'))
+    // console.log(obj.get('Title'));
+    // console.log(PhotoAlbumFile);
     if (
       Title.trim() !== "" &&
       photoFile !== undefined
@@ -77,7 +77,7 @@ const AdvertisementRequire = (props) => {
       } else {
         setDisabled(true);
       }
-      console.log(obj);
+      // console.log(obj);
       let res = await advertismentRequireAPI(obj);
       props.onHideAdvertisementModal();
       initialState();
@@ -86,7 +86,7 @@ const AdvertisementRequire = (props) => {
       } else {
       setDangerShow(true);
       }
-      console.log("res", res);
+      // console.log("res", res);
     } else {
       setDangerShow(true);
     }
@@ -97,14 +97,14 @@ const AdvertisementRequire = (props) => {
   };
 
   const onPhotoFileChange = (event) => {
-      console.log(event.target.files[0])
+      // console.log(event.target.files[0])
     setPhotoFile(event.target.files[0]);
   };
 
   const onPhotoAlbumChange =  (event) => {
       const x = Object.values(event.target.files)
       const arr=[...x];
-      console.log("arrrrr",arr);
+      // console.log("arrrrr",arr);
        setPhotoAlbumFile(arr);
       
   };
@@ -129,15 +129,15 @@ const AdvertisementRequire = (props) => {
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             <div className="d-flex">
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.onHideAdvertisementModal}
-                style={{ cursor: "pointer" }}
-                className="align-self-start my-1 ms-2 text-danger fa-1x"
-              />
               طلب إعلان
             </div>
           </Modal.Title>
+              <FontAwesomeIcon
+                icon={faTimes}
+                onClick={props.onHideAdvertisementModal}
+                style={{ cursor: "pointer", fontSize: "22px" }}
+                className="align-self-start my-1 ms-2 text-danger fa-1x"
+              />
         </Modal.Header>
         <Modal.Body>
           <div
@@ -145,7 +145,7 @@ const AdvertisementRequire = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
-              {console.log(PhotoAlbumFile)}
+              {/* {console.log(PhotoAlbumFile)} */}
             <form
               className="panel-content justify-content-center col-12"
               onSubmit={apply}
@@ -377,7 +377,7 @@ const AdvertisementRequire = (props) => {
                     initialState();
                   }}
                 >
-                  إغلاق
+                  إلغاء
                 </Button>
               </div>
             </form>

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   getAdvertisment,
+  clearAdvertisement,
   getAllAdvertisment,
   getAllAdvertismentType,
 } from "../../../store/actions/advertisment-action";
@@ -112,6 +113,10 @@ const AdvertismentList = (props) => {
         : props.getAdvertisment(currentPage + 1, data(dataFilled));
     }
     setFlag(0);
+
+    return () => {
+      props.clearAdvertisement();
+    }
   }, [currentPage]);
 
   useEffect(() => {
@@ -134,30 +139,28 @@ const AdvertismentList = (props) => {
               <h3>منتجات يدوية</h3>
             ) : (
               <h3>اعلانات ومناقصات</h3>
-            )}
+              )}
           </div>
-          <div className=" bg-light p-3">
+              </Container>
             <SearchSection
               submit={submitHandler}
               TextFieldOneHandler={titleHandler}
               labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-4 col-12"
+              classNameTextFieldOne="col-lg-3 col-md-6 mt-4 mb-0 col-12"
               dropdownOneVal={adsName.find(
                 (e) => e.value == advertismentTypeId
               )}
               dropdownOneHandler={advertismentTypeHandler}
               dropdownOneName={adsName}
               dropdownOnePlaceholder="النوع"
-              classNameDropdownOne="col-sm-4 col-12"
+              classNameDropdownOne="col-lg-3 col-md-6 col-12"
               publishDateFrom={publishDateFrom}
               publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-sm-2 col-12"
+              classNameDPFrom="col-lg-3 col-md-6 col-12"
               publishDateTo={publishDateTo}
               publishToHandler={publishToHandler}
-              classNameDPTo="col-sm-2 col-12"
+              classNameDPTo="col-lg-3  col-12"
             />
-          </div>
-        </Container>
         <Container>
           {advertismentTypeId == 5 ? (
             <div
@@ -169,10 +172,10 @@ const AdvertismentList = (props) => {
             >
               <button
                 type="button"
-                className="myButton mx-1 my-4"
+                className="btn_blue mx-1 my-4"
                 style={{ verticalAlign: "middle" }}
               >
-                <span>طلب إعلان</span>
+                <span style={{color: 'white'}}>طلب إعلان</span>
               </button>
             </div>
           ) : null}
@@ -188,7 +191,7 @@ const AdvertismentList = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <Col lg={4} md={4} sm={6} key={item.id} className="mb-4">
+                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <Link
                       id="link"
                       to={`/advertisment-details/${item.id}`}
@@ -203,6 +206,7 @@ const AdvertismentList = (props) => {
                         category={item.advertismentTypeName}
                         imgHeight="200px"
                         hoverTitle="hoverTitle"
+                        divHeight='25rem'
                       />
                     </Link>
                   </Col>
@@ -234,7 +238,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType },
+    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType, clearAdvertisement },
     dispatch
   );
 };

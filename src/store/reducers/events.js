@@ -3,6 +3,9 @@ export function eventsComponents(state = {}, action) {
     case "EVENTS_LIST":
       return { ...state, eventsList: action.payload };
 
+      case "CLEAR_AllEventsHome":
+        return { ...state, eventsList: action.payload };
+
     case "CLEAR_EVENTS_LIST":
       return { ...state, eventsList: action.payload };
 

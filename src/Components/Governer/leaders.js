@@ -41,7 +41,7 @@ const Leaders = (props) => {
                 newPath = pName.replaceAll(" ", "%20");
               }
               return (
-                <div key={item.id} className="col-sm-6 col-md-4 my-2 text-center">
+                <div key={item.id} className="col-md-6 col-xl-4 col-12 my-2 text-center">
                   <ListWithImage
                     imgSrc={paths.Leader + item.id + "/" + newPath}
                     title={item.name}

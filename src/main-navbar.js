@@ -72,9 +72,9 @@ const Main_navbar = () => {
           </Link>
         </div>
         <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3">
-          <div className="col-3 fsiz">خريطة الموقع</div>
+          <Link to='/contactus' className='text-dark text-decoration-none col-3 fsiz'>خريطة الموقع</Link>
           <div className="col-2 d-flex justify-content-center">|</div>
-          <div className="col-3 fsiz">تواصل معانا</div>
+          <Link to='/contactus' className='text-dark text-decoration-none col-3 fsiz'>اتصل بنا</Link>
         </div>
 
         <Navbar
@@ -87,18 +87,18 @@ const Main_navbar = () => {
           }}
         >
           <Container className="py-1">
-            <div className="navbar-brand d-lg-block d-none text-dark">
+          <Link id="link" className="navbar-brand d-lg-block d-none text-dark" to="/home">
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
                 src="/images/icons/footer_logo-0١.png"
               />
-            </div>
-            <div className="navbar-brand d-lg-none d-block" href="#">
+            </Link>
+            <Link className="navbar-brand d-lg-none d-block" id="link" to="/home">
               <img
                 style={{ width: 40, marginLeft: 10 }}
                 src="/images/icons/footer_logo-0١.png"
               />
-            </div>
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
               className="justify-content-center"
