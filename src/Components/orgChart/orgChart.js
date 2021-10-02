@@ -19,7 +19,6 @@ export const OrgChartComponent = (props, ref) => {
   // We need to manipulate DOM
   useLayoutEffect(() => {
     if (props.data && d3Container.current) {
-      // console.log(d3Container.current);
 
       if (!chart) {
         chart = new OrgChart();
@@ -30,7 +29,6 @@ export const OrgChartComponent = (props, ref) => {
         .nodeWidth((d) => 200)
         .nodeHeight((d) => 120)
         .onNodeClick((d, i, arr) => {
-          // console.log(d, "Id of clicked node ");
           props.onNodeClick(d);
         })
         .rootMargin(100)

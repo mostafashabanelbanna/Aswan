@@ -60,17 +60,10 @@ const AdvertisementRequire = (props) => {
     obj.append("Url", Url);
     obj.append("attachmentFile", attachmentFile);
     obj.append("photoFile", photoFile);
-    // obj.append("PhotoAlbumFile", PhotoAlbumFile);
     PhotoAlbumFile.forEach(file => {
       obj.append("PhotoAlbumFile", file);
     })
     e.preventDefault();
-    // console.log(obj.get('attachmentFile'))
-    // console.log(obj.get('photoFile'))
-    // console.log("HIIIIIIIIIIIIIIII",obj.get('PhotoAlbumFile'))
-    // console.log(obj.get('PublishDate'))
-    // console.log(obj.get('Title'));
-    // console.log(PhotoAlbumFile);
     if (
       Title.trim() !== "" &&
       AdvertiserName.trim() !== "" &&
@@ -82,7 +75,6 @@ const AdvertisementRequire = (props) => {
       } else {
         setDisabled(true);
       }
-      // console.log(obj);
       let res = await advertismentRequireAPI(obj);
       props.onHideAdvertisementModal();
       initialState();
@@ -91,7 +83,6 @@ const AdvertisementRequire = (props) => {
       } else {
       setDangerShow(true);
       }
-      // console.log("res", res);
     } else {
       setDangerShow(true);
     }
@@ -102,7 +93,6 @@ const AdvertisementRequire = (props) => {
   };
 
   const onPhotoFileChange = (event) => {
-      // console.log(event.target.files[0])
     setPhotoFile(event.target.files[0]);
   };
 
@@ -110,7 +100,6 @@ const AdvertisementRequire = (props) => {
     event.preventDefault();
     const x = Object.values(event.target.files)
     const arr=[...x];
-    console.log("arrrrr",arr);
     setPhotoAlbumFile(arr);
       
   };
@@ -152,7 +141,6 @@ const AdvertisementRequire = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
-              {/* {console.log(PhotoAlbumFile)} */}
             <form
               className="panel-content justify-content-center col-12"
               onSubmit={apply}
