@@ -56,7 +56,8 @@ const InvestorGuide = (props) => {
             newPath = pName.replaceAll(" ", "%20");
           }
           return (
-            <Link id='link'
+            <Link
+              id="link"
               to={item.routeId}
               className="d-flex flex-column hvr-bob hvr-sweep-to-bottom p-3 my-3 col-sm-6 col-lg-3 col-10  align-items-center"
             >
@@ -73,14 +74,14 @@ const InvestorGuide = (props) => {
   };
 
   return (
-    <div className='bg-light'>
+    <div className="bg-light">
       <div className="container py-5">
-        <div className="d-flex">
+        <div className="d-flex align-items-end">
           <img
-          className='brightness'
+            className="brightness"
             src="./images/investor-photos/دليل المسثمر-01.png"
             alt=""
-            width="60px"
+            height="50px"
           />
           <div className="underline">
             {" "}

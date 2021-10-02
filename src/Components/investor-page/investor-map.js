@@ -31,7 +31,7 @@ const InvestorMap = (props) => {
     dots: true,
     arrows: true,
     centerMode: true,
-    autoplay:true,
+    autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
@@ -86,53 +86,56 @@ const InvestorMap = (props) => {
   };
 
   if (props?.sliderMap?.result) {
-
     return (
       <div className="bg-light">
-        <div className='container'>
-        {renderModal(content)}
-        <div className="d-flex py-5">
-          <div className="mx-3">
-            <img className='brightness' height="50" width="60" src="/images/investor-photos/خريطة استثمارية-01.png" />
+        <div className="container">
+          {renderModal(content)}
+          <div className="d-flex py-5">
+            <div className="mx-3">
+              <img
+                className="brightness"
+                height="50"
+                src="/images/investor-photos/خريطة استثمارية-01.png"
+              />
+            </div>
+            <div className="d-flex align-items-center underline">
+              <h3 className="mb-5">الخريطة الإستثمارية</h3>{" "}
+            </div>
           </div>
-          <div className="d-flex align-items-center underline">
-            <h3 className="mb-5">الخريطة الإستثمارية</h3>{" "}
-          </div>
-        </div>
-        <Slider {...settings}>
-          {props.sliderMap.result.map((item, index) => {
-            let pName;
-            let newPath;
-            if (item.photo != null) {
-              pName = item.photo;
-              newPath = pName.replaceAll(" ", "%20");
-            }
-            let title = item.title;
-            let imgPath = `url(${paths.DocumentLibraryPhotos}${item.id}/${newPath})`;
-            return (
-              <div
-                className="mx-auto p-3"
-                key={item.id}
-                onClick={() => {
-                  onShow();
-                  setContent(item);
-                }}
-              >
-                <div className="holder">
-                  <div
-                    style={{
-                      backgroundImage: imgPath,
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                    className="imageAlbum"
-                  ></div>
+          <Slider {...settings}>
+            {props.sliderMap.result.map((item, index) => {
+              let pName;
+              let newPath;
+              if (item.photo != null) {
+                pName = item.photo;
+                newPath = pName.replaceAll(" ", "%20");
+              }
+              let title = item.title;
+              let imgPath = `url(${paths.DocumentLibraryPhotos}${item.id}/${newPath})`;
+              return (
+                <div
+                  className="mx-auto p-3"
+                  key={item.id}
+                  onClick={() => {
+                    onShow();
+                    setContent(item);
+                  }}
+                >
+                  <div className="holder">
+                    <div
+                      style={{
+                        backgroundImage: imgPath,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                      }}
+                      className="imageAlbum"
+                    ></div>
+                  </div>
+                  <p className="text-center my-2">{title}</p>
                 </div>
-                <p className="text-center my-2">{title}</p>
-              </div>
-            );
-          })}
-        </Slider>
+              );
+            })}
+          </Slider>
         </div>
         <div className="line mt-5"></div>
       </div>

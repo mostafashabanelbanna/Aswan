@@ -29,13 +29,13 @@ function App() {
   //     document.querySelector("body").style.overflowX = "hidden";
   //   }, 150);
   // });
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     document.querySelector("#preloader-active").style.transition = "1s";
-  //     document.querySelector("#preloader-active").style.opacity = 0;
-  //     document.querySelector("body").style.overflowX = "hidden";
-  //   }, 4000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelector("#preloader-active").style.transition = "1s";
+      document.querySelector("#preloader-active").style.opacity = 0;
+      document.querySelector("body").style.overflowX = "hidden";
+    }, 4000);
+  }, []);
   return (
     <Provider store={createStoreWithMW(rootReducer)}>
       <StylesProvider jss={jss}>

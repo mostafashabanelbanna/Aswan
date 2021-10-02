@@ -22,7 +22,7 @@ const InvestorStart = (props) => {
     dots: true,
     arrows: false,
     infinite: true,
-    autoplay:true,
+    autoplay: true,
     autoplaySpeed: 1000,
     infinite: true,
     speed: 2000,
@@ -66,7 +66,11 @@ const InvestorStart = (props) => {
       <div>
         <div className="text-center d-flex align-content-center align-items-center justify-content-center my-5">
           <div className="mx-3">
-            <img className='brightness' src="/images/investor-photos/اخبار استثمارية-01.png" />
+            <img
+              className="brightness"
+              height="50"
+              src="/images/investor-photos/اخبار استثمارية-01.png"
+            />
           </div>
           <div className="d-flex align-items-end fw-bold underline">
             <h2 className="mb-3">اخبار إستثمارية</h2>
