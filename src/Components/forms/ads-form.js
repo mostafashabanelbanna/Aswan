@@ -60,24 +60,21 @@ const AdvertisementRequire = (props) => {
     obj.append("Url", Url);
     obj.append("attachmentFile", attachmentFile);
     obj.append("photoFile", photoFile);
-    obj.append("PhotoAlbumFile", PhotoAlbumFile);
+    PhotoAlbumFile.forEach(file => {
+      obj.append("PhotoAlbumFile", file);
+    })
     e.preventDefault();
-    // console.log(obj.get('attachmentFile'))
-    // console.log(obj.get('photoFile'))
-    // console.log("HIIIIIIIIIIIIIIII",obj.get('PhotoAlbumFile'))
-    // console.log(obj.get('PublishDate'))
-    // console.log(obj.get('Title'));
-    // console.log(PhotoAlbumFile);
     if (
       Title.trim() !== "" &&
-      photoFile !== undefined
+      AdvertiserName.trim() !== "" &&
+      photoFile !== undefined &&
+      AdvertiserPhone.match(/^01[0125][0-9]{8}$/)
     ) {
       if (disabled) {
         return;
       } else {
         setDisabled(true);
       }
-      // console.log(obj);
       let res = await advertismentRequireAPI(obj);
       props.onHideAdvertisementModal();
       initialState();
@@ -86,7 +83,6 @@ const AdvertisementRequire = (props) => {
       } else {
       setDangerShow(true);
       }
-      // console.log("res", res);
     } else {
       setDangerShow(true);
     }
@@ -97,15 +93,14 @@ const AdvertisementRequire = (props) => {
   };
 
   const onPhotoFileChange = (event) => {
-      // console.log(event.target.files[0])
     setPhotoFile(event.target.files[0]);
   };
 
   const onPhotoAlbumChange =  (event) => {
-      const x = Object.values(event.target.files)
-      const arr=[...x];
-      // console.log("arrrrr",arr);
-       setPhotoAlbumFile(arr);
+    event.preventDefault();
+    const x = Object.values(event.target.files)
+    const arr=[...x];
+    setPhotoAlbumFile(arr);
       
   };
 
@@ -125,6 +120,7 @@ const AdvertisementRequire = (props) => {
         {...props}
         onHide={props.onHideAdvertisementModal}
         show={props.showAdvertisementModal}
+        backdrop="static"
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
@@ -145,10 +141,10 @@ const AdvertisementRequire = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
-              {/* {console.log(PhotoAlbumFile)} */}
             <form
               className="panel-content justify-content-center col-12"
               onSubmit={apply}
+              encType="multipart/form-data"
             >
               <div className="form-row d-flex flex-md-row flex-column">
                 <div className="col-12">
@@ -236,6 +232,7 @@ const AdvertisementRequire = (props) => {
                       <input
                         type="file"
                         name="photoFile"
+                        accept=".jpeg, .jpg, .png"
                         className="custom-file-input"
                         id="photoFile_AttachmentInput"
                         style={{ cursor: "pointer" }}
@@ -259,12 +256,13 @@ const AdvertisementRequire = (props) => {
                     <div className="custom-file">
                       <input
                         type="file"
+                        multiple
+                        accept=".jpeg, .pdf, .jpg, .png"
                         name="PhotoAlbumFile"
                         className="custom-file-input"
                         id="PhotoAlbumFile_AttachmentInput"
                         style={{ cursor: "pointer" }}
                         onChange={onPhotoAlbumChange}
-                        multiple
                       />
                       <label
                         id="photoAlbumLabel"

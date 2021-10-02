@@ -12,6 +12,7 @@ function ContactUsModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       style={{zIndex: 100000000,}}
+      backdrop="static"
     >
       <Modal.Body>
         {props.dialogClassName != "danger" ? (

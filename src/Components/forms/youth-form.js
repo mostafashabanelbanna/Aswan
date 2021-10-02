@@ -112,6 +112,7 @@ const YouthForm = (props) => {
         {...props}
         onHide={props.onHideYouthModal}
         show={props.showYouthModal}
+        backdrop="static"
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
