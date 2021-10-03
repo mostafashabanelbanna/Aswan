@@ -44,18 +44,18 @@ const GovernmentProjects = (props) => {
       setCounter(() => counter - 1);
     }
   };
-  const colors = ["#e54648", "#5677b3", "#90c478", "#f1e850"];
-  const [colorCount, setColorCount] = useState(1);
-  const [color, setColor] = useState(colors[0]);
+  // const colors = ["#e54648", "#5677b3", "#90c478", "#f1e850"];
+  // const [colorCount, setColorCount] = useState(1);
+  // const [color, setColor] = useState(colors[0]);
 
   const _onSelect = (active, direction) => {
-    if (colorCount < colors.length - 1) {
-      setColorCount(colorCount + 1);
-      setColor(colors[colorCount]);
-    } else {
-      setColorCount(0);
-      setColor(colors[colorCount]);
-    }
+    // if (colorCount < colors.length - 1) {
+    //   setColorCount(colorCount + 1);
+    //   setColor(colors[colorCount]);
+    // } else {
+    //   setColorCount(0);
+    //   setColor(colors[colorCount]);
+    // }
   };
   const _visiableOnSelect = (active) => {};
   const _slideNext = () => {
@@ -82,11 +82,11 @@ const GovernmentProjects = (props) => {
       let projects = props.projects.result;
       return (
         //style={{ backgroundColor: color }}
-        <div >
+        <div>
           <div className="container py-5 p-0">
             <div className="d-flex align-items-end mb-4 ">
               <img
-              className="brightness"
+                className="brightness"
                 src="./images/icons_black/projects_titel-0٢.png"
                 alt=""
                 height="50px"

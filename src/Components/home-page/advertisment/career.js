@@ -12,6 +12,7 @@ import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import CareerForm from "../../forms/career-form";
+import ReactHtmlParser from "react-html-parser";
 
 const Career = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -90,14 +91,14 @@ const Career = (props) => {
           <div className=" container underline  my-5">
             <h3> وظائف شاغرة</h3>
           </div>
-          </Container>
-            <SearchSection
-              submit={submitHandler}
-              TextFieldOneHandler={titleHandler}
-              labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-10 col-12"
-              classNameBtn='col-sm-2 col-12'
-            />
+        </Container>
+        <SearchSection
+          submit={submitHandler}
+          TextFieldOneHandler={titleHandler}
+          labelTextFieldOne="العنوان"
+          classNameTextFieldOne="col-sm-10 col-12"
+          classNameBtn="col-sm-2 col-12"
+        />
         {props?.career?.result?.length ? (
           <Container>
             <Row className="my-5">
@@ -118,13 +119,14 @@ const Career = (props) => {
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
-                        imgHeight="200px"
+                        imgHeight="0px"
                         careerButton={true}
+                        careerDetails={ReactHtmlParser(item.description)}
                         renderModal={() => {
-                          onShow()
-                          setContent(item)
+                          onShow();
+                          setContent(item);
                         }}
-                        divHeight='24rem'
+                        divHeight="28rem"
                       />
                     </div>
                   </Col>
@@ -146,7 +148,7 @@ const Career = (props) => {
       </>
     );
   }
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {
