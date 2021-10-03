@@ -25,7 +25,7 @@ const InvestmentOpportunities = (props) => {
           return (
             <div
               id="link"
-              style={{cursor:'auto'}}
+              style={{ cursor: "auto" }}
               className="text-white col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle" key={item.id}>
@@ -51,7 +51,7 @@ const InvestmentOpportunities = (props) => {
               className="btn_blue mx-1 mb-2 mb-sm-0"
               style={{ verticalAlign: "middle" }}
             >
-              <span style={{color:'white'}}>عرض الكل</span>
+              <span style={{ color: "white" }}>عرض الكل</span>
             </button>
           </Link>
         </div>
@@ -77,7 +77,6 @@ const InvestmentOpportunities = (props) => {
                 <img
                   className="brightness"
                   height="50"
-                  width="60"
                   src="/images/investor-photos/فرص استثمارية-01.png"
                 />
               </div>

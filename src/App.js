@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import AppRouting from "./app-routing";
 import { Provider } from "react-redux";
@@ -22,6 +22,20 @@ const theme = createTheme({
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 function App() {
+  // window.addEventListener("load", function () {
+  //   setTimeout(() => {
+  //     document.querySelector("#preloader-active").style.transition = "0.8s";
+  //     document.querySelector("#preloader-active").style.opacity = 0;
+  //     document.querySelector("body").style.overflowX = "hidden";
+  //   }, 150);
+  // });
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelector("#preloader-active").style.transition = "1s";
+      document.querySelector("#preloader-active").style.opacity = 0;
+      document.querySelector("body").style.overflowX = "hidden";
+    }, 4000);
+  }, []);
   return (
     <Provider store={createStoreWithMW(rootReducer)}>
       <StylesProvider jss={jss}>

@@ -26,7 +26,6 @@ const TouristAttractionDetails = (props) => {
     //fetch data
     const response = await axios
       .get("/TouristAttraction/Details/" + id)
-      // .catch((err) => console.log("Error", err)); //handle errors
     if (response && response.data) {
       setTouristAttraction(response.data.result);
     }
