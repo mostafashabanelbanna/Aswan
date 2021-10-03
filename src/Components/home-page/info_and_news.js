@@ -31,7 +31,7 @@ const InfoNews = () => {
       <div className="container p-0 mt-4 ">
         <div className="row text-center  p-0 m-0 ">
           <Fade bottom>
-            <div className="col-lg-3 p-3 col-5 mb-4  hvr-rectangle-out ">
+            <div className="col-lg-3 p-3 col-md-6 col-10 mx-auto mb-4  hvr-rectangle-out ">
               <Link
                 id="link"
                 to={`document-library/1`}
@@ -69,7 +69,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom delay={400}>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
+            <div className="col-lg-3 p-3 col-md-6 col-10 mx-auto mb-4 hvr-rectangle-out">
               <Link
                 id="link"
                 to={`document-library/2`}
@@ -108,7 +108,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
+            <div className="col-lg-3 p-3 col-md-6 col-10 mx-auto mb-4 hvr-rectangle-out">
               <Link
                 id="link"
                 to={`document-library/3`}
@@ -147,7 +147,7 @@ const InfoNews = () => {
             </div>
           </Fade>
           <Fade bottom delay={400}>
-            <div className="col-lg-3 p-3 col-5 mb-4 hvr-rectangle-out">
+            <div className="col-lg-3 p-3 col-md-6 col-10 mx-auto mb-4 hvr-rectangle-out">
               <Link
                 id="link"
                 to={`document-library/4`}

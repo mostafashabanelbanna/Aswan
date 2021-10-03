@@ -15,7 +15,7 @@ const ImportantPortals = (props) => {
   var settings = {
     dots: true,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 500,
     infinite: true,
     speed: 3000,

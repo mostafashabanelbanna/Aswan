@@ -47,6 +47,25 @@
   width: 0 !important;
 }
 
+@media (min-width: 1199px) {
+  .rightControl > i,
+  .rightControl > span,
+  .leftControl > i,
+  .leftControl > span {
+    font-size: 35px !important;
+  }
+
+  .leftControl > i,
+  .leftControl > span {
+    margin-left: -20px !important;
+  }
+
+  .rightControl > i,
+  .rightControl > span {
+    margin-right: -20px !important;
+  }
+}
+
 @media (min-width: 992px) {
   .projectsDiv {
     height: 455px;
@@ -59,18 +78,18 @@
   .imageDiv {
     width: 100%;
   }
-
-.leftControl > i,
-.leftControl > span {
-  font-size: 35px !important;
-  margin-left: -30px !important;
 }
 
-.rightControl > i,
-.rightControl > span {
-  font-size: 35px !important;
-  margin-right: -30px !important;
-}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .leftControl > i,
+  .leftControl > span {
+    margin-left: -10px !important;
+  }
+
+  .rightControl > i,
+  .rightControl > span {
+    margin-right: -10px !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -91,7 +110,17 @@
   .rightControl > span,
   .leftControl > i,
   .leftControl > span {
-      top:39% !important;
+    top: 39% !important;
+  }
+
+  .leftControl > i,
+  .leftControl > span {
+    margin-left:0 !important;
+  }
+
+  .rightControl > i,
+  .rightControl > span {
+    margin-right: 0 !important;
   }
 }
 
@@ -104,14 +133,14 @@
   width: 160px;
 }
 
-.detailsPhoto{
+.detailsPhoto {
   border-radius: 20px;
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
     rgb(0 0 0 / 6%) 0px 2px 4px -1px;
 }
 
-.detailsSectorName{
-  width:160px;
-  border-radius:10px; 
+.detailsSectorName {
+  width: 160px;
+  border-radius: 10px;
   background-color: rgb(255 220 110 / 80%) !important;
 }

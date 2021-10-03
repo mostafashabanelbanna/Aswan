@@ -12,13 +12,13 @@ import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import YouthForm from "../../forms/youth-form";
+import ReactHtmlParser from "react-html-parser";
 
 const YouthEmp = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
   const [flag, setFlag] = useState(0);
 
-  
   const [show, setShow] = useState(false);
   const [content, setContent] = useState({});
 
@@ -91,14 +91,14 @@ const YouthEmp = (props) => {
           <div className=" container underline  my-5">
             <h3>توظيف الشباب</h3>
           </div>
-          </Container>
-            <SearchSection
-              submit={submitHandler}
-              TextFieldOneHandler={titleHandler}
-              labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-10 col-12"
-              classNameBtn='col-sm-2 col-12'
-            />
+        </Container>
+        <SearchSection
+          submit={submitHandler}
+          TextFieldOneHandler={titleHandler}
+          labelTextFieldOne="العنوان"
+          classNameTextFieldOne="col-sm-10 col-12"
+          classNameBtn="col-sm-2 col-12"
+        />
         {props?.youthemp?.result?.length ? (
           <Container>
             <Row className="my-5">
@@ -111,8 +111,9 @@ const YouthEmp = (props) => {
                 }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div id='link'
-                      style={{cursor:'unset'}}
+                    <div
+                      id="link"
+                      style={{ cursor: "unset" }}
                       className="h-100"
                     >
                       <ListWithImage
@@ -121,13 +122,14 @@ const YouthEmp = (props) => {
                         date={`${moment(new Date(item.startDate)).format(
                           "LL"
                         )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
-                        imgHeight="200px"
+                        imgHeight="0px"
                         youthButton={true}
+                        youthDetails={ReactHtmlParser(item.description)}
                         renderModal={() => {
-                          onShow()
-                          setContent(item)
+                          onShow();
+                          setContent(item);
                         }}
-                        divHeight='26rem'
+                        divHeight="30rem"
                       />
                     </div>
                   </Col>

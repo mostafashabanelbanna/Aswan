@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const InvestorGuide = (props) => {
   let photosArr = [
     {
-      routeId: `/statichome/${1009}/natureoftheproject`,
+      routeId: `/statichome/${1009}/natureoftheproject/${1009}/${'investor'}`,
       photo: "/images/investor-photos/ماهية المشروع-01.png",
       title: "ماهية المشروع",
     },
     {
-      routeId: `/statichome/${1010}/applicationform`,
+      routeId: `/statichome/${1010}/applicationform/${1010}/${'investor'}`,
       photo: "/images/investor-photos/نموذج التسجيل-01.png",
       title: "نموذج التسجيل للمشروع",
     },
@@ -19,27 +19,27 @@ const InvestorGuide = (props) => {
       title: "دراسات جدوى",
     },
     {
-      routeId: `/statichome/${1004}/financingframework`,
+      routeId: `/statichome/${1004}/financingframework/${1004}/${'investor'}`,
       photo: "/images/investor-photos/الاطار التمويلي-01.png",
       title: "الإطار التمويلي",
     },
     {
-      routeId: `/statichome/${1005}/licensingprocedures`,
+      routeId: `/statichome/${1005}/licensingprocedures/${1005}/${'investor'}`,
       photo: "/images/investor-photos/اجراءات التراخيص-01.png",
       title: "اجراءات الترخيص",
     },
     {
-      routeId: `/statichome/${1006}/implementationphases`,
+      routeId: `/statichome/${1006}/implementationphases/${1006}/${'investor'}`,
       photo: "/images/investor-photos/مراحل التنفيذ-01.png",
       title: "مراحل التنفيذ",
     },
     {
-      routeId: `/statichome/${1007}/successstories`,
+      routeId: `/statichome/${1007}/successstories/${1007}/${'investor'}`,
       photo: "/images/investor-photos/قصص نجاح-01.png",
       title: "قصص نجاح",
     },
     {
-      routeId: `/statichome/${1008}/commonquestions`,
+      routeId: `/statichome/${1008}/commonquestions/${1008}/${'investor'}`,
       photo: "/images/investor-photos/اسئلة شائعه-01.png",
       title: "اسئلة شائعة",
     },
@@ -56,7 +56,8 @@ const InvestorGuide = (props) => {
             newPath = pName.replaceAll(" ", "%20");
           }
           return (
-            <Link id='link'
+            <Link
+              id="link"
               to={item.routeId}
               className="d-flex flex-column hvr-bob hvr-sweep-to-bottom p-3 my-3 col-sm-6 col-lg-3 col-10  align-items-center"
             >
@@ -73,14 +74,14 @@ const InvestorGuide = (props) => {
   };
 
   return (
-    <div className='bg-light'>
+    <div className="bg-light">
       <div className="container py-5">
-        <div className="d-flex">
+        <div className="d-flex align-items-end">
           <img
-          className='brightness'
+            className="brightness"
             src="./images/investor-photos/دليل المسثمر-01.png"
             alt=""
-            width="60px"
+            height="50px"
           />
           <div className="underline">
             {" "}
