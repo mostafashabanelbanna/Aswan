@@ -158,7 +158,7 @@ const CitizenServices = () => {
                 <div 
                 style={{cursor:'pointer'}}
                 id='link'
-                className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out"
+                className="mb-4 mx-auto col-md-4 col-sm-6 col-8  hvr-rectangle-out"
                 onClick={() => {
                   onShow();
                 }}

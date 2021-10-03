@@ -103,6 +103,7 @@ const Main_navbar = () => {
             <Navbar.Collapse
               className="justify-content-center"
               id="responsive-navbar-nav"
+              style={{fontSize:"15px"}}
             >
               <Nav className="align-items-center">
                 <ul
@@ -313,7 +314,7 @@ const Main_navbar = () => {
             </div>
           </a>
         </Pulse>
-        <Pulse>
+        {/* <Pulse>
           {" "}
           <a href="#">
             <div className="side_social_icons  text-center p-1 py-2 rounded-3 mb-3 ">
@@ -325,7 +326,7 @@ const Main_navbar = () => {
               ></FontAwesomeIcon>
             </div>
           </a>{" "}
-        </Pulse>
+        </Pulse> */}
         <Pulse>
           {" "}
           <a href="#">
