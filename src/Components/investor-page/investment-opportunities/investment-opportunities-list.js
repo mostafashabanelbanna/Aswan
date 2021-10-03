@@ -202,8 +202,7 @@ const InvestmentOpportunitiesList = (props) => {
                         imgSrc={
                           paths.InvestmentPhotos + item.id + "/" + newPath
                         }
-                        content={`
-                        - فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName}\n
+                        content={`- فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName}\n
                         - النشاط: ${item.activityName}\n
                         - التخصص: ${item.investmentSpecialtyTypeName}\n
                         - نظام السداد: ${item.investmentPaymentSystemName}\n
@@ -211,6 +210,7 @@ const InvestmentOpportunitiesList = (props) => {
                         center=""
                         imgHeight="250px"
                         hoverTitle="hoverTitle"
+                        divHeight='30rem'
                       />
                     </div>
                   </div>

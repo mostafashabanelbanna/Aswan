@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { paths } from "../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const SliderDetailsModalComponent = (props) => {
   let title = props.content.title;
@@ -36,13 +37,13 @@ const SliderDetailsModalComponent = (props) => {
       </Modal.Header>
       <Modal.Body>
         {props.details ? (
-          <a href={props.details}>
+          <Link to={props.details}>
             <img
               src={`${props.pathName}${props.content.id}/${props.content.photo}`}
               style={{ height: "400px" }}
               className="w-100"
             />
-          </a>
+          </Link>
         ) : (
           <img
             src={`${props.pathName}${props.content.id}/${props.content.photo}`}

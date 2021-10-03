@@ -3,11 +3,12 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllFamousPeople } from "../../store/actions/government-famous-actions";
+import { getAllFamousPeople } from "../../../store/actions/government-famous-actions";
 import Slider from "react-slick";
-import "../../Styles/government-famous-style.css";
-import { paths } from "../../paths/paths";
-import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import "../../../Styles/government-famous-style.css";
+import { paths } from "../../../paths/paths";
+import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
+import { Link } from "react-router-dom";
 
 const GovernmentFamous = (props) => {
   useEffect(() => {
@@ -80,8 +81,10 @@ const GovernmentFamous = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 return (
-                  <div
+                  <Link
+                    to={`/statichome/1/${person.title}/${person.id}/${'home'}`}
                     key={person.id}
+                    id='link'
                     className="d-flex flex-column align-items-center justify-content-between hovering"
                   >
                     <div className="outerPolygon">
@@ -93,7 +96,7 @@ const GovernmentFamous = (props) => {
                       ></div>
                     </div>
                     <p className="text-center">{person.title}</p>
-                  </div>
+                  </Link>
                 );
               })}
             </Slider>

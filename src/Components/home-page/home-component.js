@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GovernmentFamous from "./government-famous-component";
+import GovernmentFamous from "./government-famous/government-famous-component";
 import GovernmentProjects from "./government-projects/government-projects-component";
 import PhotosAlbum from "./photo-album/photos-album-component";
 import News from "./news/newsScreen";

@@ -15,12 +15,16 @@ import { useState } from "react";
 const StaticContent = (props) => {
   const [detailsID, setDetailsID] = useState(0);
   const [flag, setFlag] = useState(0);
+  const [personId, setPersonId] = useState(props.code);
   let id = props.id;
   let title = props.title;
   let titleName;
+  const [titleFamous, setTitleFamous] = useState(titleName)
+  let name = props.name
+  let activeClass = 'activeClass'
 
   if(title == "aboutgovernment") {
-      titleName = "عن المحافظة";
+    titleName = "عن المحافظة";
   } else if(title == "natureoftheproject"){
     titleName = "ماهية المشروع";
   } else if(title == "applicationform"){
@@ -47,6 +51,8 @@ const StaticContent = (props) => {
     titleName = "الزراعة";
   } else if(title == "infrastructure"){
     titleName = "البنية التحتية";
+  } else {
+    titleName = title;
   }
 
   useEffect(() => {
@@ -58,7 +64,7 @@ const StaticContent = (props) => {
 
   if (props?.allStaticContent?.result?.length > 0) {
     if (flag == 0) {
-      setDetailsID(props.allStaticContent.result[0].id);
+      setDetailsID(name=='investor'?props.allStaticContent.result[0].id:personId);
       setFlag(1);
     }
   }
@@ -68,24 +74,26 @@ const StaticContent = (props) => {
       <div>
         <div className="container">
           <div className="my-5 underline">
-            <h3 className="mb-0">{titleName}</h3>
+            <h3 className="mb-0">{titleFamous??titleName}</h3>
           </div>
         </div>
         <div className="col-12 py-4">
           <div className="container py-3 col-12 text-center flex-wrap d-flex justify-content-around align-items-center p-0">
-            {props.allStaticContent.result.map((item) => {
+            {props.allStaticContent.result.map((item,index) => {
               return (
-                <Link id='link'
+                <div id='link'
                   onClick={() => {
                     setDetailsID(item.id);
+                    setTitleFamous(item.title);
+                    setPersonId(item.id);
                   }}
                   style={{ cursor: "pointer", border: '1px solid orange', borderRadius: '4px'}}
-                  className="text-decoration-none my-3 col-sm-6 col-md-3 mx-2 col-9 hvr-grow-shadow hvr-underline-reveal d-flex justify-content-center align-items-center"
+                  className={` ${name=='investor'?detailsID==item.id?activeClass:'':personId==item.id? activeClass:''} text-decoration-none my-3 col-sm-6 col-md-3 mx-2 col-9 hvr-grow-shadow hvr-underline-reveal d-flex justify-content-center align-items-center`}
                 >
                   <div className="my-2">
                     <span className="spansz">{item.title}</span>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

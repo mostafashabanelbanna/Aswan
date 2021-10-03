@@ -25,14 +25,14 @@ const InvestmentOpportunities = (props) => {
           return (
             <div
               id="link"
-              style={{ cursor: "auto" }}
-              className="text-white col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
+              className="text-white col-xl-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle" key={item.id}>
                 <div className="holder mb-4">
                   <div
                     style={{
                       backgroundImage: `url(${paths.InvestmentPhotos}${item.id}/${newPath})`,
+                      cursor:'unset'
                     }}
                     className="imageAlbum"
                     alt={`فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`}

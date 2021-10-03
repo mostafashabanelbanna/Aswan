@@ -48,7 +48,7 @@ const InvestorAlbum = (props) => {
           return (
             <Link
               id="link"
-              to={`/statichome/${item.id}/${item.name}`}
+              to={`/statichome/${item.id}/${item.name}/${item.id}/${'investor'}`}
               className=" col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle " key={item.id}>

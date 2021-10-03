@@ -26,7 +26,7 @@ import Senate from "./components/home-page/local-leaders/local-leaders-pages/sen
 import AdvertismentList from "./components/home-page/advertisment/advertisment-list";
 import YouthEmp from "./components/home-page/advertisment/youth-employent";
 import Career from "./components/home-page/advertisment/career";
-import documentLibraryDetails from "./components/document-library-page/document-library-details";
+import DocumentLibraryDetails from "./components/document-library-page/document-library-details";
 import Footer from "./components/footer";
 import VideosList from "./components/home-page/videos/video-list-component";
 import VideoDetails from "./components/home-page/videos/video-details-component";
@@ -81,7 +81,7 @@ const AppRouting = () => {
         <Route exact path="/investor" component={InvestorHome} />
         <Route
           exact
-          path="/statichome/:id/:title"
+          path="/statichome/:id/:title/:code/:name"
           component={StaticContentHome}
         />
         <Route exact path="/newslist" component={news_list} />
@@ -117,7 +117,7 @@ const AppRouting = () => {
         <Route
           exact
           path="/document-library-details/:id"
-          component={documentLibraryDetails}
+          component={DocumentLibraryDetails}
         />
         <Route
           exact
