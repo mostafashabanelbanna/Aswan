@@ -140,7 +140,7 @@ const Tribe = (props) => {
                             <div className="mx-2"> {item.cityName}</div>
                         </div>
 
-                        <div className="d-flex my-3">
+                        {item.number?<div className="d-flex my-3">
                                 <div className="mx-2">
                                 {" "}
                                 <FontAwesomeIcon
@@ -149,9 +149,9 @@ const Tribe = (props) => {
                                 ></FontAwesomeIcon>
                                 </div>
                             <div className="mx-2"> {item.number}</div>
-                        </div>
+                        </div>:null}
 
-                        <div className="d-flex my-3">
+                        {item.location?<div className="d-flex my-3">
                                 <div className="mx-2">
                                 {" "}
                                 <FontAwesomeIcon
@@ -160,7 +160,7 @@ const Tribe = (props) => {
                                 ></FontAwesomeIcon>
                                 </div>
                             <div className="mx-2"> {item.location}</div>
-                        </div>
+                        </div>:null}
 
                       </div>
                     </div>
