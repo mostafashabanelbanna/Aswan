@@ -38,7 +38,7 @@ const Main_navbar = () => {
             className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
-              <img className="mx-2 " src="/images/icons_black/citiezen.png" />
+              <img className="mx-2 imgsz" src="/images/icons_black/citiezen.png" />
               <span className="spansz">المواطن</span>
             </div>
           </Link>
