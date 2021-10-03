@@ -698,11 +698,6 @@ textarea {
 
 /*Input*/
 
-.form-group .form-control {
-  border: none;
-  border-radius: unset;
-}
-
 .form-group .form-control:focus {
   box-shadow: unset;
   border-bottom: 2px solid var(--secondary-bg-color);

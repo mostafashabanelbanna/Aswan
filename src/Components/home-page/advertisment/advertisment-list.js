@@ -159,7 +159,7 @@ const AdvertismentList = (props) => {
               classNameDPFrom="col-lg-3 col-md-6 col-12"
               publishDateTo={publishDateTo}
               publishToHandler={publishToHandler}
-              classNameDPTo="col-lg-3  col-12"
+              classNameDPTo="col-lg-3 col-md-6 col-12"
             />
         <Container>
           {advertismentTypeId == 5 ? (

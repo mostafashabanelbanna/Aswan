@@ -1,13 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
-
+import CitizenServicesForm from '../../forms/citize-service-form'
 import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
+
+  const [show, setShow] = useState(false);
+  const [content, setContent] = useState({});
+
+  const onShow = () => {
+    setShow(true);
+  };
+
+
+  const renderModal = () => {
+    return (
+      <CitizenServicesForm
+        showCitizenServicesFormModal={show}
+        onHideCitizenServicesFormModal={() => setShow(false)}
+      />
+    );
+  };
+
   return (
     <div className="custom_bg_light pt-4">
       <div className=" container p-0 mt-2">
         <div className="my-3 d-flex align-items-end">
-          <img className='brightness' src="/images/icons_black/services_titel-0١.png" height="50px" />
+          <img
+            className="brightness"
+            src="/images/icons_black/services_titel-0١.png"
+            height="50px"
+          />
 
           <div className="underline">
             {" "}
@@ -42,7 +64,7 @@ const CitizenServices = () => {
                       className="px-4 brightness"
                       src={"/images/icons/cluesServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1 fw-bold" > ادلة المحافظة </div>
+                    <div className="mt-4 mb-1 fw-bold"> ادلة المحافظة </div>
                   </div>
                 </Link>
 
@@ -57,7 +79,10 @@ const CitizenServices = () => {
                       className="px-4 brightness"
                       src={"/images/icons/electronicServices-0١.png"}
                     />
-                    <div className="mt-4 mb-1  fw-bold"> دليل الخدمات الالكترونية </div>
+                    <div className="mt-4 mb-1  fw-bold">
+                      {" "}
+                      دليل الخدمات الالكترونية{" "}
+                    </div>
                   </div>
                 </Link>
 
@@ -130,11 +155,29 @@ const CitizenServices = () => {
                     </div>
                   </div>
                 </Link>
+                <div 
+                style={{cursor:'pointer'}}
+                id='link'
+                className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out"
+                onClick={() => {
+                  onShow();
+                }}
+                >
+                  <img
+                    style={{ width: 100 }}
+                    className="px-4 brightness"
+                    src={"/images/icons_black/services_titel-0١.png"}
+                  />
+                  <div className="mt-4 mb-1 fw-bold">
+                    خدمة المواطنين
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {renderModal()}
     </div>
   );
 };

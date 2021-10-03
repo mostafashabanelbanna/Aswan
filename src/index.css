@@ -571,3 +571,6 @@ a {
     transition-timing-function: ease-out !important;
 }
 
+.modal-header, .modal-body{
+  background-color: #eafbff70 !important;
+}

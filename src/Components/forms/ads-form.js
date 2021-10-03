@@ -345,7 +345,7 @@ const AdvertisementRequire = (props) => {
                       الرابط{" "}
                     </label>
                     <input
-                      type="text"
+                      type="url"
                       className="form-control text-right "
                       id="Url"
                       name="Url"
