@@ -68,7 +68,7 @@ const MainSlider = () => {
           })}
       </Carousel>
       {noMainSlider && <MainSliderSkeleton />}
-      <OnloadModal/>
+      {/* <OnloadModal/> */}
     </div>
   );
 };

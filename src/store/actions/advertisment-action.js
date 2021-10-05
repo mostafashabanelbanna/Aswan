@@ -56,7 +56,7 @@ export async function getAllAdvertisment(pageNumber, pageSize = 9) {
   };
 }
 
-export async function youthEmployment(pageNumber, keywords = {}, pageSize = 2) {
+export async function youthEmployment(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
   try {
     let response = await axios.post(
@@ -76,7 +76,7 @@ export async function youthEmployment(pageNumber, keywords = {}, pageSize = 2) {
   };
 }
 
-export async function getCareer(pageNumber, keywords = {}, pageSize = 2) {
+export async function getCareer(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
   try {
     let response = await axios.post(
@@ -140,6 +140,22 @@ export async function getFocusedAd() {
   } catch (e) {}
   return {
     type: "FOCUSED_AD",
+    payload,
+  };
+}
+
+
+//get career counter
+export async function getCareerCounter(Id) {
+  let payload = null;
+  try {
+    let response = await axios.get(
+      "/CareerAPI/GetApplicantCount/" + Id
+    );
+    payload = response.data;
+  } catch (error) {}
+  return {
+    type: "CAREER_COUNTER",
     payload,
   };
 }

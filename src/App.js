@@ -35,7 +35,7 @@ function App() {
       document.querySelector("#preloader-active").style.opacity = 0;
       document.querySelector("#preloader-active").style.display = 'none';
       document.querySelector("body").style.overflowX = "hidden";
-    }, 4000);
+    }, 1);
   }, []);
   return (
     <Provider store={createStoreWithMW(rootReducer)}>

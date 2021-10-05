@@ -47,11 +47,14 @@ import StaticContentHome from "./components/static-content/static-content-home";
 import CityDetails from "./components/government-cities/city-details";
 import OrgChartRender from "./components/orgChart/orgChartRender";
 import Contact from "./components/home-page/contact_us";
-
+import StockTicker from "./components/news-ticker";
+import ScrollToTop from './scroll'
 const AppRouting = () => {
   return (
     <BrowserRouter>
       <Main_navbar />
+      <StockTicker/>
+      <ScrollToTop>
       <Switch>
         <Route exact path="/" component={HomeComponent} />
         <Route exact path="/home" component={HomeComponent} />
@@ -147,6 +150,8 @@ const AppRouting = () => {
         <Route exact path="/org-chart" component={OrgChartRender} />
         <Route path="*" component={Error} />
       </Switch>
+      </ScrollToTop>
+
       <Ads />
       <Footer />
     </BrowserRouter>

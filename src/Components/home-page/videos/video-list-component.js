@@ -142,7 +142,7 @@ const publishToHandler = (dateChanged) =>
               handlePageClick={handlePageClick}
             />
           ) : (
-            <div className="text-center my-5">لا يوجد نتائج</div>
+            <div className="text-center my-5">جاري رفع البيانات</div>
           )}
         </>
       );

@@ -62,53 +62,97 @@ const News = (props) => {
   };
   if (props?.mainews?.result && props?.news?.result) {
     return (
-      <div className='custom_bg_light'>
+      <div className="custom_bg_light">
         <div className="container fluid px-0">
           <div className="container">
-            <div className="py-3 d-flex align-items-end">
-              <img className="brightness" src="/images/icons_black/news_titel-0١.png" height="50" />
-              <div className="  underline">
+            <div className="py-3 mb-4 d-flex align-items-end">
+              <img
+                className="brightness"
+                src="/images/icons_black/news_titel-0١.png"
+                height="50"
+              />
+              <div className="underline">
                 <h3 className="mt-4 me-2 text-dark"> أخبار المحافظة </h3>
               </div>
-            </div>
-            {/*  */}
-            <div>
-              <h4 className="mb-3">
-                {props.mainews.result.value.result[0].title}
-              </h4>
             </div>
             <Link
               id="link"
               to={`/newsdetails/${props.mainews.result.value.result[0].id}`}
               className=""
             >
-              <div className="d-flex flex-md-row flex-column-reverse">
-                <div className="col-md-6 col-12">
-                  <div
-                    id="newscontent"
-                    className="p-3 py-md-0"
-                    style={{ textAlign: "justify" }}
-                  >
-                    {" "}
-                    {ReactHtmlParser(
-                      props.mainews.result.value.result[0].content
-                    )}
+              <div className="d-block d-lg-none">
+                <div>
+                  <h4 className="mb-3">
+                    {props.mainews.result.value.result[0].title}
+                  </h4>
+                </div>
+                <div className="d-flex flex-lg-row flex-column-reverse">
+                  <div className="col-lg-6 col-12">
+                    <div
+                      id="newscontent"
+                      className="ps-lg-5 ps-0 py-lg-0 mt-lg-0 mt-4"
+                      style={{ textAlign: "justify" }}
+                    >
+                      {" "}
+                      {ReactHtmlParser(
+                        props.mainews.result.value.result[0].content
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="col-lg-6 col-12">
+                    <div className="holder">
+                      <img
+                        style={{ borderRadius: "10px", maxWidth: "100%" }}
+                        className="img-fluid h-100 w-100"
+                        src={
+                          paths.NewsPhotos +
+                          props.mainews.result.value.result[0].id +
+                          "/" +
+                          props.mainews.result.value.result[0].photo
+                        }
+                        alt={props.mainews.result.value.result[0].title}
+                      />
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="col-md-6 col-12">
-                  <div className="holder">
-                    <img
-                      style={{ borderRadius: "10px", maxWidth: "100%" }}
-                      className="img-fluid h-100 w-100"
-                      src={
-                        paths.NewsPhotos +
-                        props.mainews.result.value.result[0].id +
-                        "/" +
-                        props.mainews.result.value.result[0].photo
-                      }
-                      alt={props.mainews.result.value.result[0].title}
-                    />
+              <div className="d-none d-lg-block">
+                <div className="d-flex flex-lg-row flex-column-reverse">
+                  <div className="col-lg-6 col-12">
+                    <div>
+                      <h4 className="mb-3">
+                        {props.mainews.result.value.result[0].title}
+                      </h4>
+                    </div>
+                    <div>
+                      <div
+                        id="newscontent"
+                        className="ps-lg-5 ps-0 py-lg-0 mt-lg-0 mt-4"
+                        style={{ textAlign: "justify" }}
+                      >
+                        {" "}
+                        {ReactHtmlParser(
+                          props.mainews.result.value.result[0].content
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-6 col-12">
+                    <div className="holder">
+                      <img
+                        style={{ borderRadius: "10px", maxWidth: "100%" }}
+                        className="img-fluid h-100 w-100"
+                        src={
+                          paths.NewsPhotos +
+                          props.mainews.result.value.result[0].id +
+                          "/" +
+                          props.mainews.result.value.result[0].photo
+                        }
+                        alt={props.mainews.result.value.result[0].title}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

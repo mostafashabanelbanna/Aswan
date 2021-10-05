@@ -22,8 +22,11 @@ const Main_navbar = () => {
           <div className="position-relative">
             <Link id="link" to="/home">
               <img
-                className="main_logo"
-                src="/images/icons/logo_banner-0١.png"
+                className="main_logo rounded-3"
+                // src="/images/icons/logo_banner-0١.png"
+                // src='/images/logoo.jfif'
+                src='/images/logoooo.jfif'
+                // style={{height:'150px'}}
               />
             </Link>
           </div>
@@ -90,13 +93,14 @@ const Main_navbar = () => {
           <Link id="link" className="navbar-brand d-lg-block d-none text-dark" to="/home">
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
-                src="/images/icons/footer_logo-0١.png"
+                // src="/images/icons/footer_logo-0١.png"
+                src='/images/logoo.jfif'
               />
             </Link>
             <Link className="navbar-brand d-lg-none d-block" id="link" to="/home">
               <img
                 style={{ width: 40, marginLeft: 10 }}
-                src="/images/icons/footer_logo-0١.png"
+                src='/images/logoo.jfif'
               />
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -113,7 +117,7 @@ const Main_navbar = () => {
                   <li className={`nav-item `}>
                     <Link
                       id="link"
-                      to="/statichome/2001/aboutgovernment"
+                      to="/statichome/2001/aboutgovernment/2001/investor"
                       className="nav-link text-light"
                     >
                       {" "}
@@ -153,7 +157,7 @@ const Main_navbar = () => {
                       لقاءات و قرارات السيد المحافظ{" "}
                     </Link>
                   </li>
-                  <li className={`nav-item`}>
+                  {/* <li className={`nav-item`}>
                     <Link
                       id="link"
                       to={"/org-chart"}
@@ -161,7 +165,7 @@ const Main_navbar = () => {
                     >
                       الديوان العام{" "}
                     </Link>
-                  </li>
+                  </li> */}
                   <li
                     className={`nav-item 
                       `}

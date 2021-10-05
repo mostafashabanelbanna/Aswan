@@ -191,7 +191,7 @@ const NewsList = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className=" text-center">لا يوجد نتائج</div>
+          <div className=" text-center">جاري رفع البيانات</div>
         )}
       </>
     );

@@ -250,7 +250,7 @@ const ServicesComponent = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a className='text-decoration-none' style={{  cursor: "pointer" }} href={item.mapUrl} target='_blank'>
-                      الرابط
+                      {item.mapUrl}
                     </a>
                   </div>
                 </div>:null
@@ -264,7 +264,7 @@ const ServicesComponent = (props) => {
         currentPage={currentPage}
         pageCount={pageCount}
         handlePageClick={handlePageClick}
-      />:<div className="text-center my-5">لا يوجد نتائج</div>
+      />:<div className="text-center my-5">جاري رفع البيانات</div>
     }
       </>
     );}

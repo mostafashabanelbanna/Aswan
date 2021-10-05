@@ -44,7 +44,7 @@ const DocumentLibraryDetails = (props) => {
                   href={props.documentLibraryDetail.result.url}
                   style={{ cursor: "pointer" }}
                 >
-                  الرابط
+                  {props.documentLibraryDetail.result.url}
                 </a>
               </div>
             </div>

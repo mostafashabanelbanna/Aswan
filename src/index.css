@@ -374,7 +374,7 @@ a {
   background-image: url("./assets//img/hayah_karema.jpg");
   background-repeat: no-repeat;
   background-position: left center;
-  background-size: contain;
+  background-size: cover;
   position: absolute;
   left: 0;
   top: 0;
@@ -386,7 +386,7 @@ a {
 }
 .haya_carima_bg_logo {
   position: absolute;
-  left: 35%;
+  left: 0;
   bottom: 0;
   overflow: hidden;
   z-index: 0;
@@ -397,14 +397,16 @@ a {
   background-color: rgb(34 168 155 / 50%) !important;
 }
 
-@media only screen and (max-width: 992px) {
+
+
+/* @media only screen and (max-width: 992px) {
   .haya_carima_bg {
     background-size: cover;
   }
   .haya_carima_bg_logo {
     left: 0;
   }
-}
+} */
 
 .hoverTitle {
   -moz-transition: all 0.7s ease-in-out;

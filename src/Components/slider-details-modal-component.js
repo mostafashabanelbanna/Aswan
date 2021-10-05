@@ -21,9 +21,9 @@ const SliderDetailsModalComponent = (props) => {
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           {props.details ? (
-            <a href={props.details} className='text-dark'>
+            <Link to={props.details} className='text-dark'>
               <div className="d-flex">{title}</div>
-            </a>
+            </Link>
           ) : (
             <div className="d-flex">{title}</div>
           )}

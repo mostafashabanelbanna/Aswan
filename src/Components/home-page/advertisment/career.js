@@ -84,7 +84,7 @@ const Career = (props) => {
   }, [currentPage]);
 
   if (props?.career?.result) {
-    pageCount = Math.ceil(props.career.count / 2);
+    pageCount = Math.ceil(props.career.count / 9);
     return (
       <>
         <Container fluid>
@@ -109,6 +109,11 @@ const Career = (props) => {
                   pName = item.photo;
                   newPath = pName.replaceAll(" ", "%20");
                 }
+                let slicedDesc = item.description;
+                if (item.description !== null && item.description.length > 230) {
+                  const brief = item.description;
+                  slicedDesc = brief.substring(0, 230).concat(" ...");
+                }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <div
@@ -117,16 +122,18 @@ const Career = (props) => {
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.ads + item.id + "/" + newPath}
+                        // imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         imgHeight="0px"
                         careerButton={true}
-                        careerDetails={ReactHtmlParser(item.description)}
+                        careerDetails={ReactHtmlParser(slicedDesc)}
                         renderModal={() => {
                           onShow();
                           setContent(item);
                         }}
-                        divHeight="28rem"
+                        center
+                        divHeight="27rem"
+                        appliedPeople={item.applicantCount}
                       />
                     </div>
                   </Col>
@@ -142,7 +149,7 @@ const Career = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className=" text-center">لا يوجد نتائج</div>
+          <div className=" text-center">جاري رفع البيانات</div>
         )}
         {renderModal(content)}
       </>
@@ -152,7 +159,7 @@ const Career = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    career: state.advertismentComponents.career,
+    career: state.advertismentComponents.career
   };
 };
 const mapDispatchToProps = (dispatch) => {

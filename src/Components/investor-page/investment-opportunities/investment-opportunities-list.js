@@ -143,7 +143,7 @@ const InvestmentOpportunitiesList = (props) => {
     investorPaymentSystemVal.unshift({ value: null, label: "نظام السداد" });
     investorSpecialtyTypeVal.unshift({ value: null, label: "نوع التخصيص" });
     activityVal.unshift({ value: null, label: "النشاط" });
-    industrialZoneVal.unshift({ value: null, label: "المنطقة الصناعية" });
+    industrialZoneVal.unshift({ value: null, label: "كل المناطق " });
 
     pageCount = Math.ceil(props.investorOpportunitiesList.count / 9);
     if (props.investorOpportunitiesList.page == currentPage + 1) {
@@ -160,28 +160,29 @@ const InvestmentOpportunitiesList = (props) => {
                   (e) => e.value == industryPartID
                 )}
                 dropdownOneHandler={industryPartIDHandler}
-                dropdownOnePlaceholder="المنطقة الصناعية"
+                dropdownOnePlaceholder="كل المناطق "
                 dropdownOneName={industrialZoneVal}
-                classNameDropdownOne="col-md-3 col-sm-6 col-12"
+                classNameDropdownOne="col-md-5 col-12"
                 dropdownTwoVal={activityVal.find((e) => e.value == activityID)}
                 dropdownTwoHandler={activityIDHandler}
                 dropdownTwoPlaceholder="النشاط"
                 dropdownTwoName={activityVal}
-                classNameDropdownTwo="col-md-3 col-sm-6 col-12"
-                dropdownThreeVal={investorSpecialtyTypeVal.find(
-                  (e) => e.value == investmentSpecialtyTypeid
-                )}
-                dropdownThreeHandler={investmentSpecialtyTypeidHandler}
-                dropdownThreePlaceholder="نوع التخصيص"
-                dropdownThreeName={investorSpecialtyTypeVal}
-                classNameDropdownThree="col-md-3 col-sm-6 col-12"
-                dropdownFourVal={investorPaymentSystemVal.find(
-                  (e) => e.value == investmentPaymentSystemid
-                )}
-                dropdownFourHandler={investmentPaymentSystemidHandler}
-                dropdownFourPlaceholder="نظام السداد"
-                dropdownFourName={investorPaymentSystemVal}
-                classNameDropdownFour="col-md-3 col-sm-6 col-12"
+                classNameDropdownTwo="col-md-5 col-12"
+                classNameBtn="col-md-2 mt-0 col-12"
+                // dropdownThreeVal={investorSpecialtyTypeVal.find(
+                //   (e) => e.value == investmentSpecialtyTypeid
+                // )}
+                // dropdownThreeHandler={investmentSpecialtyTypeidHandler}
+                // dropdownThreePlaceholder="نوع التخصيص"
+                // dropdownThreeName={investorSpecialtyTypeVal}
+                // classNameDropdownThree="col-md-3 col-sm-6 col-12"
+                // dropdownFourVal={investorPaymentSystemVal.find(
+                //   (e) => e.value == investmentPaymentSystemid
+                // )}
+                // dropdownFourHandler={investmentPaymentSystemidHandler}
+                // dropdownFourPlaceholder="نظام السداد"
+                // dropdownFourName={investorPaymentSystemVal}
+                // classNameDropdownFour="col-md-3 col-sm-6 col-12"
               />
           <div className="container mt-5">
             <div className="row ">
@@ -210,7 +211,7 @@ const InvestmentOpportunitiesList = (props) => {
                         center=""
                         imgHeight="250px"
                         hoverTitle="hoverTitle"
-                        divHeight='30rem'
+                        divHeight='31rem'
                       />
                     </div>
                   </div>
@@ -225,7 +226,7 @@ const InvestmentOpportunitiesList = (props) => {
               handlePageClick={handlePageClick}
             />
           ) : (
-            <div className="text-center my-5">لا يوجد نتائج</div>
+            <div className="text-center my-5">جاري رفع البيانات</div>
           )}
         </>
       );

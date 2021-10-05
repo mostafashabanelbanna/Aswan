@@ -84,7 +84,7 @@ const YouthEmp = (props) => {
   }, [currentPage]);
 
   if (props?.youthemp?.result) {
-    pageCount = Math.ceil(props.youthemp.count / 2);
+    pageCount = Math.ceil(props.youthemp.count / 9);
     return (
       <>
         <Container fluid>
@@ -109,6 +109,11 @@ const YouthEmp = (props) => {
                   pName = item.photo;
                   newPath = pName.replaceAll(" ", "%20");
                 }
+                let slicedDesc = item.description;
+                if (item.description !== null && item.description.length > 230) {
+                  const brief = item.description;
+                  slicedDesc = brief.substring(0, 230).concat(" ...");
+                }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <div
@@ -117,19 +122,21 @@ const YouthEmp = (props) => {
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.youth + item.id + "/" + newPath}
+                        // imgSrc={paths.youth + item.id + "/" + newPath}
                         title={item.title}
                         date={`${moment(new Date(item.startDate)).format(
                           "LL"
                         )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
                         imgHeight="0px"
                         youthButton={true}
-                        youthDetails={ReactHtmlParser(item.description)}
+                        youthDetails={ReactHtmlParser(slicedDesc)}
                         renderModal={() => {
                           onShow();
                           setContent(item);
                         }}
+                        center
                         divHeight="30rem"
+                        appliedPeople={item.applicantCount}
                       />
                     </div>
                   </Col>
@@ -145,7 +152,7 @@ const YouthEmp = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className=" text-center">لا يوجد نتائج</div>
+          <div className=" text-center">جاري رفع البيانات</div>
         )}
         {renderModal(content)}
       </>

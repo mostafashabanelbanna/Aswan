@@ -190,6 +190,11 @@ const AdvertismentList = (props) => {
                   pName = item.photo;
                   newPath = pName.replaceAll(" ", "%20");
                 }
+                let slicedTitle = item.title;
+                if (item.title !== null && item.title.length > 110) {
+                  const brief = item.title;
+                  slicedTitle = brief.substring(0, 100).concat(" ...");
+                }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <Link
@@ -199,7 +204,7 @@ const AdvertismentList = (props) => {
                     >
                       <ListWithImage
                         imgSrc={paths.ads + item.id + "/" + newPath}
-                        title={item.title}
+                        title={slicedTitle}
                         date={`${moment(new Date(item.publishDate)).format(
                           "LL"
                         )}`}
@@ -222,7 +227,7 @@ const AdvertismentList = (props) => {
             </Row>
           </Container>
         ) : (
-          <div className="text-center my-5">لا يوجد نتائج</div>
+          <div className="text-center my-5">جاري رفع البيانات</div>
         )}
         {renderModal()}
       </>

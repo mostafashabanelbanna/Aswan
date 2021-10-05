@@ -67,7 +67,7 @@ const NewsDetails = (props) => {
           <div class="row">
             <div class="col-12 text-justify">
               <p class="text-justify">
-                <img class="img-fluid detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3" src={
+                <img class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3" src={
                   paths.NewsPhotos +
                   props.newsdetail.result.id +
                   "/" +

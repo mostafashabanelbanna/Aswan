@@ -142,9 +142,9 @@ const ProjectDetails = (props) => {
             <div class="col-12 text-justify">
               <p class="text-justify">
                 <img
-                  class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-3 me-0 mt-3"
+                  class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
                   src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
-                  alt="President Photo"
+                  alt=""
                 />
               </p>
               <div

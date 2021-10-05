@@ -19,11 +19,11 @@ const InfoNews = () => {
         <div className="my-3 d-flex align-items-end">
           <img
           style={{filter: 'drop-shadow(2px 4px 6px black)'}}
-            src="/images/icons_black/information_titel-0١.png"
+            src="/images/icons/نظم المعلومات والتحول الرقمي-01.png"
             width="50px"
           />
           <div className="  underline">
-            <h3 className="mt-4 me-2 text-white"> معلومات ودراسات ونشرات </h3>
+            <h3 className="mt-4 me-2 text-white">نظم المعلومات والتحول الرقمي</h3>
           </div>
         </div>
       </div>

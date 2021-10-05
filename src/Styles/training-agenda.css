@@ -62,7 +62,7 @@
 
 
 .fc .fc-daygrid-day-number {
-    color: grey;
+    color: black;
     text-decoration: none;
   }
   
@@ -81,3 +81,7 @@
   .fc .fc-button-primary:hover, .fc .fc-button-primary:active:before{
     background-color: #faa74a !important;
 }
+
+/* .fc-daygrid-day > .fc-scrollgrid-sync-inner .fc-daygrid-day-events .fc-daygrid-event-harness-abs{
+    background-color: red !important;
+} */

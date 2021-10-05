@@ -24,15 +24,15 @@ const ListWithImage = (props) => {
       {props.date ? (
         <div className="d-flex justify-content-end p-2">{props.date}</div>
       ) : null}
-      <div className="my-2 p-2" style={{ fontSize: "22px" }}>
+      <div className="mt-2 mb-5 p-2" style={{ fontSize: "22px" }}>
         <div className={`${props.center ? "text-center" : ""}`}>
           {props.title}
         </div>
         {props.careerButton == true ? (
-          <div className="my-2">{props.careerDetails}</div>
+          <div className="my-2" style={{textAlign:'justify', fontSize:'18px'}}>{props.careerDetails}</div>
         ) : null}
         {props.youthButton == true ? (
-          <div className="my-2">{props.youthDetails}</div>
+          <div className="my-2" style={{textAlign:'justify', fontSize:'18px'}}>{props.youthDetails}</div>
         ) : null}
       </div>
       {props.content ? (
@@ -44,10 +44,11 @@ const ListWithImage = (props) => {
       ) : null}
       {props.careerButton == true ? (
         <div
-          className="col-12 d-flex justify-content-center position-absolute"
+          className="col-12 d-flex flex-column align-items-center justify-content-center position-absolute"
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
+          {props.appliedPeople?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"
@@ -59,10 +60,11 @@ const ListWithImage = (props) => {
       ) : null}
       {props.youthButton == true ? (
         <div
-          className="col-12 d-flex justify-content-center position-absolute"
+          className="col-12 d-flex flex-column align-items-center justify-content-center position-absolute"
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
+          {props.appliedPeople?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"

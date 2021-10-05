@@ -120,7 +120,7 @@ const EServiceDirectories = (props) => {
                   <div className="mx-2">
                     {" "}
                     <a className='text-decoration-none' style={{ cursor: "pointer" }} href={item.url} target='_blank'>
-                      الرابط
+                    {item.url}
                     </a>
                   </div>
                 </div>:null
@@ -134,7 +134,7 @@ const EServiceDirectories = (props) => {
         currentPage={currentPage}
         pageCount={pageCount}
         handlePageClick={handlePageClick}
-      />:<div className="text-center my-5">لا يوجد نتائج</div>
+      />:<div className="text-center my-5">جاري رفع البيانات</div>
     }
       </>
     );}

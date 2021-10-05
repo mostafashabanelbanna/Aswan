@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -18,14 +17,28 @@ import moment from "moment";
 import "moment/locale/ar";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 import { Link, useHistory } from "react-router-dom";
-
+import $ from "jquery";
+ 
 const TrainingAgenda = (props) => {
-  const [message, setMessage] = useState();
-  const [show, setShow] = useState();
+
+  
+$('.fc-next-button').on('click',()=>{
+ setMonth(month+1)
+})
+$('.fc-prev-button').on('click',()=>{
+  setMonth(month-1)
+ })
+//  document.getElementsByClassName('fc-next-button')[0].onclick = ()=>{}
+//   document.getElementsByClassName('fc-prev-button')[0].onclick=()=>{}
+let child = $('.fc .fc-daygrid-event-harness-abs').parent('div')
+const [message, setMessage] = useState();
+const [show, setShow] = useState();
+const [month, setMonth] = useState(10);
+console.log(month)
   let eventsArray = [{}]
   let history = useHistory();
   let agendaProps;
-
+  $(child).parent('div').css('background-color', 'rgb(6, 73, 106,0.7)')
   useEffect(() => {
     if (props.pagePath == "investor") {
       props.getAllEventsInvestor();
@@ -39,7 +52,9 @@ const TrainingAgenda = (props) => {
       props.clearAllEventsTourist();
       props.clearAllEventsHome();
     }
-  }, [props.pagePath]);
+  }, [props.pagePath,month ]);
+
+  // $('.fc .fc-daygrid-day-frame:has(.fc .fc-daygrid-event-harness-abs)').css('background-color', 'red');
 
   if (props.pagePath == "investor") {
     agendaProps = props.eventsListInvestor;
@@ -53,7 +68,7 @@ const TrainingAgenda = (props) => {
     return (
       <div className="pt-5 custom_bg_light">
         <div className="container">
-          <div className="d-flex my-2">
+          <div className="d-flex mb-5">
             {props.photo ? (
               <img 
               className='brightness' 
@@ -73,7 +88,7 @@ const TrainingAgenda = (props) => {
           </div>
         </div>
         <div className="d-flex flex-column flex-xl-row container">
-          <div className="col-xl-6 col-12 p-3">
+          <div className="col-xl-6 col-12 px-xl-3 px-0 ">
             <FullCalendar
               date
               plugins={[dayGridPlugin]}
