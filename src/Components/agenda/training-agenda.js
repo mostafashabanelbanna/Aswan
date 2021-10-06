@@ -1,4 +1,4 @@
-import React, { useState ,createRef} from "react";
+import React, { useState ,createRef,useEffect} from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -11,7 +11,6 @@ import { getTouristEventByMonth, clearTouristEventByMonth } from "../../store/ac
 import Fade from "react-reveal/Fade";
 import ReactDOM from "react-dom";
 import "../../Styles/training-agenda.css";
-import { useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
 import moment from "moment";
 import "moment/locale/ar";
@@ -185,6 +184,14 @@ const [show, setShow] = useState();
                       ).format("LL")} إلى ${moment(
                         new Date(item.endDateTime)
                       ).format("LL")}`}</div>
+                       {/*  */}
+                       {item.eventTypeId==4?  <div className="align-items-center d-flex">
+                          <button 
+                            onClick={{}}
+                          className=" mx-1 mb-2 mb-sm-0 btn_blue" style={{ verticalAlign: "middle" }}>
+                            <span>مشاركة</span>
+                          </button>
+                      </div>:null}
                       <div className="align-items-center d-flex">
                         <Link id="link" to={`/eventdetails/${item.id}`}>
                           <button
