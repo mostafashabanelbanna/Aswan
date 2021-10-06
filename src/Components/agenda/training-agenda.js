@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState ,createRef} from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllEventsHome, clearAllEventsHome } from "../../store/actions/agenda-actions";
-import { getAllEventsInvestor, clearAllEventsInvestor } from "../../store/actions/investor-actions/agenda-actions";
-import { getAllEventsTourist, clearAllEventsTourist } from "../../store/actions/tourist-action/agenda-actions";
+import { getEventByMonth, clearEventByMonth } from "../../store/actions/agenda-actions";
+import { getInvestorEventByMonth, clearInvestorEventByMonth } from "../../store/actions/investor-actions/agenda-actions";
+import { getTouristEventByMonth, clearTouristEventByMonth } from "../../store/actions/tourist-action/agenda-actions";
 import Fade from "react-reveal/Fade";
 import ReactDOM from "react-dom";
 import "../../Styles/training-agenda.css";
@@ -21,38 +21,40 @@ import $ from "jquery";
  
 const TrainingAgenda = (props) => {
 
-  
-$('.fc-next-button').on('click',()=>{
- setMonth(month+1)
-})
-$('.fc-prev-button').on('click',()=>{
-  setMonth(month-1)
- })
+  let calenderRef = createRef()
+  let month = new Date().getMonth()+1
+// $('.fc-next-button').on('click',()=>{
+//  setMonth((month)=>month+1)
+// })
+// $('.fc-prev-button').on('click',()=>{
+//   console.log('hi')
+//   setMonth((month)=>month-1)
+//  })
 //  document.getElementsByClassName('fc-next-button')[0].onclick = ()=>{}
 //   document.getElementsByClassName('fc-prev-button')[0].onclick=()=>{}
 let child = $('.fc .fc-daygrid-event-harness-abs').parent('div')
 const [message, setMessage] = useState();
 const [show, setShow] = useState();
-const [month, setMonth] = useState(10);
-console.log(month)
+// const [month, setMonth] = useState(10);
+// console.log(month)
   let eventsArray = [{}]
   let history = useHistory();
   let agendaProps;
   $(child).parent('div').css('background-color', 'rgb(6, 73, 106,0.7)')
   useEffect(() => {
     if (props.pagePath == "investor") {
-      props.getAllEventsInvestor();
+      props.getInvestorEventByMonth(month);
     } else if (props.pagePath == "tourist") {
-      props.getAllEventsTourist();
+      props.getTouristEventByMonth(month);
     } else {
-      props.getAllEventsHome();
+      props.getEventByMonth(month);
     }
     return () => {
-      props.clearAllEventsInvestor();
-      props.clearAllEventsTourist();
-      props.clearAllEventsHome();
+      props.clearInvestorEventByMonth();
+      props.clearTouristEventByMonth();
+      props.clearEventByMonth();
     }
-  }, [props.pagePath,month ]);
+  }, [props.pagePath ]);
 
   // $('.fc .fc-daygrid-day-frame:has(.fc .fc-daygrid-event-harness-abs)').css('background-color', 'red');
 
@@ -64,7 +66,7 @@ console.log(month)
     agendaProps = props.eventsListHome;
   }
 
-  if (agendaProps?.result) {
+  // if (agendaProps?.result) {
     return (
       <div className="pt-5 custom_bg_light">
         <div className="container">
@@ -90,6 +92,47 @@ console.log(month)
         <div className="d-flex flex-column flex-xl-row container">
           <div className="col-xl-6 col-12 px-xl-3 px-0 ">
             <FullCalendar
+            ref={calenderRef}
+            customButtons={{
+              next:{
+                click: function() {
+                  let calendarApi = calenderRef.current.getApi();
+                  calendarApi.next()
+               let currentMonth=   calendarApi.getDate().getMonth()
+               if (props.pagePath == "investor") {
+                props.clearInvestorEventByMonth();
+                props.getInvestorEventByMonth(currentMonth+1);
+              } else if (props.pagePath == "tourist") {
+                props.clearTouristEventByMonth();
+                props.getTouristEventByMonth(currentMonth+1);
+              } else {
+                props.clearEventByMonth();
+                props.getEventByMonth(currentMonth+1);
+              }
+                },
+                icon:'fc-icon fc-icon-chevron-right'
+              },
+              prev:{
+                // text:'MyButton',
+                click: function() {
+                  let calendarApi = calenderRef.current.getApi();
+                  calendarApi.prev();
+               let currentMonth=   calendarApi.getDate().getMonth()
+               if (props.pagePath == "investor") {
+                props.clearInvestorEventByMonth();
+                props.getInvestorEventByMonth(currentMonth+1);
+              } else if (props.pagePath == "tourist") {
+                props.clearTouristEventByMonth();
+                props.getTouristEventByMonth(currentMonth+1);
+              } else {
+                props.clearEventByMonth();
+                props.getEventByMonth(currentMonth+1);
+              }
+                  
+                },
+                icon:'fc-icon fc-icon-chevron-left'
+              }
+            }}
               date
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
@@ -103,14 +146,16 @@ console.log(month)
               eventBackgroundColor={"#fbbf3c"}
               eventTextColor={"black"}
               eventBorderColor={true}
-              headerToolbar={{ start: "", center: "title" }}
+              headerToolbar={{start:'', right: "prev,next", center: "title" }}
               editable={false}
               locale="ar"
               height={"600px"}
             />
           </div>
-          <div className="col-xl-6 col-12 px-3">
-            {agendaProps.result.map((item, index) => {
+          <div className={agendaProps?.result?agendaProps.result.length? `col-xl-6 col-12 px-3`:`col-xl-6 col-12 px-3 d-flex justify-content-center align-items-center `:`col-xl-6 col-12 px-3`}>
+           
+           
+            {agendaProps?.result?  agendaProps.result.length? (agendaProps.result.map((item, index) => {
               let slicedContent = item.content;
               if (item.content !== null && item.content.length > 250) {
                 const brief = item.content;
@@ -163,7 +208,7 @@ console.log(month)
                   </div>
                 </Fade>
               );
-            })}
+            })):(<div > لا توجد احداث هذا الشهر </div>):(<div>جاااري التحميل</div>)}
           </div>
         </div>
         <div className="container d-flex justify-content-end">
@@ -179,9 +224,9 @@ console.log(month)
         <div className="line mt-5"></div>
       </div>
     );
-  } else {
-    return <OnePieaceSkeleton />;
-  }
+  // } else {
+  //   return <OnePieaceSkeleton />;
+  // }
 };
 
 export default connect(
@@ -194,8 +239,8 @@ export default connect(
   },
   (dispatch) => {
     return bindActionCreators(
-      { getAllEventsHome, getAllEventsInvestor, getAllEventsTourist,
-      clearAllEventsHome, clearAllEventsInvestor, clearAllEventsTourist },
+      { getEventByMonth, getInvestorEventByMonth, getTouristEventByMonth,
+        clearEventByMonth, clearInvestorEventByMonth, clearTouristEventByMonth },
       dispatch
     );
   }
