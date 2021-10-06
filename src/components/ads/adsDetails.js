@@ -24,7 +24,7 @@ const AdvertismentDetails = (props) => {
     // }
 
     // resolver();
-      props.advertismentDetails(id);
+    props.advertismentDetails(id);
     return () => {
       props.clearAdvertismentDetails();
     };
@@ -49,18 +49,20 @@ const AdvertismentDetails = (props) => {
             <h4>{props.advertismentDetail.result.title}</h4>
           </div>
           <div className="d-flex container my-1">
-              <div className="mx-3">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faCalendarAlt}
-                  size={26}
-                ></FontAwesomeIcon>{" "}
-              </div>
-              <div>{`${moment(new Date(props.advertismentDetail.result.publishDate)).format("LL")}`}</div>
+            <div className="mx-3">
+              {" "}
+              <FontAwesomeIcon
+                icon={faCalendarAlt}
+                size={26}
+              ></FontAwesomeIcon>{" "}
             </div>
+            <div>{`${moment(
+              new Date(props.advertismentDetail.result.publishDate)
+            ).format("LL")}`}</div>
+          </div>
           <div className=" bg-light h-100">
             <div className="container">
-              <div className='d-flex flex-column-reverse flex-lg-row'>
+              <div className="d-flex flex-column-reverse flex-lg-row">
                 <Col lg={8} className=" p-3">
                   <div className="d-flex justify-content-end">
                     <div
@@ -108,6 +110,20 @@ const AdvertismentDetails = (props) => {
               ) : null}
               {/* End of Slider */}
             </div>
+            <div className="container">
+                <div className="row">
+                  <div className="col-12">
+                    {props.advertismentDetail.result.attachment ? (
+                      <iframe
+                        frameborder="0"
+                        src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${props.advertismentDetail.result.attachment}`}
+                        width="100%"
+                        height="800px"
+                      ></iframe>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
           </div>
         </Container>
       </div>

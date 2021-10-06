@@ -354,7 +354,8 @@ a {
 }
 .hvr-rectangle-out:before {
   border-radius: 10px;
-  background: rgb(32 176 202 / 50%) !important;
+  background-color: rgb(0 0 0 / 30%) !important;
+  box-shadow: 1px 1px 2px 1px ;
 }
 .hvr-rectangle-out:hover,
 .hvr-rectangle-out:focus,
@@ -367,9 +368,11 @@ a {
 }
 
 .hvr-shutter-out-vertical:before {
-  background-color: skyblue !important;
+  background-color: rgb(0 0 0 / 20%) !important;
+  box-shadow: 1px 1px 2px 1px ;
   border-radius: 10px;
 }
+
 .haya_carima_bg {
   background-image: url("./assets//img/hayah_karema.jpg");
   background-repeat: no-repeat;
@@ -394,7 +397,8 @@ a {
 
 .hvr-sweep-to-bottom::before {
   border-radius: 10px;
-  background-color: rgb(34 168 155 / 50%) !important;
+  background-color: rgb(0 0 0 / 20%) !important;
+  box-shadow: 1px 1px 2px 1px;
 }
 
 .text_blue{

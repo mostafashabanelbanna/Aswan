@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
 import { paths } from "../../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
+import { faPaperclip, faPercentage } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import "../../../Styles/government-projects-style.css";
@@ -113,14 +113,19 @@ const ProjectDetails = (props) => {
             <h3>{ReactHtmlParser(details.name)}</h3>
           </div>
           <div className="d-flex justify-content-end">
-            <div className=" text-start fa-1x p-3 mb-1 detailsSectorName">
-              <h6 className="mb-0 text-center">
-                {ReactHtmlParser(details.sectorName)}
-              </h6>
-            </div>
-            {details.attachment != null && (
-              <div className="d-flex flex-row my-2">
-                <h6 className="text-primary mx-2">
+            <div className="d-flex flex-column col mt-2">
+              {details.changeRate != null && (
+                <div className="d-flex flex-row mt-2">
+                  <h6 className="mx-2 my-0">نسبة التنفيذ: {details.changeRate} %</h6>
+                </div>
+              )}
+              {details.attachment != null && (
+              <div className="d-flex flex-row align-items-center">
+                <FontAwesomeIcon
+                  icon={faPaperclip}
+                  className="align-self-center text-danger"
+                />
+                <h6 className="text-primary mx-2 mt-1">
                   <a
                     style={{ textDecoration: "none", color: "black" }}
                     href={`${paths.ProjectAttachment}${details.id}/${details.attachment}`}
@@ -128,12 +133,14 @@ const ProjectDetails = (props) => {
                     إستعراض الملف المرفق
                   </a>
                 </h6>
-                <FontAwesomeIcon
-                  icon={faPaperclip}
-                  className="align-self-center text-danger"
-                />
               </div>
-            )}
+              )}
+            </div>
+            <div className=" text-start fa-1x p-3 mb-1 detailsSectorName">
+              <h6 className="mb-0 text-center">
+                {ReactHtmlParser(details.sectorName)}
+              </h6>
+            </div>
           </div>
           <hr className=" m-0" />
         </div>

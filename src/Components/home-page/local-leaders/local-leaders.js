@@ -22,7 +22,7 @@ const LocalLeaders = (props) => {
                 </div>
               </div>
               <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">
-                <Link id="link" to="/tribe" className=" text-decoration-none">
+                {/* <Link id="link" to="/tribe" className=" text-decoration-none">
                   <div className="col-lg-3 col-12 col-sm-6 mb-5 hvr-grow">
                     <img
                       src="./images/icons/tribes-0١.png"
@@ -31,7 +31,7 @@ const LocalLeaders = (props) => {
                     />
                     <p>شيوخ القبائل</p>
                   </div>
-                </Link>
+                </Link> */}
 
                 <Link
                   id="link"

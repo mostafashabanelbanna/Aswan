@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./list-with-image.css";
 import CareerForm from "../forms/career-form";
 import { paths } from "../../paths/paths";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 const ListWithImage = (props) => {
   return (
@@ -20,6 +21,39 @@ const ListWithImage = (props) => {
         {props.category ? (
           <div className="list_category">{props.category}</div>
         ) : null}
+        {props.changeRate ? (
+        <div className=" list_percentage" style={{ width: 60, height: 60 }}>
+          <CircularProgressbar
+            value={props.changeRate}
+            text={
+              <tspan y={63} x={80}>
+                %{props.changeRate}
+              </tspan>
+            }
+            styles={buildStyles({
+              // Rotation of path and trail, in number of turns (0-1)
+              rotation: 0,
+
+              // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+              strokeLinecap: "butt",
+
+              // Text size
+              textSize: "36px",
+
+              // How long animation takes to go from one percentage to another, in seconds
+              pathTransitionDuration: 0.5,
+
+              // Can specify path transition in more detail, or remove it entirely
+              // pathTransition: 'none',
+              // Colors
+              pathColor: `#ff6c1a`,
+              textColor: "black",
+              trailColor: "#d6d6d6",
+              backgroundColor: "white",
+            })}
+          />
+        </div>
+      ) : null}
       </div>
       {props.date ? (
         <div className="d-flex justify-content-end p-2">{props.date}</div>
@@ -29,10 +63,20 @@ const ListWithImage = (props) => {
           {props.title}
         </div>
         {props.careerButton == true ? (
-          <div className="my-2" style={{textAlign:'justify', fontSize:'18px'}}>{props.careerDetails}</div>
+          <div
+            className="my-2"
+            style={{ textAlign: "justify", fontSize: "18px" }}
+          >
+            {props.careerDetails}
+          </div>
         ) : null}
         {props.youthButton == true ? (
-          <div className="my-2" style={{textAlign:'justify', fontSize:'18px'}}>{props.youthDetails}</div>
+          <div
+            className="my-2"
+            style={{ textAlign: "justify", fontSize: "18px" }}
+          >
+            {props.youthDetails}
+          </div>
         ) : null}
       </div>
       {props.content ? (
@@ -48,7 +92,14 @@ const ListWithImage = (props) => {
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
-          {props.appliedPeople != null?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
+          {props.appliedPeople != null ? (
+            <p
+              style={{ backgroundColor: "#fecf55", height: "35px" }}
+              className="w-100 p-2 m-0"
+            >
+              عدد المتقدمين للوظيفة: {props.appliedPeople}
+            </p>
+          ) : null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"
@@ -64,7 +115,14 @@ const ListWithImage = (props) => {
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
-          {props.appliedPeople != null?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
+          {props.appliedPeople != null ? (
+            <p
+              style={{ backgroundColor: "#fecf55", height: "35px" }}
+              className="w-100 p-2 m-0"
+            >
+              عدد المتقدمين للوظيفة: {props.appliedPeople}
+            </p>
+          ) : null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"
