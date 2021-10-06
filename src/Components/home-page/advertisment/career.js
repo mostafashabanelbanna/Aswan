@@ -116,8 +116,7 @@ const Career = (props) => {
                 }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <Link
-                      to={`/careerdetails/${item.id}`}
+                    <div
                       id="link"
                       className="h-100"
                     >
@@ -133,8 +132,10 @@ const Career = (props) => {
                         center
                         divHeight="27rem"
                         appliedPeople={item.applicantCount}
+                        details={item}
+
                       />
-                    </Link>
+                    </div>
                   </Col>
                 );
               })}

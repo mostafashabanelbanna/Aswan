@@ -118,7 +118,6 @@ const YouthEmp = (props) => {
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
                     <div
                       id="link"
-                      style={{ cursor: "unset" }}
                       className="h-100"
                     >
                       <ListWithImage
@@ -137,6 +136,7 @@ const YouthEmp = (props) => {
                         center
                         divHeight="30rem"
                         appliedPeople={item.applicantCount}
+                        details={item}
                       />
                     </div>
                   </Col>
