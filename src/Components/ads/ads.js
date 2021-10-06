@@ -9,12 +9,11 @@ import { Link } from "react-router-dom";
 import { Slider } from "@material-ui/core";
 import { paths } from "../../paths/paths";
 
-
 const Ads = (props) => {
   useEffect(() => {
     props.getAllAds();
     const timer = setTimeout(() => {
-      setShow(true)
+      setShow(true);
     }, 10000);
     return () => clearTimeout(timer);
   }, []);
@@ -32,7 +31,7 @@ const Ads = (props) => {
     //   newPath = pName.replaceAll(" ", "%20");
     // }
     return (
-      <div className={`ads_container ${show ? "" : "ads_container_sink"}`}>
+      <div>
         <div>
           <span
             style={{ cursor: "pointer" }}
@@ -52,74 +51,80 @@ const Ads = (props) => {
               {/* <Slider>
 
               </Slider> */}
-              {props.ads.result.length >= 1?<Link
-                id="link"
-                className="col-sm-4 px-2"
-                to={`/advertisment-details/${props.ads.result[0].id}`}
-              >
-                <div
-                  style={{
-                    background: `url(${paths.ads}${props.ads.result[0].id}/${props.ads.result[0].photo})`,
-                    borderRadius: "10px",
-                    height:'200px',
-                    width: '100%',
-                    backgroundRepeat:'no-repeat',
-                    backgroundSize:'cover',
-                    padding: "10px",
-                    textAlign: "justify",
-                  }}
+              {props.ads.result.length >= 1 ? (
+                <Link
+                  id="link"
+                  className="col-sm-4 px-2"
+                  to={`/advertisment-details/${props.ads.result[0].id}`}
                 >
-                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  <div
+                    style={{
+                      background: `url(${paths.ads}${props.ads.result[0].id}/${props.ads.result[0].photo})`,
+                      borderRadius: "10px",
+                      height: "200px",
+                      width: "100%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      padding: "10px",
+                      textAlign: "justify",
+                    }}
+                  >
+                    {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[0].title}
                   </h3> */}
-                </div>
-              </Link>:null}
+                  </div>
+                </Link>
+              ) : null}
 
-              {props.ads.result.length >= 2?<Link
-                id="link"
-                className="col-sm-4 px-2"
-                to={`/advertisment-details/${props.ads.result[1].id}`}
-              >
-                <div
-                  style={{
-                    background: `url(${paths.ads}${props.ads.result[1].id}/${props.ads.result[1].photo})`,
-                    borderRadius: "10px",
-                    height:'200px',
-                    width: '100%',
-                    backgroundRepeat:'no-repeat',
-                    backgroundSize:'cover',
-                    padding: "10px",
-                    textAlign: "justify",
-                  }}
+              {props.ads.result.length >= 2 ? (
+                <Link
+                  id="link"
+                  className="col-sm-4 px-2"
+                  to={`/advertisment-details/${props.ads.result[1].id}`}
                 >
-                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  <div
+                    style={{
+                      background: `url(${paths.ads}${props.ads.result[1].id}/${props.ads.result[1].photo})`,
+                      borderRadius: "10px",
+                      height: "200px",
+                      width: "100%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      padding: "10px",
+                      textAlign: "justify",
+                    }}
+                  >
+                    {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[1].title}
                   </h3> */}
-                </div>
-              </Link>:null}
+                  </div>
+                </Link>
+              ) : null}
 
-              {props.ads.result.length >= 3?<Link
-                id="link"
-                className="col-sm-4 px-2"
-                to={`/advertisment-details/${props.ads.result[2].id}`}
-              >
-                <div
-                  style={{
-                    background: `url(${paths.ads}${props.ads.result[2].id}/${props.ads.result[2].photo})`,
-                    borderRadius: "10px",
-                    height:'200px',
-                    width: '100%',
-                    backgroundRepeat:'no-repeat',
-                    backgroundSize:'cover',
-                    padding: "10px",
-                    textAlign: "justify",
-                  }}
+              {props.ads.result.length >= 3 ? (
+                <Link
+                  id="link"
+                  className="col-sm-4 px-2"
+                  to={`/advertisment-details/${props.ads.result[2].id}`}
                 >
-                  {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
+                  <div
+                    style={{
+                      background: `url(${paths.ads}${props.ads.result[2].id}/${props.ads.result[2].photo})`,
+                      borderRadius: "10px",
+                      height: "200px",
+                      width: "100%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      padding: "10px",
+                      textAlign: "justify",
+                    }}
+                  >
+                    {/* <h3 className="m-0" style={{ fontSize: "14px" }}>
                     {props.ads.result[2].title}
                   </h3> */}
-                </div>
-              </Link>:null}
+                  </div>
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
