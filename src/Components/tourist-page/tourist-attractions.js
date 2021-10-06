@@ -54,7 +54,7 @@ const TouristAttraction = () => {
             />
           </div>
           <div className="d-flex align-items-center underline">
-            <h3 className="mb-5">خدمات سياحية</h3>{" "}
+            <h3 className="mb-5 text_blue">خدمات سياحية</h3>{" "}
           </div>
         </div>
         <Slider {...settings}>

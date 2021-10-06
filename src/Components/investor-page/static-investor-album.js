@@ -84,7 +84,7 @@ const InvestorAlbum = (props) => {
           />
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2 text-dark">مجالات الإستثمار</h3>
+            <h3 className="mt-4 me-2 text_blue">مجالات الإستثمار</h3>
           </div>
         </div>
         {renderAlbum()}

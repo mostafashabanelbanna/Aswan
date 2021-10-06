@@ -73,7 +73,7 @@ const InvestorStart = (props) => {
             />
           </div>
           <div className="d-flex align-items-end fw-bold underline">
-            <h2 className="mb-3">اخبار إستثمارية</h2>
+            <h2 className="mb-3 text_blue">اخبار إستثمارية</h2>
           </div>
         </div>
         {props.sliderNews.result.length > 3 ? (

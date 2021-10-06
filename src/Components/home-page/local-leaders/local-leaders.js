@@ -18,7 +18,7 @@ const LocalLeaders = (props) => {
 
                 <div className="underline">
                   {" "}
-                  <h3 className="mt-4 me-2  text-dark">قيادات محلية</h3>
+                  <h3 className="mt-4 me-2  text_blue">قيادات محلية</h3>
                 </div>
               </div>
               <div className="d-flex flex-column d-sm-block justify-content-center py-3 text-center">

@@ -93,7 +93,7 @@ const GovernmentProjects = (props) => {
                 height="50px"
               />
               <div className="underline">
-                <h3 className="mt-4 me-2 text-dark">مشروعات المحافظة</h3>
+                <h3 className="mt-4 me-2 text_blue">مشروعات المحافظة</h3>
               </div>
             </div>
 

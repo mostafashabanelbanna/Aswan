@@ -86,7 +86,7 @@ const Video = (props) => {
               <img className="brightness" src="/images/icons/video_titel-0٢.png" width="80px" />
               <div className="underline">
                 {" "}
-                <h3 className="mt-4 me-2 text-dark"> مكتبة الفيديو </h3>
+                <h3 className="mt-4 me-2 text_blue"> مكتبة الفيديو </h3>
               </div>
             </div>
 

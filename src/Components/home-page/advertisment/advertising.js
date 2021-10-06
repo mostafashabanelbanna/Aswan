@@ -10,7 +10,7 @@ const Advertising = () => {
             <img src="/images/icons_black/ads-0١.png" height="50px" />
 
             <div className="underline">
-              <h3 className="mt-4 me-2 text-dark">اعلانات</h3>
+              <h3 className="mt-4 me-2 text_blue">اعلانات</h3>
             </div>
           </div>
         </div>

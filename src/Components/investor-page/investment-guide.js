@@ -85,7 +85,7 @@ const InvestorGuide = (props) => {
           />
           <div className="underline">
             {" "}
-            <h3 className="mt-2 me-2 text-dark">دليل الإستثمار</h3>
+            <h3 className="mt-2 me-2 text_blue">دليل الإستثمار</h3>
           </div>
         </div>
         {renderAlbum()}
