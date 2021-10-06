@@ -61,7 +61,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/8`}
-            className="h-100 p-3 col-sm-6 col-lg-2 col-12 hvr-sweep-to-bottom "
+            className="h-100 p-3 col-sm-6 mb-1 col-lg-2 col-12 hvr-sweep-to-bottom "
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -78,7 +78,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/26`}
-            className="h-100 p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100 p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -95,7 +95,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/40`}
-            className="h-100 p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100 p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -112,7 +112,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/9`}
-            className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100  p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -129,7 +129,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/72`}
-            className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100  p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -146,7 +146,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/1`}
-            className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100  p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -163,7 +163,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/16`}
-            className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100  p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">
@@ -180,7 +180,7 @@ const TouristAttraction = () => {
           <Link
             id="link"
             to={`/services/39`}
-            className="h-100  p-3 col-sm-6 col-lg-2 col-12  hvr-sweep-to-bottom"
+            className="h-100  p-3 col-sm-6 mb-1 col-lg-2 col-12  hvr-sweep-to-bottom"
           >
             <div style={{ height: "160px" }}>
               <div className="d-flex justify-content-center">

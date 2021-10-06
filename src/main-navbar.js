@@ -38,7 +38,7 @@ const Main_navbar = () => {
           <Link
             id="link"
             to="/home"
-            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
               <img className="mx-2 imgsz" src="/images/icons_black/citiezen.png" />
@@ -50,7 +50,7 @@ const Main_navbar = () => {
           <Link
             id="link"
             to="/investor"
-            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
               <img
@@ -65,7 +65,7 @@ const Main_navbar = () => {
           <Link
             id="link"
             to="/tourist"
-            className="col-3 col-sm-2 hvr-float-shadow  d-flex justify-content-center align-items-center"
+            className="hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <img
               className="mx-2 imgsz"
@@ -108,7 +108,7 @@ const Main_navbar = () => {
             <Navbar.Collapse
               className="justify-content-center"
               id="responsive-navbar-nav"
-              style={{fontSize:"15px"}}
+              style={{fontSize:"1.1vw"}}
             >
               <Nav className="align-items-center">
                 <ul

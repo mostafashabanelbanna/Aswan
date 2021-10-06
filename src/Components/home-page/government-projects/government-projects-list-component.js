@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
-  getProjectsList, getAllProjectsCategories, clearProjectsList
+  getProjectsList,
+  getAllProjectsCategories,
+  clearProjectsList,
 } from "../../../store/actions/government-projects-actions.js";
 import { Container } from "react-bootstrap";
 import SearchSection from "../../ui/search-section";
@@ -11,7 +13,6 @@ import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import ListWithImage from "../../ui/list-with-image";
 import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
-
 
 const ProjectsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -90,38 +91,47 @@ const ProjectsList = (props) => {
               <h3>مشروعات المحافظة</h3>
             </div>
           </Container>
-              <SearchSection
-                submit={submitHandler}
-                TextFieldOneHandler={nameHandler}
-                labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-md-5 col-12"
-                dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
-                dropdownOneHandler={sectorIdHandler}
-                dropdownOnePlaceholder="كل قطاعات المشروعات"
-                dropdownOneName={sectorName}
-                classNameDropdownOne="col-md-5 my-4 col-12"
-                classNameBtn='col-md-2 col-12'
-              />
+          <SearchSection
+            submit={submitHandler}
+            TextFieldOneHandler={nameHandler}
+            labelTextFieldOne="الاسم"
+            classNameTextFieldOne="col-md-5 col-12"
+            dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
+            dropdownOneHandler={sectorIdHandler}
+            dropdownOnePlaceholder="كل قطاعات المشروعات"
+            dropdownOneName={sectorName}
+            classNameDropdownOne="col-md-5 my-4 col-12"
+            classNameBtn="col-md-2 col-12"
+          />
           <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.projectsList.result.map((item, index) => {
-                              let pName;
-                              let newPath;
-                              if(item.photo != null){
-                              pName = item.photo;
-                              newPath  = pName.replaceAll(' ','%20')
-                              }
+              let pName;
+              let newPath;
+              if (item.photo != null) {
+                pName = item.photo;
+                newPath = pName.replaceAll(" ", "%20");
+              }
               return (
-                <div style={{cursor:"pointer"}} className="mb-4 col-md-6 col-xl-4 col-12 p-3">
-                    <Link id='link' to={`projectDetails/${item.id}`} className="h-100 text-decoration-none">
-                        <ListWithImage
-                            imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}
-                            title={item.name}
-                            category={item.sectorName}
-                            center="yes"
-                            imgHeight='250px'
-                            hoverTitle="hoverTitle"
-                        />
-                    </Link>
+                <div
+                  style={{ cursor: "pointer" }}
+                  className="mb-4 col-md-6 col-xl-4 col-12 p-3"
+                >
+                  <Link
+                    id="link"
+                    to={`projectDetails/${item.id}`}
+                    className="h-100 text-decoration-none"
+                  >
+                    <ListWithImage
+                      imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}
+                      title={item.name}
+                      category={item.sectorName}
+                      center="yes"
+                      imgHeight="250px"
+                      divHeight='24rem'
+                      hoverTitle="hoverTitle"
+                      changeRate={item.changeRate}
+                    />
+                  </Link>
                 </div>
               );
             })}
@@ -139,7 +149,7 @@ const ProjectsList = (props) => {
       );
     }
   }
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {
@@ -148,7 +158,10 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getProjectsList, getAllProjectsCategories, clearProjectsList }, dispatch);
+  return bindActionCreators(
+    { getProjectsList, getAllProjectsCategories, clearProjectsList },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectsList);

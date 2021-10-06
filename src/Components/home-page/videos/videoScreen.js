@@ -181,6 +181,7 @@ const Video = (props) => {
           </button>
         </Link>
         </div>
+      <div className="line mx-auto"></div>
       </div>
     );
   }

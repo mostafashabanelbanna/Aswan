@@ -17,7 +17,8 @@ import "moment/locale/ar";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 import { Link, useHistory } from "react-router-dom";
 import $ from "jquery";
- 
+import AgendaForm from '../forms/agenda-form'
+
 const TrainingAgenda = (props) => {
 
   let calenderRef = createRef()
@@ -33,9 +34,27 @@ const TrainingAgenda = (props) => {
 //   document.getElementsByClassName('fc-prev-button')[0].onclick=()=>{}
 let child = $('.fc .fc-daygrid-event-harness-abs').parent('div')
 const [message, setMessage] = useState();
-const [show, setShow] = useState();
+const [showEvent, setShowEvent] = useState();
 // const [month, setMonth] = useState(10);
 // console.log(month)
+
+const [show, setShow] = useState(false);
+const [content, setContent] = useState({});
+
+const onShow = () => {
+  setShow(true);
+};
+
+const renderModal = (content) => {
+  return (
+    <AgendaForm
+      content={content}
+      showEventModal={show}
+      onHideEventModal={() => setShow(false)}
+    />
+  );
+};
+
   let eventsArray = [{}]
   let history = useHistory();
   let agendaProps;
@@ -139,7 +158,7 @@ const [show, setShow] = useState();
               events={eventsArray}
               eventClick={(args) => {
                 setMessage(args.event.title);
-                setShow(true);
+                setShowEvent(true);
                 history.push(`/eventdetails/${parseInt(args.event._def.publicId)}`);
               }}
               eventBackgroundColor={"#fbbf3c"}
@@ -228,6 +247,7 @@ const [show, setShow] = useState();
             </button>
           </Link>
         </div>
+        {renderModal(content)}
         <div className="line mt-5"></div>
       </div>
     );

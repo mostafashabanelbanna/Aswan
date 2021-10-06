@@ -93,6 +93,53 @@ export async function getCareer(pageNumber, keywords = {}, pageSize = 9) {
   };
 }
 
+export async function getCareerDetails(Id) {
+  let payload = null;
+  try {
+    let response = await axios.get(
+      "/CareerAPI/Details/" + Id
+    );
+    payload = response.data;
+  } catch (error) {}
+  return {
+    type: "CAREER_DETAILS",
+    payload,
+  };
+}
+
+export async function clearCareerDetails() {
+  let payload = null;
+
+  return {
+    type: "CAREER_DETAILS",
+    payload,
+  };
+}
+
+
+export async function getYouthDetails(Id) {
+  let payload = null;
+  try {
+    let response = await axios.get(
+      "/YouthEmploymentAPI/Details/" + Id
+    );
+    payload = response.data;
+  } catch (error) {}
+  return {
+    type: "YOUTH_DETAILS",
+    payload,
+  };
+}
+
+export async function clearYouthDetails() {
+  let payload = null;
+
+  return {
+    type: "YOUTH_DETAILS",
+    payload,
+  };
+}
+
 //ads
 export async function getAllAds() {
   let payload = null;

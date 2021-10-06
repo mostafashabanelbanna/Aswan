@@ -116,13 +116,12 @@ const Career = (props) => {
                 }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div
+                    <Link
+                      to={`/careerdetails/${item.id}`}
                       id="link"
-                      style={{ cursor: "unset" }}
                       className="h-100"
                     >
                       <ListWithImage
-                        // imgSrc={paths.ads + item.id + "/" + newPath}
                         title={item.title}
                         imgHeight="0px"
                         careerButton={true}
@@ -135,7 +134,7 @@ const Career = (props) => {
                         divHeight="27rem"
                         appliedPeople={item.applicantCount}
                       />
-                    </div>
+                    </Link>
                   </Col>
                 );
               })}
