@@ -23,9 +23,9 @@ const Main_navbar = () => {
             <Link id="link" to="/home">
               <img
                 className="main_logo rounded-3"
-                // src="/images/icons/logo_banner-0١.png"
+                src="/images/icons/logo_banner-0١.png"
                 // src='/images/logoo.jfif'
-                src='/images/logoooo.jfif'
+                // src='/images/logoooo.jfif'
                 // style={{height:'150px'}}
               />
             </Link>
@@ -93,14 +93,15 @@ const Main_navbar = () => {
           <Link id="link" className="navbar-brand d-lg-block d-none text-dark" to="/home">
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
-                // src="/images/icons/footer_logo-0١.png"
-                src='/images/logoo.jfif'
+                src="/images/icons/footer_logo-0١.png"
+                //src='/images/logoo.jfif'
               />
             </Link>
             <Link className="navbar-brand d-lg-none d-block" id="link" to="/home">
               <img
                 style={{ width: 40, marginLeft: 10 }}
-                src='/images/logoo.jfif'
+                src="/images/icons/footer_logo-0١.png"
+                // src='/images/logoo.jfif'
               />
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

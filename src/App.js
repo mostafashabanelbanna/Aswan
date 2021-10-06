@@ -30,12 +30,12 @@ function App() {
   //   }, 150);
   // });
   useEffect(() => {
-    setTimeout(() => {
-      document.querySelector("#preloader-active").style.transition = "1s";
-      document.querySelector("#preloader-active").style.opacity = 0;
-      document.querySelector("#preloader-active").style.display = 'none';
-      document.querySelector("body").style.overflowX = "hidden";
-    }, 1);
+    // setTimeout(() => {
+    //   document.querySelector("#preloader-active").style.transition = "1s";
+    //   document.querySelector("#preloader-active").style.opacity = 0;
+    //   document.querySelector("#preloader-active").style.display = 'none';
+    //   document.querySelector("body").style.overflowX = "hidden";
+    // }, 1);
   }, []);
   return (
     <Provider store={createStoreWithMW(rootReducer)}>

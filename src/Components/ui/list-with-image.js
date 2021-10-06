@@ -48,7 +48,7 @@ const ListWithImage = (props) => {
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
-          {props.appliedPeople?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
+          {props.appliedPeople != null?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"
@@ -64,7 +64,7 @@ const ListWithImage = (props) => {
           style={{ bottom: 0 }}
           onClick={props.renderModal}
         >
-          {props.appliedPeople?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
+          {props.appliedPeople != null?<p style={{backgroundColor: '#fecf55', height: '35px'}} className='w-100 p-2 m-0'>عدد المتقدمين للوظيفة: {props.appliedPeople}</p>:null}
           <button
             type="button"
             className="btn_blue mx-1 my-4"
