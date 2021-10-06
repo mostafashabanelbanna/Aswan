@@ -14,7 +14,7 @@ const TouristHome = () => {
                 <div className='col-1'>
                     <img className='w-75 brightness' src='/images/icons/Tourist-0٢.png' />
                 </div>
-                <div style={{fontSize:'22px'}} className='d-flex  align-items-center text-decoration-underline'>السائح</div>
+                <div style={{fontSize:'22px'}} className='d-flex text_blue align-items-center text-decoration-underline'>السائح</div>
             </div>
             <TourStart pagePath={'tourist'}/>
             <TouristAttraction/>

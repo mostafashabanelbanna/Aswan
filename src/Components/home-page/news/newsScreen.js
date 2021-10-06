@@ -72,7 +72,7 @@ const News = (props) => {
                 height="50"
               />
               <div className="underline">
-                <h3 className="mt-4 me-2 text-dark"> أخبار المحافظة </h3>
+                <h3 className="mt-4 me-2 text_blue"> أخبار المحافظة </h3>
               </div>
             </div>
             <Link

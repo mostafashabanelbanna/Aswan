@@ -99,7 +99,7 @@ const InvestorMap = (props) => {
               />
             </div>
             <div className="d-flex align-items-center underline">
-              <h3 className="mb-5">الخريطة الإستثمارية</h3>{" "}
+              <h3 className="mb-5 text_blue">الخريطة الإستثمارية</h3>{" "}
             </div>
           </div>
           <Slider {...settings}>

@@ -397,7 +397,10 @@ a {
   background-color: rgb(34 168 155 / 50%) !important;
 }
 
-
+.text_blue{
+  color: rgb(6, 73, 136);
+  font-weight: bold;
+}
 
 /* @media only screen and (max-width: 992px) {
   .haya_carima_bg {

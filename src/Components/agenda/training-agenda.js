@@ -83,7 +83,7 @@ console.log(month)
             )}
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2  text-dark">{props.title} </h3>
+              <h3 className="mt-4 me-2 text_blue">{props.title} </h3>
             </div>
           </div>
         </div>

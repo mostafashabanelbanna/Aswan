@@ -69,7 +69,7 @@ const GovernmentFamous = (props) => {
                 width="80px"
               />
               <div className="underline">
-                <h3 className="mt-4 me-2 text-dark">مشاهير المحافظة</h3>
+                <h3 className="mt-4 me-2 text_blue">مشاهير المحافظة</h3>
               </div>
             </div>
             <Slider {...settings}>

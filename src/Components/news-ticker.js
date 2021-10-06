@@ -37,7 +37,7 @@ function StockTicker() {
       <Ticker direction={"toRight"} speed={5} mode={"smooth"}>
         {() => (
           <Link to={`/advertisment-details/${arr[0].id}`} className='text-dark'>
-            <p className='my-2'> {arr[0].title} </p>
+            <p className='my-2'> {arr[0].title} ...</p>
           </Link>
         )}
       </Ticker>

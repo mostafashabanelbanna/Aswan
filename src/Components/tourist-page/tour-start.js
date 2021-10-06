@@ -71,7 +71,7 @@ const TourStart = (props) => {
             <img className='brightness' src="/images/tourist-photos/رحلتك-01.png" />
           </div>
           <div className="d-flex flex-column-reverse underline">
-            <h2>رحلتك تبدء من هنا</h2>{" "}
+            <h2 className='text_blue'>رحلتك تبدء من هنا</h2>{" "}
           </div>
         </div>
         {props.slider.result.length > 3 ? (

@@ -66,7 +66,7 @@ const HayahKarima = () => {
             />
             <div className="underline">
               {" "}
-              <h3 className="mt-4 me-2 text-dark"> محاور مبادرة حياه كريمة </h3>
+              <h3 className="mt-4 me-2 text_blue"> محاور مبادرة حياه كريمة </h3>
             </div>
           </div>
         </div>

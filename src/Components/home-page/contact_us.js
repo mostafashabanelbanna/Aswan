@@ -35,7 +35,7 @@ const Contact = () => {
             <img className="brightness" src="/images/icons/contact_titel-0٢.png" width="80px" />
             <div className="  underline">
               {" "}
-              <h3 className="mt-4 me-2 text-dark">اتصل بنا </h3>
+              <h3 className="mt-4 me-2 text_blue">اتصل بنا </h3>
             </div>
           </div>
           <div className=" row p-0 m-0">

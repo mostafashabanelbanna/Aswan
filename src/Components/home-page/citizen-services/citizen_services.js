@@ -33,7 +33,7 @@ const CitizenServices = () => {
 
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2 text-dark ">خدمات المواطنين </h3>
+            <h3 className="mt-4 me-2 text_blue ">خدمات المواطنين </h3>
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@ const CitizenServices = () => {
                     </div>
                   </div>
                 </Link>
-                <div 
+                {/* <div 
                 style={{cursor:'pointer'}}
                 id='link'
                 className="mb-4 mx-auto col-md-4 col-sm-6 col-8  hvr-rectangle-out"
@@ -171,8 +171,8 @@ const CitizenServices = () => {
                   <div className="mt-4 mb-1 fw-bold">
                     خدمة المواطنين
                   </div>
-                </div>
-              </div>
+                </div>*/}
+              </div> 
             </div>
           </div>
         </div>
