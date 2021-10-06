@@ -39,7 +39,7 @@ const YouthForm = (props) => {
       .trim("", "مطلوب *")
       .required("مطلوب *"),
     Subject: Yup.string()
-      .min(20, 'الموضوع قصير جدا')
+      .min(10, 'الموضوع قصير جدا')
       .max(1000, 'الموضوع طويل جدا')
       .trim("", "مطلوب *")
       .required("مطلوب *"),
