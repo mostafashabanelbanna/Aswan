@@ -14,6 +14,9 @@ export function investorHome(state = {}, action) {
     //agenda
     case "EVENTS_LIST":
       return { ...state, eventsList: action.payload };
+      case "EVENT_OF_MONTH":
+      return { ...state, eventsList: action.payload };
+      
     case "CLEAR_AllEventsInvestor":
       return { ...state, eventsList: action.payload };
 

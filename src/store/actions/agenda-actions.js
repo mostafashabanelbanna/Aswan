@@ -21,3 +21,25 @@ export async function clearAllEventsHome() {
     payload,
   };
 }
+
+export async function getEventByMonth(month) {
+  console.log(month);
+  let payload = null;
+  try {
+    let response = await axios.get(`/EventAPI/GetGovernmentCalenderEventbymonth/${month}`);
+    payload = await response.data;
+    console.log(payload)
+  } catch (error) {
+  }
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}
+export function clearEventByMonth() {
+  let payload = null;
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}

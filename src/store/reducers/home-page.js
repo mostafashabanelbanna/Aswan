@@ -41,9 +41,11 @@ export function homeComponents(state = {}, action) {
       return { ...state, photoDetails: action.payload };
 
     //agenda
-    case "EVENTS_LIST":
+    // case "EVENTS_LIST":
+    //   return { ...state, eventsList: action.payload };
+      case "EVENT_OF_MONTH":
       return { ...state, eventsList: action.payload };
-
+      
     //important portals reducers
     case "PORTALS_LIST":
       return { ...state, portalsList: action.payload };

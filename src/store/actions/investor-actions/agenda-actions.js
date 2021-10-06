@@ -21,3 +21,25 @@ export async function clearAllEventsInvestor() {
     payload,
   };
 }
+
+export async function getInvestorEventByMonth(month) {
+  console.log(month);
+  let payload = null;
+  try {
+    let response = await axios.get(`/EventAPI/GetInvestorCalenderEventbymonth/${month}`);
+    payload = await response.data;
+    console.log(payload)
+  } catch (error) {
+  }
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}
+export function clearInvestorEventByMonth() {
+  let payload = null;
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}
