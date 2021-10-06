@@ -49,6 +49,8 @@ import OrgChartRender from "./components/orgChart/orgChartRender";
 import Contact from "./components/home-page/contact_us";
 import StockTicker from "./components/news-ticker";
 import ScrollToTop from "./scroll";
+import CareerDetails from "./components/home-page/advertisment/details/career-details";
+import YouthDetails from "./components/home-page/advertisment/details/youth-details";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -116,7 +118,8 @@ const AppRouting = () => {
           <Route exact path="/ads/:id" component={AdvertismentList}></Route>
           <Route exact path="/youth" component={YouthEmp}></Route>
           <Route exact path="/career" component={Career}></Route>
-
+          <Route exact path="/careerdetails/:id" component={CareerDetails}></Route>
+          <Route exact path="/youthdetails/:id" component={YouthDetails}></Route>
           <Route
             exact
             path="/document-library-details/:id"

@@ -17,6 +17,12 @@ export function advertismentComponents(state = {}, action) {
     case "CAREER_COUNTER":
       return { ...state, careerCounter: action.payload };
 
+    case "CAREER_DETAILS":
+      return { ...state, careerDetails: action.payload };
+
+    case "YOUTH_DETAILS":
+      return { ...state, youthDetails: action.payload };
+
     case "ADS":
       return { ...state, ads: action.payload };
     case "ADVERTISMENT_DETAILS":
