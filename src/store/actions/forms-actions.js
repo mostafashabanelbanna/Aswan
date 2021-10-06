@@ -38,3 +38,16 @@ export async function advertismentRequireAPI(obj) {
         response
       };
 }
+
+export async function eventApplyAPI(obj) {
+  let response;
+  try{
+      response = await axios.post("/EventAPI/Apply", obj,{
+          headers: { "Content-Type": "multipart/form-data"}
+        });
+  } catch (e){
+  }
+  return {
+      response
+    };
+}

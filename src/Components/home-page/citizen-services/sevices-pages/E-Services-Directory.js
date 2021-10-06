@@ -109,16 +109,13 @@ const EServiceDirectories = (props) => {
                 className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                 key={item.id}
                 style={{
-                  zIndex:'1',
                   backgroundImage: `url(${paths.ServicesPhoto}${item.id}/${newPath})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover'
                 }}
               >
-                 <div className='h-100 w-100 m-0 p-0 custom-holder' style={{backgroundColor: 'rgb(0, 0, 0, 0.2)', zIndex:'2'}}>
-                </div>
-                <div className='h-100 w-100' style={{zIndex:'3'}}>
-                  <div className="justify-content-end d-flex my-3">
+                <div className='h-100 w-100' style={{backgroundColor: 'rgb(256, 256, 256, 0.3)'}}>
+                  <div className="justify-content-end d-flex py-3">
                     <span className="py-1 px-2 fa-1x" style={{backgroundColor: 'rgb(6, 73, 106)',color: 'white', borderTopRightRadius:'5px', borderBottomRightRadius:'5px'}}>{item.serviceCategoryName}</span>
                   </div>
 
