@@ -56,7 +56,6 @@ const CareerForm = (props) => {
       .matches(/^01[0125][0-9]{8}$/, "رقم الموبايل غير صحيح")
       .required("مطلوب *"),
     Email: Yup.string()
-      .email("Invalid email")
       .matches(
         /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
         "برجاء إدخال بريد إلكتروني صحيح"
@@ -216,9 +215,7 @@ const CareerForm = (props) => {
                   setDisabled(true);
                 }
                 let res = await careerApplyAPI(obj);
-                console.log(res);
                 if (res.response.data.status == 200) {
-                  console.log("HIIIIIIII");
                   props.onHideCareerModal();
                   initialState();
                   setSuccessShow(true);
@@ -427,7 +424,7 @@ const CareerForm = (props) => {
                         <KeyboardDatePicker
                           format="L"
                           inputVariant="outlined"
-                          // value={BirthDate}
+                          value={BirthDate}
                           variant="dialog"
                           maxDateMessage=""
                           mask="__-__-____"
@@ -449,7 +446,7 @@ const CareerForm = (props) => {
                         <KeyboardDatePicker
                           format="L"
                           inputVariant="outlined"
-                          // value={GraduationDate}
+                          value={GraduationDate}
                           variant="dialog"
                           maxDateMessage=""
                           mask="__-__-____"

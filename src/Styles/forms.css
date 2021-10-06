@@ -761,13 +761,6 @@ textarea {
   color: #4679cc !important;
 }
 
-.modal {
-  direction: ltr;
-}
-
-.modal.show .modal-dialog {
-  direction: rtl;
-}
 
 .form-label {
   color: black !important;

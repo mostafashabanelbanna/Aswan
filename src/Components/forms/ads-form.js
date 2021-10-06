@@ -17,6 +17,8 @@ import { bindActionCreators } from "redux";
 import ContactUsModal from "../modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 const AdvertisementRequire = (props) => {
   let todayDate = moment(new Date().toLocaleDateString(), "MM-DD-YYYY")
@@ -50,43 +52,61 @@ const AdvertisementRequire = (props) => {
     setDisabled(false);
   };
 
-  const apply = async (e) => {
-    const obj = new FormData();
-    obj.append("Title", Title);
-    obj.append("Description", Description);
-    obj.append("PublishDate", PublishDate);
-    obj.append("AdvertiserName", AdvertiserName);
-    obj.append("AdvertiserPhone", parseInt(AdvertiserPhone));
-    obj.append("Url", Url);
-    obj.append("attachmentFile", attachmentFile);
-    obj.append("photoFile", photoFile);
-    PhotoAlbumFile.forEach(file => {
-      obj.append("PhotoAlbumFile", file);
-    })
-    e.preventDefault();
-    if (
-      Title.trim() !== "" &&
-      AdvertiserName.trim() !== "" &&
-      photoFile !== undefined &&
-      AdvertiserPhone.match(/^01[0125][0-9]{8}$/)
-    ) {
-      if (disabled) {
-        return;
-      } else {
-        setDisabled(true);
-      }
-      let res = await advertismentRequireAPI(obj);
-      props.onHideAdvertisementModal();
-      initialState();
-      if(res.response.data.status == 200){
-          setSuccessShow(true);
-      } else {
-      setDangerShow(true);
-      }
-    } else {
-      setDangerShow(true);
-    }
-  };
+  const SignupSchema = Yup.object().shape({
+    AdvertiserName: Yup.string()
+      .min(2, "الإسم قصير جدا")
+      .max(50, "الإسم طويل جدا")
+      .trim("", "مطلوب *")
+      .required("مطلوب *"),
+    AdvertiserPhone: Yup.string()
+      .matches(/^01[0125][0-9]{8}$/, "رقم الموبايل غير صحيح")
+      .required("مطلوب *"),
+    Url: Yup.string()
+      .matches(/^(ftp|http|https):\/\/[^ "]+$/,"برجاء إدخال رابط صحيح"
+      ),
+    Title: Yup.string()
+      .min(5, "العنوان قصير جدا")
+      .max(100, "العنوان طويل جدا")
+      .required("مطلوب *")
+  });
+
+  // const apply = async (e) => {
+  //   const obj = new FormData();
+  //   obj.append("Title", Title);
+  //   obj.append("Description", Description);
+  //   obj.append("PublishDate", PublishDate);
+  //   obj.append("AdvertiserName", AdvertiserName);
+  //   obj.append("AdvertiserPhone", parseInt(AdvertiserPhone));
+  //   obj.append("Url", Url);
+  //   obj.append("attachmentFile", attachmentFile);
+  //   obj.append("photoFile", photoFile);
+  //   PhotoAlbumFile.forEach(file => {
+  //     obj.append("PhotoAlbumFile", file);
+  //   })
+  //   e.preventDefault();
+  //   if (
+  //     Title.trim() !== "" &&
+  //     AdvertiserName.trim() !== "" &&
+  //     photoFile !== undefined &&
+  //     AdvertiserPhone.match(/^01[0125][0-9]{8}$/)
+  //   ) {
+  //     if (disabled) {
+  //       return;
+  //     } else {
+  //       setDisabled(true);
+  //     }
+  //     let res = await advertismentRequireAPI(obj);
+  //     props.onHideAdvertisementModal();
+  //     initialState();
+  //     if(res.response.data.status == 200){
+  //         setSuccessShow(true);
+  //     } else {
+  //     setDangerShow(true);
+  //     }
+  //   } else {
+  //     setDangerShow(true);
+  //   }
+  // };
 
   const onAttachmentFileChange = (event) => {
     setAttachmentFile(event.target.files[0]);
@@ -101,7 +121,6 @@ const AdvertisementRequire = (props) => {
     const x = Object.values(event.target.files)
     const arr=[...x];
     setPhotoAlbumFile(arr);
-      
   };
 
   const publishDateHandler = (dateChanged) =>
@@ -141,9 +160,49 @@ const AdvertisementRequire = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
+          <Formik
+          initialValues={{
+            Title: "",
+            Description: "",
+            AdvertiserName: "",
+            AdvertiserPhone: "",
+            Url: "",
+            attachmentFile: "",
+            photoFile: "",
+            PhotoAlbumFile: [],
+            PublishDate: todayDate,
+          }}validationSchema={SignupSchema}
+          onSubmit={async (values, { setSubmitting }) => {
+            const obj = new FormData();
+            for (const objs in values) {
+              obj.append(objs, values[objs]);
+            }
+            obj.append("PublishDate", PublishDate);
+            obj.append("attachmentFile", attachmentFile);
+            obj.append("photoFile", photoFile);
+            PhotoAlbumFile.forEach(file => {
+              obj.append("PhotoAlbumFile", file);
+            })
+
+            if (disabled) {
+              return;
+            } else {
+              setDisabled(true);
+            }
+            let res = await advertismentRequireAPI(obj);
+            if (res.response.data.status == 200) {
+              props.onHideAdvertisementModal();
+              initialState();
+              setSuccessShow(true);
+            } else {
+              setDangerShow(true);
+            }
+          }}
+        >
+          {(Formik) => (
             <form
               className="panel-content justify-content-center col-12"
-              onSubmit={apply}
+              onSubmit={Formik.handleSubmit}
               encType="multipart/form-data"
             >
               <div className="form-row d-flex flex-md-row flex-column">
@@ -160,11 +219,14 @@ const AdvertisementRequire = (props) => {
                       name="Title"
                       required
                       placeholder="العنوان"
-                      value={Title}
-                      onChange={(e) => {
-                        setTitle(e.currentTarget.value);
-                      }}
+                      // value={Title}
+                      onChange={Formik.handleChange("Title")}
                     />
+                    {Formik.touched.Title && Formik.errors.Title ? (
+                          <div className="text-danger">
+                            {Formik.errors.Title}
+                          </div>
+                        ) : null}
                   </div>
                 </div>
               </div>
@@ -179,6 +241,7 @@ const AdvertisementRequire = (props) => {
                     utils={MomentUtils}
                     locale={"sw"}
                     className="bg-danger"
+                    required
                   >
                     <KeyboardDatePicker
                       format="L"
@@ -190,6 +253,7 @@ const AdvertisementRequire = (props) => {
                       placeholder="يوم/شهر/سنة"
                       onChange={publishDateHandler}
                       views={["year", "month", "date"]}
+                      required
                     />
                   </MuiPickersUtilsProvider>
                 </div>
@@ -232,7 +296,7 @@ const AdvertisementRequire = (props) => {
                       <input
                         type="file"
                         name="photoFile"
-                        accept=".jpeg, .jpg, .png"
+                        accept=".jpg, .jpeg, .jfif, .pjpeg, .pjp, .png, .svg, .webp, .apng, .avif, .gif, "
                         className="custom-file-input"
                         id="photoFile_AttachmentInput"
                         style={{ cursor: "pointer" }}
@@ -257,7 +321,6 @@ const AdvertisementRequire = (props) => {
                       <input
                         type="file"
                         multiple
-                        accept=".jpeg, .pdf, .jpg, .png"
                         name="PhotoAlbumFile"
                         className="custom-file-input"
                         id="PhotoAlbumFile_AttachmentInput"
@@ -269,7 +332,7 @@ const AdvertisementRequire = (props) => {
                         className="custom-file-label p-2"
                         for="PhotoAlbumFile_AttachmentInput"
                       >
-                        {PhotoAlbumFile[0]?.name ? PhotoAlbumFile[0].name : "اختر ملفات..."}
+                        {PhotoAlbumFile[0]?.name ? (PhotoAlbumFile[1]?.name ? (PhotoAlbumFile[2]?.name ? (PhotoAlbumFile[0].name + ',' + PhotoAlbumFile[1].name + ',' + PhotoAlbumFile[2].name) : (PhotoAlbumFile[0].name + ',' + PhotoAlbumFile[1].name)) : PhotoAlbumFile[0].name)  : "اختر ملفات..."}
                       </label>
                     </div>
                     <div className="invalid-feedback"></div>
@@ -289,10 +352,11 @@ const AdvertisementRequire = (props) => {
                       id="Description"
                       name="Description"
                       placeholder="الوصف"
-                      value={Description}
-                      onChange={(e) => {
-                        setDescription(e.currentTarget.value);
-                      }}
+                      // value={Description}
+                      // onChange={(e) => {
+                      //   setDescription(e.currentTarget.value);
+                      // }}
+                      onChange={Formik.handleChange("Description")}
                     />
                   </div>
                 </div>
@@ -310,11 +374,15 @@ const AdvertisementRequire = (props) => {
                       name="AdvertiserName"
                       required
                       placeholder="إسم المعلن"
-                      value={AdvertiserName}
-                      onChange={(e) => {
-                        setAdvertiserName(e.currentTarget.value);
-                      }}
+                      // value={AdvertiserName}
+                      onChange={Formik.handleChange("AdvertiserName")}
+
                     />
+                    {Formik.touched.AdvertiserName && Formik.errors.AdvertiserName ? (
+                          <div className="text-danger">
+                            {Formik.errors.AdvertiserName}
+                          </div>
+                        ) : null}
                   </div>
                 </div>
                 <div className="col-md-6 col-12 ">
@@ -323,17 +391,21 @@ const AdvertisementRequire = (props) => {
                       هاتف المعلن <span style={{ color: "red" }}> * </span>{" "}
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       className="form-control text-right "
                       id="AdvertiserPhonef"
                       name="AdvertiserPhone"
                       placeholder="هاتف المعلن"
-                      value={AdvertiserPhone}
+                      // value={AdvertiserPhone}
                       required
-                      onChange={(e) => {
-                        setAdvertiserPhone(e.currentTarget.value);
-                      }}
+                      onChange={Formik.handleChange("AdvertiserPhone")}
+
                     />
+                    {Formik.touched.AdvertiserPhone && Formik.errors.AdvertiserPhone ? (
+                          <div className="text-danger">
+                            {Formik.errors.AdvertiserPhone}
+                          </div>
+                        ) : null}
                   </div>
                 </div>
               </div>
@@ -350,10 +422,8 @@ const AdvertisementRequire = (props) => {
                       id="Url"
                       name="Url"
                       placeholder="الرابط"
-                      value={Url}
-                      onChange={(e) => {
-                        setUrl(e.currentTarget.value);
-                      }}
+                      // value={Url}
+                      onChange={Formik.handleChange("Url")}
                     />
                   </div>
                 </div>
@@ -379,6 +449,8 @@ const AdvertisementRequire = (props) => {
                 </Button>
               </div>
             </form>
+            )}
+            </Formik>
           </div>
         </Modal.Body>
       </Modal>
