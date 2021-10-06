@@ -206,7 +206,10 @@ const renderModal = (content) => {
                        {/*  */}
                        {item.eventTypeId==4?  <div className="align-items-center d-flex">
                           <button 
-                            onClick={{}}
+                            onClick={()=>{
+                              setContent(item)
+                              onShow()
+                            }}
                           className=" mx-1 mb-2 mb-sm-0 btn_blue" style={{ verticalAlign: "middle" }}>
                             <span>مشاركة</span>
                           </button>
