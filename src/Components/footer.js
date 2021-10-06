@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="text-light col-lg-2 col-md-2    container-xxl m-md-0 container-md col-6   ms-md-5   d-flex flex-column">
             <img
               className="mb-2 p-3 "
-              src={"/images/icons/footer_logo-0١.png"}
+              src={"/images/logoooo.jfif"}
             />
             <div className=" d-flex col-9  mb-3 container-xxl p-0 text-center">
               <div className="col-3">

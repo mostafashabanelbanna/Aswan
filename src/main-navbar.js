@@ -23,9 +23,9 @@ const Main_navbar = () => {
             <Link id="link" to="/home">
               <img
                 className="main_logo rounded-3"
-                src="/images/icons/logo_banner-0١.png"
+                // src="/images/icons/logo_banner-0١.png"
                 // src='/images/logoo.jfif'
-                // src='/images/logoooo.jfif'
+                src='/images/logoooo.jfif'
                 // style={{height:'150px'}}
               />
             </Link>

@@ -100,7 +100,7 @@ const StaticContent = (props) => {
           {detailsID != 0 ? (
             <StaticContentDetails Id={detailsID} />
           ) : (
-            <div className="text-center my-5">لا توجد نتائج</div>
+            <div className="text-center my-5">جاري رفع البيانات</div>
           )}
         </div>
       </div>

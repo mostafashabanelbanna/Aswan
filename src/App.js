@@ -22,20 +22,20 @@ const theme = createTheme({
 
 const createStoreWithMW = applyMiddleware(promiseMiddleware)(createStore);
 function App() {
-  // window.addEventListener("load", function () {
-  //   setTimeout(() => {
-  //     document.querySelector("#preloader-active").style.transition = "0.8s";
-  //     document.querySelector("#preloader-active").style.opacity = 0;
-  //     document.querySelector("body").style.overflowX = "hidden";
-  //   }, 150);
-  // });
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.querySelector("#preloader-active").style.transition = "0.8s";
+      document.querySelector("#preloader-active").style.opacity = 0;
+      document.querySelector("body").style.overflowX = "hidden";
+    }, 150);
+  });
   useEffect(() => {
-    // setTimeout(() => {
-    //   document.querySelector("#preloader-active").style.transition = "1s";
-    //   document.querySelector("#preloader-active").style.opacity = 0;
-    //   document.querySelector("#preloader-active").style.display = 'none';
-    //   document.querySelector("body").style.overflowX = "hidden";
-    // }, 4000);
+    setTimeout(() => {
+      document.querySelector("#preloader-active").style.transition = "1s";
+      document.querySelector("#preloader-active").style.opacity = 0;
+      document.querySelector("#preloader-active").style.display = 'none';
+      document.querySelector("body").style.overflowX = "hidden";
+    }, 4000);
   }, []);
   return (
     <Provider store={createStoreWithMW(rootReducer)}>
