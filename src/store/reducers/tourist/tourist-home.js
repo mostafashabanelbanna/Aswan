@@ -12,11 +12,13 @@ export function touristHome(state = {}, action) {
       return { ...state, slider: action.payload };
 
     //agenda
-    case "EVENTS_LIST":
-      return { ...state, eventsList: action.payload };
-
-      case "CLEAR_AllEventsTourist":
+    // case "EVENTS_LIST":
+    //   return { ...state, eventsList: action.payload };
+      case "EVENT_OF_MONTH":
         return { ...state, eventsList: action.payload };
+      
+      // case "CLEAR_AllEventsTourist":
+      //   return { ...state, eventsList: action.payload };
     default:
       return state;
   }

@@ -110,7 +110,11 @@ const DocumentLibrary = (props) => {
                 {props.documentLibrary.result.length ? (
                   <>
                     {props.documentLibrary.result.map((item) => {
-                      let publishedDate = `${item.publishDate}T00:00:00`;
+                      console.log(props.documentLibrary.result)
+                      // let date = item.publishDate
+                      //   .replace(/\//g, "-")
+                      //   .split("-");
+                      // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
                       let pName;
                       let newPath;
                       if (item.photo != null) {
@@ -140,9 +144,9 @@ const DocumentLibrary = (props) => {
                                   : null
                               }
                               title={item.title}
-                              date={`${moment(new Date(publishedDate)).format(
-                                "LL"
-                              )}`}
+                              date={`${moment(
+                                new Date(item.publishDate)
+                              ).format("LL")}`}
                               category={item.documentTypeName}
                               imgHeight="200px"
                               hoverTitle="hoverTitle"

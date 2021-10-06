@@ -26,7 +26,6 @@ function StockTicker() {
       return res.data.result;
     }
   }
-  console.log(arr);
   useEffect(async () => {
     let x = await fetchData();
     setArr(arr.length ? [...arr, x] : [x]);

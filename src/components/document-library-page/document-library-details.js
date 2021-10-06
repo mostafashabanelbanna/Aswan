@@ -34,7 +34,7 @@ const DocumentLibraryDetails = (props) => {
         </div>
         <div className="container d-flex justify-content-between mt-4">
           <div className="col-7 align-items-end fa-1x">
-            <div className="d-flex ">
+            {props.documentLibraryDetail.result.url?<div className="d-flex ">
               <div className="mx-3">
                 <FontAwesomeIcon icon={faLink} size={26}></FontAwesomeIcon>
               </div>
@@ -47,8 +47,8 @@ const DocumentLibraryDetails = (props) => {
                   {props.documentLibraryDetail.result.url}
                 </a>
               </div>
-            </div>
-            <div className="d-flex ">
+            </div>:null}
+            {props.documentLibraryDetail.result.publishDate?<div className="d-flex ">
               <div className="mx-3">
                 {" "}
                 <FontAwesomeIcon
@@ -61,7 +61,7 @@ const DocumentLibraryDetails = (props) => {
                   new Date(props.documentLibraryDetail.result.publishDate)
                 ).format("LL")}`}
               </div>
-            </div>
+            </div>:null}
           </div>
           <Link id='link'
             to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
@@ -112,7 +112,6 @@ const DocumentLibraryDetails = (props) => {
       </div>
     );
   }
-
   return <OnePieaceSkeleton />;
 };
 const mapStateToProps = (state) => {

@@ -20,3 +20,25 @@ export async function clearAllEventsTourist() {
     payload,
   };
 }
+
+export async function getTouristEventByMonth(month) {
+  console.log(month);
+  let payload = null;
+  try {
+    let response = await axios.get(`/EventAPI/GetTouristCalenderEventbymonth/${month}`);
+    payload = await response.data;
+    console.log(payload)
+  } catch (error) {
+  }
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}
+export function clearTouristEventByMonth() {
+  let payload = null;
+  return {
+    type: "EVENT_OF_MONTH",
+    payload,
+  };
+}

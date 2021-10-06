@@ -27,4 +27,6 @@ export const paths = {
   InvestmentPhotos: `${MainPath}Investment/Photo/`,
   StaticContent: `${MainPath}StaticContent/Photo/`,
   OrgChart: `${MainPath}Leader/Photo/`,
+  AdsAttachment: `${MainPath}Advertisment/attachment/`,
+  ServicesPhoto: `${MainPath}Services/Photo/`
 };

@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.custom-holder{
+  height: auto !important;
+}
+
 .imageAlbum {
   border-radius: 5px;
   cursor: pointer;
