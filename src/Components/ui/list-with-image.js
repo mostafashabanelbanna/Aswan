@@ -102,14 +102,16 @@ const ListWithImage = (props) => {
         </div>
       ) : null}
       {props.careerButton == true ? (
-        <Link to={`/careerdetails/${props.details.id}`} className="btn_orange">
+       <div className='position-absolute'  style={{ bottom: 0 , right:10 }}>
+          <Link to={`/careerdetails/${props.details.id}`} className="btn_orange my-4">
           <span style={{ color: "white" }}>التفاصيل</span>
         </Link>
+       </div>
       ) : null}
       {props.careerButton == true ? ( //to={`/youthdetails/${item.id}`}
         <div
-          className="col-12 d-flex flex-md-row flex-column align-items-center justify-content-center position-absolute"
-          style={{ bottom: 0 }}
+          className="position-absolute"
+          style={{ bottom: 0, left:10 }}
           onClick={props.renderModal}
         >
           <button
