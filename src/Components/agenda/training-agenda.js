@@ -170,9 +170,7 @@ const renderModal = (content) => {
               height={"600px"}
             />
           </div>
-          <div className={agendaProps?.result?agendaProps.result.length? `col-xl-6 col-12 px-3`:`col-xl-6 col-12 px-3 d-flex justify-content-center align-items-center `:`col-xl-6 col-12 px-3`}>
-           
-           
+          <div className={agendaProps?.result?agendaProps.result.length? `col-xl-6 col-12 px-3`:`col-xl-6 col-12 px-3 d-flex justify-content-center align-items-center `:`col-xl-6 col-12 px-3 mt-xl-0 mt-3`}>
             {agendaProps?.result?  agendaProps.result.length? (agendaProps.result.map((item, index) => {
               let slicedContent = item.content;
               if (item.content !== null && item.content.length > 250) {

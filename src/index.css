@@ -49,7 +49,12 @@ input, .MuiIconButton-root{
 }
 
 .slick-dots{
-  filter: drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(2px 4px 6px black) !important;
+  margin: -5px !important;
+}
+
+input[type='email'] {
+  font-family: 'system-ui'
 }
 
 body {
@@ -248,7 +253,7 @@ a {
   text-align: center;
   font-size: 16px;
   padding: 10px;
-  width: 180px;
+  width: 135px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -259,6 +264,18 @@ a {
 }
 .btn_orange {
   background-color: #ff6c1a;
+}
+
+@media (max-width:991px) {
+  .navMainTabs{
+    font-size: 18px;
+  }
+}
+
+@media (min-width:992px) {
+  .navMainTabs{
+    font-size: 1.1vw
+  }
 }
 
 .btn_blue span,

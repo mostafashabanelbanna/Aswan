@@ -20,12 +20,12 @@ const InvestorStart = (props) => {
   }, []);
   var settings = {
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 4000,
     infinite: true,
-    speed: 2000,
+    speed: 3000,
     pauseOnFocus: true,
     pauseOnHover: true,
     swipe: true,

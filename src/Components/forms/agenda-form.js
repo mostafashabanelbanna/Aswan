@@ -258,7 +258,7 @@ const AgendaForm = (props) => {
                       className="my-4 mx-2"
                       style={{ backgroundColor: "orange", borderColor: "gray" }}
                       onClick={() => {
-                        props.onHideCareerModal();
+                        props.onHideEventModal();
                         initialState();
                       }}
                     >

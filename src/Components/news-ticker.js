@@ -33,10 +33,10 @@ function StockTicker() {
 
   if (arr.length > 0)
     return (
-      <Ticker direction={"toRight"} speed={5} mode={"smooth"}>
+      <Ticker move={true} direction={"toRight"} speed={5} mode={"smooth"}>
         {() => (
           <Link to={`/advertisment-details/${arr[0].id}`} className='text-dark'>
-            <p className='my-2'> {arr[0].title} ...</p>
+            <p className='my-2' style={{ whiteSpace: "nowrap" }}> {arr[0].title} ...&nbsp;&nbsp;&nbsp;&nbsp;</p>
           </Link>
         )}
       </Ticker>

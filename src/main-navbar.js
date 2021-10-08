@@ -75,7 +75,7 @@ const Main_navbar = () => {
           </Link>
         </div>
         <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3">
-          <Link to='/contactus' className='text-dark text-decoration-none col-3 fsiz'>خريطة الموقع</Link>
+          <Link to='/contactus' className='text-dark text-decoration-none fsiz'>خريطة الموقع</Link>
           <div className="col-2 d-flex justify-content-center">|</div>
           <Link to='/contactus' className='text-dark text-decoration-none col-3 fsiz'>اتصل بنا</Link>
         </div>
@@ -106,9 +106,8 @@ const Main_navbar = () => {
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
-              className="justify-content-center"
+              className="justify-content-center navMainTabs"
               id="responsive-navbar-nav"
-              style={{fontSize:"1.1vw"}}
             >
               <Nav className="align-items-center">
                 <ul

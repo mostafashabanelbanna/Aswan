@@ -195,7 +195,7 @@ const News = (props) => {
               </Slider>
             </div>
           </div>
-          <div className="container custom_bg_light d-flex justify-content-end py-3">
+          <div className="container custom_bg_light d-flex justify-content-end py-3 mt-5 mb-2">
             <Link id="link" to="/newslist" className="">
               <button
                 className="btn_blue mx-1 mb-2 mb-sm-0"

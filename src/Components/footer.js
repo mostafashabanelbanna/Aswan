@@ -16,7 +16,7 @@ const Footer = () => {
     >
       <div className="container ">
         <div className="row p-0 m-0  pt-4 pb-4 ">
-          <div className="text-light col-lg-2 col-md-2    container-xxl m-md-0 container-md col-6   ms-md-5   d-flex flex-column">
+          <div className="text-light col-lg-2 col-md-2 container-xxl m-md-0 container-md col-6   ms-md-5   d-flex flex-column">
             <img
               className="mb-2 p-3 "
               src={"/images/logoooo.jfif"}
@@ -53,7 +53,7 @@ const Footer = () => {
                 <div className="lh-lg d-flex flex-column">
                   <Link id='link' to='/exconservatives' className='text-white'>المحافظون السابقون</Link>
                   <Link id='link' to='/leaders' className='text-white'>قيادات المحافظة</Link>
-                  <a>الديوان العام</a>
+                  {/* <a>الديوان العام</a> */}
                   <Link id='link' to='/projectslist' className='text-white'>مشروعات المحافظة</Link>
                   <Link id='link' to='/appointment' className='text-white'>لقاءات و قرارات السيد المحافظ</Link>
                 </div>

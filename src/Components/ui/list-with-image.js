@@ -18,10 +18,15 @@ const ListWithImage = (props) => {
             backgroundImage: `url(${props.imgSrc})`,
             height: props.imgHeight,
           }}
-        ></div>
+        >
+        </div>
+
+        {/* category */}
         {props.category ? (
           <div className="list_category">{props.category}</div>
         ) : null}
+        
+        {/* changeRate */}
         {props.changeRate ? (
           <div className=" list_percentage" style={{ width: 60, height: 60 }}>
             <CircularProgressbar
@@ -56,13 +61,19 @@ const ListWithImage = (props) => {
           </div>
         ) : null}
       </div>
+
+      {/* date */}
       {props.date ? (
         <div className="d-flex justify-content-end p-2">{props.date}</div>
       ) : null}
+
+
       <div className="mt-2 mb-5 p-2" style={{ fontSize: "22px" }}>
         <div className={`${props.center ? "text-center" : ""}`}>
           {props.title}
         </div>
+
+        {/* careerDetails */}
         {props.careerButton == true ? (
           <div
             className="my-2"
@@ -71,6 +82,8 @@ const ListWithImage = (props) => {
             {props.careerDetails}
           </div>
         ) : null}
+        
+        {/* youthDetails */}
         {props.youthButton == true ? (
           <div
             className="my-2"
@@ -80,6 +93,8 @@ const ListWithImage = (props) => {
           </div>
         ) : null}
       </div>
+      
+      {/* content For All Lists Other Than Career And Youth */}
       {props.content ? (
         <div className="my-2 p-2 new-line">
           <div className={`${props.center ? "text-center" : ""}`}>
@@ -87,6 +102,8 @@ const ListWithImage = (props) => {
           </div>
         </div>
       ) : null}
+      
+      {/* applied people number */}
       {props.appliedPeople != null ? (
         <div
           className="col-12 d-flex flex-column align-items-center justify-content-center position-absolute"
@@ -101,6 +118,8 @@ const ListWithImage = (props) => {
           </p>
         </div>
       ) : null}
+      
+      {/* careerDetailsButton */}
       {props.careerButton == true ? (
        <div className='position-absolute'  style={{ bottom: 0 , right:10 }}>
           <Link to={`/careerdetails/${props.details.id}`} className="btn_orange my-4">
@@ -108,6 +127,8 @@ const ListWithImage = (props) => {
         </Link>
        </div>
       ) : null}
+      
+      {/* applyCareerButton */}
       {props.careerButton == true ? ( //to={`/youthdetails/${item.id}`}
         <div
           className="position-absolute"
@@ -123,17 +144,21 @@ const ListWithImage = (props) => {
           </button>
         </div>
       ) : null}
+      
+      {/* youthDetailsButton */}
       {props.youthButton == true ? (
-        <div className='position-absolute' style={{bottom:0 , left:10}}>
+        <div className='position-absolute' style={{bottom:0 , right:10}}>
           <Link to={`/youthdetails/${props.details.id}`} className="btn_orange my-4">
           <span style={{ color: "white" }}>التفاصيل</span>
         </Link>
         </div>
       ) : null}
+      
+      {/* applyYouthButton */}
       {props.youthButton == true ? (
         <div
           className=" position-absolute"
-          style={{ bottom: 0 , right:10 }}
+          style={{ bottom: 0 , left:10 }}
           onClick={props.renderModal}
         >
           <button
