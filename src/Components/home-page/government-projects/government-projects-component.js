@@ -177,7 +177,7 @@ const GovernmentProjects = (props) => {
                               //     `/projectDetails/${project.id}`
                               //   );
                               // }}
-                              style={{ verticalAlign: "middle" }}
+                              style={{ verticalAlign: "middle" , width:185 }}
                             >
                               <span>عرض التفاصيل</span>
                             </button>
@@ -185,7 +185,7 @@ const GovernmentProjects = (props) => {
                           <Link id="link" to={`/projectslist`}>
                             <button
                               className="btn_blue mx-1 mb-2 mb-sm-0"
-                              style={{ verticalAlign: "middle" }}
+                              style={{ verticalAlign: "middle",width:185 }}
                             >
                               <span>مزيد من المشروعات</span>
                             </button>
