@@ -5,8 +5,7 @@ export async function sliderNews() {
   try {
     let response = await axios.get("/NewsAPI/GetGovernmentSlider");
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "SLIDER_NEWS",
     payload,
@@ -18,8 +17,7 @@ export async function mainNews() {
   try {
     let response = await axios.get("/NewsAPI/GetAllGovernment");
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "MAIN_NEWS",
     payload,
@@ -31,8 +29,7 @@ export async function newsdetails(newsId) {
   try {
     let response = await axios.get("/NewsAPI/Details/" + newsId);
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "NEWS_DETAILS",
     payload,
@@ -53,8 +50,7 @@ export async function sliderVideo() {
   try {
     let response = await axios.get("/VideoLibraryAPI/GetAllSliderGovernment");
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "SLIDER_VIDEO",
     payload,
@@ -66,8 +62,7 @@ export async function getMainVideo() {
   try {
     let response = await axios.get("/VideoLibraryAPI/GetMainVideoGovernment");
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "MAIN_VIDEO",
     payload,
@@ -81,11 +76,13 @@ export async function getVideosList(pageNumber, keywords = {}, pageSize = 9) {
       "/VideoLibraryAPI/Search/" + pageNumber + "/" + pageSize,
       keywords
     );
-    let countResponse = await axios.post("/VideoLibraryAPI/GetResultCount", keywords);
+    let countResponse = await axios.post(
+      "/VideoLibraryAPI/GetResultCount",
+      keywords
+    );
     let res = countResponse.data.result;
-    payload = { ...response.data,page: pageNumber, count: res };
-  } catch (e) {
-  }
+    payload = { ...response.data, page: pageNumber, count: res };
+  } catch (e) {}
   return {
     type: "VIDEO_LIST",
     payload,
@@ -105,8 +102,7 @@ export async function getVideoDetails(id = 0) {
   try {
     let response = await axios.get(`/VideoLibraryAPI/Details/${id}`);
     payload = await response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "VIDEO_DETAILS",
     payload,
@@ -126,8 +122,7 @@ export async function complaints() {
   try {
     let response = await axios.get("/WebLinkAPI/GetByCategory?id=5");
     payload = response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "COMPLAINT",
     payload,
@@ -138,8 +133,7 @@ export async function getNewsCategory() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllNewsCategory");
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "NEWS_CATEGORY",
     payload,
@@ -151,8 +145,7 @@ export async function getNewsSectors() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllSector");
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "NEWS_SECTORS",
     payload,
@@ -161,6 +154,7 @@ export async function getNewsSectors() {
 
 export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
+  console.log(pageNumber);
   try {
     let response = await axios.post(
       "/NewsAPI/Search/" + pageNumber + "/" + pageSize,
@@ -169,8 +163,7 @@ export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
     let countResponse = await axios.post("/NewsAPI/GetResultCount", keywords);
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "NEWS_LIST",
     payload,

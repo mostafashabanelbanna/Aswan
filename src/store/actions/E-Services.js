@@ -156,6 +156,26 @@ export async function clearDirectorates() {
   };
 }
 
+export async function getDirectorateDetails(Id) {
+  let payload = null;
+  try {
+    let response = await axios.get(`/DirectorateAPI/Details/${Id}`);
+    payload = await response.data;
+  } catch (error) {}
+  return {
+    type: "DIRECTORATE_DETAILS",
+    payload,
+  };
+}
+
+export async function clearDirectorateDetails() {
+  let payload = null;
+  return {
+    type: "DIRECTORATE_DETAILS",
+    payload,
+  };
+}
+
 //Advertisement
 
 export async function getAdvertisements(

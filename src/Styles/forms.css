@@ -269,7 +269,7 @@ html {
   transition: all 100ms ease-in;
   box-shadow: none;
   border-width: 2px;
-  border-color: var(--primary-color);
+  border-color: #0d6efd;
 }
 
 textarea {
@@ -700,7 +700,7 @@ textarea {
 
 .form-group .form-control:focus {
   box-shadow: unset;
-  border-bottom: 2px solid var(--secondary-bg-color);
+  /* border-bottom: 2px solid var(--secondary-bg-color); */
   transform: scaleX(1);
   transition: transform 0.3s ease-in-out;
 }
@@ -760,7 +760,6 @@ textarea {
 .accordion .card .card-header .card-title[aria-expanded="true"] {
   color: #4679cc !important;
 }
-
 
 .form-label {
   color: black !important;

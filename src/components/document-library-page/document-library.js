@@ -110,7 +110,7 @@ const DocumentLibrary = (props) => {
                 {props.documentLibrary.result.length ? (
                   <>
                     {props.documentLibrary.result.map((item) => {
-                      console.log(props.documentLibrary.result)
+                      console.log(props.documentLibrary.result);
                       // let date = item.publishDate
                       //   .replace(/\//g, "-")
                       //   .split("-");
@@ -207,7 +207,7 @@ const DocumentLibrary = (props) => {
         dropdownOneHandler={documentTypeHandler}
         dropdownOneName={catName}
         dropdownOnePlaceholder="القسم"
-        classNameDropdownOne="col-md-3 col-sm-6 mt-3 mb-3 col-12 order-1"
+        classNameDropdownOne="col-md-3 col-sm-6 mt-4 mb-3 col-12 order-1"
         publishDateFrom={publishDateFrom}
         publishFromHandler={publishFromHandler}
         classNameDPFrom="col-md-3 col-sm-6 col-12 mt-4 mb-3 order-2"

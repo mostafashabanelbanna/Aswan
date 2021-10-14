@@ -109,11 +109,11 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="lh-lg d-flex flex-column">
-                  <Link id="link" to="/parliament" className="text-white">
-                    مجلس النواب
+                  <Link id="link" to="/society" className="text-white">
+                    الجمعيات الأهلية
                   </Link>
-                  <Link id="link" to="/senate" className="text-white">
-                    مجلس الشيوخ
+                  <Link id="link" to="/nationalcouncil" className="text-white">
+                    المجالس القومية
                   </Link>
                 </div>
               </div>

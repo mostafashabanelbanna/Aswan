@@ -31,4 +31,6 @@ export const paths = {
   ServicesPhoto: `${MainPath}Services/Photo/`,
   NationalCouncil: `${MainPath}NationalCouncil/Photo/`,
   Directory: `${MainPath}Directory/Photo/`,
+  DirectoratePhoto: `${MainPath}Plan/Photo/`,
+  DirectorateAttachment: `${MainPath}Directory/Attachment/`,
 };

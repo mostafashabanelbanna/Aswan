@@ -298,7 +298,7 @@ const IdeaForm = (props) => {
                           id=""
                           name="Problem"
                           required
-                          rows="3"
+                          rows="4"
                           cols="0"
                           placeholder="المشكلة"
                           onChange={Formik.handleChange("Problem")}
@@ -322,7 +322,7 @@ const IdeaForm = (props) => {
                         className="form-control text-right"
                         name="Solution"
                         required
-                        rows="3"
+                        rows="4"
                         placeholder="الحل"
                         onChange={Formik.handleChange("Solution")}
                       ></textarea>

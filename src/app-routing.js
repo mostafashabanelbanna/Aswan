@@ -55,6 +55,7 @@ import NationalCouncil from "./components/home-page/local-leaders/local-leaders-
 import NationalCouncilDetails from "./components/home-page/local-leaders/local-leaders-pages/details/national-council-details";
 import SocietyDetails from "./components/home-page/local-leaders/local-leaders-pages/details/society-details";
 import Society from "./components/home-page/local-leaders/local-leaders-pages/society";
+import DirectoratesHome from "./components/home-page/citizen-services/sevices-pages/Directorates-Services/directorates-services-home";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -92,6 +93,11 @@ const AppRouting = () => {
             exact
             path="/statichome/:id/:title/:code/:name"
             component={StaticContentHome}
+          />
+          <Route
+            exact
+            path="/directorates/:id/:name"
+            component={DirectoratesHome}
           />
           <Route exact path="/newslist" component={news_list} />
           <Route exact path="/filternews/:info" component={FilterNews} />

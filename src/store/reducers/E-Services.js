@@ -27,7 +27,8 @@ export function EServicesComponents(state = {}, action) {
       return { ...state, allDirectorates: action.payload };
     case "CLEAR_DIRECTORATES":
       return { ...state, allDirectorates: action.payload };
-
+    case "DIRECTORATE_DETAILS":
+      return { ...state, directoratesDetails: action.payload };
     //Advertisements
     case "ADVERTISEMENTS":
       return { ...state, allAdvertisements: action.payload };

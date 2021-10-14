@@ -38,9 +38,9 @@ const NewsList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.newsList(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const titleHandler = (e) => {
@@ -124,32 +124,30 @@ const NewsList = (props) => {
           <div className=" container underline  my-5">
             <h3>الأخبار</h3>
           </div>
-          </Container>
-            <SearchSection
-              submit={submitHandler}
-              TextFieldOneHandler={titleHandler}
-              labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-sm-4 col-12"
-              dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
-              dropdownOneHandler={catHandler}
-              dropdownOneName={catName}
-              dropdownOnePlaceholder="القسم"
-              classNameDropdownOne="col-sm-4 col-12"
-              dropdownTwoVal={sectorsName.find(
-                (e) => e.value == sectorSourceId
-              )}
-              dropdownTwoHandler={sectorHandler}
-              dropdownTwoPlaceholder="القطاع"
-              dropdownTwoName={sectorsName}
-              classNameDropdownTwo="col-sm-4 col-12"
-              publishDateFrom={publishDateFrom}
-              publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-sm-4 col-12"
-              publishDateTo={publishDateTo}
-              publishToHandler={publishToHandler}
-              classNameDPTo="col-sm-4 col-12"
-              classNameBtn='col-sm-4 col-12'
-            />
+        </Container>
+        <SearchSection
+          submit={submitHandler}
+          TextFieldOneHandler={titleHandler}
+          labelTextFieldOne="العنوان"
+          classNameTextFieldOne="col-sm-4 col-12"
+          dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
+          dropdownOneHandler={catHandler}
+          dropdownOneName={catName}
+          dropdownOnePlaceholder="القسم"
+          classNameDropdownOne="col-sm-4 col-12"
+          dropdownTwoVal={sectorsName.find((e) => e.value == sectorSourceId)}
+          dropdownTwoHandler={sectorHandler}
+          dropdownTwoPlaceholder="القطاع"
+          dropdownTwoName={sectorsName}
+          classNameDropdownTwo="col-sm-4 col-12"
+          publishDateFrom={publishDateFrom}
+          publishFromHandler={publishFromHandler}
+          classNameDPFrom="col-sm-4 col-12"
+          publishDateTo={publishDateTo}
+          publishToHandler={publishToHandler}
+          classNameDPTo="col-sm-4 col-12"
+          classNameBtn="col-sm-4 col-12"
+        />
         {props.newslist.result.length ? (
           <Container>
             <Row className="my-5">
@@ -175,7 +173,7 @@ const NewsList = (props) => {
                         )}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
-                        hoverTitle="hoverTitle"
+                        hoverTitle="hoverTitle h-100"
                       />
                     </Link>
                   </Col>

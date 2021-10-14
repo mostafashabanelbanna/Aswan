@@ -17,6 +17,7 @@ import { Container } from "react-bootstrap";
 import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
+import { Link } from "react-router-dom";
 
 const Directorates = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -85,78 +86,86 @@ const Directorates = (props) => {
             <div className=" container underline  my-5">
               <h3>خدمات المديريات</h3>
             </div>
-            </Container>
-              <SearchSection
-                submit={submitHandler}
-                TextFieldOneHandler={nameHandler}
-                labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-md-10 mb-0 mb-md-3 col-12"
-                // TextFieldTwoHandler={managerHandler}
-                // labelTextFieldTwo="المدير"
-                // classNameTextFieldTwo="col-sm-6 col-12"
-                classNameBtn='col-md-2 col-12'
-              />
+          </Container>
+          <SearchSection
+            submit={submitHandler}
+            TextFieldOneHandler={nameHandler}
+            labelTextFieldOne="الاسم"
+            classNameTextFieldOne="col-md-10 mb-0 mb-md-3 col-12"
+            // TextFieldTwoHandler={managerHandler}
+            // labelTextFieldTwo="المدير"
+            // classNameTextFieldTwo="col-sm-6 col-12"
+            classNameBtn="col-md-2 col-12"
+          />
           <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.directorates.result.map((item, index) => {
               return (
                 <div
-                  className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                  className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                   key={item.id}
                 >
-                  {item.sector?<div className="justify-content-end d-flex my-3">
-                    <span
-                      className="py-1 px-2 fa-1x"
-                      style={{
-                        backgroundColor: 'rgb(6, 73, 106)',color: 'white',
-                        borderTopRightRadius: "5px",
-                        borderBottomRightRadius: "5px",
-                      }}
-                    >
-                      {item.sector}
-                    </span>
-                  </div>:null}
-                  <div className="justify-content-center d-flex my-2">
-                    <span
-                      className="py-1 px-2 rounded-3 h4"
-                    >
-                      {item.name}
-                    </span>
-                  </div>
+                  {item.sector ? (
+                    <div className="justify-content-end d-flex my-3">
+                      <span
+                        className="py-1 px-2 fa-1x"
+                        style={{
+                          backgroundColor: "rgb(6, 73, 106)",
+                          color: "white",
+                          borderTopRightRadius: "5px",
+                          borderBottomRightRadius: "5px",
+                        }}
+                      >
+                        {item.sector}
+                      </span>
+                    </div>
+                  ) : null}
+                  <Link
+                    id="link"
+                    to={`/directorates/${item.id}/${item.name}`}
+                    // to="/statichome/2001/aboutgovernment/2001/investor"
+                    className="justify-content-center d-flex my-2"
+                  >
+                    <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
+                  </Link>
+                  {item.manager ? (
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faUserTie}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2"> {item.manager}</div>
+                    </div>
+                  ) : null}
+                  {item.telephone || item.fax ? (
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faPhoneAlt}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2">
+                        {item.telephone == null ? item.fax : item.telephone}
+                      </div>
+                    </div>
+                  ) : null}
 
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faUserTie}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
+                  {item.address ? (
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faMapMarkerAlt}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2"> {item.address}</div>
                     </div>
-                    <div className="mx-2"> {item.manager}</div>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faPhoneAlt}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2">
-                      {item.telephone == null ? item.fax : item.telephone}
-                    </div>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faMapMarkerAlt}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2"> {item.address}</div>
-                  </div>
+                  ) : null}
 
                   {item.email ? (
                     <div className="d-flex my-3">
@@ -169,9 +178,7 @@ const Directorates = (props) => {
                       </div>
                       <div className="mx-2"> {item.email}</div>
                     </div>
-                  ) : (
-                    null
-                  )}
+                  ) : null}
                 </div>
               );
             })}
