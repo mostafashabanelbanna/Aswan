@@ -52,12 +52,12 @@ const AdvertismentList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     check(dataFilled) == false && advertismentTypeId != null
       ? props.getAllAdvertisment(currentPage + 1)
       : props.getAdvertisment(currentPage + 1, data(dataFilled));
 
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const titleHandler = (e) => {

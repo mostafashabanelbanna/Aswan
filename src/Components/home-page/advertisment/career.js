@@ -43,9 +43,9 @@ const Career = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getCareer(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const titleHandler = (e) => {

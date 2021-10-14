@@ -49,9 +49,9 @@ const InvestmentOpportunitiesList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getAllInvestorOpportunities(currentPage + 1, data(dataFilled));
     setDataFlag(1);
-    setCurrentPage(0);
   };
 
   const activityIDHandler = (e) => {
@@ -154,36 +154,36 @@ const InvestmentOpportunitiesList = (props) => {
               <h3>فرص الإستثمار</h3>
             </div>
           </Container>
-              <SearchSection
-                submit={submitHandler}
-                dropdownOneVal={industrialZoneVal.find(
-                  (e) => e.value == industryPartID
-                )}
-                dropdownOneHandler={industryPartIDHandler}
-                dropdownOnePlaceholder="كل المناطق "
-                dropdownOneName={industrialZoneVal}
-                classNameDropdownOne="col-md-5 col-12"
-                dropdownTwoVal={activityVal.find((e) => e.value == activityID)}
-                dropdownTwoHandler={activityIDHandler}
-                dropdownTwoPlaceholder="النشاط"
-                dropdownTwoName={activityVal}
-                classNameDropdownTwo="col-md-5 col-12"
-                classNameBtn="col-md-2 mt-0 col-12"
-                // dropdownThreeVal={investorSpecialtyTypeVal.find(
-                //   (e) => e.value == investmentSpecialtyTypeid
-                // )}
-                // dropdownThreeHandler={investmentSpecialtyTypeidHandler}
-                // dropdownThreePlaceholder="نوع التخصيص"
-                // dropdownThreeName={investorSpecialtyTypeVal}
-                // classNameDropdownThree="col-md-3 col-sm-6 col-12"
-                // dropdownFourVal={investorPaymentSystemVal.find(
-                //   (e) => e.value == investmentPaymentSystemid
-                // )}
-                // dropdownFourHandler={investmentPaymentSystemidHandler}
-                // dropdownFourPlaceholder="نظام السداد"
-                // dropdownFourName={investorPaymentSystemVal}
-                // classNameDropdownFour="col-md-3 col-sm-6 col-12"
-              />
+          <SearchSection
+            submit={submitHandler}
+            dropdownOneVal={industrialZoneVal.find(
+              (e) => e.value == industryPartID
+            )}
+            dropdownOneHandler={industryPartIDHandler}
+            dropdownOnePlaceholder="كل المناطق "
+            dropdownOneName={industrialZoneVal}
+            classNameDropdownOne="col-md-5 col-12"
+            dropdownTwoVal={activityVal.find((e) => e.value == activityID)}
+            dropdownTwoHandler={activityIDHandler}
+            dropdownTwoPlaceholder="النشاط"
+            dropdownTwoName={activityVal}
+            classNameDropdownTwo="col-md-5 col-12"
+            classNameBtn="col-md-2 mt-0 col-12"
+            // dropdownThreeVal={investorSpecialtyTypeVal.find(
+            //   (e) => e.value == investmentSpecialtyTypeid
+            // )}
+            // dropdownThreeHandler={investmentSpecialtyTypeidHandler}
+            // dropdownThreePlaceholder="نوع التخصيص"
+            // dropdownThreeName={investorSpecialtyTypeVal}
+            // classNameDropdownThree="col-md-3 col-sm-6 col-12"
+            // dropdownFourVal={investorPaymentSystemVal.find(
+            //   (e) => e.value == investmentPaymentSystemid
+            // )}
+            // dropdownFourHandler={investmentPaymentSystemidHandler}
+            // dropdownFourPlaceholder="نظام السداد"
+            // dropdownFourName={investorPaymentSystemVal}
+            // classNameDropdownFour="col-md-3 col-sm-6 col-12"
+          />
           <div className="container mt-5">
             <div className="row ">
               {props.investorOpportunitiesList.result.map((item) => {
@@ -195,10 +195,7 @@ const InvestmentOpportunitiesList = (props) => {
                 }
                 return (
                   <div className="mb-4 col-md-6 col-xl-4 col-12">
-                    <div id='link'
-                      style={{cursor:'auto'}}
-                      className="h-100"
-                    >
+                    <div id="link" style={{ cursor: "auto" }} className="h-100">
                       <ListWithImage
                         imgSrc={
                           paths.InvestmentPhotos + item.id + "/" + newPath
@@ -211,7 +208,7 @@ const InvestmentOpportunitiesList = (props) => {
                         center=""
                         imgHeight="250px"
                         hoverTitle="hoverTitle"
-                        divHeight='31rem'
+                        divHeight="31rem"
                       />
                     </div>
                   </div>

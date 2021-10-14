@@ -48,9 +48,9 @@ const Appointment = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getAppointments(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
   const titleHandler = (e) => {
     setTitle(e.target.value);
@@ -96,23 +96,23 @@ const Appointment = (props) => {
         <div className=" container underline  my-5">
           <h3> لقاءات و قرارات السيد المحافظ </h3>
         </div>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
-            dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
-            dropdownOneHandler={typeHandler}
-            dropdownOneName={typesName}
-            dropdownOnePlaceholder="القسم"
-            classNameDropdownOne="col-lg-3 col-md-6 mt-md-3 mt-0 col-12"
-            publishDateFrom={appointmentDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
-            publishDateTo={appointmentDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
-          />
+        <SearchSection
+          submit={submitHandler}
+          TextFieldOneHandler={titleHandler}
+          labelTextFieldOne="العنوان"
+          classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
+          dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
+          dropdownOneHandler={typeHandler}
+          dropdownOneName={typesName}
+          dropdownOnePlaceholder="القسم"
+          classNameDropdownOne="col-lg-3 col-md-6 mt-md-3 mt-0 col-12"
+          publishDateFrom={appointmentDateFrom}
+          publishFromHandler={publishFromHandler}
+          classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
+          publishDateTo={appointmentDateTo}
+          publishToHandler={publishToHandler}
+          classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
+        />
         {props.apointment.result.length ? (
           <div className="container">
             <div className="my-5 row">
@@ -139,7 +139,7 @@ const Appointment = (props) => {
                         category={item.appointmentTypeName}
                         imgHeight="200px"
                         hoverTitle="hoverTitle"
-                        divHeight='25rem'
+                        divHeight="25rem"
                       />
                     </Link>
                   </div>

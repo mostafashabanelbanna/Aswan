@@ -43,9 +43,9 @@ const YouthEmp = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.youthEmployment(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const titleHandler = (e) => {
@@ -110,16 +110,16 @@ const YouthEmp = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 let slicedDesc = item.description;
-                if (item.description !== null && item.description.length > 230) {
+                if (
+                  item.description !== null &&
+                  item.description.length > 230
+                ) {
                   const brief = item.description;
                   slicedDesc = brief.substring(0, 230).concat(" ...");
                 }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div
-                      id="link"
-                      className="h-100"
-                    >
+                    <div id="link" className="h-100">
                       <ListWithImage
                         // imgSrc={paths.youth + item.id + "/" + newPath}
                         title={item.title}

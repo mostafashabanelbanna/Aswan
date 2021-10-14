@@ -29,9 +29,9 @@ const Tribe = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getTribe(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const nameHandler = (e) => {
@@ -94,18 +94,18 @@ const Tribe = (props) => {
               <h3>شيوخ القبائل</h3>
             </div>
           </Container>
-              <SearchSection
-                submit={submitHandler}
-                TextFieldOneHandler={nameHandler}
-                labelTextFieldOne="الاسم"
-                classNameTextFieldOne="col-md-5 mb-md-3 mb-0 col-12"
-                dropdownOneVal={cityName.find((e) => e.value == cityId)}
-                dropdownOneHandler={cityIdHandler}
-                dropdownOnePlaceholder="كل المدن"
-                dropdownOneName={cityName}
-                classNameDropdownOne="col-md-5 mt-4 mb-md-3 mb-0 col-12"
-                classNameBtn='col-md-2 col-12'
-              />
+          <SearchSection
+            submit={submitHandler}
+            TextFieldOneHandler={nameHandler}
+            labelTextFieldOne="الاسم"
+            classNameTextFieldOne="col-md-5 mb-md-3 mb-0 col-12"
+            dropdownOneVal={cityName.find((e) => e.value == cityId)}
+            dropdownOneHandler={cityIdHandler}
+            dropdownOnePlaceholder="كل المدن"
+            dropdownOneName={cityName}
+            classNameDropdownOne="col-md-5 mt-4 mb-md-3 mb-0 col-12"
+            classNameBtn="col-md-2 col-12"
+          />
           <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.allTribe.result.map((item, index) => {
               return (
@@ -130,60 +130,65 @@ const Tribe = (props) => {
                           {item.name}
                         </div>
                         <div className="d-flex my-3">
-                                <div className="mx-2">
-                                {" "}
-                                <FontAwesomeIcon
-                                    icon={faCity}
-                                    size={"1x"}
-                                ></FontAwesomeIcon>
-                                </div>
-                            <div className="mx-2"> {item.cityName}</div>
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faCity}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2"> {item.cityName}</div>
                         </div>
 
-                        {item.number?<div className="d-flex my-3">
-                                <div className="mx-2">
-                                {" "}
-                                <FontAwesomeIcon
-                                    icon={faPhoneAlt}
-                                    size={"1x"}
-                                ></FontAwesomeIcon>
-                                </div>
+                        {item.number ? (
+                          <div className="d-flex my-3">
+                            <div className="mx-2">
+                              {" "}
+                              <FontAwesomeIcon
+                                icon={faPhoneAlt}
+                                size={"1x"}
+                              ></FontAwesomeIcon>
+                            </div>
                             <div className="mx-2"> {item.number}</div>
-                        </div>:null}
+                          </div>
+                        ) : null}
 
-                        {item.location?<div className="d-flex my-3">
-                                <div className="mx-2">
-                                {" "}
-                                <FontAwesomeIcon
-                                    icon={faMapMarkerAlt}
-                                    size={"1x"}
-                                ></FontAwesomeIcon>
-                                </div>
+                        {item.location ? (
+                          <div className="d-flex my-3">
+                            <div className="mx-2">
+                              {" "}
+                              <FontAwesomeIcon
+                                icon={faMapMarkerAlt}
+                                size={"1x"}
+                              ></FontAwesomeIcon>
+                            </div>
                             <div className="mx-2"> {item.location}</div>
-                        </div>:null}
-
+                          </div>
+                        ) : null}
                       </div>
                     </div>
 
-                    {item.photo?
-                    <div className="col-4 d-flex align-items-center">
-                      <div>
-                        <img
-                          src="http://41.128.217.177:10085/Upload/Tribe/Photo/4/علي مساعيد.jpg"
-                          style={{ borderRadius: "8px" }}
-                          className="img-fluid"
-                        />
+                    {item.photo ? (
+                      <div className="col-4 d-flex align-items-center">
+                        <div>
+                          <img
+                            src="http://41.128.217.177:10085/Upload/Tribe/Photo/4/علي مساعيد.jpg"
+                            style={{ borderRadius: "8px" }}
+                            className="img-fluid"
+                          />
+                        </div>
                       </div>
-                    </div>:
-                    <div className="col-4 d-flex align-items-center">
-                    <div>
-                      <img
-                        src='./images/DefaultUser.png'
-                        style={{ borderRadius: "8px" }}
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>}
+                    ) : (
+                      <div className="col-4 d-flex align-items-center">
+                        <div>
+                          <img
+                            src="./images/DefaultUser.png"
+                            style={{ borderRadius: "8px" }}
+                            className="img-fluid"
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -204,7 +209,7 @@ const Tribe = (props) => {
       return <div> Loading Two </div>;
     }
   }
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {

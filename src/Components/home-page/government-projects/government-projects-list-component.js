@@ -25,9 +25,9 @@ const ProjectsList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getProjectsList(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const nameHandler = (e) => {
@@ -127,7 +127,7 @@ const ProjectsList = (props) => {
                       category={item.sectorName}
                       center="yes"
                       imgHeight="250px"
-                      divHeight='24rem'
+                      divHeight="24rem"
                       hoverTitle="hoverTitle"
                       changeRate={item.changeRate}
                     />

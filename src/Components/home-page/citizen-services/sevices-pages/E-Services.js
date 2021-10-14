@@ -39,9 +39,9 @@ const EServices = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getEServices(currentPage + 1, data(dataFilled));
     setDataFlag(1);
-    setCurrentPage(0);
   };
 
   const nameHandler = (e) => {

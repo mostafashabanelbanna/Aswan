@@ -50,12 +50,12 @@ const ServicesComponent = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getEServices(
       currentPage + 1,
       data({ name, directoryTypeId, directoryCategoryId, cityId })
     );
     props.clearEServices();
-    setCurrentPage(0);
   };
 
   const nameHandler = (e) => {

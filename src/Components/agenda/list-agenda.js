@@ -41,9 +41,9 @@ const AgendaList = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setCurrentPage(0);
     props.getEventsList(currentPage + 1, data(dataFilled));
     setFlag(1);
-    setCurrentPage(0);
   };
 
   const titleHandler = (e) => {
@@ -125,7 +125,11 @@ const AgendaList = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.eventsList?.result && props?.eventsSectors?.result && props?.eventsTypes?.result) {
+  if (
+    props?.eventsList?.result &&
+    props?.eventsSectors?.result &&
+    props?.eventsTypes?.result
+  ) {
     let eventsTypeName = props.eventsTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -146,48 +150,38 @@ const AgendaList = (props) => {
               <h3>الأحداث</h3>
             </div>
           </Container>
-              <SearchSection
-                submit={submitHandler}
-                TextFieldOneHandler={titleHandler}
-                labelTextFieldOne="العنوان"
-                classNameTextFieldOne="col-md-4 mt-md-4 mt-3 mb-md-3 mb-0 col-12"
-                dropdownOneVal={eventsTypeName.find(
-                  (e) => e.value == eventTypeId
-                )}
-                dropdownOneHandler={eventTypeHandler}
-                dropdownOnePlaceholder="كل الأنواع"
-                dropdownOneName={eventsTypeName}
-                classNameDropdownOne="col-md-4 col-12"
-
-                dropdownTwoVal={eventsSectorName.find(
-                  (e) => e.value == sectorId
-                )}
-                dropdownTwoHandler={sectorHandler}
-                dropdownTwoPlaceholder="كل التصنيفات"
-                dropdownTwoName={eventsSectorName}
-                classNameDropdownTwo="col-md-4 col-12"
-
-                publishDateFrom={eventStartDateFrom}
-                publishFromHandler={eventStartDateFromHandler}
-                classNameDPFrom="col-md-3 col-sm-6 col-12 mt-0"
-                DPFromLabel='تاريخ بداية الحدث من'
-
-                publishDateTo={eventStartDateTo}
-                publishToHandler={eventStartDateToHandler}
-                classNameDPTo="col-md-3 col-sm-6 col-12 mt-0"
-                DPToLabel='تاريخ بداية الحدث إلى'
-                
-                endDateFrom={eventEndDateFrom}
-                endDateFromHandler={eventEndDateFromHandler}
-                classNameEDFTo="col-md-3 col-sm-6 col-12 mt-0"
-                EDFToLabel='تاريخ نهاية الحدث من'
-
-                endDateTo={eventEndDateTo}
-                endDateToHandler={eventEndDateToHandler}
-                classNameEDTTo="col-md-3 col-sm-6 col-12 mt-0"
-                EDTToLabel='تاريخ نهاية الحدث إلى'
-                
-              />
+          <SearchSection
+            submit={submitHandler}
+            TextFieldOneHandler={titleHandler}
+            labelTextFieldOne="العنوان"
+            classNameTextFieldOne="col-md-4 mt-md-4 mt-3 mb-md-3 mb-0 col-12"
+            dropdownOneVal={eventsTypeName.find((e) => e.value == eventTypeId)}
+            dropdownOneHandler={eventTypeHandler}
+            dropdownOnePlaceholder="كل الأنواع"
+            dropdownOneName={eventsTypeName}
+            classNameDropdownOne="col-md-4 col-12"
+            dropdownTwoVal={eventsSectorName.find((e) => e.value == sectorId)}
+            dropdownTwoHandler={sectorHandler}
+            dropdownTwoPlaceholder="كل التصنيفات"
+            dropdownTwoName={eventsSectorName}
+            classNameDropdownTwo="col-md-4 col-12"
+            publishDateFrom={eventStartDateFrom}
+            publishFromHandler={eventStartDateFromHandler}
+            classNameDPFrom="col-md-3 col-sm-6 col-12 mt-0"
+            DPFromLabel="تاريخ بداية الحدث من"
+            publishDateTo={eventStartDateTo}
+            publishToHandler={eventStartDateToHandler}
+            classNameDPTo="col-md-3 col-sm-6 col-12 mt-0"
+            DPToLabel="تاريخ بداية الحدث إلى"
+            endDateFrom={eventEndDateFrom}
+            endDateFromHandler={eventEndDateFromHandler}
+            classNameEDFTo="col-md-3 col-sm-6 col-12 mt-0"
+            EDFToLabel="تاريخ نهاية الحدث من"
+            endDateTo={eventEndDateTo}
+            endDateToHandler={eventEndDateToHandler}
+            classNameEDTTo="col-md-3 col-sm-6 col-12 mt-0"
+            EDTToLabel="تاريخ نهاية الحدث إلى"
+          />
           <div className="d-flex container flex-wrap justify-content-around flex-column flex-sm-row">
             {props.eventsList.result.map((item, index) => {
               let slicedBrief = item.brief;
@@ -207,7 +201,8 @@ const AgendaList = (props) => {
                   style={{ cursor: "pointer" }}
                   className="mb-4 col-lg-4 col-sm-6 col-12 p-3"
                 >
-                  <Link id='link'
+                  <Link
+                    id="link"
                     to={`/eventdetails/${item.id}`}
                     className="h-100 text-decoration-none"
                   >
