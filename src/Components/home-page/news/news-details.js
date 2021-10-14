@@ -35,25 +35,31 @@ const NewsDetails = (props) => {
         </div>
         <div className="container d-flex justify-content-between mt-4">
           <div className="col-7  align-items-end fa-1x">
-            {props.newsdetail.result.author?<div className="d-flex my-1">
-              <div className="mx-3">
-                <FontAwesomeIcon icon={faUserTie} size={26}></FontAwesomeIcon>
+            {props.newsdetail.result.author ? (
+              <div className="d-flex my-1">
+                <div className="mx-3">
+                  <FontAwesomeIcon icon={faUserTie} size={26}></FontAwesomeIcon>
+                </div>
+                <div> {props.newsdetail.result.author}</div>
               </div>
-              <div> {props.newsdetail.result.author}</div>
-            </div>:null}
-            {props.newsdetail.result.publishDate?
-            <div className="d-flex my-1">
-              <div className="mx-3">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faCalendarAlt}
-                  size={26}
-                ></FontAwesomeIcon>{" "}
+            ) : null}
+            {props.newsdetail.result.publishDate ? (
+              <div className="d-flex my-1">
+                <div className="mx-3">
+                  {" "}
+                  <FontAwesomeIcon
+                    icon={faCalendarAlt}
+                    size={26}
+                  ></FontAwesomeIcon>{" "}
+                </div>
+                <div>{`${moment(
+                  new Date(props.newsdetail.result.publishDate)
+                ).format("LL")}`}</div>
               </div>
-              <div>{`${moment(new Date(props.newsdetail.result.publishDate)).format("LL")}`}</div>
-            </div>:null}
+            ) : null}
           </div>
-          <Link id='link'
+          <Link
+            id="link"
             to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
             className=" d-flex justify-content-center align-items-center text-center    fa-1x   detailsSectorName"
           >
@@ -67,29 +73,36 @@ const NewsDetails = (props) => {
           <div class="row">
             <div class="col-12 text-justify">
               <p class="text-justify">
-                <img class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3" src={
-                  paths.NewsPhotos +
-                  props.newsdetail.result.id +
-                  "/" +
-                  props.newsdetail.result.photo
-                } alt="President Photo"/>
+                <img
+                  class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
+                  src={
+                    paths.NewsPhotos +
+                    props.newsdetail.result.id +
+                    "/" +
+                    props.newsdetail.result.photo
+                  }
+                  alt="President Photo"
+                />
               </p>
               <div
                 className=" text-justify ps-lg-3 ps-0"
-                style={{ lineHeight: "30px", fontSize: "1rem", textAlign:'justify' }}
+                style={{
+                  lineHeight: "30px",
+                  fontSize: "1rem",
+                  textAlign: "justify",
+                }}
               >
                 {ReactHtmlParser(props.newsdetail.result.content)}
               </div>
             </div>
           </div>
         </div>
-        <Link id='link'
+        <Link
+          id="link"
           to={"/newslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
-          <button
-            className="btn_blue"
-          >
+          <button className="btn_blue">
             <span>عرض المزيد</span>
           </button>
         </Link>

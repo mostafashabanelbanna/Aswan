@@ -125,12 +125,13 @@ const AgendaForm = (props) => {
                   setDisabled(true);
                 }
                 let res = await eventApplyAPI(obj);
-                if (res.response.data.status == 200) {
+                if (res.response?.data.status == 200) {
                   props.onHideEventModal();
                   initialState();
                   setSuccessShow(true);
                 } else {
                   setDangerShow(true);
+                  setDisabled(false);
                 }
               }}
             >

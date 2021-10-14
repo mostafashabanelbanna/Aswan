@@ -51,6 +51,10 @@ import StockTicker from "./components/news-ticker";
 import ScrollToTop from "./scroll";
 import CareerDetails from "./components/home-page/advertisment/details/career-details";
 import YouthDetails from "./components/home-page/advertisment/details/youth-details";
+import NationalCouncil from "./components/home-page/local-leaders/local-leaders-pages/national-council";
+import NationalCouncilDetails from "./components/home-page/local-leaders/local-leaders-pages/details/national-council-details";
+import SocietyDetails from "./components/home-page/local-leaders/local-leaders-pages/details/society-details";
+import Society from "./components/home-page/local-leaders/local-leaders-pages/society";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -97,6 +101,14 @@ const AppRouting = () => {
           <Route exact path="/cities" component={CitiesNavbar} />
           <Route exact path="/citydetails/:id" component={CityDetails} />
           <Route exact path="/tribe" component={Tribe} />
+          <Route exact path="/nationalcouncil" component={NationalCouncil} />
+          <Route
+            exact
+            path="/nationalcouncildetails/:id"
+            component={NationalCouncilDetails}
+          />
+          <Route exact path="/society" component={Society} />
+          <Route exact path="/societydetails/:id" component={SocietyDetails} />
           <Route exact path="/parliament" component={Parliament} />
           <Route exact path="/senate" component={Senate} />
           <Route
@@ -118,8 +130,16 @@ const AppRouting = () => {
           <Route exact path="/ads/:id" component={AdvertismentList}></Route>
           <Route exact path="/youth" component={YouthEmp}></Route>
           <Route exact path="/career" component={Career}></Route>
-          <Route exact path="/careerdetails/:id" component={CareerDetails}></Route>
-          <Route exact path="/youthdetails/:id" component={YouthDetails}></Route>
+          <Route
+            exact
+            path="/careerdetails/:id"
+            component={CareerDetails}
+          ></Route>
+          <Route
+            exact
+            path="/youthdetails/:id"
+            component={YouthDetails}
+          ></Route>
           <Route
             exact
             path="/document-library-details/:id"

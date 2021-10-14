@@ -215,12 +215,13 @@ const CareerForm = (props) => {
                   setDisabled(true);
                 }
                 let res = await careerApplyAPI(obj);
-                if (res.response.data.status == 200) {
+                if (res.response?.data.status == 200) {
                   props.onHideCareerModal();
                   initialState();
                   setSuccessShow(true);
                 } else {
                   setDangerShow(true);
+                  setDisabled(false);
                 }
               }}
             >

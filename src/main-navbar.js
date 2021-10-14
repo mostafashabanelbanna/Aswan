@@ -10,8 +10,21 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pulse from "react-reveal/Pulse";
 import { Link } from "react-router-dom";
+import IdeaForm from "./components/forms/idea-form";
 
 const Main_navbar = () => {
+  const [show, setShow] = useState(false);
+
+  const onShow = () => {
+    setShow(true);
+  };
+
+  const renderModal = () => {
+    return (
+      <IdeaForm showIdeaModal={show} onHideIdeaModal={() => setShow(false)} />
+    );
+  };
+
   return (
     <div>
       <div
@@ -25,7 +38,7 @@ const Main_navbar = () => {
                 className="main_logo rounded-3"
                 // src="/images/icons/logo_banner-0١.png"
                 // src='/images/logoo.jfif'
-                src='/images/logoooo.jfif'
+                src="/images/logoooo.jfif"
                 // style={{height:'150px'}}
               />
             </Link>
@@ -41,7 +54,10 @@ const Main_navbar = () => {
             className="hvr-float-shadow  d-flex justify-content-center align-items-center"
           >
             <div>
-              <img className="mx-2 imgsz" src="/images/icons_black/citiezen.png" />
+              <img
+                className="mx-2 imgsz"
+                src="/images/icons_black/citiezen.png"
+              />
               <span className="spansz">المواطن</span>
             </div>
           </Link>
@@ -75,9 +91,16 @@ const Main_navbar = () => {
           </Link>
         </div>
         <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3">
-          <Link to='/contactus' className='text-dark text-decoration-none fsiz'>خريطة الموقع</Link>
+          <Link to="/contactus" className="text-dark text-decoration-none fsiz">
+            خريطة الموقع
+          </Link>
           <div className="col-2 d-flex justify-content-center">|</div>
-          <Link to='/contactus' className='text-dark text-decoration-none col-3 fsiz'>اتصل بنا</Link>
+          <Link
+            to="/contactus"
+            className="text-dark text-decoration-none col-3 fsiz"
+          >
+            اتصل بنا
+          </Link>
         </div>
 
         <Navbar
@@ -90,14 +113,22 @@ const Main_navbar = () => {
           }}
         >
           <Container className="py-1">
-          <Link id="link" className="navbar-brand d-lg-block d-none text-dark" to="/home">
+            <Link
+              id="link"
+              className="navbar-brand d-lg-block d-none text-dark"
+              to="/home"
+            >
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
                 src="/images/icons/footer_logo-0١.png"
                 //src='/images/logoo.jfif'
               />
             </Link>
-            <Link className="navbar-brand d-lg-none d-block" id="link" to="/home">
+            <Link
+              className="navbar-brand d-lg-none d-block"
+              id="link"
+              to="/home"
+            >
               <img
                 style={{ width: 40, marginLeft: 10 }}
                 src="/images/icons/footer_logo-0١.png"
@@ -179,21 +210,20 @@ const Main_navbar = () => {
                     </Link>
                   </li>
                   <li className={`nav-item`}>
-                    <Link to="/parliament" className="nav-link text-light">
-                      مجلس النواب
+                    <Link to="/directorates" className="nav-link text-light">
+                      المديريات
                     </Link>
                   </li>
-                  <li
-                    className={`nav-item 
-                      `}
-                  >
-                    <Link
+                  <li className={`nav-item`}>
+                    <div
                       id="link"
-                      to="/senate"
                       className="nav-link text-light"
+                      onClick={() => {
+                        onShow();
+                      }}
                     >
-                      مجلس الشيوخ
-                    </Link>
+                      بنك الأفكار
+                    </div>
                   </li>
 
                   <li
@@ -351,6 +381,7 @@ const Main_navbar = () => {
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/> */}
       </div>
+      {renderModal()}
     </div>
   );
 };

@@ -1,18 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
 import {
   getCareerDetails,
   clearCareerDetails,
 } from "../../../../store/actions/advertisment-action";
-import { paths } from "../../../../paths/paths";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faLink } from "@fortawesome/free-solid-svg-icons";
-import moment from "moment";
-import "moment/locale/ar";
 import Details from "../../../loading-skeleton/Details";
 import CareerForm from "../../../forms/career-form";
 
@@ -70,9 +64,9 @@ const CareerDetails = (props) => {
               props.careerDetails.result.employmentTypeName
             )}`}</div>
           </div>
-            <p className="my-1">
-              عدد المتقدمين للوظيفة: {props.careerDetails.result.applicantCount}
-            </p>
+          <p className="my-1">
+            عدد المتقدمين للوظيفة: {props.careerDetails.result.applicantCount}
+          </p>
         </div>
         <div
           className="col-12 d-flex flex-column align-items-center justify-content-center"
@@ -80,7 +74,8 @@ const CareerDetails = (props) => {
           onClick={() => {
             onShow();
             setContent(props.careerDetails.result);
-            }}>
+          }}
+        >
           <button
             type="button"
             className="btn_blue mx-1 my-4"

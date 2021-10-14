@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CitizenServicesForm from '../../forms/citize-service-form'
+import CitizenServicesForm from "../../forms/citize-service-form";
 import LightSpeed from "react-reveal/LightSpeed";
 const CitizenServices = () => {
-
   const [show, setShow] = useState(false);
   const [content, setContent] = useState({});
 
   const onShow = () => {
     setShow(true);
   };
-
 
   const renderModal = () => {
     return (
@@ -30,7 +28,6 @@ const CitizenServices = () => {
             src="/images/icons_black/services_titel-0١.png"
             height="50px"
           />
-
           <div className="underline">
             {" "}
             <h3 className="mt-4 me-2 text_blue ">خدمات المواطنين </h3>
@@ -45,7 +42,7 @@ const CitizenServices = () => {
             ></source>
           </video>
         </div>
-        <div className="container">
+        <div className="container-fluid p-0">
           <div className=" row justify-content-around ">
             <div className="col-6 "></div>
             <div
@@ -172,12 +169,13 @@ const CitizenServices = () => {
                     خدمة المواطنين
                   </div>
                 </div>*/}
-              </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
       {renderModal()}
+      <div className="line"></div>
     </div>
   );
 };

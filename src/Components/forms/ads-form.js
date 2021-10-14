@@ -61,13 +61,14 @@ const AdvertisementRequire = (props) => {
     AdvertiserPhone: Yup.string()
       .matches(/^01[0125][0-9]{8}$/, "رقم الموبايل غير صحيح")
       .required("مطلوب *"),
-    Url: Yup.string()
-      .matches(/^(ftp|http|https):\/\/[^ "]+$/,"برجاء إدخال رابط صحيح"
-      ),
+    Url: Yup.string().matches(
+      /^(ftp|http|https):\/\/[^ "]+$/,
+      "برجاء إدخال رابط صحيح"
+    ),
     Title: Yup.string()
       .min(5, "العنوان قصير جدا")
       .max(100, "العنوان طويل جدا")
-      .required("مطلوب *")
+      .required("مطلوب *"),
   });
 
   // const apply = async (e) => {
@@ -116,10 +117,10 @@ const AdvertisementRequire = (props) => {
     setPhotoFile(event.target.files[0]);
   };
 
-  const onPhotoAlbumChange =  (event) => {
+  const onPhotoAlbumChange = (event) => {
     event.preventDefault();
-    const x = Object.values(event.target.files)
-    const arr=[...x];
+    const x = Object.values(event.target.files);
+    const arr = [...x];
     setPhotoAlbumFile(arr);
   };
 
@@ -143,16 +144,14 @@ const AdvertisementRequire = (props) => {
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            <div className="d-flex">
-              طلب إعلان
-            </div>
+            <div className="d-flex">طلب إعلان</div>
           </Modal.Title>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.onHideAdvertisementModal}
-                style={{ cursor: "pointer", fontSize: "22px" }}
-                className="align-self-start my-1 ms-2 text-danger fa-1x"
-              />
+          <FontAwesomeIcon
+            icon={faTimes}
+            onClick={props.onHideAdvertisementModal}
+            style={{ cursor: "pointer", fontSize: "22px" }}
+            className="align-self-start my-1 ms-2 text-danger fa-1x"
+          />
         </Modal.Header>
         <Modal.Body>
           <div
@@ -160,296 +159,310 @@ const AdvertisementRequire = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
-          <Formik
-          initialValues={{
-            Title: "",
-            Description: "",
-            AdvertiserName: "",
-            AdvertiserPhone: "",
-            Url: "",
-            attachmentFile: "",
-            photoFile: "",
-            PhotoAlbumFile: [],
-            PublishDate: todayDate,
-          }}validationSchema={SignupSchema}
-          onSubmit={async (values, { setSubmitting }) => {
-            const obj = new FormData();
-            for (const objs in values) {
-              obj.append(objs, values[objs]);
-            }
-            obj.append("PublishDate", PublishDate);
-            obj.append("attachmentFile", attachmentFile);
-            obj.append("photoFile", photoFile);
-            PhotoAlbumFile.forEach(file => {
-              obj.append("PhotoAlbumFile", file);
-            })
+            <Formik
+              initialValues={{
+                Title: "",
+                Description: "",
+                AdvertiserName: "",
+                AdvertiserPhone: "",
+                Url: "",
+                attachmentFile: "",
+                photoFile: "",
+                PhotoAlbumFile: [],
+                PublishDate: todayDate,
+              }}
+              validationSchema={SignupSchema}
+              onSubmit={async (values, { setSubmitting }) => {
+                const obj = new FormData();
+                for (const objs in values) {
+                  obj.append(objs, values[objs]);
+                }
+                obj.append("PublishDate", PublishDate);
+                obj.append("attachmentFile", attachmentFile);
+                obj.append("photoFile", photoFile);
+                PhotoAlbumFile.forEach((file) => {
+                  obj.append("PhotoAlbumFile", file);
+                });
 
-            if (disabled) {
-              return;
-            } else {
-              setDisabled(true);
-            }
-            let res = await advertismentRequireAPI(obj);
-            if (res.response.data.status == 200) {
-              props.onHideAdvertisementModal();
-              initialState();
-              setSuccessShow(true);
-            } else {
-              setDangerShow(true);
-            }
-          }}
-        >
-          {(Formik) => (
-            <form
-              className="panel-content justify-content-center col-12"
-              onSubmit={Formik.handleSubmit}
-              encType="multipart/form-data"
+                if (disabled) {
+                  return;
+                } else {
+                  setDisabled(true);
+                }
+                let res = await advertismentRequireAPI(obj);
+                if (res.response?.data.status == 200) {
+                  props.onHideAdvertisementModal();
+                  initialState();
+                  setSuccessShow(true);
+                } else {
+                  setDangerShow(true);
+                  setDisabled(false);
+                }
+              }}
             >
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      العنوان <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="Titlef"
-                      name="Title"
-                      required
-                      placeholder="العنوان"
-                      // value={Title}
-                      onChange={Formik.handleChange("Title")}
-                    />
-                    {Formik.touched.Title && Formik.errors.Title ? (
+              {(Formik) => (
+                <form
+                  className="panel-content justify-content-center col-12"
+                  onSubmit={Formik.handleSubmit}
+                  encType="multipart/form-data"
+                >
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          العنوان <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Titlef"
+                          name="Title"
+                          required
+                          placeholder="العنوان"
+                          // value={Title}
+                          onChange={Formik.handleChange("Title")}
+                        />
+                        {Formik.touched.Title && Formik.errors.Title ? (
                           <div className="text-danger">
                             {Formik.errors.Title}
                           </div>
                         ) : null}
-                  </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className={`col-md-6 col-12 px-3 mt-2`}>
-                  <label className="form-label text-black">
-                    {" "}
-                    تاريخ النشر <span style={{ color: "red" }}> * </span>{" "}
-                  </label>
-                  <MuiPickersUtilsProvider
-                    libInstance={moment}
-                    utils={MomentUtils}
-                    locale={"sw"}
-                    className="bg-danger"
-                    required
-                  >
-                    <KeyboardDatePicker
-                      format="L"
-                      inputVariant="outlined"
-                      value={PublishDate}
-                      variant="dialog"
-                      maxDateMessage=""
-                      mask="__-__-____"
-                      placeholder="يوم/شهر/سنة"
-                      onChange={publishDateHandler}
-                      views={["year", "month", "date"]}
-                      required
-                    />
-                  </MuiPickersUtilsProvider>
-                </div>
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label d-block">
-                      الملف المرفق
-                    </label>
-                    <div className="custom-file">
-                      <input
-                        type="file"
-                        name="attachmentFile"
-                        className="custom-file-input"
-                        id="attachmentFile_AttachmentInput"
-                        style={{ cursor: "pointer" }}
-                        onChange={onAttachmentFileChange}
-                      />
-                      <label
-                        id="attachmentLabel"
-                        className="custom-file-label p-2"
-                        for="attachmentFile_AttachmentInput"
-                      >
-                        {attachmentFile?.name
-                          ? attachmentFile.name
-                          : "اختر ملف..."}
-                      </label>
+                      </div>
                     </div>
-                    <div className="invalid-feedback"></div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label d-block">
-                      صورة <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <div className="custom-file">
-                        {}
-                      <input
-                        type="file"
-                        name="photoFile"
-                        accept=".jpg, .jpeg, .jfif, .pjpeg, .pjp, .png, .svg, .webp, .apng, .avif, .gif, "
-                        className="custom-file-input"
-                        id="photoFile_AttachmentInput"
-                        style={{ cursor: "pointer" }}
-                        onChange={(event)=>onPhotoFileChange(event)}
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className={`col-md-6 col-12 px-3 mt-2`}>
+                      <label className="form-label text-black">
+                        {" "}
+                        تاريخ النشر <span style={{ color: "red" }}>
+                          {" "}
+                          *{" "}
+                        </span>{" "}
+                      </label>
+                      <MuiPickersUtilsProvider
+                        libInstance={moment}
+                        utils={MomentUtils}
+                        locale={"sw"}
+                        className="bg-danger"
                         required
-                      />
-                      <label
-                        id="photoLabel"
-                        className="custom-file-label p-2"
-                        for="photoFile_AttachmentInput"
                       >
-                        {photoFile?.name ? photoFile.name : "اختر صورة..."}
-                      </label>
+                        <KeyboardDatePicker
+                          format="L"
+                          inputVariant="outlined"
+                          value={PublishDate}
+                          variant="dialog"
+                          maxDateMessage=""
+                          mask="__-__-____"
+                          placeholder="يوم/شهر/سنة"
+                          onChange={publishDateHandler}
+                          views={["year", "month", "date"]}
+                          required
+                        />
+                      </MuiPickersUtilsProvider>
                     </div>
-                    <div className="invalid-feedback"></div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label d-block">البوم صور</label>
-                    <div className="custom-file">
-                      <input
-                        type="file"
-                        multiple
-                        name="PhotoAlbumFile"
-                        className="custom-file-input"
-                        id="PhotoAlbumFile_AttachmentInput"
-                        style={{ cursor: "pointer" }}
-                        onChange={onPhotoAlbumChange}
-                      />
-                      <label
-                        id="photoAlbumLabel"
-                        className="custom-file-label p-2"
-                        for="PhotoAlbumFile_AttachmentInput"
-                      >
-                        {PhotoAlbumFile[0]?.name ? (PhotoAlbumFile[1]?.name ? (PhotoAlbumFile[2]?.name ? (PhotoAlbumFile[0].name + ',' + PhotoAlbumFile[1].name + ',' + PhotoAlbumFile[2].name) : (PhotoAlbumFile[0].name + ',' + PhotoAlbumFile[1].name)) : PhotoAlbumFile[0].name)  : "اختر ملفات..."}
-                      </label>
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label d-block">
+                          الملف المرفق
+                        </label>
+                        <div className="custom-file">
+                          <input
+                            type="file"
+                            name="attachmentFile"
+                            className="custom-file-input"
+                            id="attachmentFile_AttachmentInput"
+                            style={{ cursor: "pointer" }}
+                            onChange={onAttachmentFileChange}
+                          />
+                          <label
+                            id="attachmentLabel"
+                            className="custom-file-label p-2"
+                            for="attachmentFile_AttachmentInput"
+                          >
+                            {attachmentFile?.name
+                              ? attachmentFile.name
+                              : "اختر ملف..."}
+                          </label>
+                        </div>
+                        <div className="invalid-feedback"></div>
+                      </div>
                     </div>
-                    <div className="invalid-feedback"></div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الوصف{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="Description"
-                      name="Description"
-                      placeholder="الوصف"
-                      // value={Description}
-                      // onChange={(e) => {
-                      //   setDescription(e.currentTarget.value);
-                      // }}
-                      onChange={Formik.handleChange("Description")}
-                    />
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label d-block">
+                          صورة <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <div className="custom-file">
+                          {}
+                          <input
+                            type="file"
+                            name="photoFile"
+                            accept=".jpg, .jpeg, .jfif, .pjpeg, .pjp, .png, .svg, .webp, .apng, .avif, .gif, "
+                            className="custom-file-input"
+                            id="photoFile_AttachmentInput"
+                            style={{ cursor: "pointer" }}
+                            onChange={(event) => onPhotoFileChange(event)}
+                            required
+                          />
+                          <label
+                            id="photoLabel"
+                            className="custom-file-label p-2"
+                            for="photoFile_AttachmentInput"
+                          >
+                            {photoFile?.name ? photoFile.name : "اختر صورة..."}
+                          </label>
+                        </div>
+                        <div className="invalid-feedback"></div>
+                      </div>
+                    </div>
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label d-block">البوم صور</label>
+                        <div className="custom-file">
+                          <input
+                            type="file"
+                            multiple
+                            name="PhotoAlbumFile"
+                            className="custom-file-input"
+                            id="PhotoAlbumFile_AttachmentInput"
+                            style={{ cursor: "pointer" }}
+                            onChange={onPhotoAlbumChange}
+                          />
+                          <label
+                            id="photoAlbumLabel"
+                            className="custom-file-label p-2"
+                            for="PhotoAlbumFile_AttachmentInput"
+                          >
+                            {PhotoAlbumFile[0]?.name
+                              ? PhotoAlbumFile[1]?.name
+                                ? PhotoAlbumFile[2]?.name
+                                  ? PhotoAlbumFile[0].name +
+                                    "," +
+                                    PhotoAlbumFile[1].name +
+                                    "," +
+                                    PhotoAlbumFile[2].name
+                                  : PhotoAlbumFile[0].name +
+                                    "," +
+                                    PhotoAlbumFile[1].name
+                                : PhotoAlbumFile[0].name
+                              : "اختر ملفات..."}
+                          </label>
+                        </div>
+                        <div className="invalid-feedback"></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      إسم المعلن <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="AdvertiserNamef"
-                      name="AdvertiserName"
-                      required
-                      placeholder="إسم المعلن"
-                      // value={AdvertiserName}
-                      onChange={Formik.handleChange("AdvertiserName")}
-
-                    />
-                    {Formik.touched.AdvertiserName && Formik.errors.AdvertiserName ? (
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black"> الوصف </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Description"
+                          name="Description"
+                          placeholder="الوصف"
+                          // value={Description}
+                          // onChange={(e) => {
+                          //   setDescription(e.currentTarget.value);
+                          // }}
+                          onChange={Formik.handleChange("Description")}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          إسم المعلن <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="AdvertiserNamef"
+                          name="AdvertiserName"
+                          required
+                          placeholder="إسم المعلن"
+                          // value={AdvertiserName}
+                          onChange={Formik.handleChange("AdvertiserName")}
+                        />
+                        {Formik.touched.AdvertiserName &&
+                        Formik.errors.AdvertiserName ? (
                           <div className="text-danger">
                             {Formik.errors.AdvertiserName}
                           </div>
                         ) : null}
-                  </div>
-                </div>
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      هاتف المعلن <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="AdvertiserPhonef"
-                      name="AdvertiserPhone"
-                      placeholder="هاتف المعلن"
-                      // value={AdvertiserPhone}
-                      required
-                      onChange={Formik.handleChange("AdvertiserPhone")}
-
-                    />
-                    {Formik.touched.AdvertiserPhone && Formik.errors.AdvertiserPhone ? (
+                      </div>
+                    </div>
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          هاتف المعلن <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="AdvertiserPhonef"
+                          name="AdvertiserPhone"
+                          placeholder="هاتف المعلن"
+                          // value={AdvertiserPhone}
+                          required
+                          onChange={Formik.handleChange("AdvertiserPhone")}
+                        />
+                        {Formik.touched.AdvertiserPhone &&
+                        Formik.errors.AdvertiserPhone ? (
                           <div className="text-danger">
                             {Formik.errors.AdvertiserPhone}
                           </div>
                         ) : null}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الرابط{" "}
-                    </label>
-                    <input
-                      type="url"
-                      className="form-control text-right "
-                      id="Url"
-                      name="Url"
-                      placeholder="الرابط"
-                      // value={Url}
-                      onChange={Formik.handleChange("Url")}
-                    />
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          الرابط{" "}
+                        </label>
+                        <input
+                          type="url"
+                          className="form-control text-right "
+                          id="Url"
+                          name="Url"
+                          placeholder="الرابط"
+                          // value={Url}
+                          onChange={Formik.handleChange("Url")}
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-end">
-                <button
-                  id="savee"
-                  type="submit"
-                  disabled={disabled}
-                  class="btn btn-primary btn-main-bg my-4 mx-2"
-                >
-                  {disabled ? "جاري الحفظ" : "حفظ"}
-                </button>
-                <Button
-                  className="my-4 mx-2"
-                  style={{ backgroundColor: "orange", borderColor: "gray" }}
-                  onClick={() => {
-                    props.onHideAdvertisementModal();
-                    initialState();
-                  }}
-                >
-                  إلغاء
-                </Button>
-              </div>
-            </form>
-            )}
+                  <div className="d-flex justify-content-end">
+                    <button
+                      id="savee"
+                      type="submit"
+                      disabled={disabled}
+                      class="btn btn-primary btn-main-bg my-4 mx-2"
+                    >
+                      {disabled ? "جاري الحفظ" : "حفظ"}
+                    </button>
+                    <Button
+                      className="my-4 mx-2"
+                      style={{ backgroundColor: "orange", borderColor: "gray" }}
+                      onClick={() => {
+                        props.onHideAdvertisementModal();
+                        initialState();
+                      }}
+                    >
+                      إلغاء
+                    </Button>
+                  </div>
+                </form>
+              )}
             </Formik>
           </div>
         </Modal.Body>

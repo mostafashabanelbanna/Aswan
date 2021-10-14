@@ -110,16 +110,16 @@ const Career = (props) => {
                   newPath = pName.replaceAll(" ", "%20");
                 }
                 let slicedDesc = item.description;
-                if (item.description !== null && item.description.length > 230) {
+                if (
+                  item.description !== null &&
+                  item.description.length > 230
+                ) {
                   const brief = item.description;
                   slicedDesc = brief.substring(0, 230).concat(" ...");
                 }
                 return (
                   <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div
-                      id="link"
-                      className="h-100"
-                    >
+                    <div id="link" className="h-100">
                       <ListWithImage
                         title={item.title}
                         imgHeight="0px"
@@ -133,7 +133,6 @@ const Career = (props) => {
                         divHeight="27rem"
                         appliedPeople={item.applicantCount}
                         details={item}
-
                       />
                     </div>
                   </Col>
@@ -159,7 +158,7 @@ const Career = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    career: state.advertismentComponents.career
+    career: state.advertismentComponents.career,
   };
 };
 const mapDispatchToProps = (dispatch) => {

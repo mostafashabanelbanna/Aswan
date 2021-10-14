@@ -13,7 +13,7 @@ import "./MUIcalender.css";
 
 const SearchSection = (props) => {
   return (
-    <div style={{backgroundColor:'rgb(6, 73, 106)'}}>
+    <div style={{ backgroundColor: "rgb(6, 73, 106)" }}>
       <div className="container">
         <form onSubmit={props.submit}>
           <div className="row align-items-center">
@@ -32,6 +32,7 @@ const SearchSection = (props) => {
             {props.TextFieldTwoHandler ? (
               <div className={`${props.classNameTextFieldTwo} form-group my-3`}>
                 <TextField
+                  variant="outlined"
                   onChange={props.TextFieldTwoHandler}
                   className="w-100"
                   id="standard-basic"
@@ -40,9 +41,37 @@ const SearchSection = (props) => {
               </div>
             ) : null}
 
+            {props.TextFieldThreeHandler ? (
+              <div
+                className={`${props.classNameTextFieldThree} form-group my-3`}
+              >
+                <TextField
+                  variant="outlined"
+                  onChange={props.TextFieldThreeHandler}
+                  className="w-100"
+                  id="standard-basic"
+                  placeholder={props.labelTextFieldThree}
+                />
+              </div>
+            ) : null}
+
+            {props.TextFieldFourHandler ? (
+              <div
+                className={`${props.classNameTextFieldFour} form-group my-3`}
+              >
+                <TextField
+                  variant="outlined"
+                  onChange={props.TextFieldFourHandler}
+                  className="w-100"
+                  id="standard-basic"
+                  placeholder={props.labelTextFieldFour}
+                />
+              </div>
+            ) : null}
+
             {props.dropdownOneHandler ? (
               <div
-                style={{ height: "1.1rem", zIndex:'16'}}
+                style={{ height: "1.1rem", zIndex: "16" }}
                 className={`${props.classNameDropdownOne} align-self-baseline my-3 form-group`}
               >
                 <Select
@@ -57,7 +86,7 @@ const SearchSection = (props) => {
 
             {props.dropdownTwoHandler ? (
               <div
-                style={{ height: "1.1rem", zIndex:'15' }}
+                style={{ height: "1.1rem", zIndex: "15" }}
                 className={`${props.classNameDropdownTwo} align-self-baseline my-3 form-group`}
               >
                 <Select
@@ -72,7 +101,7 @@ const SearchSection = (props) => {
 
             {props.dropdownThreeHandler ? (
               <div
-                style={{ height: "1.1rem", zIndex:'14' }}
+                style={{ height: "1.1rem", zIndex: "14" }}
                 className={`${props.classNameDropdownThree} align-self-baseline my-3 form-group`}
               >
                 <Select
@@ -87,7 +116,7 @@ const SearchSection = (props) => {
 
             {props.dropdownFourHandler ? (
               <div
-                style={{ height: "1.1rem", zIndex:'13'}}
+                style={{ height: "1.1rem", zIndex: "13" }}
                 className={`${props.classNameDropdownFour} align-self-baseline form-group my-3`}
               >
                 <Select
@@ -101,8 +130,13 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.publishFromHandler ? (
-              <div className={`${props.classNameDPFrom}`} style={{marginTop: '20px'}}>
-                <label className="my-2" style={{color:'white'}}>{props.DPFromLabel}</label>
+              <div
+                className={`${props.classNameDPFrom}`}
+                style={{ marginTop: "20px" }}
+              >
+                <label className="my-2" style={{ color: "white" }}>
+                  {props.DPFromLabel}
+                </label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -125,8 +159,13 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.publishToHandler ? (
-              <div className={`${props.classNameDPTo}`} style={{marginTop: '20px'}}>
-                <label className="my-2" style={{color:'white'}}>{props.DPToLabel}</label>
+              <div
+                className={`${props.classNameDPTo}`}
+                style={{ marginTop: "20px" }}
+              >
+                <label className="my-2" style={{ color: "white" }}>
+                  {props.DPToLabel}
+                </label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -149,8 +188,13 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.endDateFromHandler ? (
-              <div className={`${props.classNameEDFTo}`} style={{marginTop: '20px'}}>
-                <label className="my-2" style={{color:'white'}}>{props.EDFToLabel}</label>
+              <div
+                className={`${props.classNameEDFTo}`}
+                style={{ marginTop: "20px" }}
+              >
+                <label className="my-2" style={{ color: "white" }}>
+                  {props.EDFToLabel}
+                </label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -173,8 +217,13 @@ const SearchSection = (props) => {
             ) : null}
 
             {props.endDateToHandler ? (
-              <div className={`${props.classNameEDTTo}`} style={{marginTop: '20px'}}>
-                <label className="my-2" style={{color:'white'}}>{props.EDTToLabel}</label>
+              <div
+                className={`${props.classNameEDTTo}`}
+                style={{ marginTop: "20px" }}
+              >
+                <label className="my-2" style={{ color: "white" }}>
+                  {props.EDTToLabel}
+                </label>
                 <MuiPickersUtilsProvider
                   libInstance={moment}
                   utils={MomentUtils}
@@ -203,7 +252,7 @@ const SearchSection = (props) => {
               <button
                 type={"submit"}
                 className="btn_orange mx-1 my-4 my-md-3"
-                style={{ verticalAlign: "middle", width:'100px' }}
+                style={{ verticalAlign: "middle", width: "100px" }}
               >
                 <span>بحث</span>
               </button>

@@ -71,12 +71,12 @@ const HayahKarima = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid haya_carima_bg px-3 position-relative">
+      <div className="container-fluid haya_carima_bg p-0 position-relative">
         <div className="haya_carima_bg_logo">
           <img src={logo} style={{ width: "140px" }} />
         </div>
-        <div className="container">
-          <div className=" row justify-content-around ">
+        <div className="container-fluid">
+          <div className=" row justify-content-around">
             <div
               className="col-xl-6 col-md-9 col-12 py-4"
               style={{ zIndex: 1, backgroundColor: "rgb(128,128,128,0.2)" }}

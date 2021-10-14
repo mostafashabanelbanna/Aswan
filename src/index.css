@@ -18,43 +18,56 @@ light yellow: #ffd5008c;
 light blue:#20b0ca
 */
 
-fieldset{
+fieldset {
   background-color: white;
 }
 
-
-
-.css-2b097c-container{
+.css-2b097c-container {
   z-index: 12;
 }
 
-input, .MuiIconButton-root{
+input,
+.MuiIconButton-root {
   z-index: 10;
 }
 
-.fc .fc-daygrid-event-harness-abs, .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
+.MuiInputBase-input {
+  background: transparent !important;
+}
+
+.MuiOutlinedInput-input {
+  padding: 9px 14px !important;
+}
+
+.PrivateNotchedOutline-root-1 {
+  top: 0 !important;
+}
+
+.fc .fc-daygrid-event-harness-abs,
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
   cursor: pointer;
 }
 
-.fc-event-time, .fc-daygrid-event-dot{
+.fc-event-time,
+.fc-daygrid-event-dot {
   display: none;
 }
 
-.fc-daygrid-event-harness{
+.fc-daygrid-event-harness {
   background-color: rgba(255, 220, 110, 0.8);
 }
 
-.fc-daygrid-dot-event .fc-event-title{
+.fc-daygrid-dot-event .fc-event-title {
   color: black;
 }
 
-.slick-dots{
+.slick-dots {
   filter: drop-shadow(2px 4px 6px black) !important;
   margin: -5px !important;
 }
 
-input[type='email'] {
-  font-family: 'system-ui'
+input[type="email"] {
+  font-family: "system-ui";
 }
 
 body {
@@ -266,15 +279,15 @@ a {
   background-color: #ff6c1a;
 }
 
-@media (max-width:991px) {
-  .navMainTabs{
+@media (max-width: 991px) {
+  .navMainTabs {
     font-size: 16px;
   }
 }
 
-@media (min-width:992px) {
-  .navMainTabs{
-    font-size: 1.1vw
+@media (min-width: 992px) {
+  .navMainTabs {
+    font-size: 1.1vw;
   }
 }
 
@@ -309,10 +322,6 @@ a {
   left: -15px;
 }
 /* end btn */
-
-.MuiOutlinedInput-input {
-  padding: 6px 14px !important;
-}
 
 #standard-basic {
   padding: 6px 14px;
@@ -372,7 +381,7 @@ a {
 .hvr-rectangle-out:before {
   border-radius: 10px;
   background-color: rgb(0 0 0 / 30%) !important;
-  box-shadow: 1px 1px 2px 1px ;
+  box-shadow: 1px 1px 2px 1px;
 }
 .hvr-rectangle-out:hover,
 .hvr-rectangle-out:focus,
@@ -386,7 +395,7 @@ a {
 
 .hvr-shutter-out-vertical:before {
   background-color: rgb(0 0 0 / 20%) !important;
-  box-shadow: 1px 1px 2px 1px ;
+  box-shadow: 1px 1px 2px 1px;
   border-radius: 10px;
 }
 
@@ -418,7 +427,7 @@ a {
   box-shadow: 1px 1px 2px 1px;
 }
 
-.text_blue{
+.text_blue {
   color: rgb(6, 73, 136);
   font-weight: bold;
 }
@@ -589,14 +598,17 @@ a {
 
 /*active*/
 
-.activeClass{
+.activeClass {
   color: white !important;
   box-shadow: 0 10px 10px -10px rgb(0 0 0 / 50%) !important;
-    background: #faa74a !important;
-    transition-duration: 0.3s !important;
-    transition-timing-function: ease-out !important;
+  background: #faa74a !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: ease-out !important;
 }
 
-.modal-header, .modal-body{
+.modal-header,
+.modal-body {
   background-color: #eafbff70 !important;
 }
+
+/**/

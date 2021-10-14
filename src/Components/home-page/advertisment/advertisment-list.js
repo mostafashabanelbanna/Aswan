@@ -116,7 +116,7 @@ const AdvertismentList = (props) => {
 
     return () => {
       props.clearAdvertisement();
-    }
+    };
   }, [currentPage]);
 
   useEffect(() => {
@@ -139,28 +139,26 @@ const AdvertismentList = (props) => {
               <h3>منتجات يدوية</h3>
             ) : (
               <h3>اعلانات ومناقصات</h3>
-              )}
+            )}
           </div>
-              </Container>
-            <SearchSection
-              submit={submitHandler}
-              TextFieldOneHandler={titleHandler}
-              labelTextFieldOne="العنوان"
-              classNameTextFieldOne="col-lg-3 col-md-6 mt-4 mb-0 col-12"
-              dropdownOneVal={adsName.find(
-                (e) => e.value == advertismentTypeId
-              )}
-              dropdownOneHandler={advertismentTypeHandler}
-              dropdownOneName={adsName}
-              dropdownOnePlaceholder="النوع"
-              classNameDropdownOne="col-lg-3 col-md-6 col-12"
-              publishDateFrom={publishDateFrom}
-              publishFromHandler={publishFromHandler}
-              classNameDPFrom="col-lg-3 col-md-6 col-12"
-              publishDateTo={publishDateTo}
-              publishToHandler={publishToHandler}
-              classNameDPTo="col-lg-3 col-md-6 col-12"
-            />
+        </Container>
+        <SearchSection
+          submit={submitHandler}
+          TextFieldOneHandler={titleHandler}
+          labelTextFieldOne="العنوان"
+          classNameTextFieldOne="col-lg-3 col-md-6 mt-4 mb-0 col-12"
+          dropdownOneVal={adsName.find((e) => e.value == advertismentTypeId)}
+          dropdownOneHandler={advertismentTypeHandler}
+          dropdownOneName={adsName}
+          dropdownOnePlaceholder="النوع"
+          classNameDropdownOne="col-lg-3 col-md-6 col-12"
+          publishDateFrom={publishDateFrom}
+          publishFromHandler={publishFromHandler}
+          classNameDPFrom="col-lg-3 col-md-6 col-12"
+          publishDateTo={publishDateTo}
+          publishToHandler={publishToHandler}
+          classNameDPTo="col-lg-3 col-md-6 col-12"
+        />
         <Container>
           {advertismentTypeId == 5 ? (
             <div
@@ -175,56 +173,98 @@ const AdvertismentList = (props) => {
                 className="btn_blue mx-1 my-4"
                 style={{ verticalAlign: "middle" }}
               >
-                <span style={{color: 'white'}}>طلب إعلان</span>
+                <span style={{ color: "white" }}>طلب إعلان</span>
               </button>
             </div>
           ) : null}
         </Container>
         {props.advertisment.result.length ? (
           <Container>
-            <Row className="my-5">
-              {props.advertisment.result.map((item, index) => {
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                let slicedTitle = item.title;
-                if (item.title !== null && item.title.length > 110) {
-                  const brief = item.title;
-                  slicedTitle = brief.substring(0, 100).concat(" ...");
-                }
-                return (
-                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <Link
-                      id="link"
-                      to={`/advertisment-details/${item.id}`}
-                      className="h-100"
-                    >
-                      <ListWithImage
-                        imgSrc={paths.ads + item.id + "/" + newPath}
-                        title={slicedTitle}
-                        date={`${moment(new Date(item.publishDate)).format(
-                          "LL"
-                        )}`}
-                        category={item.advertismentTypeName}
-                        imgHeight="200px"
-                        hoverTitle="hoverTitle"
-                        divHeight='25rem'
-                      />
-                    </Link>
-                  </Col>
-                );
-              })}
-              <Col xs={12}>
-                <PaginationSection
-                  currentPage={currentPage}
-                  pageCount={pageCount}
-                  handlePageClick={handlePageClick}
-                />
-              </Col>
-            </Row>
+            {advertismentTypeId == 5 ? (
+              <Row className="my-5">
+                {props.advertisment.result.map((item, index) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let slicedTitle = item.title;
+                  if (item.title !== null && item.title.length > 110) {
+                    const brief = item.title;
+                    slicedTitle = brief.substring(0, 100).concat(" ...");
+                  }
+                  return (
+                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                      <div id="link" className="h-100">
+                        <ListWithImage
+                          imgSrc={paths.ads + item.id + "/" + newPath}
+                          title={slicedTitle}
+                          date={`${moment(new Date(item.publishDate)).format(
+                            "LL"
+                          )}`}
+                          category={item.advertismentTypeName}
+                          imgHeight="200px"
+                          hoverTitle="hoverTitle"
+                          divHeight="25rem"
+                        />
+                      </div>
+                    </Col>
+                  );
+                })}
+                <Col xs={12}>
+                  <PaginationSection
+                    currentPage={currentPage}
+                    pageCount={pageCount}
+                    handlePageClick={handlePageClick}
+                  />
+                </Col>
+              </Row>
+            ) : (
+              <Row className="my-5">
+                {props.advertisment.result.map((item, index) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let slicedTitle = item.title;
+                  if (item.title !== null && item.title.length > 110) {
+                    const brief = item.title;
+                    slicedTitle = brief.substring(0, 100).concat(" ...");
+                  }
+                  return (
+                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                      <Link
+                        id="link"
+                        to={`/advertisment-details/${item.id}`}
+                        className="h-100"
+                      >
+                        <ListWithImage
+                          imgSrc={paths.ads + item.id + "/" + newPath}
+                          title={slicedTitle}
+                          date={`${moment(new Date(item.publishDate)).format(
+                            "LL"
+                          )}`}
+                          category={item.advertismentTypeName}
+                          imgHeight="200px"
+                          hoverTitle="hoverTitle"
+                          divHeight="25rem"
+                        />
+                      </Link>
+                    </Col>
+                  );
+                })}
+                <Col xs={12}>
+                  <PaginationSection
+                    currentPage={currentPage}
+                    pageCount={pageCount}
+                    handlePageClick={handlePageClick}
+                  />
+                </Col>
+              </Row>
+            )}
           </Container>
         ) : (
           <div className="text-center my-5">جاري رفع البيانات</div>
@@ -243,7 +283,12 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { getAdvertisment, getAllAdvertisment, getAllAdvertismentType, clearAdvertisement },
+    {
+      getAdvertisment,
+      getAllAdvertisment,
+      getAllAdvertismentType,
+      clearAdvertisement,
+    },
     dispatch
   );
 };

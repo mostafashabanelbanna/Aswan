@@ -39,8 +39,8 @@ const YouthForm = (props) => {
       .trim("", "مطلوب *")
       .required("مطلوب *"),
     Subject: Yup.string()
-      .min(10, 'الموضوع قصير جدا')
-      .max(1000, 'الموضوع طويل جدا')
+      .min(10, "الموضوع قصير جدا")
+      .max(1000, "الموضوع طويل جدا")
       .trim("", "مطلوب *")
       .required("مطلوب *"),
     Mobile: Yup.string()
@@ -146,16 +146,14 @@ const YouthForm = (props) => {
       >
         <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            <div className="d-flex">
-              {title}
-            </div>
+            <div className="d-flex">{title}</div>
           </Modal.Title>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={props.onHideYouthModal}
-                style={{ cursor: "pointer", fontSize: "22px" }}
-                className="align-self-start my-1 ms-2 text-danger fa-1x"
-              />
+          <FontAwesomeIcon
+            icon={faTimes}
+            onClick={props.onHideYouthModal}
+            style={{ cursor: "pointer", fontSize: "22px" }}
+            className="align-self-start my-1 ms-2 text-danger fa-1x"
+          />
         </Modal.Header>
         <Modal.Body>
           <div
@@ -163,285 +161,292 @@ const YouthForm = (props) => {
             id="tab_direction-1"
             role="tabpanel"
           >
-          <Formik
-          initialValues={{
-            Name: "",
-            Mobile: "",
-            Email: "",
-            resumeeFile: "",
-            YouthEmploymentId: props.content.id,
-            Address: "",
-            NationalId: "",
-            EducationalQualification: "",
-            Subject: ""
-          }}
-          validationSchema={SignupSchema}
-          onSubmit={async (values, { setSubmitting }) => {
-            const obj = new FormData();
-            for (const objs in values) {
-              obj.append(objs, values[objs]);
-            }
-            obj.append("resumeeFile", resumee);
+            <Formik
+              initialValues={{
+                Name: "",
+                Mobile: "",
+                Email: "",
+                resumeeFile: "",
+                YouthEmploymentId: props.content.id,
+                Address: "",
+                NationalId: "",
+                EducationalQualification: "",
+                Subject: "",
+              }}
+              validationSchema={SignupSchema}
+              onSubmit={async (values, { setSubmitting }) => {
+                const obj = new FormData();
+                for (const objs in values) {
+                  obj.append(objs, values[objs]);
+                }
+                obj.append("resumeeFile", resumee);
 
-            if (disabled) {
-              return;
-            } else {
-              setDisabled(true);
-            }
-            let res = await youthApplyAPI(obj);
-            console.log(res);
-            if (res.response.data.status == 200) {
-              props.onHideYouthModal();
-              initialState();
-              setSuccessShow(true);
-            } else {
-              setDangerShow(true);
-            }
-          }}
-        >
-          {(Formik) => (
-            <form
-              className="panel-content justify-content-center col-12"
-              onSubmit={Formik.handleSubmit}
+                if (disabled) {
+                  return;
+                } else {
+                  setDisabled(true);
+                }
+                let res = await youthApplyAPI(obj);
+                if (res.response?.data.status == 200) {
+                  props.onHideYouthModal();
+                  initialState();
+                  setSuccessShow(true);
+                } else {
+                  setDangerShow(true);
+                  setDisabled(false);
+                }
+              }}
             >
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الاسم <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="Namef"
-                      name="Name"
-                      required
-                      placeholder="الاسم"
-                      // value={Name}
-                      // onChange={(e) => {
-                      //   setName(e.currentTarget.value);
-                      // }}
-                      onChange={Formik.handleChange("Name")}
-                    />
-                    {Formik.touched.Name && Formik.errors.Name ? (
+              {(Formik) => (
+                <form
+                  className="panel-content justify-content-center col-12"
+                  onSubmit={Formik.handleSubmit}
+                >
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          الاسم <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Namef"
+                          name="Name"
+                          required
+                          placeholder="الاسم"
+                          // value={Name}
+                          // onChange={(e) => {
+                          //   setName(e.currentTarget.value);
+                          // }}
+                          onChange={Formik.handleChange("Name")}
+                        />
+                        {Formik.touched.Name && Formik.errors.Name ? (
                           <div className="text-danger">
                             {Formik.errors.Name}
                           </div>
                         ) : null}
-                    {/* {Name.trim()===""&&<div className="text-danger">من فضلك ادخل الاسم</div>} */}
+                        {/* {Name.trim()===""&&<div className="text-danger">من فضلك ادخل الاسم</div>} */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الموبايل <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="Mobilef"
-                      name="Mobile"
-                      required
-                      placeholder="الموبايل"
-                      // value={Mobile}
-                    //   onChange={(e) => {
-                    //     setMobile(e.currentTarget.value);
-                    //   }}
-                    // />
-                    onChange={Formik.handleChange("Mobile")}
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          الموبايل <span style={{ color: "red" }}>
+                            {" "}
+                            *{" "}
+                          </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Mobilef"
+                          name="Mobile"
+                          required
+                          placeholder="الموبايل"
+                          // value={Mobile}
+                          //   onChange={(e) => {
+                          //     setMobile(e.currentTarget.value);
+                          //   }}
+                          // />
+                          onChange={Formik.handleChange("Mobile")}
                         />
                         {Formik.touched.Mobile && Formik.errors.Mobile ? (
                           <div className="text-danger">
                             {Formik.errors.Mobile}
                           </div>
                         ) : null}
-                    {/* <div className="invalid-feedback">من فضلك ادخل الموبايل</div> */}
-                  </div>
-                </div>
-                <div className="col-md-6 col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      البريد الالكتروني{" "}
-                      <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control text-right "
-                      id="Emailf"
-                      name="Email"
-                      required
-                      placeholder="البريد الالكتروني"
-                      //value={Email}
-                      onChange={Formik.handleChange("Email")}
+                        {/* <div className="invalid-feedback">من فضلك ادخل الموبايل</div> */}
+                      </div>
+                    </div>
+                    <div className="col-md-6 col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          البريد الالكتروني{" "}
+                          <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control text-right "
+                          id="Emailf"
+                          name="Email"
+                          required
+                          placeholder="البريد الالكتروني"
+                          //value={Email}
+                          onChange={Formik.handleChange("Email")}
                         />
                         {Formik.touched.Email && Formik.errors.Email ? (
                           <div className="text-danger">
                             {Formik.errors.Email}
                           </div>
                         ) : null}
-                    {/* <div className="invalid-feedback">
+                        {/* <div className="invalid-feedback">
                     من فضلك ادخل البريد الالكتروني
                   </div> */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الموضوع <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="SubjectF"
-                      name="Subject"
-                      required
-                      placeholder="الموضوع"
-                      // value={Subject}
-                      onChange={Formik.handleChange("Subject")}
-                    />
-                    {Formik.touched.Subject && Formik.errors.Subject ? (
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          الموضوع <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="SubjectF"
+                          name="Subject"
+                          required
+                          placeholder="الموضوع"
+                          // value={Subject}
+                          onChange={Formik.handleChange("Subject")}
+                        />
+                        {Formik.touched.Subject && Formik.errors.Subject ? (
                           <div className="text-danger">
                             {Formik.errors.Subject}
                           </div>
                         ) : null}
-                    {/* {Name.trim()===""&&<div className="text-danger">من فضلك ادخل الاسم</div>} */}
+                        {/* {Name.trim()===""&&<div className="text-danger">من فضلك ادخل الاسم</div>} */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black"> العنوان </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="Addressf"
-                      name="Address"
-                      placeholder="العنوان"
-                      //value={Address}
-                      onChange={Formik.handleChange("Address")}
-                    />
-                    {/* <div className="invalid-feedback">من فضلك ادخل العنوان</div> */}
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          العنوان{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Addressf"
+                          name="Address"
+                          placeholder="العنوان"
+                          //value={Address}
+                          onChange={Formik.handleChange("Address")}
+                        />
+                        {/* <div className="invalid-feedback">من فضلك ادخل العنوان</div> */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-12">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      المؤهلات العلمية{" "}
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control text-right "
-                      id="EducationalQualificationf"
-                      name="EducationalQualification"
-                      placeholder="المؤهلات العلمية"
-                      // value={EducationalQualification}
-                      onChange={Formik.handleChange(
-                        "EducationalQualification"
-                      )}
-                    />
-                    {/* <div className="invalid-feedback">
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          المؤهلات العلمية{" "}
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="EducationalQualificationf"
+                          name="EducationalQualification"
+                          placeholder="المؤهلات العلمية"
+                          // value={EducationalQualification}
+                          onChange={Formik.handleChange(
+                            "EducationalQualification"
+                          )}
+                        />
+                        {/* <div className="invalid-feedback">
                     من فضلك ادخل المؤهلات العلمية
                   </div> */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="form-row d-flex flex-md-row flex-column">
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label text-black">
-                      {" "}
-                      الرقم القومي <span style={{ color: "red" }}>
-                        {" "}
-                        *{" "}
-                      </span>{" "}
-                    </label>
-                    <input
-                      type="number"
-                      className="form-control text-right "
-                      id="NationalIdf"
-                      name="NationalId"
-                      required
-                      placeholder="الرقم القومي"
-                      // value={NationalId}
-                      // onChange={(e) => {
-                      //   setNationalId(e.currentTarget.value);
-                      // }}
-                      onChange={Formik.handleChange("NationalId")}
-                      />
-                      {Formik.touched.NationalId &&
-                      Formik.errors.NationalId ? (
-                        <div className="text-danger">
-                          {Formik.errors.NationalId}
-                        </div>
-                      ) : null}
-                    {/* <div className="invalid-feedback">
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          الرقم القومي <span style={{ color: "red" }}>
+                            {" "}
+                            *{" "}
+                          </span>{" "}
+                        </label>
+                        <input
+                          type="number"
+                          className="form-control text-right "
+                          id="NationalIdf"
+                          name="NationalId"
+                          required
+                          placeholder="الرقم القومي"
+                          // value={NationalId}
+                          // onChange={(e) => {
+                          //   setNationalId(e.currentTarget.value);
+                          // }}
+                          onChange={Formik.handleChange("NationalId")}
+                        />
+                        {Formik.touched.NationalId &&
+                        Formik.errors.NationalId ? (
+                          <div className="text-danger">
+                            {Formik.errors.NationalId}
+                          </div>
+                        ) : null}
+                        {/* <div className="invalid-feedback">
                     من فضلك ادخل الرقم القومي
                   </div> */}
-                  </div>
-                </div>
-                <div className="col-md-6 col-12 ">
-                  <div className="form-group">
-                    <label className="form-label d-block">
-                      السيرة الذاتية <span style={{ color: "red" }}> * </span>{" "}
-                    </label>
-                    <div className="custom-file">
-                      <input
-                        type="file"
-                        name="Resumee"
-                        className="custom-file-input"
-                        id="Resumee_AttachmentInput"
-                        style={{ cursor: "pointer" }}
-                        onChange={onFileChange}
-                        required
-                      />
-                      <label
-                        id="attachmentLabel"
-                        className="custom-file-label p-2"
-                        for="AttachmentInput"
-                      >
-                        {resumee?.name ? resumee.name : "اختر ملف..."}
-                      </label>
+                      </div>
                     </div>
-                    {/* <div className="invalid-feedback"></div> */}
+                    <div className="col-md-6 col-12 ">
+                      <div className="form-group">
+                        <label className="form-label d-block">
+                          السيرة الذاتية{" "}
+                          <span style={{ color: "red" }}> * </span>{" "}
+                        </label>
+                        <div className="custom-file">
+                          <input
+                            type="file"
+                            name="Resumee"
+                            className="custom-file-input"
+                            id="Resumee_AttachmentInput"
+                            style={{ cursor: "pointer" }}
+                            onChange={onFileChange}
+                            required
+                          />
+                          <label
+                            id="attachmentLabel"
+                            className="custom-file-label p-2"
+                            for="AttachmentInput"
+                          >
+                            {resumee?.name ? resumee.name : "اختر ملف..."}
+                          </label>
+                        </div>
+                        {/* <div className="invalid-feedback"></div> */}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-end">
-                <button
-                  id="savee"
-                  type="submit"
-                  disabled={disabled}
-                  class="btn btn-primary btn-main-bg my-4 mx-2"
-                >
-                  {disabled ? "جاري الحفظ" : "حفظ"}
-                </button>
-                <Button
-                  className="my-4 mx-2"
-                  style={{ backgroundColor: "orange", borderColor: "gray" }}
-                  onClick={() => {
-                    props.onHideYouthModal();
-                    initialState();
-                  }}
-                >
-                  إلغاء
-                </Button>
-              </div>
-            </form>
-            )}
+                  <div className="d-flex justify-content-end">
+                    <button
+                      id="savee"
+                      type="submit"
+                      disabled={disabled}
+                      class="btn btn-primary btn-main-bg my-4 mx-2"
+                    >
+                      {disabled ? "جاري الحفظ" : "حفظ"}
+                    </button>
+                    <Button
+                      className="my-4 mx-2"
+                      style={{ backgroundColor: "orange", borderColor: "gray" }}
+                      onClick={() => {
+                        props.onHideYouthModal();
+                        initialState();
+                      }}
+                    >
+                      إلغاء
+                    </Button>
+                  </div>
+                </form>
+              )}
             </Formik>
           </div>
         </Modal.Body>

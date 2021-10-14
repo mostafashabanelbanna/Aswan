@@ -51,8 +51,7 @@ export async function getAllDirectoryCategory(id) {
       );
     else res = await axios.get(`/LookUpAPI/GetAllDirectoryCategory`);
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "DIRECTORY_CATEGORY",
     payload,
@@ -72,8 +71,7 @@ export async function getAllDirectoryType() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllDirectoryType");
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "DIRECTORY_TYPE",
     payload,
@@ -100,8 +98,7 @@ export async function getEServiceDirectories(
 
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "ESERVICE_DIRECTORIES",
     payload,
@@ -121,8 +118,7 @@ export async function getAllServiceDirectoryTypes() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllServiceCategory");
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "ESERVICE_DIRECTORY_TYPES",
     payload,
@@ -145,8 +141,7 @@ export async function getDirectorates(pageNumber, keywords = {}, pageSize = 9) {
 
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "DIRECTORATES",
     payload,
@@ -181,8 +176,7 @@ export async function getAdvertisements(
 
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "ADVERTISEMENTS",
     payload,
@@ -202,8 +196,7 @@ export async function getAllAdvertisementTypes() {
   try {
     let res = await axios.get("/LookUpAPI/GetAllAdvertismentType");
     payload = res.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "ADVERTISEMENT_TYPES",
     payload,
