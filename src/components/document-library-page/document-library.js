@@ -110,7 +110,6 @@ const DocumentLibrary = (props) => {
                 {props.documentLibrary.result.length ? (
                   <>
                     {props.documentLibrary.result.map((item) => {
-                      console.log(props.documentLibrary.result);
                       // let date = item.publishDate
                       //   .replace(/\//g, "-")
                       //   .split("-");

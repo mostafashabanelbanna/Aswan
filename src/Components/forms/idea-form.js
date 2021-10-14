@@ -203,7 +203,6 @@ const IdeaForm = (props) => {
                         options={BusinessFieldName}
                         onChange={(e) => {
                           Formik.setFieldValue("BusinessFieldId", e.value);
-                          console.log(e.value);
                         }}
                       />
                       {Formik.touched.BusinessFieldId &&

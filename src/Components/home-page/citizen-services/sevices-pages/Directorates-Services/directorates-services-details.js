@@ -13,7 +13,6 @@ import ReactHtmlParser from "react-html-parser";
 const DirectoratesDetails = (props) => {
   let routeId = props.Id;
   const [data, setData] = useState({});
-  console.log("Data", data);
 
   useEffect(() => {
     if (routeId != 0)
@@ -36,7 +35,6 @@ const DirectoratesDetails = (props) => {
     } else {
       newPath = null;
     }
-    console.log(newPath);
     return (
       <div className="container tab-content ml-1" id="nav-tabContent">
         <div

@@ -84,7 +84,6 @@ const EServiceDirectories = (props) => {
     serviceDirVal.unshift({ value: null, label: "كل الخدمات" });
     pageCount = Math.ceil(props.serviceDirectories.count / 9);
     if (props.serviceDirectories.page == currentPage + 1) {
-      console.log(props.serviceDirectories.result);
       return (
         <>
           <Container fluid>
@@ -108,7 +107,6 @@ const EServiceDirectories = (props) => {
           />
           <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
             {props.serviceDirectories.result.map((item, index) => {
-              console.log(props.serviceDirectories.result);
               let pName;
               let newPath;
               if (item.photo != null) {

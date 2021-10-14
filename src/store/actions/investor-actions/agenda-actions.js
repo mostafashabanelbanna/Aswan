@@ -5,8 +5,7 @@ export async function getAllEventsInvestor() {
   try {
     let response = await axios.get(`/EventAPI/GetEventInvestor`);
     payload = await response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "EVENTS_LIST",
     payload,
@@ -23,14 +22,13 @@ export async function clearAllEventsInvestor() {
 }
 
 export async function getInvestorEventByMonth(month) {
-  console.log(month);
   let payload = null;
   try {
-    let response = await axios.get(`/EventAPI/GetInvestorCalenderEventbymonth/${month}`);
+    let response = await axios.get(
+      `/EventAPI/GetInvestorCalenderEventbymonth/${month}`
+    );
     payload = await response.data;
-    console.log(payload)
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "EVENT_OF_MONTH",
     payload,

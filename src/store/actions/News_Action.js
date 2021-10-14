@@ -154,7 +154,6 @@ export async function getNewsSectors() {
 
 export async function newsList(pageNumber, keywords = {}, pageSize = 9) {
   let payload = null;
-  console.log(pageNumber);
   try {
     let response = await axios.post(
       "/NewsAPI/Search/" + pageNumber + "/" + pageSize,

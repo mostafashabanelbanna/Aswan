@@ -5,8 +5,7 @@ export async function getAllEventsHome() {
   try {
     let response = await axios.get(`/EventAPI/GetEventGovernment`);
     payload = await response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "EVENTS_LIST",
     payload,
@@ -23,14 +22,13 @@ export async function clearAllEventsHome() {
 }
 
 export async function getEventByMonth(month) {
-  console.log(month);
   let payload = null;
   try {
-    let response = await axios.get(`/EventAPI/GetGovernmentCalenderEventbymonth/${month}`);
+    let response = await axios.get(
+      `/EventAPI/GetGovernmentCalenderEventbymonth/${month}`
+    );
     payload = await response.data;
-    console.log(payload)
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "EVENT_OF_MONTH",
     payload,
