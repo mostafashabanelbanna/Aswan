@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 import MainSliderSkeleton from "../../../../loading-skeleton/mainSlider";
 import { paths } from "../../../../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperclip, faPercentage } from "@fortawesome/free-solid-svg-icons";
 const DirectoratesDetails = (props) => {
   let routeId = props.Id;
   const [data, setData] = useState({});
@@ -77,7 +78,7 @@ const DirectoratesDetails = (props) => {
                 <p dir="rtl">
                   <strong>
                     <span style={{ fontSize: "20px" }}>
-                      <span>{`الهدف: ${ReactHtmlParser(data.goal)}`}</span>
+                      <span>{`الهدف: ${data.goal}`}</span>
                     </span>
                   </strong>
                 </p>
@@ -91,7 +92,7 @@ const DirectoratesDetails = (props) => {
                 <p dir="rtl">
                   <strong>
                     <span style={{ fontSize: "20px" }}>
-                      <span>{`الرؤية: ${ReactHtmlParser(data.vision)}`}</span>
+                      <span>{`الرؤية: ${data.vision}`}</span>
                     </span>
                   </strong>
                 </p>
@@ -99,18 +100,23 @@ const DirectoratesDetails = (props) => {
             </div>
           ) : null}
 
-          {data.attachment !== null ? (
-            <div className="row">
-              <div className="col-12">
-                <iframe
-                  frameborder="0"
-                  src={`${paths.DirectorateAttachment}${data.id}/${data.attachment}`}
-                  width="100%"
-                  height="800px"
-                ></iframe>
-              </div>
+          {data.attachment != null && (
+            <div className="d-flex flex-row align-items-center">
+              <FontAwesomeIcon
+                icon={faPaperclip}
+                className="align-self-center text-danger"
+              />
+              <h6 className="text-primary mx-2 mt-1">
+                <a
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={`${paths.DirectorateAttachment}${data.id}/${data.attachment}`}
+                  target="_blank"
+                >
+                  إستعراض الملف المرفق
+                </a>
+              </h6>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     );

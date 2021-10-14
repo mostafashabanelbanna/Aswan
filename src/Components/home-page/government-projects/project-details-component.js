@@ -116,24 +116,27 @@ const ProjectDetails = (props) => {
             <div className="d-flex flex-column col mt-2">
               {details.changeRate != null && (
                 <div className="d-flex flex-row mt-2">
-                  <h6 className="mx-2 my-0">نسبة التنفيذ: {details.changeRate} %</h6>
+                  <h6 className="mx-2 my-0">
+                    نسبة التنفيذ: {details.changeRate} %
+                  </h6>
                 </div>
               )}
               {details.attachment != null && (
-              <div className="d-flex flex-row align-items-center">
-                <FontAwesomeIcon
-                  icon={faPaperclip}
-                  className="align-self-center text-danger"
-                />
-                <h6 className="text-primary mx-2 mt-1">
-                  <a
-                    style={{ textDecoration: "none", color: "black" }}
-                    href={`${paths.ProjectAttachment}${details.id}/${details.attachment}`}
-                  >
-                    إستعراض الملف المرفق
-                  </a>
-                </h6>
-              </div>
+                <div className="d-flex flex-row align-items-center">
+                  <FontAwesomeIcon
+                    icon={faPaperclip}
+                    className="align-self-center text-danger"
+                  />
+                  <h6 className="text-primary mx-2 mt-1">
+                    <a
+                      target="_blank"
+                      style={{ textDecoration: "none", color: "black" }}
+                      href={`${paths.ProjectAttachment}${details.id}/${details.attachment}`}
+                    >
+                      إستعراض الملف المرفق
+                    </a>
+                  </h6>
+                </div>
               )}
             </div>
             <div className=" text-start fa-1x p-3 mb-1 detailsSectorName">

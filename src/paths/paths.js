@@ -32,5 +32,5 @@ export const paths = {
   NationalCouncil: `${MainPath}NationalCouncil/Photo/`,
   Directory: `${MainPath}Directory/Photo/`,
   DirectoratePhoto: `${MainPath}Plan/Photo/`,
-  DirectorateAttachment: `${MainPath}Directory/Attachment/`,
+  DirectorateAttachment: `${MainPath}Plan/Attachment/`,
 };

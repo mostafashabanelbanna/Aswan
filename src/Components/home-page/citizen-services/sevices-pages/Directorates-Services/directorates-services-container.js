@@ -25,7 +25,7 @@ const DirectoratesContainer = (props) => {
   }, [parseInt(id)]);
 
   if (props?.directoratesDetails?.result) {
-    if (flag == 0) {
+    if (flag == 0 && props.directoratesDetails.result.plans.length > 0) {
       setDetailsID(props.directoratesDetails.result.plans[0].id);
       setFlag(1);
     }
