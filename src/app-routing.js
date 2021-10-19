@@ -56,6 +56,7 @@ import NationalCouncilDetails from "./components/home-page/local-leaders/local-l
 import SocietyDetails from "./components/home-page/local-leaders/local-leaders-pages/details/society-details";
 import Society from "./components/home-page/local-leaders/local-leaders-pages/society";
 import DirectoratesHome from "./components/home-page/citizen-services/sevices-pages/Directorates-Services/directorates-services-home";
+import YouthLeaders from "./components/home-page/local-leaders/local-leaders-pages/youth-leaders";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -117,6 +118,7 @@ const AppRouting = () => {
           <Route exact path="/societydetails/:id" component={SocietyDetails} />
           <Route exact path="/parliament" component={Parliament} />
           <Route exact path="/senate" component={Senate} />
+          <Route exact path="/youthleaders" component={YouthLeaders} />
           <Route
             exact
             path="/HayaKarimaDetails/:id"

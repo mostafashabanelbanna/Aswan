@@ -93,14 +93,20 @@ const LocalLeaders = (props) => {
                   </div>
                 </Link>
 
-                <div className="mx-md-1 col-lg-2 col-md-4 col-sm-6 col-12 mb-5 hvr-grow">
-                  <img
-                    src="./images/icons/Youth-0١.png"
-                    className="mb-3 icons"
-                    alt=""
-                  />
-                  <p>القيادات الشابة</p>
-                </div>
+                <Link
+                  id="link"
+                  to="/youthleaders"
+                  className="mx-md-1 text-decoration-none"
+                >
+                  <div className="col-lg-2 col-md-4 col-sm-6 col-12 mb-5 hvr-grow">
+                    <img
+                      src="./images/icons/Youth-0١.png"
+                      className="mb-3 icons"
+                      alt=""
+                    />
+                    <p>القيادات الشابة</p>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

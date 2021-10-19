@@ -69,6 +69,21 @@ export async function getSenate() {
   };
 }
 
+//YouthLeaders
+
+export async function getYouthLeaders() {
+  let payload = null;
+  try {
+    let res = await axios.get("/StaticContentAPI/GetAll/3001");
+    payload = res.data;
+  } catch (e) {}
+
+  return {
+    type: "Youth_Leaders",
+    payload,
+  };
+}
+
 //National Council
 
 export async function getNationalCouncil(

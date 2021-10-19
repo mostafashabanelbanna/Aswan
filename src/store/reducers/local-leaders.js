@@ -16,6 +16,10 @@ export function LocalLeadersComponents(state = {}, action) {
     case "SENATE":
       return { ...state, allSenate: action.payload };
 
+    //youth leaders
+    case "Youth_Leaders":
+      return { ...state, allYouthLeaders: action.payload };
+
     //NationalCouncil
     case "NationalCouncil":
       return { ...state, NationalCouncil: action.payload };
