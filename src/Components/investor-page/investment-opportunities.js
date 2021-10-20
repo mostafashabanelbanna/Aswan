@@ -22,6 +22,12 @@ const InvestmentOpportunities = (props) => {
             pName = item.photo;
             newPath = pName.replaceAll(" ", "%20");
           }
+          let Title;
+          if (item.title) {
+            Title = item.title;
+          } else {
+            Title = `فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`;
+          }
           return (
             <div
               id="link"
@@ -32,14 +38,14 @@ const InvestmentOpportunities = (props) => {
                   <div
                     style={{
                       backgroundImage: `url(${paths.InvestmentPhotos}${item.id}/${newPath})`,
-                      cursor:'unset'
+                      cursor: "unset",
                     }}
                     className="imageAlbum"
-                    alt={`فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`}
+                    alt={Title}
                   ></div>
                 </div>
                 <p className="text-center mb-5" style={{ fontSize: "18px" }}>
-                  {`فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`}
+                  {Title}
                 </p>
               </div>
             </div>

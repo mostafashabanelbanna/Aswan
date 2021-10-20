@@ -1,6 +1,9 @@
-const MainPath = "http://41.128.217.181:10090/upload/";
+import configData from "../settings.module.json";
 
-// const MainPath = "/images/Upload/";
+// "MainPath": "http://41.128.217.181:10090/upload/";
+// "MainPath": "http://192.168.100.25:802/upload/",
+// "MainPath": "http://portal.admin.aswan.gov/upload/",
+const MainPath = configData.MainPath;
 
 export const paths = {
   MainSlider: `${MainPath}TouristAttraction/Photo/`,

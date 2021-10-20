@@ -1,0 +1,7 @@
+{
+  "MainPath": "http://192.168.100.25:802/upload/",
+  "MainPathTest": "http://41.128.217.181:10090/upload/",
+  "baseURL": "http://192.168.100.25:80/api",
+  "baseURLTest": "http://41.128.217.181:10097/api",
+  "note": "remove Test word after MainPath or baseURL and add any letter after the two others"
+}

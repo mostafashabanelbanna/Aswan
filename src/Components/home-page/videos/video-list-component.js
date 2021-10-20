@@ -136,7 +136,7 @@ const VideosList = (props) => {
                       date={`${moment(new Date(publishedDate)).format("LL")}`}
                       center="yes"
                       imgHeight="250px"
-                      hoverTitle="hoverTitle"
+                      hoverTitle="hoverTitle h-100"
                     />
                   </Link>
                 </div>

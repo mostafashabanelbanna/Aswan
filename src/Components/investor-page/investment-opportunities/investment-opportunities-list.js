@@ -193,6 +193,12 @@ const InvestmentOpportunitiesList = (props) => {
                   pName = item.photo;
                   newPath = pName.replaceAll(" ", "%20");
                 }
+                let Title;
+                if (item.title) {
+                  Title = item.title;
+                } else {
+                  Title = "فرصة إستثمارية: ";
+                }
                 return (
                   <div className="mb-4 col-md-6 col-xl-4 col-12">
                     <div id="link" style={{ cursor: "auto" }} className="h-100">
@@ -200,15 +206,16 @@ const InvestmentOpportunitiesList = (props) => {
                         imgSrc={
                           paths.InvestmentPhotos + item.id + "/" + newPath
                         }
-                        content={`- فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName}\n
+                        content={`- ${Title}\n
+                        - المنطقة الصناعية: ${item.industryZoneName}\n
                         - النشاط: ${item.activityName}\n
                         - التخصص: ${item.investmentSpecialtyTypeName}\n
                         - نظام السداد: ${item.investmentPaymentSystemName}\n
                         `}
                         center=""
                         imgHeight="250px"
-                        hoverTitle="hoverTitle"
-                        divHeight="31rem"
+                        hoverTitle="hoverTitle custom-holder"
+                        // divHeight="31rem"
                       />
                     </div>
                   </div>
