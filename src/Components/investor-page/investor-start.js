@@ -23,7 +23,7 @@ const InvestorStart = (props) => {
     arrows: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     infinite: true,
     speed: 3000,
     pauseOnFocus: true,
