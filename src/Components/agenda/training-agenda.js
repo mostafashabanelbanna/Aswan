@@ -27,6 +27,7 @@ import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 import { Link, useHistory } from "react-router-dom";
 import $ from "jquery";
 import AgendaForm from "../forms/agenda-form";
+import AgendaSkeleton from "../loading-skeleton/agenda-skeleton";
 
 const TrainingAgenda = (props) => {
   let calenderRef = createRef();
@@ -259,7 +260,7 @@ const TrainingAgenda = (props) => {
               <div> لا توجد احداث هذا الشهر </div>
             )
           ) : (
-            <div>جاااري التحميل</div>
+            <AgendaSkeleton />
           )}
         </div>
       </div>
