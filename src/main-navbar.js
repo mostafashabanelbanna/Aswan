@@ -148,7 +148,7 @@ const Main_navbar = () => {
                   <li className={`nav-item `}>
                     <Link
                       id="link"
-                      to="/statichome/2001/aboutgovernment/2001/investor"
+                      to="/statichome/2001/aboutgovernment/2001/aboutgovernment"
                       className="nav-link text-light"
                     >
                       {" "}

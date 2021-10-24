@@ -65,7 +65,9 @@ const StaticContent = (props) => {
   if (props?.allStaticContent?.result?.length > 0) {
     if (flag == 0) {
       setDetailsID(
-        name == "investor" ? props.allStaticContent.result[0].id : personId
+        name == "investor" || name == "aboutgovernment"
+          ? props.allStaticContent.result[0].id
+          : personId
       );
       setFlag(1);
     }
@@ -96,7 +98,7 @@ const StaticContent = (props) => {
                     borderRadius: "4px",
                   }}
                   className={` ${
-                    name == "investor"
+                    name == "investor" || name == "aboutgovernment"
                       ? detailsID == item.id
                         ? activeClass
                         : ""

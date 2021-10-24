@@ -6,12 +6,7 @@ import configData from "../settings.module.json";
 // const MainPath = configData.MainPath;
 // const MainPath = process.env.REACT_APP_MAINPATH;
 
-let MainPath;
-if (process.env.NODE_ENV === "development") {
-  MainPath = process.env.REACT_APP_MAINPATH_DEV;
-} else {
-  MainPath = process.env.REACT_APP_MAINPATH_PROD;
-}
+let MainPath = process.env.REACT_APP_MAINPATH;
 
 export const paths = {
   MainSlider: `${MainPath}TouristAttraction/Photo/`,
