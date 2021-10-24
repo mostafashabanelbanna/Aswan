@@ -83,7 +83,12 @@ const CitizenServices = () => {
                   </div>
                 </Link>
 
-                <a id="link" href="http://agriprice.gov.eg/" target="_blank">
+                <a
+                  id="link"
+                  // href="http://agriprice.gov.eg/local-prices/Aswan"
+                  href="http://agriprice.gov.eg/local-prices/Aswan/Aswan"
+                  target="_blank" //localhost:3001/
+                >
                   <div className="mb-4 col-md-4 col-sm-6 col-8  hvr-rectangle-out ">
                     <img
                       style={{ width: 100 }}

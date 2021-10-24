@@ -1,5 +1,5 @@
 {
-  "MainPath": "http://192.168.100.25:802/upload/",
+  "MainPath": "http://portal.admin.aswan.gov/upload/",
   "MainPathTest": "http://41.128.217.181:10090/upload/",
   "baseURL": "http://192.168.100.25:80/api",
   "baseURLTest": "http://41.128.217.181:10097/api",
