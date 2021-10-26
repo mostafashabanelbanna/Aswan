@@ -63,7 +63,7 @@ const GovernmentFamous = (props) => {
           <div className="container py-4 mb-2">
             <div className="d-flex">
               <img
-              className="brightness"
+                className="brightness"
                 src="./images/icons/Famous_titel-0٢.png"
                 alt=""
                 width="80px"
@@ -82,9 +82,9 @@ const GovernmentFamous = (props) => {
                 }
                 return (
                   <Link
-                    to={`/statichome/1/${person.title}/${person.id}/${'home'}`}
+                    to={`/famousDetails/${person.id}`}
                     key={person.id}
-                    id='link'
+                    id="link"
                     className="d-flex flex-column align-items-center justify-content-between hovering"
                   >
                     <div className="outerPolygon">

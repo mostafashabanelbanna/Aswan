@@ -57,6 +57,8 @@ import SocietyDetails from "./components/home-page/local-leaders/local-leaders-p
 import Society from "./components/home-page/local-leaders/local-leaders-pages/society";
 import DirectoratesHome from "./components/home-page/citizen-services/sevices-pages/Directorates-Services/directorates-services-home";
 import YouthLeaders from "./components/home-page/local-leaders/local-leaders-pages/youth-leaders";
+import FamousStaticContentDetails from "./components/home-page/government-famous/static-content-details";
+import FilterAppointment from "./components/appointment/filter-appointment";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -97,11 +99,21 @@ const AppRouting = () => {
           />
           <Route
             exact
+            path="/famousDetails/:id"
+            component={FamousStaticContentDetails}
+          />
+          <Route
+            exact
             path="/directorates/:id/:name"
             component={DirectoratesHome}
           />
           <Route exact path="/newslist" component={news_list} />
           <Route exact path="/filternews/:info" component={FilterNews} />
+          <Route
+            exact
+            path="/filterappointments/:info"
+            component={FilterAppointment}
+          />
           <Route exact path="/filterphotos/:info" component={FilterPhotos} />
           <Route exact path="/filtervideos/:info" component={FilterVideos} />
           <Route exact path="/exconservatives" component={ExConservatives} />

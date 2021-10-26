@@ -107,7 +107,7 @@ const CityDetails = (props) => {
     }
     return (
       <>
-        <div className="underline container my-5">
+        <div className="underline container my-3">
           <h3>
             {props.cityDetails.result.cityCategoryName}{" "}
             {props.cityDetails.result.name}

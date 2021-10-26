@@ -2,73 +2,63 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  newsList,
-  clearNewsList,
-  getNewsCategory,
-  getNewsSectors,
-} from "../../../store/actions/News_Action";
+  getAppointments,
+  getAppointmentsTypes,
+} from "../../store/actions/appointment-action";
 import { bindActionCreators } from "redux";
-import PaginationSection from "../../ui/pagination-section";
-import ListWithImage from "../../ui/list-with-image";
-import { paths } from "../../../paths/paths";
-import ListSkeleton from "../../loading-skeleton/list-skiliton";
-import { Col, Container, Row } from "react-bootstrap";
+import PaginationSection from "../ui/pagination-section";
+import ListWithImage from "../ui/list-with-image";
+import { paths } from "../../paths/paths";
+import ListSkeleton from "../loading-skeleton/list-skiliton";
+import { Container } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
-import SearchSection from "../../ui/search-section";
-const FilterNews = (props) => {
-  const info = props.match.params.info.split("&&");
+import SearchSection from "../ui/search-section";
+
+const FilterAppointment = (props) => {
+  const info = props.match.params.info;
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
-  const [sectorSourceId, setSector] = useState(parseInt(info[0]));
-  const [flag, setFlag] = useState(0);
-  const [newsCategoryId, setNewsCategoryId] = useState(null);
-  const [publishDateFrom, setPublishDateFrom] = useState(null);
-  const [publishDateTo, setPublishDateTo] = useState(null);
+  const [appointmentDateFrom, setAppointmentDateFrom] = useState(null);
+  const [appointmentDateTo, setAppointmentDateTo] = useState(null);
+  const [appointmentTypeId, setAppointmentTypeId] = useState(parseInt(info));
 
   let dataFilled = {
     title,
-    publishDateFrom,
-    sectorSourceId,
-    publishDateTo,
-    newsCategoryId,
+    appointmentDateFrom,
+    appointmentDateTo,
+    appointmentTypeId,
   };
 
   let pageCount;
   useEffect(() => {
-    info[2] == "sector"
-      ? props.newsList(currentPage + 1, { sectorSourceId: parseInt(info[0]) })
-      : props.newsList(currentPage + 1, { newsCategoryId: parseInt(info[0]) });
-
-    if (!props.categories) props.getNewsCategory();
-    if (!props.sectors) props.getNewsSectors();
+    props.getAppointments(currentPage + 1, {
+      appointmentTypeId: parseInt(info),
+    });
+    if (!props.apointmenttypes) props.getAppointmentsTypes();
   }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setCurrentPage(0);
-    props.newsList(currentPage + 1, data(dataFilled));
-    setFlag(1);
+    props.getAppointments(currentPage + 1, data(dataFilled));
   };
 
   const titleHandler = (e) => {
     setTitle(e.target.value);
   };
 
-  const catHandler = (e) => {
-    setNewsCategoryId(e.value);
-  };
-  const sectorHandler = (e) => {
-    setSector(e.value);
+  const typeHandler = (e) => {
+    setAppointmentTypeId(e.value);
   };
   const publishFromHandler = (dateChanged) =>
-    setPublishDateFrom(
+    setAppointmentDateFrom(
       moment(new Date(dateChanged._d).toLocaleDateString(), "MM-DD-YYYY")
         .format("YYYY-MM-DD")
         .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
     );
   const publishToHandler = (dateChanged) =>
-    setPublishDateTo(
+    setAppointmentDateTo(
       moment(new Date(dateChanged._d).toLocaleDateString(), "MM-DD-YYYY")
         .format("YYYY-MM-DD")
         .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
@@ -92,26 +82,21 @@ const FilterNews = (props) => {
   }
 
   const handlePageClick = ({ selected: selectedPage }) => {
-    props.clearNewsList();
+    // props.clearNewsList();
     setCurrentPage(selectedPage);
   };
-  if (props?.data?.result) {
-    let catName = props.categories.result.map(({ id, nameA }) => ({
+  if (props?.apointment?.result) {
+    let typesName = props.apointmenttypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
-    let sectorsName = props.sectors.result.map(({ id, nameA }) => ({
-      value: id,
-      label: nameA,
-    }));
-    catName.unshift({ value: null, label: "كل الاقسام" });
-    sectorsName.unshift({ value: null, label: "كل القطاعات" });
-    pageCount = Math.ceil(props.data.count / 9);
+    typesName.unshift({ value: null, label: "كل الانواع" });
+    pageCount = Math.ceil(props.apointment.count / 9);
     return (
       <>
         <Container fluid>
           <div className=" container underline  my-5">
-            <h3>الأخبار</h3>
+            <h3>لقاءات و قرارات السيد المحافظ</h3>
           </div>
         </Container>
         <SearchSection
@@ -119,30 +104,23 @@ const FilterNews = (props) => {
           TextFieldOneHandler={titleHandler}
           labelTextFieldOne="العنوان"
           classNameTextFieldOne="col-sm-4 col-12"
-          dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
-          dropdownOneHandler={catHandler}
-          dropdownOneName={catName}
-          dropdownOnePlaceholder="القسم"
-          classNameDropdownOne="col-sm-4 col-12"
-          dropdownTwoVal={sectorsName.find((e) => e.value == sectorSourceId)}
-          dropdownTwoHandler={sectorHandler}
-          dropdownTwoPlaceholder="القطاع"
-          dropdownTwoName={sectorsName}
+          dropdownTwoVal={typesName.find((e) => e.value == appointmentTypeId)}
+          dropdownTwoHandler={typeHandler}
+          dropdownTwoPlaceholder="النوع"
+          dropdownTwoName={typesName}
           classNameDropdownTwo="col-sm-4 col-12"
-          publishDateFrom={publishDateFrom}
+          publishDateFrom={appointmentDateFrom}
           publishFromHandler={publishFromHandler}
           classNameDPFrom="col-sm-4 col-12"
-          publishDateTo={publishDateTo}
+          publishDateTo={appointmentDateTo}
           publishToHandler={publishToHandler}
           classNameDPTo="col-sm-4 col-12"
           classNameBtn="col-sm-4 col-12"
         />
         <div className="container mt-5">
           <div className="row ">
-            {props.data.result ? (
-              props.data.result.map((item) => {
-                // let date = item.publishDate.replace(/\//g,'-').split('-');
-                // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+            {props.apointment.result.length ? (
+              props.apointment.result.map((item) => {
                 let pName;
                 let newPath;
                 if (item.photo != null) {
@@ -153,18 +131,19 @@ const FilterNews = (props) => {
                   <div className="mb-4 col-md-6 col-xl-4 col-12">
                     <Link
                       id="link"
-                      to={`/newsdetails/${item.id}`}
+                      to={`/appointmentdetails/${item.id}`}
                       className="h-100"
                     >
                       <ListWithImage
-                        imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
+                        imgSrc={paths.Appointment + item.id + "/" + newPath}
                         title={item.title}
-                        date={`${moment(new Date(item.publishDate)).format(
+                        date={`${moment(new Date(item.appointmentDate)).format(
                           "LL"
                         )}`}
-                        category={item.newsCategoryName}
+                        category={item.appointmentTypeName}
                         imgHeight="200px"
                         hoverTitle="hoverTitle"
+                        divHeight="25rem"
                       />
                     </Link>
                   </div>
@@ -188,16 +167,15 @@ const FilterNews = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    data: state.homeComponents.newslist,
-    categories: state.homeComponents.categories,
-    sectors: state.homeComponents.sectors,
+    apointment: state.GovernerComponents.apointment,
+    apointmenttypes: state.GovernerComponents.apointmenttypes,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
-    { newsList, clearNewsList, getNewsCategory, getNewsSectors },
+    { getAppointments, getAppointmentsTypes },
     dispatch
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterNews);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterAppointment);

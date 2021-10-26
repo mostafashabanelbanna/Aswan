@@ -18,7 +18,7 @@ const TechCenterServices = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [flag, setFlag] = useState(1);
   const [name, setName] = useState(null);
-  const [serviceCategoryId, setServiceDirectories] = useState(null);
+  const [serviceCategoryId, setServiceDirectories] = useState(4);
 
   let pageCount;
 
@@ -27,7 +27,7 @@ const TechCenterServices = (props) => {
     setCurrentPage(0);
     props.getEServiceDirectories(
       currentPage + 1,
-      data({ name, serviceCategoryId: 4 })
+      data({ name, serviceCategoryId })
     );
     setFlag(1);
   };
@@ -36,7 +36,7 @@ const TechCenterServices = (props) => {
     setName(e.target.value);
   };
   const serviceDirectoriesHandler = (e) => {
-    setServiceDirectories(4);
+    setServiceDirectories(e.value);
   };
 
   function data(a) {
@@ -94,7 +94,9 @@ const TechCenterServices = (props) => {
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne="الاسم"
             classNameTextFieldOne="col-md-5 col-12"
-            dropdownOneVal={serviceDirVal.find((e) => e.value == 4)}
+            dropdownOneVal={serviceDirVal.find(
+              (e) => e.value == serviceCategoryId
+            )}
             dropdownOneHandler={serviceDirectoriesHandler}
             dropdownOnePlaceholder="كل الخدمات"
             dropdownOneName={serviceDirVal}

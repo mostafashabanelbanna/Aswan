@@ -5,6 +5,8 @@ import { leaders } from "../../store/actions/governer";
 import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import ListSkeleton from "../loading-skeleton/list-skiliton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Leaders = (props) => {
   useEffect(() => {
@@ -18,6 +20,7 @@ const Leaders = (props) => {
       pName = props.leader.curr.photo;
       newPath = pName.replaceAll(" ", "%20");
     }
+    console.log(props.leader.result);
     return (
       <>
         <div className=" container underline  my-5">
@@ -41,13 +44,18 @@ const Leaders = (props) => {
                 newPath = pName.replaceAll(" ", "%20");
               }
               return (
-                <div key={item.id} className="col-md-6 col-xl-4 col-12 my-2 text-center">
+                <div
+                  key={item.id}
+                  className="col-md-6 col-xl-4 col-12 my-2 text-center"
+                >
                   <ListWithImage
                     imgSrc={paths.Leader + item.id + "/" + newPath}
                     title={item.name}
                     imgHeight="200px"
-                    hoverTitle="hoverTitle"
+                    hoverTitle="hoverTitle h-100"
                     content={item.leaderJobTitleName}
+                    attachment={item.resumee}
+                    id={item.id}
                   />
                 </div>
               );

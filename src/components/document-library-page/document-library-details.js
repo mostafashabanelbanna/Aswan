@@ -23,10 +23,9 @@ const DocumentLibraryDetails = (props) => {
     };
   }, []);
 
-
   if (props?.documentLibraryDetail?.result) {
-    let sectorName = props.documentLibraryDetail.result.sectorName;
-    let sectorid = props.documentLibraryDetail.result.sectorId;
+    // let sectorName = props.documentLibraryDetail.result.sectorName;
+    // let sectorid = props.documentLibraryDetail.result.sectorId;
     return (
       <div>
         <div className="underline container mt-5">
@@ -34,37 +33,42 @@ const DocumentLibraryDetails = (props) => {
         </div>
         <div className="container d-flex justify-content-between mt-4">
           <div className="col-7 align-items-end fa-1x">
-            {props.documentLibraryDetail.result.url?<div className="d-flex ">
-              <div className="mx-3">
-                <FontAwesomeIcon icon={faLink} size={26}></FontAwesomeIcon>
+            {props.documentLibraryDetail.result.url ? (
+              <div className="d-flex ">
+                <div className="mx-3">
+                  <FontAwesomeIcon icon={faLink} size={26}></FontAwesomeIcon>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    href={props.documentLibraryDetail.result.url}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {props.documentLibraryDetail.result.url}
+                  </a>
+                </div>
               </div>
-              <div>
-                <a
-                  target="_blank"
-                  href={props.documentLibraryDetail.result.url}
-                  style={{ cursor: "pointer" }}
-                >
-                  {props.documentLibraryDetail.result.url}
-                </a>
+            ) : null}
+            {props.documentLibraryDetail.result.publishDate ? (
+              <div className="d-flex ">
+                <div className="mx-3">
+                  {" "}
+                  <FontAwesomeIcon
+                    icon={faCalendarAlt}
+                    size={26}
+                  ></FontAwesomeIcon>{" "}
+                </div>
+                <div>
+                  {`${moment(
+                    new Date(props.documentLibraryDetail.result.publishDate)
+                  ).format("LL")}`}
+                </div>
               </div>
-            </div>:null}
-            {props.documentLibraryDetail.result.publishDate?<div className="d-flex ">
-              <div className="mx-3">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faCalendarAlt}
-                  size={26}
-                ></FontAwesomeIcon>{" "}
-              </div>
-              <div>
-                {`${moment(
-                  new Date(props.documentLibraryDetail.result.publishDate)
-                ).format("LL")}`}
-              </div>
-            </div>:null}
+            ) : null}
           </div>
-          <Link id='link'
-            to={`/filternews/${sectorid + "&&" + sectorName + "&&" + "sector"}`}
+          <Link
+            id="link"
+            to="/document-library/1"
             className=" d-flex justify-content-center align-items-center text-center fa-1x detailsSectorName"
           >
             {ReactHtmlParser(

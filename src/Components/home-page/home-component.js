@@ -32,10 +32,14 @@ class HomeComponent extends Component {
         <HayahKarima />
         <LocalLeaders {...this.props} />
         <CitizenServices {...this.props} />
-        <TrainingAgenda {...this.props}  title={'اجندة التدريب'} type={4}/>
-        <Video {...this.props}  pagePath={'home'}/>
+        <TrainingAgenda
+          {...this.props}
+          title={"أجندة مركز التدريب والتنمية المهنية المستدامة"}
+          type={4}
+        />
+        <Video {...this.props} pagePath={"home"} />
         <GovernmentFamous {...this.props} />
-        <PhotosAlbum {...this.props} pagePath={'home'} title={'البوم الصور'}/>
+        <PhotosAlbum {...this.props} pagePath={"home"} title={"البوم الصور"} />
         <Complaints {...this.props} />
         <ImportantPortals {...this.props} />
         <Contact {...this.props} />

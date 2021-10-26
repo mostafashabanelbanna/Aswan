@@ -105,7 +105,7 @@ const Appointment = (props) => {
           dropdownOneHandler={typeHandler}
           dropdownOneName={typesName}
           dropdownOnePlaceholder="القسم"
-          classNameDropdownOne="col-lg-3 col-md-6 mt-md-3 mt-0 col-12"
+          classNameDropdownOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
           publishDateFrom={appointmentDateFrom}
           publishFromHandler={publishFromHandler}
           classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"

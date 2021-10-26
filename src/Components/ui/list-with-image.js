@@ -4,6 +4,8 @@ import CareerForm from "../forms/career-form";
 import { paths } from "../../paths/paths";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ListWithImage = (props) => {
   return (
@@ -98,6 +100,25 @@ const ListWithImage = (props) => {
           <div className={`${props.center ? "text-center" : ""}`}>
             {props.content}
           </div>
+        </div>
+      ) : null}
+
+      {/* attachment */}
+      {props.attachment ? (
+        <div className="my-2 p-2 new-line">
+          <a
+            className={`${props.center ? "text-center" : ""} text-dark`}
+            href={`${paths.LeaderAttachment}${props.id}/${props.attachment}`}
+            target="_blank"
+          >
+            <FontAwesomeIcon
+              icon={faFileAlt}
+              className="align-self-center"
+              style={{ color: "#fecf55" }}
+            />
+            &nbsp;
+            {props.attachment}
+          </a>
         </div>
       ) : null}
 

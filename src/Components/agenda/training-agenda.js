@@ -101,14 +101,14 @@ const TrainingAgenda = (props) => {
           ) : (
             <img
               className="brightness"
-              src="/images/icons/calender_titel-0١.png"
+              src="/images/icons/thumbnail_AGC logo02-01.png"
               alt=""
               width="70px"
             />
           )}
           <div className="underline">
             {" "}
-            <h3 className="mt-4 me-2 text_blue">{props.title} </h3>
+            <h3 className="mt-2 me-2 text_blue">{props.title} </h3>
           </div>
         </div>
       </div>

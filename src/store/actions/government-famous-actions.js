@@ -5,8 +5,7 @@ export async function getAllFamousPeople() {
   try {
     let response = await axios.get("/StaticContentAPI/GetAll/1");
     payload = await response.data;
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "FAMOUS_PEOPLE_LIST",
     payload,

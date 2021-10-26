@@ -169,7 +169,7 @@ const EServiceDirectories = (props) => {
                                   href={url}
                                   target="_blank"
                                 >
-                                  {url}
+                                  إضغط هنا
                                 </a>
                               </div>
                             </div>

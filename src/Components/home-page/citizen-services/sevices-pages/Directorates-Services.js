@@ -11,6 +11,7 @@ import {
   faPhoneAlt,
   faMapMarkerAlt,
   faEnvelope,
+  faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "../../../../Styles/EServices.css";
 import { Container } from "react-bootstrap";
@@ -18,6 +19,8 @@ import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
+import { PanToolSharp } from "@material-ui/icons";
+import { paths } from "../../../../paths/paths";
 
 const Directorates = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -101,7 +104,7 @@ const Directorates = (props) => {
             {props.directorates.result.map((item, index) => {
               return (
                 <div
-                  className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                  className="holder custom-holder text-center rounded-3 my-5 p-lg-3 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                   key={item.id}
                 >
                   {item.sector ? (
@@ -127,58 +130,94 @@ const Directorates = (props) => {
                   >
                     <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
                   </Link>
-                  {item.manager ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faUserTie}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2"> {item.manager}</div>
-                    </div>
-                  ) : null}
-                  {item.telephone || item.fax ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faPhoneAlt}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2">
-                        {item.telephone == null ? item.fax : item.telephone}
-                      </div>
-                    </div>
-                  ) : null}
+                  <div className="d-flex flex-column-reverse">
+                    <div className="col-12">
+                      {item.manager ? (
+                        <div className="d-flex my-3">
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faUserTie}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2"> {item.manager}</div>
+                        </div>
+                      ) : null}
+                      {item.telephone || item.fax ? (
+                        <div className="d-flex my-3">
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faPhoneAlt}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2">
+                            {item.telephone == null ? item.fax : item.telephone}
+                          </div>
+                        </div>
+                      ) : null}
 
-                  {item.address ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faMapMarkerAlt}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2"> {item.address}</div>
-                    </div>
-                  ) : null}
+                      {item.address ? (
+                        <div className="d-flex my-3">
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faMapMarkerAlt}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2"> {item.address}</div>
+                        </div>
+                      ) : null}
 
-                  {item.email ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faEnvelope}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2"> {item.email}</div>
+                      {item.email ? (
+                        <div className="d-flex my-3">
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faEnvelope}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2"> {item.email}</div>
+                        </div>
+                      ) : null}
+
+                      {item.resumee ? (
+                        <a
+                          className="d-flex my-3"
+                          href={
+                            paths.DirectorateResumee +
+                            item.id +
+                            "/" +
+                            item.resumee
+                          }
+                          target="_blank"
+                        >
+                          <div className="mx-2">
+                            {" "}
+                            <FontAwesomeIcon
+                              icon={faPaperclip}
+                              size={"1x"}
+                            ></FontAwesomeIcon>
+                          </div>
+                          <div className="mx-2"> {item.resumee}</div>
+                        </a>
+                      ) : null}
                     </div>
-                  ) : null}
+                    {item.logo ? (
+                      <div className="col-12 m-auto">
+                        <img
+                          className="col-9"
+                          src={
+                            paths.DirectorateLogo + item.id + "/" + item.logo
+                          }
+                        />
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               );
             })}

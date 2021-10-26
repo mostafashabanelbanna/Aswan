@@ -58,7 +58,7 @@ const Main_navbar = () => {
                 className="mx-2 imgsz"
                 src="/images/icons_black/citiezen.png"
               />
-              <span className="spansz">المواطن</span>
+              <span className="spansz">الرئيسية</span>
             </div>
           </Link>
           <div className=" d-none d-md-block">|</div>
@@ -322,7 +322,7 @@ const Main_navbar = () => {
         style={{ left: "10px", top: "30%", zIndex: 10 }}
       >
         <Pulse>
-          <a href="#">
+          <a href="https://www.facebook.com/aswan.gov.eg" target="_blank">
             <div
               className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
               style={{ backgroundColor: "" }}
@@ -336,7 +336,7 @@ const Main_navbar = () => {
             </div>
           </a>
         </Pulse>
-        <Pulse>
+        {/* <Pulse>
           <a href="#">
             <div className=" side_social_icons  text-center p-1 py-2 rounded-3 mb-3 ">
               {" "}
@@ -347,7 +347,7 @@ const Main_navbar = () => {
               ></FontAwesomeIcon>
             </div>
           </a>
-        </Pulse>
+        </Pulse> */}
         {/* <Pulse>
           {" "}
           <a href="#">

@@ -26,16 +26,16 @@ const CitiesNavBar = (props) => {
     return (
       <>
         <div className="container mt-5">
-          <div className="underline  my-5">
+          <div className="underline my-3">
             <h3>مدن المحافظة</h3>
           </div>
           <div className="row ">
             {props.citiesList.result.map((item) => {
               let pName;
               let newPath;
-              if(item.photo != null){
+              if (item.photo != null) {
                 pName = item.photo;
-                newPath  = pName.replaceAll(' ','%20')
+                newPath = pName.replaceAll(" ", "%20");
               }
               return (
                 <Link
@@ -47,9 +47,9 @@ const CitiesNavBar = (props) => {
                     imgSrc={paths.NavBarCities + item.id + "/" + newPath}
                     title={item.name}
                     center="yes"
-                    imgHeight='250px'
+                    imgHeight="250px"
                     hoverTitle="hoverTitle"
-                    divHeight='20rem'
+                    divHeight="20rem"
                   />
                 </Link>
               );
@@ -68,7 +68,7 @@ const CitiesNavBar = (props) => {
       </>
     );
   }
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {

@@ -20,13 +20,15 @@ const TourStart = (props) => {
   }, []);
 
   var settings = {
+    rtl: true,
     dots: true,
     arrows: true,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3000,
+
     infinite: true,
-    speed: 3000,
+    speed: 1000,
     pauseOnFocus: true,
     pauseOnHover: true,
     swipe: true,

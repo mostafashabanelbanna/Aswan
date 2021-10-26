@@ -1,13 +1,16 @@
-import React from 'react';
+import React from "react";
 
+const Error = () => {
+  return (
+    <div className="h-100 w-100 text-center my-4 ">
+      <img
+        style={{ height: 250, width: 250 }}
+        className="rounded"
+        src="/images/logoooo.jfif"
+      />
+      <div className="my-4 fs-4"> هذه الصفحة غير متوفرة الآن </div>
+    </div>
+  );
+};
 
-const Error = ()=>{
-
-    return (
-        <div className='h-100 w-100'>
-            <img className='w-100 h-100' src='/images/error.jpg'/>
-        </div>
-    );
-}
-
-export default Error ; 
+export default Error;

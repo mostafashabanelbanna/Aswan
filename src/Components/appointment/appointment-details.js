@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
 import {
-  getAppointmentDetails, clearAppointmentDetails
+  getAppointmentDetails,
+  clearAppointmentDetails,
 } from "../../store/actions/appointment-action";
 import { paths } from "../../paths/paths";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,7 +26,8 @@ const AppointmentDetails = (props) => {
   }, []);
 
   if (props?.appointmentDetails?.result) {
-    let appointmentTypeName = props.appointmentDetails.result.appointmentTypeName;
+    let appointmentTypeName =
+      props.appointmentDetails.result.appointmentTypeName;
     let appointmentTypeId = props.appointmentDetails.result.appointmentTypeId;
     return (
       <div>
@@ -48,11 +50,14 @@ const AppointmentDetails = (props) => {
                   size={26}
                 ></FontAwesomeIcon>{" "}
               </div>
-              <div>{`${moment(new Date(props.appointmentDetails.result.appointmentDate)).format("LL")}`}</div>
+              <div>{`${moment(
+                new Date(props.appointmentDetails.result.appointmentDate)
+              ).format("LL")}`}</div>
             </div>
           </div>
-          <Link id='link'
-            to={`/filterappointments/${appointmentTypeId + "&&" + appointmentTypeName + "&&" + "appointment"}`}
+          <Link
+            id="link"
+            to={`/filterappointments/${appointmentTypeId}`}
             className=" d-flex justify-content-center align-items-center text-center fa-1x detailsSectorName"
           >
             {ReactHtmlParser(appointmentTypeName)}
@@ -79,13 +84,12 @@ const AppointmentDetails = (props) => {
             </div>
           </div>
         </div>
-        <Link id='link'
+        <Link
+          id="link"
           to={"/appointment"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
-          <button
-            className="btn_blue"
-          >
+          <button className="btn_blue">
             <span>عرض المزيد</span>
           </button>
         </Link>
@@ -101,7 +105,10 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getAppointmentDetails, clearAppointmentDetails }, dispatch);
+  return bindActionCreators(
+    { getAppointmentDetails, clearAppointmentDetails },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppointmentDetails);

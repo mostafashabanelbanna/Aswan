@@ -144,6 +144,8 @@ const SearchSection = (props) => {
                   className="bg-danger"
                 >
                   <KeyboardDatePicker
+                    okLabel="تحديد"
+                    cancelLabel="الغاء"
                     format="L"
                     inputVariant="outlined"
                     value={props.publishDateFrom}
@@ -173,6 +175,8 @@ const SearchSection = (props) => {
                   className="w-100"
                 >
                   <KeyboardDatePicker
+                    okLabel="تحديد"
+                    cancelLabel="الغاء"
                     format="L"
                     value={props.publishDateTo}
                     variant="dialog"
@@ -202,6 +206,8 @@ const SearchSection = (props) => {
                   className="bg-danger"
                 >
                   <KeyboardDatePicker
+                    okLabel="تحديد"
+                    cancelLabel="الغاء"
                     format="L"
                     inputVariant="outlined"
                     value={props.endDateFrom}
@@ -231,6 +237,8 @@ const SearchSection = (props) => {
                   className="bg-danger"
                 >
                   <KeyboardDatePicker
+                    okLabel="تحديد"
+                    cancelLabel="الغاء"
                     format="L"
                     inputVariant="outlined"
                     value={props.endDateTo}

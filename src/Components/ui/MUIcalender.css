@@ -1,8 +1,11 @@
-.MuiPickersToolbar-toolbar, .MuiPickersDay-daySelected {
-    background-color:rgb(6, 73, 106) !important;
+.MuiPickersToolbar-toolbar,
+.MuiPickersDay-daySelected {
+  background-color: rgb(6, 73, 106) !important;
 }
 
 .MuiButton-textPrimary {
-    color: rgb(6, 73, 106) !important;
+  color: rgb(6, 73, 106) !important;
 }
-
+.MuiDialogActions-root {
+  flex-direction: row-reverse;
+}

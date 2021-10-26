@@ -77,13 +77,18 @@ const Video = (props) => {
     : (mainVid = props.homeMainVideo);
 
   if (videos?.result && mainVid?.result) {
+    console.log("HIII VIDEO", mainVid);
     // vidCount = videos.result.length
     return (
       <div>
         <div className=" container  py-4">
           <div className="p-0 m-0 ">
             <div className="my-3 d-flex">
-              <img className="brightness" src="/images/icons/video_titel-0٢.png" width="80px" />
+              <img
+                className="brightness"
+                src="/images/icons/video_titel-0٢.png"
+                width="80px"
+              />
               <div className="underline">
                 {" "}
                 <h3 className="mt-4 me-2 text_blue"> مكتبة الفيديو </h3>
@@ -101,7 +106,9 @@ const Video = (props) => {
                 loading="lazy"
                 width="100%"
                 height="450px"
-                src={"https://www.youtube.com/embed/" + mainVid.youtubeId}
+                src={
+                  "https://www.youtube.com/embed/" + mainVid.result.youtubeId
+                }
               ></iframe>
             </div>
             {videos.result.length > 3 ? (
@@ -170,18 +177,17 @@ const Video = (props) => {
               </div>
             )}
           </div>
-        <Link id='link'
-          to={"/videoslist"}
-          className="justify-content-end text-decoration-none align-items-center d-flex my-5"
-        >
-          <button
-            className="btn_blue"
+          <Link
+            id="link"
+            to={"/videoslist"}
+            className="justify-content-end text-decoration-none align-items-center d-flex my-5"
           >
-            <span>عرض الكل</span>
-          </button>
-        </Link>
+            <button className="btn_blue">
+              <span>عرض الكل</span>
+            </button>
+          </Link>
         </div>
-      <div className="line mx-auto"></div>
+        <div className="line mx-auto"></div>
       </div>
     );
   }
