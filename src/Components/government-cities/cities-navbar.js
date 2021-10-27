@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllCities, clearNavbarCities } from "../../store/actions/navbar";
+import { getAllFocusedCities } from "../../store/actions/navbar";
 import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import PaginationSection from "../ui/pagination-section";
@@ -9,24 +9,15 @@ import ListSkeleton from "../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
 
 const CitiesNavBar = (props) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  let pageCount;
-
-  const handlePageClick = ({ selected: selectedPage }) => {
-    props.clearNavbarCities();
-    setCurrentPage(selectedPage);
-  };
-
   useEffect(() => {
-    props.getAllCities(currentPage + 1, {});
-  }, [currentPage]);
+    props.getAllFocusedCities();
+  }, []);
 
   if (props?.citiesList?.result) {
-    pageCount = Math.ceil(props.citiesList.count / 9);
     return (
       <>
-        <div className="container mt-5">
-          <div className="underline my-3">
+        <div className="container my-5">
+          <div className="underline mb-5 mt-3">
             <h3>مدن المحافظة</h3>
           </div>
           <div className="row ">
@@ -55,15 +46,6 @@ const CitiesNavBar = (props) => {
               );
             })}
           </div>
-          {props.citiesList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center mt-5">جاري رفع البيانات</div>
-          )}
         </div>
       </>
     );
@@ -72,10 +54,10 @@ const CitiesNavBar = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    citiesList: state.homeComponents.citiesList,
+    citiesList: state.homeComponents.citiesFocusedList,
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getAllCities, clearNavbarCities }, dispatch);
+  return bindActionCreators({ getAllFocusedCities }, dispatch);
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CitiesNavBar);

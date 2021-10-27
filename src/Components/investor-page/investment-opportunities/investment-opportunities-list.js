@@ -201,7 +201,11 @@ const InvestmentOpportunitiesList = (props) => {
                 }
                 return (
                   <div className="mb-4 col-md-6 col-xl-4 col-12">
-                    <div id="link" style={{ cursor: "auto" }} className="h-100">
+                    <Link
+                      id="link"
+                      to={"/opportunitiesdetails/" + item.id}
+                      className="h-100"
+                    >
                       <ListWithImage
                         imgSrc={
                           paths.InvestmentPhotos + item.id + "/" + newPath
@@ -217,7 +221,7 @@ const InvestmentOpportunitiesList = (props) => {
                         hoverTitle="hoverTitle custom-holder"
                         // divHeight="31rem"
                       />
-                    </div>
+                    </Link>
                   </div>
                 );
               })}

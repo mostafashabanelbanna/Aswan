@@ -14,9 +14,9 @@ export function investorHome(state = {}, action) {
     //agenda
     case "EVENTS_LIST":
       return { ...state, eventsList: action.payload };
-      case "EVENT_OF_MONTH":
+    case "EVENT_OF_MONTH":
       return { ...state, eventsList: action.payload };
-      
+
     case "CLEAR_AllEventsInvestor":
       return { ...state, eventsList: action.payload };
 
@@ -30,12 +30,15 @@ export function investorHome(state = {}, action) {
     //investment Opportunities
     case "FOCUSED_OPPORTUNITIES":
       return { ...state, focusedOpportunities: action.payload };
-    
+
     case "INVESTOR_OPPORTUNITIES_LIST":
       return { ...state, investorOpportunitiesList: action.payload };
 
     case "CLEAR_INVESTOR_OPPORTUNITIES_LIST":
       return { ...state, investorOpportunitiesList: action.payload };
+
+    case "Investment_DETAILS":
+      return { ...state, investmentOpportunitiesDetails: action.payload };
 
     case "Investment_Payment_System":
       return { ...state, investorPaymentSystem: action.payload };

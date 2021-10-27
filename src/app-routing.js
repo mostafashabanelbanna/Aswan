@@ -43,6 +43,7 @@ import AppointmentDetails from "./components/appointment/appointment-details";
 import AgendaList from "./components/agenda/list-agenda";
 import AgendaDetails from "./components/agenda/agenda-details";
 import investmentOpportunitiesList from "./components/investor-page/investment-opportunities/investment-opportunities-list";
+import OpportunitiesDetails from "./components/investor-page/investment-opportunities/investment-opportunities-details";
 import StaticContentHome from "./components/static-content/static-content-home";
 import CityDetails from "./components/government-cities/city-details";
 import OrgChartRender from "./components/orgChart/orgChartRender";
@@ -182,7 +183,7 @@ const AppRouting = () => {
           <Route
             exact
             path="/opportunitiesdetails/:id"
-            component={AgendaList}
+            component={OpportunitiesDetails}
           />
           <Route
             exact
