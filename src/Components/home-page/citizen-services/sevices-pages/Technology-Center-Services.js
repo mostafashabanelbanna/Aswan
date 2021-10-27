@@ -128,7 +128,37 @@ const TechCenterServices = (props) => {
                     </span>
                   </div>
 
-                  {item.url ? (
+                  {item.urls
+                    ? item.urls.map((url) => {
+                        return (
+                          <div className="d-flex my-3">
+                            <div className="mx-2">
+                              {" "}
+                              <FontAwesomeIcon
+                                icon={faLink}
+                                size={"1x"}
+                              ></FontAwesomeIcon>
+                            </div>
+                            <div className="mx-2">
+                              {" "}
+                              <a
+                                className="text-decoration-none"
+                                style={{
+                                  cursor: "pointer",
+                                  wordBreak: "break-all",
+                                }}
+                                href={url}
+                                target="_blank"
+                              >
+                                إضغط هنا
+                              </a>
+                            </div>
+                          </div>
+                        );
+                      })
+                    : null}
+
+                  {/* {item.url ? (
                     <div className="d-flex my-3 ">
                       <div className="mx-2">
                         {" "}
@@ -149,7 +179,7 @@ const TechCenterServices = (props) => {
                         </a>
                       </div>
                     </div>
-                  ) : null}
+                  ) : null} */}
                 </div>
               );
             })}

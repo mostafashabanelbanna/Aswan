@@ -29,8 +29,9 @@ const InvestmentOpportunities = (props) => {
             Title = `فرص إستثمارية بالمنطقة الصناعية: ${item.industryZoneName} - النشاط: ${item.activityName}`;
           }
           return (
-            <div
+            <Link
               id="link"
+              to={"/opportunitiesdetails/" + item.id}
               className="text-white col-xl-3 col-md-6 col-12 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle" key={item.id}>
@@ -48,7 +49,7 @@ const InvestmentOpportunities = (props) => {
                   {Title}
                 </p>
               </div>
-            </div>
+            </Link>
           );
         })}
         <div className="container d-flex justify-content-end">

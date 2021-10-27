@@ -129,6 +129,9 @@ const OpportunitiesDetails = (props) => {
                   textAlign: "justify",
                 }}
               >
+                {details.description ? (
+                  <p>الوصف:&nbsp;{details.description}</p>
+                ) : null}
                 {details.partNumber ? (
                   <p>رقم القطعة:&nbsp;{details.partNumber}</p>
                 ) : null}
@@ -242,7 +245,7 @@ const OpportunitiesDetails = (props) => {
 
         <Link
           id="link"
-          to={"/newslist"}
+          to={"/opportunitieslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
           <button className="btn_blue">

@@ -164,19 +164,16 @@ const News = (props) => {
                 {props.news.result.map((item, index) => {
                   return (
                     <Link
+                      key={item.id}
                       id="link"
                       to={`/newsdetails/${item.id}`}
-                      className="col-sm-3 text-decoration-none  col-12 mt-5 text-center px-3 "
+                      className="col-sm-3 text-decoration-none  col-12 mt-5 text-center px-3"
                     >
                       <div
                         className="hoverTitle rounded text-white"
                         style={{ backgroundColor: "rgb(32 176 202 )" }}
                       >
-                        <div
-                          key={item.id}
-                          className="p-2"
-                          style={{ borderRadius: "0px" }}
-                        >
+                        <div className="p-2" style={{ borderRadius: "0px" }}>
                           <img
                             className="rounded-3"
                             width="100%"
@@ -184,8 +181,11 @@ const News = (props) => {
                             src={paths.NewsPhotos + +item.id + "/" + item.photo}
                             alt={item.caption}
                           />
-                          <div className="mt-4  container p-2">
-                            {item.title}
+                          <div
+                            style={{ height: 75, direction: "rtl" }}
+                            className="mt-4  container p-2 "
+                          >
+                            {item.title.substr(0, 60)} ...
                           </div>
                         </div>
                       </div>

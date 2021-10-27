@@ -116,8 +116,7 @@ const ListWithImage = (props) => {
               className="align-self-center"
               style={{ color: "#fecf55" }}
             />
-            &nbsp;
-            {props.attachment}
+            &nbsp; السيرة الذاتية
           </a>
         </div>
       ) : null}

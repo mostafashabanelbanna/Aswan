@@ -28,16 +28,25 @@ const Contact = () => {
   };
 
   return (
-    <div id='contactus'>
+    <div id="contactus">
       <div className="bg-light">
         <div className="container p-0 py-4">
           <div className="mt-2 d-flex">
-            <img className="brightness" src="/images/icons/contact_titel-0٢.png" width="80px" />
+            <img
+              className="brightness"
+              src="/images/icons/contact_titel-0٢.png"
+              width="80px"
+            />
             <div className="  underline">
               {" "}
               <h3 className="mt-4 me-2 text_blue">اتصل بنا </h3>
             </div>
           </div>
+          <h5 className="mt-4 me-2 text_blue">
+            للتواصل عبر الهاتف:&nbsp;
+            <span className="text-dark">0972316800</span>
+          </h5>
+          <h5 className="mt-4 me-2 text_blue">للتواصل عبر الهاتف:&nbsp;</h5>
           <div className=" row p-0 m-0">
             <div className="col-sm-4 col-12 p-0 order-sm-1 order-2">
               <form
@@ -93,9 +102,8 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 <div className="mb-2 d-flex justify-content-end">
-                  <div className="align-items-center d-flex j">
+                  <div className="align-items-center d-flex">
                     <button
-                      // onClick={}
                       type="submit"
                       className="btn_orange mx-1 mb-2 mb-sm-0"
                       style={{ verticalAlign: "middle" }}
@@ -108,7 +116,7 @@ const Contact = () => {
             </div>
             <div className="col-sm-7 col-12 order-sm-2 order-1 me-sm-3 me-0 mt-2">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d466348.8095875423!2d32.65012447711616!3d24.053973643294743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14367b5ab1a30e5f%3A0xfb109fe337cabccb!2z2KPYs9mI2KfZhg!5e0!3m2!1sar!2seg!4v1630243110340!5m2!1sar!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.003571130611!2d32.90347968502676!3d24.101369881194834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14367b337449ca8f%3A0x6528145b3ee31e6c!2z2YXYrdin2YHYuNipINij2LPZiNin2YY!5e0!3m2!1sar!2seg!4v1635328561535!5m2!1sar!2seg"
                 width="100%"
                 height="95%"
                 frameBorder="0"

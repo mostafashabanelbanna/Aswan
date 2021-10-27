@@ -7,6 +7,7 @@ import {
   faYoutube,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pulse from "react-reveal/Pulse";
 import { Link } from "react-router-dom";
@@ -387,8 +388,43 @@ const Main_navbar = () => {
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/> */}
       </div>
+      <div
+        onClick={topFunction}
+        id="myBtn"
+        className="text-danger position-fixed"
+        title="Go to top"
+        // style={{ bottom: 45, right: 30, zIndex: 100000 }}
+      >
+        <div className="mt-2 d-flex justify-content-center h-100">
+          <FontAwesomeIcon
+            color={"#ffe990"}
+            size="2x"
+            icon={faChevronUp}
+          ></FontAwesomeIcon>
+        </div>
+      </div>
       {renderModal()}
     </div>
   );
 };
 export default Main_navbar;
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
