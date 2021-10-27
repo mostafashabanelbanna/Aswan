@@ -17,6 +17,7 @@ import {
   faPhoneAlt,
   faMapMarkerAlt,
   faBriefcase,
+  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {} from "../Styles/EServices.css";
 import { Col, Container, Row } from "react-bootstrap";
@@ -315,7 +316,30 @@ const ServicesComponent = (props) => {
                           size={"1x"}
                         ></FontAwesomeIcon>
                       </div>
-                      <div className="mx-2"> {item.manager}</div>
+                      <div className="mx-2">{item.manager}</div>
+                    </div>
+                  ) : null}
+
+                  {item.homePage ? (
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {/* {" "}<i class="fas fa-info-circle"></i> */}
+                        <FontAwesomeIcon
+                          icon={faInfoCircle}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2">
+                        {" "}
+                        <a
+                          className="text-decoration-none"
+                          style={{ cursor: "pointer" }}
+                          href={item.homePage}
+                          target="_blank"
+                        >
+                          تفاصيل
+                        </a>
+                      </div>
                     </div>
                   ) : null}
 
@@ -336,7 +360,7 @@ const ServicesComponent = (props) => {
                           href={item.mapUrl}
                           target="_blank"
                         >
-                          {item.mapUrl}
+                          إضغط هنا للذهاب للرابط
                         </a>
                       </div>
                     </div>
