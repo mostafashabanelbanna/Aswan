@@ -446,7 +446,7 @@ const AdvertisementRequire = (props) => {
                       id="savee"
                       type="submit"
                       disabled={disabled}
-                      class="btn btn-primary btn-main-bg my-4 mx-2"
+                      className="btn btn-primary btn-main-bg my-4 mx-2"
                     >
                       {disabled ? "جاري الحفظ" : "حفظ"}
                     </button>

@@ -1,7 +1,7 @@
 {
-  "MainPath": "http://portal.admin.aswan.gov/upload/",
-  "MainPathTest": "http://41.128.217.181:10090/upload/",
-  "baseURL": "http://192.168.100.25:80/api",
-  "baseURLTest": "http://41.128.217.181:10097/api",
+  "MainPath": "http://serv.aswan.gov.eg/upload/",
+  "MainPathTest": "http://serv.aswan.gov.eg/upload/",
+  "baseURL": "http://api.aswan.gov.eg/api",
+  "baseURLTest": "http://api.aswan.gov.eg/api",
   "note": "remove Test word after MainPath or baseURL and add any letter after the two others"
 }

@@ -41,8 +41,8 @@ const Footer = () => {
           <div className="col-md-9  col-12">
             <div className=" d-flex text-light flex-md-nowrap flex-wrap">
               <div className=" col-md-3 col-6 p-2">
-                <div class="searcher_title">
-                  <div class="d-inline-flex flex-column position-relative">
+                <div className="searcher_title">
+                  <div className="d-inline-flex flex-column position-relative">
                     <p>عن المحافظة</p>
                   </div>
                 </div>
@@ -64,8 +64,8 @@ const Footer = () => {
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
-                <div class="searcher_title">
-                  <div class="d-inline-flex flex-column position-relative">
+                <div className="searcher_title">
+                  <div className="d-inline-flex flex-column position-relative">
                     <p>الركن الاعلامي</p>
                   </div>
                 </div>
@@ -85,8 +85,8 @@ const Footer = () => {
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
-                <div class="searcher_title">
-                  <div class="d-inline-flex flex-column position-relative">
+                <div className="searcher_title">
+                  <div className="d-inline-flex flex-column position-relative">
                     <p> الخدمات</p>
                   </div>
                 </div>
@@ -103,8 +103,8 @@ const Footer = () => {
                 </div>
               </div>
               <div className="col-md-3 col-6 p-2">
-                <div class="searcher_title">
-                  <div class="d-inline-flex flex-column position-relative">
+                <div className="searcher_title">
+                  <div className="d-inline-flex flex-column position-relative">
                     <p>المجالس </p>
                   </div>
                 </div>

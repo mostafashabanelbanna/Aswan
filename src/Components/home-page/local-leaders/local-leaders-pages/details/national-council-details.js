@@ -127,12 +127,12 @@ const NationalCouncilDetails = (props) => {
         </div>
         <hr className="container my-2"></hr>
 
-        <div class="container mb-3">
-          <div class="row">
-            <div class="col-12 text-justify">
-              <p class="text-justify">
+        <div className="container mb-3">
+          <div className="row">
+            <div className="col-12 text-justify">
+              <p className="text-justify">
                 <img
-                  class="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
+                  className="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
                   src={`${paths.NationalCouncil}${props.NationalCouncilDetails.result.id}/${props.NationalCouncilDetails.result.photo}`}
                   alt=""
                 />
