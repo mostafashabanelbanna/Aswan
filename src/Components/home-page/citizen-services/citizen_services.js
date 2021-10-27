@@ -21,8 +21,8 @@ const CitizenServices = () => {
 
   return (
     <div className="custom_bg_light pt-4">
-      <div className=" container p-0 mt-2">
-        <div className="my-3 d-flex align-items-end">
+      <div className=" container p-0">
+        <div className="mb-5 d-flex align-items-end">
           <img
             className="brightness"
             src="/images/icons_black/services_titel-0١.png"
