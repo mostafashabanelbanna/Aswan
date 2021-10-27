@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Styles/navbar.css";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import {
@@ -16,6 +16,12 @@ import IdeaForm from "./components/forms/idea-form";
 const Main_navbar = () => {
   const [show, setShow] = useState(false);
 
+  var mybutton;
+
+  useEffect(() => {
+    mybutton = document.getElementById("myBtn");
+  }, []);
+
   const onShow = () => {
     setShow(true);
   };
@@ -25,8 +31,6 @@ const Main_navbar = () => {
       <IdeaForm showIdeaModal={show} onHideIdeaModal={() => setShow(false)} />
     );
   };
-
-  var mybutton = document.getElementById("myBtn");
 
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () {

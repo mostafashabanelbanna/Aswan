@@ -1,7 +1,17 @@
 #newscontent p span span {
-    line-height: normal;
+  line-height: normal;
 }
 
-.pickerborder .MuiFormControl-root{
-     border-bottom:  1px rgb(0 0 0 / 42%) solid;
- }
+.pickerborder .MuiFormControl-root {
+  border-bottom: 1px rgb(0 0 0 / 42%) solid;
+}
+
+.newsSlider button.slick-arrow.slick-next,
+.newsSlider button.slick-arrow.slick-prev {
+  top: 55% !important;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 30px;
+}

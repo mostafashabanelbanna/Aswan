@@ -15,8 +15,8 @@ const ImportantPortals = (props) => {
   var settings = {
     dots: true,
     arrows: false,
-    autoplay: true,
-    autoplaySpeed: 500,
+    // autoplay: true,
+    autoplaySpeed: 2000,
     infinite: true,
     speed: 3000,
     slidesToShow: 5,
@@ -81,7 +81,12 @@ const ImportantPortals = (props) => {
         <div>
           <div className="container my-5 p-0">
             <div className="d-flex my-2">
-              <img className="brightness" src="./images/icons/web_titel-0١.png" alt="" width="80px" />
+              <img
+                className="brightness"
+                src="./images/icons/web_titel-0١.png"
+                alt=""
+                width="80px"
+              />
               <div className="underline">
                 {" "}
                 <h3 className="mt-4 me-2 text_blue">روابط هامة</h3>

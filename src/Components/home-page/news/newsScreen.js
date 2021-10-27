@@ -22,11 +22,11 @@ const News = (props) => {
   }, []);
 
   var settings = {
-    dots: false,
-    // autoplay:true,
-    // autoplaySpeed:1000,
-    infinite: false,
-    speed: 500,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    infinite: true,
+    speed: 4000,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -159,7 +159,7 @@ const News = (props) => {
             </Link>
           </div>
           <div>
-            <div className="container custom_bg_light">
+            <div className="container custom_bg_light newsSlider">
               <Slider {...settings}>
                 {props.news.result.map((item, index) => {
                   return (
