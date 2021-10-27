@@ -76,7 +76,7 @@ const InvestorStart = (props) => {
             <h2 className="mb-3 text_blue">اخبار إستثمارية</h2>
           </div>
         </div>
-        {props.sliderNews.result.length > 3 ? (
+        {props.sliderNews.result.length > 2 ? (
           <div className=" me-3 ms-3 mb-5">
             <div className="container p-0">
               <Slider {...settings}>

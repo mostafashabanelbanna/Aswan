@@ -111,7 +111,7 @@ const Video = (props) => {
                 }
               ></iframe>
             </div>
-            {videos.result.length > 3 ? (
+            {videos.result.length > 2 ? (
               <div className=" me-3 ms-3">
                 <Slider {...settings}>
                   {videos.result.map((item, index) => {

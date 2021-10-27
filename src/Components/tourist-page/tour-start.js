@@ -79,7 +79,7 @@ const TourStart = (props) => {
             <h2 className="text_blue">رحلتك تبدء من هنا</h2>{" "}
           </div>
         </div>
-        {props.slider.result.length > 3 ? (
+        {props.slider.result.length > 2 ? (
           <div className=" me-3 ms-3 mb-5">
             <div className="container p-0">
               <Slider {...settings}>
