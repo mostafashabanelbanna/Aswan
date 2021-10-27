@@ -11,10 +11,22 @@ export async function getAllCities(pageNumber, keywords = {}, pageSize = 9) {
 
     let res = countResponse.data.result;
     payload = { ...response.data, count: res, page: pageNumber };
-  } catch (e) {
-  }
+  } catch (e) {}
   return {
     type: "CITIES",
+    payload,
+  };
+}
+
+export async function getAllFocusedCities() {
+  let payload = null;
+  try {
+    let response = await axios.get("/CityAPI/GetAll");
+
+    payload = response.data;
+  } catch (e) {}
+  return {
+    type: "FOCUSED_CITIES",
     payload,
   };
 }
@@ -32,8 +44,7 @@ export async function getCityDetails(id) {
   try {
     let response = await axios.get(`/CityAPI/Details/${id}`);
     payload = await response.data;
-  } catch (error) {
-  }
+  } catch (error) {}
   return {
     type: "CITY_DETAILS",
     payload,

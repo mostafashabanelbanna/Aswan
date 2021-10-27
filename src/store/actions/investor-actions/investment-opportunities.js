@@ -127,9 +127,8 @@ export async function getOpportunitiesDetails(Id) {
 
 export async function clearOpportunitiesDetails() {
   let payload = null;
-
   return {
-    type: "CLEAR_Investment_DETAILS",
+    type: "Investment_DETAILS",
     payload,
   };
 }
