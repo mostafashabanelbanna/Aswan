@@ -146,7 +146,7 @@ const AdvertismentList = (props) => {
           submit={submitHandler}
           TextFieldOneHandler={titleHandler}
           labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-lg-3 col-md-6 mt-4 mb-0 col-12"
+          classNameTextFieldOne="col-lg-3 col-md-6 mt-3 mb-0 col-12"
           dropdownOneVal={adsName.find((e) => e.value == advertismentTypeId)}
           dropdownOneHandler={advertismentTypeHandler}
           dropdownOneName={adsName}

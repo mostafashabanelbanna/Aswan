@@ -138,7 +138,7 @@ const EServices = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-3 col-sm-6 mt-4 mb-0 col-12"
+            classNameTextFieldOne="col-md-3 col-sm-6 mt-3 mb-0 col-12"
             dropdownThreeVal={cityName.find((e) => e.value == cityId)}
             dropdownThreeHandler={cityIdHandler}
             dropdownThreePlaceholder="المدينة"
@@ -295,7 +295,7 @@ const EServices = (props) => {
                           href={item.mapUrl}
                           target="_blank"
                         >
-                          {item.mapUrl}
+                          إضغط هنا للذهاب للرابط
                         </a>
                       </div>
                     </div>

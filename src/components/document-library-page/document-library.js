@@ -201,7 +201,7 @@ const DocumentLibrary = (props) => {
         submit={submitHandler}
         TextFieldOneHandler={titleHandler}
         labelTextFieldOne="العنوان"
-        classNameTextFieldOne="col-md-3 col-sm-6 mt-4 mb-3 col-12 order-0"
+        classNameTextFieldOne="col-md-3 col-sm-6 mt-3 mb-3 col-12 order-0"
         dropdownOneVal={catName.find((e) => e.value == documentTypeId)}
         dropdownOneHandler={documentTypeHandler}
         dropdownOneName={catName}
