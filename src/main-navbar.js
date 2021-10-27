@@ -46,7 +46,7 @@ const Main_navbar = () => {
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-lg-7 py-3 col-12 text-center d-flex justify-content-around align-items-center p-0"
+          className="col-lg-7 py-3 col-12 text-center d-flex justify-content-between align-items-center p-0"
         >
           <Link
             id="link"
@@ -89,8 +89,11 @@ const Main_navbar = () => {
             />
             <span className="spansz">السائح</span>
           </Link>
+          <div className="d-block d-lg-none text-white bg-danger p-2 text-center">
+            بث تجريبي
+          </div>
         </div>
-        <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-1 py-3">
+        <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-0">
           <Link to="/contactus" className="text-dark text-decoration-none fsiz">
             خريطة الموقع
           </Link>
@@ -101,6 +104,9 @@ const Main_navbar = () => {
           >
             اتصل بنا
           </Link>
+          <div className="d-lg-block d-none text-white bg-danger p-2 text-center">
+            بث تجريبي
+          </div>
         </div>
 
         <Navbar
