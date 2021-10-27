@@ -122,7 +122,7 @@ const ServicesComponent = (props) => {
     };
   }, [currentPage, directoryTypeId]);
 
-  if (props?.services?.result) {
+  if (props?.services) {
     let cityName = props.cities.result.map(({ id, name }) => ({
       value: id,
       label: name,
@@ -157,7 +157,7 @@ const ServicesComponent = (props) => {
             submit={submitHandler}
             TextFieldOneHandler={nameHandler}
             labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-3 col-sm-6 col-12 mt-4 mb-0"
+            classNameTextFieldOne="col-md-3 col-sm-6 col-12 mt-3 mb-0"
             dropdownThreeVal={cityName.find((e) => e.value == cityId)}
             dropdownThreeHandler={cityIdHandler}
             dropdownThreePlaceholder="المدينة"
