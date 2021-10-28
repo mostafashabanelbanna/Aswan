@@ -14,6 +14,7 @@ import { Container } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../ui/search-section";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const FilterAppointment = (props) => {
   const info = props.match.params.info;
@@ -103,20 +104,20 @@ const FilterAppointment = (props) => {
           submit={submitHandler}
           TextFieldOneHandler={titleHandler}
           labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-sm-4 col-12"
-          dropdownTwoVal={typesName.find((e) => e.value == appointmentTypeId)}
-          dropdownTwoHandler={typeHandler}
-          dropdownTwoPlaceholder="النوع"
-          dropdownTwoName={typesName}
-          classNameDropdownTwo="col-sm-4 col-12"
+          classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
+          dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
+          dropdownOneHandler={typeHandler}
+          dropdownOneName={typesName}
+          dropdownOnePlaceholder="القسم"
+          classNameDropdownOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
           publishDateFrom={appointmentDateFrom}
           publishFromHandler={publishFromHandler}
-          classNameDPFrom="col-sm-4 col-12"
+          classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
           publishDateTo={appointmentDateTo}
           publishToHandler={publishToHandler}
-          classNameDPTo="col-sm-4 col-12"
-          classNameBtn="col-sm-4 col-12"
+          classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
         />
+
         <div className="container mt-5">
           <div className="row ">
             {props.apointment.result.length ? (
@@ -142,8 +143,8 @@ const FilterAppointment = (props) => {
                         )}`}
                         category={item.appointmentTypeName}
                         imgHeight="200px"
-                        hoverTitle="hoverTitle"
-                        divHeight="25rem"
+                        hoverTitle="hoverTitle h-100"
+                        // divHeight="25rem"
                       />
                     </Link>
                   </div>
@@ -163,7 +164,12 @@ const FilterAppointment = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

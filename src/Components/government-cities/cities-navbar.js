@@ -48,8 +48,8 @@ const CitiesNavBar = (props) => {
                     title={item.name}
                     center="yes"
                     imgHeight="250px"
-                    hoverTitle="hoverTitle"
-                    divHeight="20rem"
+                    hoverTitle="hoverTitle h-100"
+                    // divHeight="20rem"
                   />
                 </Link>
               );

@@ -13,6 +13,7 @@ import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import CareerForm from "../../forms/career-form";
 import ReactHtmlParser from "react-html-parser";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const Career = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -154,7 +155,12 @@ const Career = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

@@ -7,6 +7,7 @@ import { paths } from "../../../paths/paths";
 import "../../../Styles/photo-album-style.css";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
+import TitleSkeleton from "../../loading-skeleton/title-skeleton";
 
 const PhotosAlbum = (props) => {
   let photos;
@@ -65,7 +66,7 @@ const PhotosAlbum = (props) => {
         <div className="container mt-5">
           <div className="d-flex my-2">
             <img
-            className="brightness"
+              className="brightness"
               src="./images/icons/photoalbum_titel-0٢.png"
               alt=""
               width="80px"
@@ -76,21 +77,25 @@ const PhotosAlbum = (props) => {
             </div>
           </div>
           {renderAlbum()}
-          <Link id='link'
-          to={"/photoslist"}
-          className="justify-content-end text-decoration-none align-items-center d-flex my-5"
-        >
-          <button
-            className="btn_blue"
+          <Link
+            id="link"
+            to={"/photoslist"}
+            className="justify-content-end text-decoration-none align-items-center d-flex my-5"
           >
-            <span>عرض الكل</span>
-          </button>
-        </Link>
+            <button className="btn_blue">
+              <span>عرض الكل</span>
+            </button>
+          </Link>
         </div>
       </div>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <TitleSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 
 export default connect(

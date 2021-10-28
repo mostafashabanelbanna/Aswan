@@ -13,10 +13,10 @@ import Slider from "react-slick";
 import Col from "react-bootstrap/Col";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
-import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
 
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 import { Link } from "react-router-dom";
+import DetailsSkeleton from "../../loading-skeleton/Details";
 
 const ProjectDetails = (props) => {
   useEffect(() => {
@@ -275,7 +275,7 @@ const ProjectDetails = (props) => {
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons />;
+  return <DetailsSkeleton />;
 };
 
 export default connect(

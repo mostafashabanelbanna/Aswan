@@ -67,11 +67,18 @@ const AppRouting = () => {
       <StockTicker />
       <ScrollToTop>
         <Switch>
+          {/* home page*/}
           <Route exact path="/" component={HomeComponent} />
           <Route exact path="/home" component={HomeComponent} />
+          <Route exact path="/contactus" component={Contact} />
+          {/* projects */}
           <Route exact path="/projectDetails/:id" component={ProjectDetails} />
           <Route exact path="/projectslist" component={ProjectsList} />
+          {/* news */}
           <Route exact path="/newsdetails/:id" component={NewsDetails} />
+          <Route exact path="/newslist" component={news_list} />
+          <Route exact path="/filternews/:info" component={FilterNews} />
+          {/* services */}
           <Route exact path="/eservices" component={EServices} />
           <Route exact path="/services/:typeid" component={ServicesComponent} />
           <Route
@@ -80,6 +87,11 @@ const AppRouting = () => {
             component={EServiceDirectories}
           />
           <Route exact path="/directorates" component={Directorates} />
+          <Route
+            exact
+            path="/directorates/:id/:name"
+            component={DirectoratesHome}
+          />
           <Route exact path="/emergencynumbers" component={EmergencyNumbers} />
           <Route exact path="/advertisements" component={Advertisements} />
           <Route
@@ -87,39 +99,67 @@ const AppRouting = () => {
             path="/techcenterservices"
             component={TechnologyCenterServices}
           />
+          {/* Videos */}
           <Route exact path="/videoslist" component={VideosList} />
           <Route exact path="/videodetails/:id" component={VideoDetails} />
+          <Route exact path="/filtervideos/:info" component={FilterVideos} />
+          {/* Photos */}
           <Route exact path="/photoslist" component={PhotosList} />
           <Route exact path="/photodetails/:id" component={PhotoDetails} />
+          <Route exact path="/filterphotos/:info" component={FilterPhotos} />
+          {/* Tourist */}
           <Route exact path="/tourist" component={TouristHome} />
+          <Route
+            exact
+            path="/tourist-attraction-details/:id"
+            component={TouristAttractionDetails}
+          />
+          {/* Investor */}
           <Route exact path="/investor" component={InvestorHome} />
+          {/* Investor Opportunities */}
+          <Route
+            exact
+            path="/opportunitiesdetails/:id"
+            component={OpportunitiesDetails}
+          />
+          <Route
+            exact
+            path="/opportunitieslist"
+            component={investmentOpportunitiesList}
+          />
+          {/* Static Content */}
           <Route
             exact
             path="/statichome/:id/:title/:code/:name"
             component={StaticContentHome}
           />
+          {/* Gov Famous */}
           <Route
             exact
             path="/famousDetails/:id"
             component={FamousStaticContentDetails}
           />
-          <Route
-            exact
-            path="/directorates/:id/:name"
-            component={DirectoratesHome}
-          />
-          <Route exact path="/newslist" component={news_list} />
-          <Route exact path="/filternews/:info" component={FilterNews} />
+          {/* Appointment */}
+          <Route exact path="/appointment" component={Appointment}></Route>
           <Route
             exact
             path="/filterappointments/:info"
             component={FilterAppointment}
           />
-          <Route exact path="/filterphotos/:info" component={FilterPhotos} />
-          <Route exact path="/filtervideos/:info" component={FilterVideos} />
+          <Route
+            exact
+            path="/appointmentdetails/:id"
+            component={AppointmentDetails}
+          />
+          {/* x-Conservatives */}
           <Route exact path="/exconservatives" component={ExConservatives} />
+          <Route exact path="/leaders" component={Leaders}></Route>
+
+          {/* Cities */}
           <Route exact path="/cities" component={CitiesNavbar} />
           <Route exact path="/citydetails/:id" component={CityDetails} />
+
+          {/* Local Leaders */}
           <Route exact path="/tribe" component={Tribe} />
           <Route exact path="/nationalcouncil" component={NationalCouncil} />
           <Route
@@ -132,66 +172,51 @@ const AppRouting = () => {
           <Route exact path="/parliament" component={Parliament} />
           <Route exact path="/senate" component={Senate} />
           <Route exact path="/youthleaders" component={YouthLeaders} />
+
+          {/* Good Life */}
           <Route
             exact
             path="/HayaKarimaDetails/:id"
             component={HayaKarimaDetails}
           />
-          <Route exact path="/appointment" component={Appointment}></Route>
-          <Route
-            exact
-            path="/appointmentdetails/:id"
-            component={AppointmentDetails}
-          />
+          {/* Document Library */}
           <Route
             exact
             path="/document-library/:type"
             component={DocumentLibrary}
-          ></Route>
-          <Route exact path="/ads/:id" component={AdvertismentList}></Route>
-          <Route exact path="/youth" component={YouthEmp}></Route>
-          <Route exact path="/career" component={Career}></Route>
-          <Route
-            exact
-            path="/careerdetails/:id"
-            component={CareerDetails}
-          ></Route>
-          <Route
-            exact
-            path="/youthdetails/:id"
-            component={YouthDetails}
           ></Route>
           <Route
             exact
             path="/document-library-details/:id"
             component={DocumentLibraryDetails}
           />
+          {/* Ads */}
+          <Route exact path="/ads/:id" component={AdvertismentList}></Route>
           <Route
             exact
             path="/advertisment-details/:id"
             component={AdvertismentDetails}
           />
+          <Route exact path="/youth" component={YouthEmp}></Route>
           <Route
             exact
-            path="/tourist-attraction-details/:id"
-            component={TouristAttractionDetails}
-          />
-          <Route exact path="/leaders" component={Leaders}></Route>
+            path="/youthdetails/:id"
+            component={YouthDetails}
+          ></Route>
+          <Route exact path="/career" component={Career}></Route>
+          <Route
+            exact
+            path="/careerdetails/:id"
+            component={CareerDetails}
+          ></Route>
+          {/* Events */}
           <Route exact path="/eventlist" component={AgendaList} />
           <Route exact path="/eventdetails/:id" component={AgendaDetails} />
           <Route exact path="/filterevents/:info" component={AgendaList} />
-          <Route
-            exact
-            path="/opportunitiesdetails/:id"
-            component={OpportunitiesDetails}
-          />
-          <Route
-            exact
-            path="/opportunitieslist"
-            component={investmentOpportunitiesList}
-          />
-          <Route exact path="/contactus" component={Contact} />
+
+          {/* Org Chart */}
           <Route exact path="/org-chart" component={OrgChartRender} />
+          {/* Error */}
           <Route path="*" component={Error} />
         </Switch>
       </ScrollToTop>

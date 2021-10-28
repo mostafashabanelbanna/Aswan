@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 import Slider from "react-slick";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import GovernmentProjectsSkeleton from "../../loading-skeleton/government-projects-home";
+import TitleSkeleton from "../../loading-skeleton/title-skeleton";
 
 const styles = { height: 400, width: "100%" };
 const icon_glass = <span className="fa fa-glass" />;
@@ -58,7 +60,7 @@ const GovernmentProjects = (props) => {
     //   setColor(colors[colorCount]);
     // }
   };
-  const _visiableOnSelect = (active) => { };
+  const _visiableOnSelect = (active) => {};
   const _slideNext = () => {
     slider.current.slideNext();
   };
@@ -127,45 +129,51 @@ const GovernmentProjects = (props) => {
                   <div className=" d-flex justify-content-around projectsDiv">
                     <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
                       <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 custom_bg_light">
-                        <div className='d-flex flex-row'>
+                        <div className="d-flex flex-row">
                           <h3 className="titles col-10 mb-2">
                             {ReactHtmlParser(project.name)}
-
                           </h3>
-                          {project.changeRate?
-                          <div className="mx-auto col-2" style={{ width: 60, height: 60 }}>
-                            <CircularProgressbar
-                              value={project.changeRate}
-                              text={
-                                <tspan y={63} x={80}>
-                                  {project.changeRate}%
-                                </tspan>
-                              }
-                              styles={buildStyles({
-                                // Rotation of path and trail, in number of turns (0-1)
-                                rotation: 0,
+                          {project.changeRate ? (
+                            <div
+                              className="mx-auto col-2"
+                              style={{ width: 60, height: 60 }}
+                            >
+                              <CircularProgressbar
+                                value={project.changeRate}
+                                text={
+                                  <tspan y={63} x={80}>
+                                    {project.changeRate}%
+                                  </tspan>
+                                }
+                                styles={buildStyles({
+                                  // Rotation of path and trail, in number of turns (0-1)
+                                  rotation: 0,
 
-                                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-                                strokeLinecap: "butt",
+                                  // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                                  strokeLinecap: "butt",
 
-                                // Text size
-                                textSize: "36px",
+                                  // Text size
+                                  textSize: "36px",
 
-                                // How long animation takes to go from one percentage to another, in seconds
-                                pathTransitionDuration: 0.5,
+                                  // How long animation takes to go from one percentage to another, in seconds
+                                  pathTransitionDuration: 0.5,
 
-                                // Can specify path transition in more detail, or remove it entirely
-                                // pathTransition: 'none',
-                                // Colors
-                                pathColor: `rgb(6, 73, 106)`,
-                                textColor: "rgb(6, 73, 106)",
-                                trailColor: "#d6d6d6",
-                                backgroundColor: "white",
-                              })}
-                            />
-                          </div>:null}
+                                  // Can specify path transition in more detail, or remove it entirely
+                                  // pathTransition: 'none',
+                                  // Colors
+                                  pathColor: `rgb(6, 73, 106)`,
+                                  textColor: "rgb(6, 73, 106)",
+                                  trailColor: "#d6d6d6",
+                                  backgroundColor: "white",
+                                })}
+                              />
+                            </div>
+                          ) : null}
                         </div>
-                        <p className="content overflow-hidden" style={{textAlign:'justify'}}>
+                        <p
+                          className="content overflow-hidden"
+                          style={{ textAlign: "justify" }}
+                        >
                           {ReactHtmlParser(slicedBrief)}
                         </p>
                         <div className="projectsButtons d-flex flex-sm-row flex-column">
@@ -177,7 +185,7 @@ const GovernmentProjects = (props) => {
                               //     `/projectDetails/${project.id}`
                               //   );
                               // }}
-                              style={{ verticalAlign: "middle" , width:185 }}
+                              style={{ verticalAlign: "middle", width: 185 }}
                             >
                               <span>عرض التفاصيل</span>
                             </button>
@@ -185,7 +193,7 @@ const GovernmentProjects = (props) => {
                           <Link id="link" to={`/projectslist`}>
                             <button
                               className="btn_blue mx-1 mb-2 mb-sm-0"
-                              style={{ verticalAlign: "middle",width:185 }}
+                              style={{ verticalAlign: "middle", width: 185 }}
                             >
                               <span>مزيد من المشروعات</span>
                             </button>
@@ -209,7 +217,12 @@ const GovernmentProjects = (props) => {
       );
     }
   }
-  return <OnePieaceSkeleton />;
+  return (
+    <>
+      <TitleSkeleton />
+      <GovernmentProjectsSkeleton />
+    </>
+  );
 };
 
 export default connect(

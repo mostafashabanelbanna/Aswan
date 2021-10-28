@@ -13,6 +13,7 @@ import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
+import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const NationalCouncil = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -154,7 +155,12 @@ const NationalCouncil = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

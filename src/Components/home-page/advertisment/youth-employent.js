@@ -13,6 +13,7 @@ import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import YouthForm from "../../forms/youth-form";
 import ReactHtmlParser from "react-html-parser";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const YouthEmp = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -158,7 +159,12 @@ const YouthEmp = (props) => {
       </>
     );
   }
-  return <ListSkeleton></ListSkeleton>;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

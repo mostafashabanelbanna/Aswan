@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { paths } from "../../paths/paths";
 import "../../Styles/important-portals-style.css";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import TitleSkeleton from "../loading-skeleton/title-skeleton";
 
 const ImportantPortals = (props) => {
   useEffect(() => {
@@ -121,7 +122,12 @@ const ImportantPortals = (props) => {
       );
     }
   }
-  return <OnePieaceSkeleton />;
+  return (
+    <>
+      <TitleSkeleton />
+      <OnePieaceSkeleton />
+    </>
+  );
 };
 
 export default connect(

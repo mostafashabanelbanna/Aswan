@@ -25,6 +25,7 @@ import SearchSection from "./ui/search-section";
 import PaginationSection from "./ui/pagination-section";
 import ListSkeleton from "./loading-skeleton/list-skiliton";
 import { paths } from "../paths/paths";
+import SearchSkeleton from "./loading-skeleton/search-skeleton";
 
 const ServicesComponent = (props) => {
   const typeId = props.match.params.typeid;
@@ -382,7 +383,12 @@ const ServicesComponent = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

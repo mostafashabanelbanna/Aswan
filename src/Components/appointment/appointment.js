@@ -13,6 +13,7 @@ import { paths } from "../../paths/paths";
 import { Link } from "react-router-dom";
 import PaginationSection from "../ui/pagination-section";
 import ListSkeleton from "../loading-skeleton/list-skiliton";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
 const Appointment = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [title, setTitle] = useState(null);
@@ -138,8 +139,8 @@ const Appointment = (props) => {
                         )}`}
                         category={item.appointmentTypeName}
                         imgHeight="200px"
-                        hoverTitle="hoverTitle"
-                        divHeight="25rem"
+                        hoverTitle="hoverTitle h-100"
+                        // divHeight="25rem"
                       />
                     </Link>
                   </div>
@@ -160,7 +161,12 @@ const Appointment = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

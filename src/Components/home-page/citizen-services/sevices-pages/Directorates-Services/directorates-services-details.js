@@ -11,6 +11,7 @@ import { paths } from "../../../../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperclip, faPercentage } from "@fortawesome/free-solid-svg-icons";
+import DetailsSkeleton from "../../../../loading-skeleton/Details";
 const DirectoratesDetails = (props) => {
   let routeId = props.Id;
   const [data, setData] = useState({});
@@ -121,7 +122,7 @@ const DirectoratesDetails = (props) => {
       </div>
     );
   } else {
-    return <MainSliderSkeleton />;
+    return <DetailsSkeleton />;
   }
 };
 

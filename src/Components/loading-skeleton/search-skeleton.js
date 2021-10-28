@@ -3,13 +3,11 @@ import { Container } from "react-bootstrap";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const OnePieaceSkeleton = () => {
+const SearchSkeleton = () => {
   return (
     <>
-      <Container>
-        <Skeleton className="my-3" width="100%" height={400} />
-      </Container>
+      <Skeleton className="my-3" width="100%" height={400} />
     </>
   );
 };
-export default OnePieaceSkeleton;
+export default SearchSkeleton;

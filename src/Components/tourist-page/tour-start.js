@@ -9,6 +9,7 @@ import { bindActionCreators } from "redux";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
 import { paths } from "../../paths/paths";
 import { Link } from "react-router-dom";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const TourStart = (props) => {
   useEffect(() => {
@@ -151,7 +152,7 @@ const TourStart = (props) => {
       </div>
     );
   } else {
-    return <OnePieaceSkeleton />;
+    return <SearchSkeleton />;
   }
 };
 

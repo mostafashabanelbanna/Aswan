@@ -15,6 +15,7 @@ import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import "../../../ui/list-with-image.css";
 import { paths } from "../../../../paths/paths";
+import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const EServiceDirectories = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -194,7 +195,12 @@ const EServiceDirectories = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

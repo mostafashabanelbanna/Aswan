@@ -16,6 +16,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 const FilterNews = (props) => {
   const info = props.match.params.info.split("&&");
   const [currentPage, setCurrentPage] = useState(0);
@@ -164,7 +165,7 @@ const FilterNews = (props) => {
                         )}`}
                         category={item.newsCategoryName}
                         imgHeight="200px"
-                        hoverTitle="hoverTitle"
+                        hoverTitle="hoverTitle h-100"
                       />
                     </Link>
                   </div>
@@ -184,7 +185,12 @@ const FilterNews = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

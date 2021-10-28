@@ -28,16 +28,14 @@ const Parliament = (props) => {
                 newPath = pName.replaceAll(" ", "%20");
               }
               return (
-                <div
-                  className="mb-4 col-md-6 col-xl-4 col-12"
-                >
+                <div className="mb-4 col-md-6 col-xl-4 col-12">
                   <ListWithImage
                     imgSrc={paths.SenatePhotos + item.id + "/" + item.photo}
                     title={item.title}
                     content={ReactHtmlParser(item.content)}
                     center="yes"
                     imgHeight="250px"
-                    hoverTitle="hoverTitle"
+                    hoverTitle="hoverTitle h-100"
                   />
                 </div>
               );

@@ -1,11 +1,3 @@
-import configData from "../settings.module.json";
-
-// "MainPath": "http://41.128.217.181:10090/upload/";
-// "MainPath": "http://192.168.100.25:802/upload/",
-// "MainPath": "http://portal.admin.aswan.gov/upload/",
-// const MainPath = configData.MainPath;
-// const MainPath = process.env.REACT_APP_MAINPATH;
-
 let MainPath = process.env.REACT_APP_MAINPATH;
 
 export const paths = {

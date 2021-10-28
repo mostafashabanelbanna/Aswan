@@ -14,6 +14,7 @@ import "moment/locale/ar";
 import SearchSection from "../ui/search-section";
 import PaginationSection from "../ui/pagination-section";
 import ListSkeleton from "../loading-skeleton/list-skiliton";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const DocumentLibrary = (props) => {
   let id = props.match.params.type;
@@ -148,8 +149,8 @@ const DocumentLibrary = (props) => {
                               ).format("LL")}`}
                               category={item.documentTypeName}
                               imgHeight="200px"
-                              hoverTitle="hoverTitle"
-                              divHeight="23rem"
+                              hoverTitle="hoverTitle h-100"
+                              // divHeight="23rem"
                             />
                           </Link>
                         </Col>
@@ -173,7 +174,12 @@ const DocumentLibrary = (props) => {
         );
       }
     }
-    return <ListSkeleton />;
+    return (
+      <>
+        <SearchSkeleton />
+        <ListSkeleton />
+      </>
+    );
   };
 
   let pageTitle;

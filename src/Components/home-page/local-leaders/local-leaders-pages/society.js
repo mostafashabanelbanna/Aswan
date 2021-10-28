@@ -18,6 +18,7 @@ import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
 import { getAllCities } from "../../../../store/actions/E-Services";
+import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const Society = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -217,7 +218,12 @@ const Society = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

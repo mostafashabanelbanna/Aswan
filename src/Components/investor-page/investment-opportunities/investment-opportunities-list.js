@@ -27,6 +27,7 @@ import { paths } from "../../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
 import ListWithImage from "../../ui/list-with-image";
 import { Link } from "react-router-dom";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const InvestmentOpportunitiesList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -218,7 +219,7 @@ const InvestmentOpportunitiesList = (props) => {
                         `}
                         center=""
                         imgHeight="250px"
-                        hoverTitle="hoverTitle custom-holder"
+                        hoverTitle="hoverTitle h-100"
                         // divHeight="31rem"
                       />
                     </Link>
@@ -240,7 +241,12 @@ const InvestmentOpportunitiesList = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

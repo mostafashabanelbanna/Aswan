@@ -13,6 +13,7 @@ import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import ListWithImage from "../../ui/list-with-image";
 import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton.js";
 
 const ProjectsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -128,7 +129,7 @@ const ProjectsList = (props) => {
                       center="yes"
                       imgHeight="250px"
                       divHeight="24rem"
-                      hoverTitle="hoverTitle"
+                      hoverTitle="hoverTitle h-100"
                       changeRate={item.changeRate}
                     />
                   </Link>
@@ -149,7 +150,12 @@ const ProjectsList = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

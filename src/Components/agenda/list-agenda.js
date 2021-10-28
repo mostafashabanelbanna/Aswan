@@ -16,6 +16,7 @@ import ListSkeleton from "../loading-skeleton/list-skiliton";
 import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import { Link } from "react-router-dom";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const AgendaList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -218,7 +219,7 @@ const AgendaList = (props) => {
                       content={slicedBrief}
                       center="yes"
                       imgHeight="250px"
-                      hoverTitle="hoverTitle"
+                      hoverTitle="hoverTitle h-100"
                     />
                   </Link>
                 </div>
@@ -238,7 +239,12 @@ const AgendaList = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

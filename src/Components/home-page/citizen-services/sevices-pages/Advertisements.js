@@ -14,6 +14,7 @@ import PaginationSection from "../../../ui/pagination-section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
+import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const Advertisements = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -194,7 +195,12 @@ const Advertisements = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

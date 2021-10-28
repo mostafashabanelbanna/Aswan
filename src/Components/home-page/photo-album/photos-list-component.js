@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/ar";
 import ReactHtmlParser from "react-html-parser";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const PhotosList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -137,7 +138,7 @@ const PhotosList = (props) => {
                       date={`${moment(new Date(publishedDate)).format("LL")}`}
                       center="yes"
                       imgHeight="250px"
-                      hoverTitle="hoverTitle"
+                      hoverTitle="hoverTitle h-100"
                     />
                   </Link>
                 </div>
@@ -157,7 +158,12 @@ const PhotosList = (props) => {
       );
     }
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

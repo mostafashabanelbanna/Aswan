@@ -16,6 +16,7 @@ import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const NewsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -194,7 +195,12 @@ const NewsList = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

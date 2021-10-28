@@ -35,7 +35,7 @@ const YouthLeaders = (props) => {
                     content={ReactHtmlParser(item.content)}
                     center="yes"
                     imgHeight="250px"
-                    hoverTitle="hoverTitle"
+                    hoverTitle="hoverTitle h-100"
                   />
                 </div>
               );

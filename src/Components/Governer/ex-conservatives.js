@@ -13,7 +13,7 @@ const ExConservatives = (props) => {
     props.getEx_Conservatives();
   }, []);
 
-  if (props?.exconservatives?.result){
+  if (props?.exconservatives?.result) {
     return (
       <>
         <div className=" container underline  my-5">
@@ -24,20 +24,25 @@ const ExConservatives = (props) => {
             {props.exconservatives.result.map((item) => {
               let pName;
               let newPath;
-              if(item.photo != null){
+              if (item.photo != null) {
                 pName = item.photo;
-                newPath  = pName.replaceAll(' ','%20')
+                newPath = pName.replaceAll(" ", "%20");
               }
               return (
-                <div style={{cursor:"pointer"}} className="mb-4 col-md-6 col-xl-4 col-12">
+                <div
+                  style={{ cursor: "pointer" }}
+                  className="mb-4 col-md-6 col-xl-4 col-12"
+                >
                   <ListWithImage
                     imgSrc={paths.Governer + item.id + "/" + item.photo}
                     title={item.name}
-                    date={`${moment(new Date(item.jobStartDate)).format("LL")} إلى ${moment(new Date(item.jobEndDate)).format("LL")}`}
+                    date={`${moment(new Date(item.jobStartDate)).format(
+                      "LL"
+                    )} إلى ${moment(new Date(item.jobEndDate)).format("LL")}`}
                     center="yes"
-                    imgHeight='250px'
-                    hoverTitle="hoverTitle"
-                    divHeight='23rem'
+                    imgHeight="250px"
+                    hoverTitle="hoverTitle h-100"
+                    // divHeight='23rem'
                   />
                 </div>
               );
@@ -46,7 +51,8 @@ const ExConservatives = (props) => {
         </div>
       </>
     );
-    } return <ListSkeleton/>;
+  }
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {

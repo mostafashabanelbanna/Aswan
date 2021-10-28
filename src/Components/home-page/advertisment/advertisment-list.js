@@ -17,6 +17,7 @@ import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import AdvertisementRequire from "../../forms/ads-form";
+import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const AdvertismentList = (props) => {
   let id = props.match.params.id;
@@ -205,8 +206,8 @@ const AdvertismentList = (props) => {
                           )}`}
                           category={item.advertismentTypeName}
                           imgHeight="200px"
-                          hoverTitle="hoverTitle"
-                          divHeight="25rem"
+                          hoverTitle="hoverTitle h-100"
+                          // divHeight="25rem"
                         />
                       </div>
                     </Col>
@@ -249,8 +250,8 @@ const AdvertismentList = (props) => {
                           )}`}
                           category={item.advertismentTypeName}
                           imgHeight="200px"
-                          hoverTitle="hoverTitle"
-                          divHeight="25rem"
+                          hoverTitle="hoverTitle h-100"
+                          // divHeight="25rem"
                         />
                       </Link>
                     </Col>
@@ -273,7 +274,12 @@ const AdvertismentList = (props) => {
       </>
     );
   }
-  return <ListSkeleton />;
+  return (
+    <>
+      <SearchSkeleton />
+      <ListSkeleton />
+    </>
+  );
 };
 const mapStateToProps = (state) => {
   return {

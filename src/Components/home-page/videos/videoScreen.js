@@ -11,6 +11,8 @@ import {
 } from "../../../store/actions/tourist-action/videos";
 import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 import ThreePieacesHorizontalSkeleton from "../../loading-skeleton/three-pieaces-horizontal";
+import { tree } from "d3-hierarchy";
+import TitleSkeleton from "../../loading-skeleton/title-skeleton";
 const Video = (props) => {
   useEffect(() => {
     if (props.pagePath == "home") {
@@ -31,12 +33,13 @@ const Video = (props) => {
   // }
 
   var settings = {
-    dots: false,
+    dots: true,
+    arrows: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 4000,
     infinite: true,
-    speed: 2000,
-    slidesToShow: 4,
+    speed: 4000,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     swipeToSlide: true,
@@ -47,7 +50,6 @@ const Video = (props) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
         },
       },
       {
@@ -62,6 +64,7 @@ const Video = (props) => {
       {
         breakpoint: 480,
         settings: {
+          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -192,10 +195,11 @@ const Video = (props) => {
     );
   }
   return (
-    <div>
+    <>
+      <TitleSkeleton />
       <OnePieaceSkeleton />
       <ThreePieacesHorizontalSkeleton />
-    </div>
+    </>
   );
 };
 const mapStateToProps = (state) => {

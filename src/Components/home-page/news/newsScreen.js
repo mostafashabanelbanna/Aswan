@@ -13,7 +13,8 @@ import { mainNews, sliderNews } from "../../../store/actions/News_Action";
 import ReactHtmlParser from "react-html-parser";
 import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
-import GeneralThreeOthersSkeletons from "../../loading-skeleton/General-ThreeOthers";
+import NewsSkeleton from "../../loading-skeleton/news-skeleton";
+import TitleSkeleton from "../../loading-skeleton/title-skeleton";
 
 const News = (props) => {
   useEffect(() => {
@@ -195,10 +196,10 @@ const News = (props) => {
               </Slider>
             </div>
           </div>
-          <div className="container custom_bg_light d-flex justify-content-end py-3 mt-5 mb-2">
+          <div className="container d-flex justify-content-end py-3 mt-5">
             <Link id="link" to="/newslist" className="">
               <button
-                className="btn_blue mx-1 mb-2 mb-sm-0"
+                className="btn_blue mx-1"
                 style={{ verticalAlign: "middle" }}
               >
                 <span>عرض الكل</span>
@@ -209,7 +210,12 @@ const News = (props) => {
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons />;
+  return (
+    <>
+      <TitleSkeleton />
+      <NewsSkeleton />
+    </>
+  );
 };
 
 const mapStateToProps = (state) => {

@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux";
 import ReactHtmlParser from "react-html-parser";
 import { getFocusedInvestorOpportunities } from "../../store/actions/investor-actions/investment-opportunities";
 import { paths } from "../../paths/paths";
-import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import SearchSkeleton from "../loading-skeleton/search-skeleton";
+import TitleSkeleton from "../loading-skeleton/title-skeleton";
 import { Link } from "react-router-dom";
 
 const InvestmentOpportunities = (props) => {
@@ -98,7 +99,12 @@ const InvestmentOpportunities = (props) => {
       </div>
     );
   }
-  return <OnePieaceSkeleton />;
+  return (
+    <>
+      <TitleSkeleton />
+      <SearchSkeleton />
+    </>
+  );
 };
 
 export default connect(

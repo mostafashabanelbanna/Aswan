@@ -9,6 +9,7 @@ import "../../../Styles/government-famous-style.css";
 import { paths } from "../../../paths/paths";
 import OnePieaceSkeleton from "../../loading-skeleton/one-pieace";
 import { Link } from "react-router-dom";
+import TitleSkeleton from "../../loading-skeleton/title-skeleton";
 
 const GovernmentFamous = (props) => {
   useEffect(() => {
@@ -106,7 +107,11 @@ const GovernmentFamous = (props) => {
       );
     }
   }
-  return <OnePieaceSkeleton />;
+  return (
+    <>
+      <TitleSkeleton /> <OnePieaceSkeleton />
+    </>
+  );
 };
 
 export default connect(

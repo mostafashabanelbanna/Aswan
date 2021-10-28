@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { complaints } from '../../store/actions/News_Action'
+import { complaints } from "../../store/actions/News_Action";
 import { paths } from "../../paths/paths";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import TitleSkeleton from "../loading-skeleton/title-skeleton";
 
 const Complaints = (props) => {
   useEffect(() => {
@@ -18,10 +19,14 @@ const Complaints = (props) => {
   if (props?.complaint?.result) {
     if (props.complaint.result.length) {
       return (
-        <div className='bg-light'>
+        <div className="bg-light">
           <div className=" container py-3">
             <div className="d-flex">
-              <img className="brightness" src="/images/icons/complaints_titel-0٢.png" width="80px" />
+              <img
+                className="brightness"
+                src="/images/icons/complaints_titel-0٢.png"
+                width="80px"
+              />
               <div className="underline">
                 <h3 className="mt-4 me-2 text_blue"> الشكاوى </h3>
               </div>
@@ -60,7 +65,12 @@ const Complaints = (props) => {
       );
     }
   }
-  return <OnePieaceSkeleton/>;
+  return (
+    <>
+      <TitleSkeleton />
+      <OnePieaceSkeleton />
+    </>
+  );
 };
 
 const mapStateToProps = (state) => {

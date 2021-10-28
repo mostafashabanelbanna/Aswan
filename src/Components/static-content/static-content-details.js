@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import MainSliderSkeleton from "../loading-skeleton/mainSlider";
 import { paths } from "../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
+import DetailsSkeleton from "../loading-skeleton/Details";
 
 const StaticContentDetails = (props) => {
   let routeId = props.Id;
@@ -46,31 +47,39 @@ const StaticContentDetails = (props) => {
           <div className="col-12">
             <div className="row justify-content-center">
               <div className="col-lg-6 d-flex justify-content-center">
-              {data.photo?<div
-                  className="m-2 text-center"
-                  style={{
-                    boxShadow: "3px 4px 16px 6px rgb(179 179 179 / 36%)",
-                    border: "4px solid #faa74a",
-                    borderRadius: "10px",
-                    width: "fit-content",
-                  }}
-                >
-                  <img
-                    style={{ borderRadius: "10px", width: "15rem", height: "15rem" }}
-                    className="img-fluid"
-                    src={`${paths.StaticContent}${routeId}/${newPath}`}
-                  />
-                </div>:null}
+                {data.photo ? (
+                  <div
+                    className="m-2 text-center"
+                    style={{
+                      boxShadow: "3px 4px 16px 6px rgb(179 179 179 / 36%)",
+                      border: "4px solid #faa74a",
+                      borderRadius: "10px",
+                      width: "fit-content",
+                    }}
+                  >
+                    <img
+                      style={{
+                        borderRadius: "10px",
+                        width: "15rem",
+                        height: "15rem",
+                      }}
+                      className="img-fluid"
+                      src={`${paths.StaticContent}${routeId}/${newPath}`}
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
             <div className="col-12 py-4 ">
               <div className="d-inline">
                 <p dir="rtl">
-                {data.content?<strong>
-                    <span style={{ fontSize: "18px" }}>
-                      <span>{ReactHtmlParser(data.content)}</span>
-                    </span>
-                  </strong>:null}
+                  {data.content ? (
+                    <strong>
+                      <span style={{ fontSize: "18px" }}>
+                        <span>{ReactHtmlParser(data.content)}</span>
+                      </span>
+                    </strong>
+                  ) : null}
                 </p>
               </div>
             </div>
@@ -79,7 +88,7 @@ const StaticContentDetails = (props) => {
       </div>
     );
   } else {
-    return <MainSliderSkeleton />;
+    return <DetailsSkeleton />;
   }
 };
 

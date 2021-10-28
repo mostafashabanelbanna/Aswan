@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  getVideoDetails, clearVideoDetails
+  getVideoDetails,
+  clearVideoDetails,
 } from "../../../store/actions/News_Action";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -11,13 +12,12 @@ import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "../../../Styles/government-projects-style.css";
 import "../../../Styles/photo-album-style.css";
-import GeneralThreeOthersSkeletons from '../../loading-skeleton/General-ThreeOthers'
 import moment from "moment";
 import "moment/locale/ar";
 import SliderDetailsModalComponent from "../../slider-details-modal-component";
 import { Link } from "react-router-dom";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-
+import DetailsSkeleton from "../../loading-skeleton/Details";
 
 const VideoDetails = (props) => {
   useEffect(() => {
@@ -94,11 +94,11 @@ const VideoDetails = (props) => {
     let sectorId = details.sectorId;
     return (
       <div className="container">
-          <div className="underline mt-4">
-            {" "}
-            <h3>{ReactHtmlParser(details.title)}</h3>
-          </div>
-          <div className="container d-flex justify-content-between mt-4">
+        <div className="underline mt-4">
+          {" "}
+          <h3>{ReactHtmlParser(details.title)}</h3>
+        </div>
+        <div className="container d-flex justify-content-between mt-4">
           <div className="col-7  align-items-end fa-1x">
             <div className="d-flex my-1">
               <div className="ms-2">
@@ -111,23 +111,28 @@ const VideoDetails = (props) => {
               <div>{`${moment(new Date(publishedDate)).format("LL")}`}</div>
             </div>
           </div>
-          {details.sectorName?
-            <Link id='link'
-            to={`/filtervideos/${sectorId + "&&" + sectorName + "&&" + "sector"}`}
-            className=" d-flex justify-content-center align-items-center text-center    fa-1x   detailsSectorName"
+          {details.sectorName ? (
+            <Link
+              id="link"
+              to={`/filtervideos/${
+                sectorId + "&&" + sectorName + "&&" + "sector"
+              }`}
+              className=" d-flex justify-content-center align-items-center text-center    fa-1x   detailsSectorName"
             >
-            {ReactHtmlParser(details.sectorName)}
-          </Link>
-          :null}
+              {ReactHtmlParser(details.sectorName)}
+            </Link>
+          ) : null}
         </div>
         <hr className="container my-2"></hr>
 
         <div className="row my-5 flex-column-reverse flex-lg-row">
-          {details.content?<div className="col-12 my-3 my-lg-0">
+          {details.content ? (
+            <div className="col-12 my-3 my-lg-0">
               <p className="" style={{ lineHeight: "30px", fontSize: "1rem" }}>
                 {ReactHtmlParser(details.content)}
               </p>
-          </div>:null}
+            </div>
+          ) : null}
         </div>
 
         <div
@@ -144,29 +149,28 @@ const VideoDetails = (props) => {
             src={`https://www.youtube.com/embed/${details.youtubeId}`}
           ></iframe>
         </div>
-        <Link id='link'
+        <Link
+          id="link"
           to={"/videoslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
-          <button
-            className="btn_blue"
-          >
+          <button className="btn_blue">
             <span>عرض المزيد</span>
           </button>
         </Link>
       </div>
     );
   }
-  return <GeneralThreeOthersSkeletons/>
+  return <DetailsSkeleton />;
 };
 
 export default connect(
   (state) => {
     return {
-        videoDetails: state.homeComponents.videoDetails,
+      videoDetails: state.homeComponents.videoDetails,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getVideoDetails, clearVideoDetails}, dispatch);
+    return bindActionCreators({ getVideoDetails, clearVideoDetails }, dispatch);
   }
 )(VideoDetails);

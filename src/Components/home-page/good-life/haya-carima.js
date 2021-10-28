@@ -337,6 +337,7 @@ const HayahKarima = () => {
           </div>
         </div>
       </div>
+      <div className="line mx-auto"></div>
     </div>
   );
 };

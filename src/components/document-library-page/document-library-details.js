@@ -14,6 +14,7 @@ import { faCalendarAlt, faLink } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "moment/locale/ar";
 import OnePieaceSkeleton from "../loading-skeleton/one-pieace";
+import DetailsSkeleton from "../loading-skeleton/Details";
 const DocumentLibraryDetails = (props) => {
   const id = props.match.params.id;
   useEffect(() => {
@@ -116,7 +117,7 @@ const DocumentLibraryDetails = (props) => {
       </div>
     );
   }
-  return <OnePieaceSkeleton />;
+  return <DetailsSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {

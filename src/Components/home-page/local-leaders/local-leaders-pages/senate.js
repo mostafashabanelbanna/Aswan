@@ -7,7 +7,6 @@ import { paths } from "../../../../paths/paths";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import ReactHtmlParser from "react-html-parser";
 
-
 const Senate = (props) => {
   useEffect(() => {
     props.getSenate();
@@ -24,9 +23,9 @@ const Senate = (props) => {
             {props.allSenate.result.map((item) => {
               let pName;
               let newPath;
-              if(item.photo != null){
+              if (item.photo != null) {
                 pName = item.photo;
-                newPath  = pName.replaceAll(' ','%20')
+                newPath = pName.replaceAll(" ", "%20");
               }
               return (
                 <div className="mb-4 col-md-6 col-xl-4 col-12">
@@ -35,8 +34,8 @@ const Senate = (props) => {
                     title={item.title}
                     content={ReactHtmlParser(item.content)}
                     center="yes"
-                    imgHeight='250px'
-                    hoverTitle="hoverTitle"
+                    imgHeight="250px"
+                    hoverTitle="hoverTitle h-100"
                   />
                 </div>
               );
@@ -45,7 +44,7 @@ const Senate = (props) => {
         </div>
       </>
     );
-  return <ListSkeleton/>;
+  return <ListSkeleton />;
 };
 const mapStateToProps = (state) => {
   return {

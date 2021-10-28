@@ -30,7 +30,7 @@ const Leaders = (props) => {
             imgSrc={paths.Governer + props.leader.curr.id + "/" + newPath}
             title={props.leader.curr.name}
             imgHeight="270px"
-            hoverTitle="hoverTitle"
+            hoverTitle="hoverTitle h-100"
           />
         </div>
         <div className="container">
