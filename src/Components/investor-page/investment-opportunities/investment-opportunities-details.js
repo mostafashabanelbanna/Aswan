@@ -103,24 +103,28 @@ const OpportunitiesDetails = (props) => {
     let details = props.investmentOpportunitiesDetails.result;
     return (
       <div>
-        <div className="underline container mt-5">
-          <h3>{details.title}</h3>
-        </div>
+        {details.title ? (
+          <div className="underline container mt-5">
+            <h3>{details.title}</h3>
+          </div>
+        ) : null}
 
         <hr className="container mt-5"></hr>
 
         <div className="container mb-3">
           <div className="row">
             <div className="col-12 text-justify">
-              <p className="text-justify">
-                <img
-                  className="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
-                  src={
-                    paths.InvestmentPhotos + details.id + "/" + details.photo
-                  }
-                  alt={details.photo}
-                />
-              </p>
+              {details.photo ? (
+                <p className="text-justify">
+                  <img
+                    className="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
+                    src={
+                      paths.InvestmentPhotos + details.id + "/" + details.photo
+                    }
+                    alt={details.photo}
+                  />
+                </p>
+              ) : null}
               <div
                 className="ps-lg-3 ps-0"
                 style={{

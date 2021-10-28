@@ -14,7 +14,6 @@ import { Container } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../ui/search-section";
-import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const FilterAppointment = (props) => {
   const info = props.match.params.info;
@@ -83,91 +82,101 @@ const FilterAppointment = (props) => {
   }
 
   const handlePageClick = ({ selected: selectedPage }) => {
-    // props.clearNewsList();
     setCurrentPage(selectedPage);
   };
-  if (props?.apointment?.result) {
-    let typesName = props.apointmenttypes.result.map(({ id, nameA }) => ({
+
+  let typesName = [];
+  if (props?.apointmenttypes?.result) {
+    typesName = props.apointmenttypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     typesName.unshift({ value: null, label: "كل الانواع" });
-    pageCount = Math.ceil(props.apointment.count / 9);
+  }
+
+  const render = () => {
+    if (props?.apointment?.result) {
+      pageCount = Math.ceil(props.apointment.count / 9);
+      return (
+        <>
+          <div className="container mt-5">
+            <div className="row ">
+              {props.apointment.result.length ? (
+                props.apointment.result.map((item) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  return (
+                    <div className="mb-4 col-md-6 col-xl-4 col-12">
+                      <Link
+                        id="link"
+                        to={`/appointmentdetails/${item.id}`}
+                        className="h-100"
+                      >
+                        <ListWithImage
+                          imgSrc={paths.Appointment + item.id + "/" + newPath}
+                          title={item.title}
+                          date={`${moment(
+                            new Date(item.appointmentDate)
+                          ).format("LL")}`}
+                          category={item.appointmentTypeName}
+                          imgHeight="200px"
+                          hoverTitle="hoverTitle h-100"
+                          // divHeight="25rem"
+                        />
+                      </Link>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="text-center my-5">جاري رفع البيانات</div>
+              )}
+            </div>
+          </div>
+
+          <PaginationSection
+            currentPage={currentPage}
+            pageCount={pageCount}
+            handlePageClick={handlePageClick}
+          />
+        </>
+      );
+    }
     return (
       <>
-        <Container fluid>
-          <div className=" container underline  my-5">
-            <h3>لقاءات و قرارات السيد المحافظ</h3>
-          </div>
-        </Container>
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
-          dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
-          dropdownOneHandler={typeHandler}
-          dropdownOneName={typesName}
-          dropdownOnePlaceholder="القسم"
-          classNameDropdownOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
-          publishDateFrom={appointmentDateFrom}
-          publishFromHandler={publishFromHandler}
-          classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
-          publishDateTo={appointmentDateTo}
-          publishToHandler={publishToHandler}
-          classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
-        />
-
-        <div className="container mt-5">
-          <div className="row ">
-            {props.apointment.result.length ? (
-              props.apointment.result.map((item) => {
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                return (
-                  <div className="mb-4 col-md-6 col-xl-4 col-12">
-                    <Link
-                      id="link"
-                      to={`/appointmentdetails/${item.id}`}
-                      className="h-100"
-                    >
-                      <ListWithImage
-                        imgSrc={paths.Appointment + item.id + "/" + newPath}
-                        title={item.title}
-                        date={`${moment(new Date(item.appointmentDate)).format(
-                          "LL"
-                        )}`}
-                        category={item.appointmentTypeName}
-                        imgHeight="200px"
-                        hoverTitle="hoverTitle h-100"
-                        // divHeight="25rem"
-                      />
-                    </Link>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="text-center my-5">جاري رفع البيانات</div>
-            )}
-          </div>
-        </div>
-
-        <PaginationSection
-          currentPage={currentPage}
-          pageCount={pageCount}
-          handlePageClick={handlePageClick}
-        />
+        <ListSkeleton />
       </>
     );
-  }
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>لقاءات و قرارات السيد المحافظ</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
+        dropdownOneVal={typesName.find((e) => e.value == appointmentTypeId)}
+        dropdownOneHandler={typeHandler}
+        dropdownOneName={typesName}
+        dropdownOnePlaceholder="القسم"
+        classNameDropdownOne="col-lg-3 col-md-6 mt-md-4 mt-0 col-12"
+        publishDateFrom={appointmentDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
+        publishDateTo={appointmentDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-lg-3 col-md-6 mt-md-2 mt-0 col-12"
+      />
+      {render()}
     </>
   );
 };

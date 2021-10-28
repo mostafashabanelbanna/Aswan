@@ -16,7 +16,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import moment from "moment";
 import "moment/locale/ar";
 import SearchSection from "../../ui/search-section";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
+
 const FilterNews = (props) => {
   const info = props.match.params.info.split("&&");
   const [currentPage, setCurrentPage] = useState(0);
@@ -96,99 +96,115 @@ const FilterNews = (props) => {
     props.clearNewsList();
     setCurrentPage(selectedPage);
   };
-  if (props?.data?.result) {
-    let catName = props.categories.result.map(({ id, nameA }) => ({
-      value: id,
-      label: nameA,
-    }));
-    let sectorsName = props.sectors.result.map(({ id, nameA }) => ({
+
+  let catName = [];
+  if (props?.categories?.result) {
+    catName = props.categories.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     catName.unshift({ value: null, label: "كل الاقسام" });
+  }
+
+  let sectorsName = [];
+  if (props?.sectors?.result) {
+    sectorsName = props.sectors.result.map(({ id, nameA }) => ({
+      value: id,
+      label: nameA,
+    }));
     sectorsName.unshift({ value: null, label: "كل القطاعات" });
-    pageCount = Math.ceil(props.data.count / 9);
+  }
+
+  const render = () => {
+    if (props?.data?.result) {
+      pageCount = Math.ceil(props.data.count / 9);
+      return (
+        <>
+          <div className="container mt-5">
+            <div className="row ">
+              {props.data.result ? (
+                props.data.result.map((item) => {
+                  // let date = item.publishDate.replace(/\//g,'-').split('-');
+                  // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  return (
+                    <div className="mb-4 col-md-6 col-xl-4 col-12">
+                      <Link
+                        id="link"
+                        to={`/newsdetails/${item.id}`}
+                        className="h-100"
+                      >
+                        <ListWithImage
+                          imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
+                          title={item.title}
+                          date={`${moment(new Date(item.publishDate)).format(
+                            "LL"
+                          )}`}
+                          category={item.newsCategoryName}
+                          imgHeight="200px"
+                          hoverTitle="hoverTitle h-100"
+                        />
+                      </Link>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="text-center my-5">جاري رفع البيانات</div>
+              )}
+            </div>
+          </div>
+
+          <PaginationSection
+            currentPage={currentPage}
+            pageCount={pageCount}
+            handlePageClick={handlePageClick}
+          />
+        </>
+      );
+    }
     return (
       <>
-        <Container fluid>
-          <div className=" container underline  my-5">
-            <h3>الأخبار</h3>
-          </div>
-        </Container>
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-sm-4 col-12"
-          dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
-          dropdownOneHandler={catHandler}
-          dropdownOneName={catName}
-          dropdownOnePlaceholder="القسم"
-          classNameDropdownOne="col-sm-4 col-12"
-          dropdownTwoVal={sectorsName.find((e) => e.value == sectorSourceId)}
-          dropdownTwoHandler={sectorHandler}
-          dropdownTwoPlaceholder="القطاع"
-          dropdownTwoName={sectorsName}
-          classNameDropdownTwo="col-sm-4 col-12"
-          publishDateFrom={publishDateFrom}
-          publishFromHandler={publishFromHandler}
-          classNameDPFrom="col-sm-4 col-12"
-          publishDateTo={publishDateTo}
-          publishToHandler={publishToHandler}
-          classNameDPTo="col-sm-4 col-12"
-          classNameBtn="col-sm-4 col-12"
-        />
-        <div className="container mt-5">
-          <div className="row ">
-            {props.data.result ? (
-              props.data.result.map((item) => {
-                // let date = item.publishDate.replace(/\//g,'-').split('-');
-                // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                return (
-                  <div className="mb-4 col-md-6 col-xl-4 col-12">
-                    <Link
-                      id="link"
-                      to={`/newsdetails/${item.id}`}
-                      className="h-100"
-                    >
-                      <ListWithImage
-                        imgSrc={paths.NewsPhotos + item.id + "/" + newPath}
-                        title={item.title}
-                        date={`${moment(new Date(item.publishDate)).format(
-                          "LL"
-                        )}`}
-                        category={item.newsCategoryName}
-                        imgHeight="200px"
-                        hoverTitle="hoverTitle h-100"
-                      />
-                    </Link>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="text-center my-5">جاري رفع البيانات</div>
-            )}
-          </div>
-        </div>
-
-        <PaginationSection
-          currentPage={currentPage}
-          pageCount={pageCount}
-          handlePageClick={handlePageClick}
-        />
+        <ListSkeleton />
       </>
     );
-  }
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>الأخبار</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-sm-4 mb-0 md-md-3 col-12"
+        dropdownOneVal={catName.find((e) => e.value == newsCategoryId)}
+        dropdownOneHandler={catHandler}
+        dropdownOneName={catName}
+        dropdownOnePlaceholder="القسم"
+        classNameDropdownOne="col-sm-4 col-12"
+        dropdownTwoVal={sectorsName.find((e) => e.value == sectorSourceId)}
+        dropdownTwoHandler={sectorHandler}
+        dropdownTwoPlaceholder="القطاع"
+        dropdownTwoName={sectorsName}
+        classNameDropdownTwo="col-sm-4 col-12"
+        publishDateFrom={publishDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-sm-4 my-3 col-12"
+        publishDateTo={publishDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-sm-4 my-md-3 my-0 col-12"
+        classNameBtn="col-sm-4 col-12"
+      />
+      {render()}
     </>
   );
 };

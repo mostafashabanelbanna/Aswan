@@ -32,7 +32,7 @@ const FilterPhotos = (props) => {
     return (
       <>
         <Container fluid>
-          <div className=" container underline  my-5">
+          <div className=" container underline mt-3 mb-5">
             <h3>البوم الصور</h3>
           </div>
         </Container>

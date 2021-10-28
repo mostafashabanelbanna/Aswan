@@ -25,7 +25,6 @@ import SearchSection from "./ui/search-section";
 import PaginationSection from "./ui/pagination-section";
 import ListSkeleton from "./loading-skeleton/list-skiliton";
 import { paths } from "../paths/paths";
-import SearchSkeleton from "./loading-skeleton/search-skeleton";
 
 const ServicesComponent = (props) => {
   const typeId = props.match.params.typeid;
@@ -124,12 +123,17 @@ const ServicesComponent = (props) => {
     };
   }, [currentPage, directoryTypeId]);
 
-  if (props?.services?.result) {
-    let cityName = props.cities.result.map(({ id, name }) => ({
+  let cityName = [];
+  if (props?.cities?.result) {
+    cityName = props.cities.result.map(({ id, name }) => ({
       value: id,
       label: name,
     }));
-    let dirCatVal;
+    cityName.unshift({ value: null, label: "كل المدن" });
+  }
+
+  let dirCatVal = [];
+  if (props?.directoryCategories?.result) {
     if (props.directoryCategories != null) {
       dirCatVal = props.directoryCategories.result.map((item) => ({
         value: item.id,
@@ -140,253 +144,268 @@ const ServicesComponent = (props) => {
       dirCatVal = [];
       dirCatVal.push({ value: null, label: "كل التصنيفات" });
     }
-    let dirTypeVal = props.directoryTypes.result.map((item) => ({
+  }
+
+  let dirTypeVal = [];
+  if (props?.directoryTypes?.result) {
+    dirTypeVal = props.directoryTypes.result.map((item) => ({
       value: item.id,
       label: item.nameA,
     }));
-    cityName.unshift({ value: null, label: "كل المدن" });
     dirTypeVal.unshift({ value: null, label: "كل الأنواع" });
-    pageCount = Math.ceil(props.services.count / 9);
-    if (props.services.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline my-5">
-              <h3>{title}</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={nameHandler}
-            labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-3 col-sm-6 col-12 mt-3 mb-0"
-            dropdownThreeVal={cityName.find((e) => e.value == cityId)}
-            dropdownThreeHandler={cityIdHandler}
-            dropdownThreePlaceholder="المدينة"
-            dropdownThreeName={cityName}
-            classNameDropdownThree="col-md-3 col-sm-6 col-12"
-            dropdownTwoVal={dirCatVal.find(
-              (e) => e.value == directoryCategoryId
-            )}
-            dropdownTwoHandler={directoryCategoryHandler}
-            dropdownTwoPlaceholder="كل التصنيفات"
-            dropdownTwoName={dirCatVal}
-            classNameDropdownTwo="col-md-3 col-sm-6 col-12"
-            dropdownOneVal={dirTypeVal.find((e) => e.value == directoryTypeId)}
-            dropdownOneHandler={directoryTypeHandler}
-            dropdownOnePlaceholder="كل الأنواع"
-            dropdownOneName={dirTypeVal}
-            classNameDropdownOne="col-md-3 col-sm-6 col-12"
-          />
-          <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.services.result.map((item, index) => {
-              let pName;
-              let newPath;
-              if (item.photo != null) {
-                pName = item.photo;
-                newPath = pName.replaceAll(" ", "%20");
-              }
-              return (
-                <div
-                  className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
-                  key={item.id}
-                  style={{
-                    boxShadow:
-                      "rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px",
-                  }}
-                >
-                  {item.photo ? (
-                    <div
-                      style={{
-                        backgroundImage: `url(${paths.Directory}${item.id}/${newPath})`,
-                        height: "200px",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                      }}
-                    >
-                      <div className="justify-content-end d-flex py-3">
-                        <span
-                          className="py-1 px-2 fa-1x"
-                          style={{
-                            backgroundColor: "rgb(6, 73, 106)",
-                            color: "white",
-                            borderTopRightRadius: "5px",
-                            borderBottomRightRadius: "5px",
-                          }}
-                        >
-                          {item.directoryTypeName}-{item.directoryCategoryName}
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div
-                      style={{
-                        backgroundImage: `url(/images/icons/cluesServices-0١.png)`,
-                        height: "200px",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                      }}
-                    >
-                      <div className="justify-content-end d-flex py-3">
-                        <span
-                          className="py-1 px-2 fa-1x"
-                          style={{
-                            backgroundColor: "rgb(6, 73, 106)",
-                            color: "white",
-                            borderTopRightRadius: "5px",
-                            borderBottomRightRadius: "5px",
-                          }}
-                        >
-                          {item.directoryTypeName}-{item.directoryCategoryName}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* <div className="justify-content-end d-flex my-3">
-                    <span
-                      className="py-1 px-2 fa-1x"
-                      style={{
-                        backgroundColor: "rgb(255 220 110 / 30%)",
-                        borderTopRightRadius: "5px",
-                        borderBottomRightRadius: "5px",
-                      }}
-                    >
-                      {item.directoryTypeName}-{item.directoryCategoryName}
-                    </span>
-                  </div> */}
-
-                  <div className="justify-content-center d-flex my-2">
-                    <span className="py-1 px-2 rounded-3 h4">{item.name}</span>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faCity}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2">
-                      {" "}
-                      {item.address == null ? item.cityName : item.address}
-                    </div>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faUserTie}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2"> {item.name}</div>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faPhoneAlt}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2"> {item.telephone}</div>
-                  </div>
-
-                  <div className="d-flex my-3">
-                    <div className="mx-2">
-                      {" "}
-                      <FontAwesomeIcon
-                        icon={faMapMarkerAlt}
-                        size={"1x"}
-                      ></FontAwesomeIcon>
-                    </div>
-                    <div className="mx-2"> {item.cityName}</div>
-                  </div>
-
-                  {item.manger ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faBriefcase}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2">{item.manager}</div>
-                    </div>
-                  ) : null}
-
-                  {item.homePage ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {/* {" "}<i class="fas fa-info-circle"></i> */}
-                        <FontAwesomeIcon
-                          icon={faInfoCircle}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2">
-                        {" "}
-                        <a
-                          className="text-decoration-none"
-                          style={{ cursor: "pointer" }}
-                          href={item.homePage}
-                          target="_blank"
-                        >
-                          تفاصيل
-                        </a>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {item.mapUrl ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faLink}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2">
-                        {" "}
-                        <a
-                          className="text-decoration-none"
-                          style={{ cursor: "pointer" }}
-                          href={item.mapUrl}
-                          target="_blank"
-                        >
-                          إضغط هنا للذهاب للرابط
-                        </a>
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-          {props.services.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
-    }
   }
+
+  const render = () => {
+    if (props?.services?.result) {
+      pageCount = Math.ceil(props.services.count / 9);
+      if (props.services.page == currentPage + 1) {
+        return (
+          <>
+            <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.services.result.map((item, index) => {
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                return (
+                  <div
+                    className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                    key={item.id}
+                    style={{
+                      boxShadow:
+                        "rgb(0 0 0 / 10%) 0px 4px 6px -1px,rgb(0 0 0 / 6%) 0px 2px 4px -1px",
+                    }}
+                  >
+                    {item.photo ? (
+                      <div
+                        style={{
+                          backgroundImage: `url(${paths.Directory}${item.id}/${newPath})`,
+                          height: "200px",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "cover",
+                        }}
+                      >
+                        <div className="justify-content-end d-flex py-3">
+                          <span
+                            className="py-1 px-2 fa-1x"
+                            style={{
+                              backgroundColor: "rgb(6, 73, 106)",
+                              color: "white",
+                              borderTopRightRadius: "5px",
+                              borderBottomRightRadius: "5px",
+                            }}
+                          >
+                            {item.directoryTypeName}-
+                            {item.directoryCategoryName}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          backgroundImage: `url(/images/icons/cluesServices-0١.png)`,
+                          height: "200px",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                        }}
+                      >
+                        <div className="justify-content-end d-flex py-3">
+                          <span
+                            className="py-1 px-2 fa-1x"
+                            style={{
+                              backgroundColor: "rgb(6, 73, 106)",
+                              color: "white",
+                              borderTopRightRadius: "5px",
+                              borderBottomRightRadius: "5px",
+                            }}
+                          >
+                            {item.directoryTypeName}-
+                            {item.directoryCategoryName}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* <div className="justify-content-end d-flex my-3">
+                        <span
+                          className="py-1 px-2 fa-1x"
+                          style={{
+                            backgroundColor: "rgb(255 220 110 / 30%)",
+                            borderTopRightRadius: "5px",
+                            borderBottomRightRadius: "5px",
+                          }}
+                        >
+                          {item.directoryTypeName}-{item.directoryCategoryName}
+                        </span>
+                      </div> */}
+
+                    <div className="justify-content-center d-flex my-2">
+                      <span className="py-1 px-2 rounded-3 h4">
+                        {item.name}
+                      </span>
+                    </div>
+
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faCity}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2">
+                        {" "}
+                        {item.address == null ? item.cityName : item.address}
+                      </div>
+                    </div>
+
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faUserTie}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2"> {item.name}</div>
+                    </div>
+
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faPhoneAlt}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2"> {item.telephone}</div>
+                    </div>
+
+                    <div className="d-flex my-3">
+                      <div className="mx-2">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faMapMarkerAlt}
+                          size={"1x"}
+                        ></FontAwesomeIcon>
+                      </div>
+                      <div className="mx-2"> {item.cityName}</div>
+                    </div>
+
+                    {item.manger ? (
+                      <div className="d-flex my-3">
+                        <div className="mx-2">
+                          {" "}
+                          <FontAwesomeIcon
+                            icon={faBriefcase}
+                            size={"1x"}
+                          ></FontAwesomeIcon>
+                        </div>
+                        <div className="mx-2">{item.manager}</div>
+                      </div>
+                    ) : null}
+
+                    {item.homePage ? (
+                      <div className="d-flex my-3">
+                        <div className="mx-2">
+                          {/* {" "}<i class="fas fa-info-circle"></i> */}
+                          <FontAwesomeIcon
+                            icon={faInfoCircle}
+                            size={"1x"}
+                          ></FontAwesomeIcon>
+                        </div>
+                        <div className="mx-2">
+                          {" "}
+                          <a
+                            className="text-decoration-none"
+                            style={{ cursor: "pointer" }}
+                            href={item.homePage}
+                            target="_blank"
+                          >
+                            تفاصيل
+                          </a>
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {item.mapUrl ? (
+                      <div className="d-flex my-3">
+                        <div className="mx-2">
+                          {" "}
+                          <FontAwesomeIcon
+                            icon={faLink}
+                            size={"1x"}
+                          ></FontAwesomeIcon>
+                        </div>
+                        <div className="mx-2">
+                          {" "}
+                          <a
+                            className="text-decoration-none"
+                            style={{ cursor: "pointer" }}
+                            href={item.mapUrl}
+                            target="_blank"
+                          >
+                            إضغط هنا للذهاب للرابط
+                          </a>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+            {props.services.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
+    }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>{title}</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={nameHandler}
+        labelTextFieldOne="الاسم"
+        classNameTextFieldOne="col-md-3 col-sm-6 col-12 mt-3 mb-0"
+        dropdownThreeVal={cityName.find((e) => e.value == cityId)}
+        dropdownThreeHandler={cityIdHandler}
+        dropdownThreePlaceholder="المدينة"
+        dropdownThreeName={cityName}
+        classNameDropdownThree="col-md-3 col-sm-6 col-12"
+        dropdownTwoVal={dirCatVal.find((e) => e.value == directoryCategoryId)}
+        dropdownTwoHandler={directoryCategoryHandler}
+        dropdownTwoPlaceholder="كل التصنيفات"
+        dropdownTwoName={dirCatVal}
+        classNameDropdownTwo="col-md-3 col-sm-6 col-12"
+        dropdownOneVal={dirTypeVal.find((e) => e.value == directoryTypeId)}
+        dropdownOneHandler={directoryTypeHandler}
+        dropdownOnePlaceholder="كل الأنواع"
+        dropdownOneName={dirTypeVal}
+        classNameDropdownOne="col-md-3 col-sm-6 col-12"
+      />
+      {render()}
     </>
   );
 };

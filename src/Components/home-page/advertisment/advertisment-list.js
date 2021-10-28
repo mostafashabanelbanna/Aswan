@@ -17,7 +17,6 @@ import SearchSection from "../../ui/search-section";
 import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import AdvertisementRequire from "../../forms/ads-form";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const AdvertismentList = (props) => {
   let id = props.match.params.id;
@@ -124,160 +123,171 @@ const AdvertismentList = (props) => {
     props.getAllAdvertismentType();
   }, []);
 
-  if (props?.advertisment?.result && props?.advertismentTypes?.result) {
-    let adsName = props.advertismentTypes.result.map(({ id, nameA }) => ({
+  let adsName = [];
+  if (props?.advertismentTypes?.result) {
+    adsName = props.advertismentTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     adsName.unshift({ value: 0, label: "اعلانات ومناقصات" });
     adsName.unshift({ value: null, label: "كل الاعلانات" });
-    pageCount = Math.ceil(props.advertisment.count / 9);
-    return (
-      <>
-        <Container fluid>
-          <div className=" container underline my-5">
-            {advertismentTypeId == 5 ? (
-              <h3>منتجات يدوية</h3>
-            ) : (
-              <h3>اعلانات ومناقصات</h3>
-            )}
-          </div>
-        </Container>
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-lg-3 col-md-6 mt-3 mb-0 col-12"
-          dropdownOneVal={adsName.find((e) => e.value == advertismentTypeId)}
-          dropdownOneHandler={advertismentTypeHandler}
-          dropdownOneName={adsName}
-          dropdownOnePlaceholder="النوع"
-          classNameDropdownOne="col-lg-3 col-md-6 col-12"
-          publishDateFrom={publishDateFrom}
-          publishFromHandler={publishFromHandler}
-          classNameDPFrom="col-lg-3 col-md-6 col-12"
-          publishDateTo={publishDateTo}
-          publishToHandler={publishToHandler}
-          classNameDPTo="col-lg-3 col-md-6 col-12"
-        />
-        <Container>
-          {advertismentTypeId == 5 ? (
-            <div
-              className="col-12 d-flex justify-content-end"
-              style={{ bottom: 0 }}
-              onClick={() => {
-                onShow();
-              }}
-            >
-              <button
-                type="button"
-                className="btn_blue mx-1 my-4"
-                style={{ verticalAlign: "middle" }}
-              >
-                <span style={{ color: "white" }}>طلب إعلان</span>
-              </button>
-            </div>
-          ) : null}
-        </Container>
-        {props.advertisment.result.length ? (
+  }
+
+  const render = () => {
+    if (props?.advertisment?.result) {
+      pageCount = Math.ceil(props.advertisment.count / 9);
+      return (
+        <>
           <Container>
             {advertismentTypeId == 5 ? (
-              <Row className="my-5">
-                {props.advertisment.result.map((item, index) => {
-                  let pName;
-                  let newPath;
-                  if (item.photo != null) {
-                    pName = item.photo;
-                    newPath = pName.replaceAll(" ", "%20");
-                  }
-                  let slicedTitle = item.title;
-                  if (item.title !== null && item.title.length > 110) {
-                    const brief = item.title;
-                    slicedTitle = brief.substring(0, 100).concat(" ...");
-                  }
-                  return (
-                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                      <div id="link" className="h-100">
-                        <ListWithImage
-                          imgSrc={paths.ads + item.id + "/" + newPath}
-                          title={slicedTitle}
-                          date={`${moment(new Date(item.publishDate)).format(
-                            "LL"
-                          )}`}
-                          category={item.advertismentTypeName}
-                          imgHeight="200px"
-                          hoverTitle="hoverTitle h-100"
-                          // divHeight="25rem"
-                        />
-                      </div>
-                    </Col>
-                  );
-                })}
-                <Col xs={12}>
-                  <PaginationSection
-                    currentPage={currentPage}
-                    pageCount={pageCount}
-                    handlePageClick={handlePageClick}
-                  />
-                </Col>
-              </Row>
-            ) : (
-              <Row className="my-5">
-                {props.advertisment.result.map((item, index) => {
-                  let pName;
-                  let newPath;
-                  if (item.photo != null) {
-                    pName = item.photo;
-                    newPath = pName.replaceAll(" ", "%20");
-                  }
-                  let slicedTitle = item.title;
-                  if (item.title !== null && item.title.length > 110) {
-                    const brief = item.title;
-                    slicedTitle = brief.substring(0, 100).concat(" ...");
-                  }
-                  return (
-                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                      <Link
-                        id="link"
-                        to={`/advertisment-details/${item.id}`}
-                        className="h-100"
-                      >
-                        <ListWithImage
-                          imgSrc={paths.ads + item.id + "/" + newPath}
-                          title={slicedTitle}
-                          date={`${moment(new Date(item.publishDate)).format(
-                            "LL"
-                          )}`}
-                          category={item.advertismentTypeName}
-                          imgHeight="200px"
-                          hoverTitle="hoverTitle h-100"
-                          // divHeight="25rem"
-                        />
-                      </Link>
-                    </Col>
-                  );
-                })}
-                <Col xs={12}>
-                  <PaginationSection
-                    currentPage={currentPage}
-                    pageCount={pageCount}
-                    handlePageClick={handlePageClick}
-                  />
-                </Col>
-              </Row>
-            )}
+              <div
+                className="col-12 d-flex justify-content-end"
+                style={{ bottom: 0 }}
+                onClick={() => {
+                  onShow();
+                }}
+              >
+                <button
+                  type="button"
+                  className="btn_blue mx-1 my-4"
+                  style={{ verticalAlign: "middle" }}
+                >
+                  <span style={{ color: "white" }}>طلب إعلان</span>
+                </button>
+              </div>
+            ) : null}
           </Container>
-        ) : (
-          <div className="text-center my-5">جاري رفع البيانات</div>
-        )}
-        {renderModal()}
+          {props.advertisment.result.length ? (
+            <Container>
+              {advertismentTypeId == 5 ? (
+                <Row className="my-5">
+                  {props.advertisment.result.map((item, index) => {
+                    let pName;
+                    let newPath;
+                    if (item.photo != null) {
+                      pName = item.photo;
+                      newPath = pName.replaceAll(" ", "%20");
+                    }
+                    let slicedTitle = item.title;
+                    if (item.title !== null && item.title.length > 110) {
+                      const brief = item.title;
+                      slicedTitle = brief.substring(0, 100).concat(" ...");
+                    }
+                    return (
+                      <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                        <div id="link" className="h-100">
+                          <ListWithImage
+                            imgSrc={paths.ads + item.id + "/" + newPath}
+                            title={slicedTitle}
+                            date={`${moment(new Date(item.publishDate)).format(
+                              "LL"
+                            )}`}
+                            category={item.advertismentTypeName}
+                            imgHeight="200px"
+                            hoverTitle="hoverTitle h-100"
+                            // divHeight="25rem"
+                          />
+                        </div>
+                      </Col>
+                    );
+                  })}
+                  <Col xs={12}>
+                    <PaginationSection
+                      currentPage={currentPage}
+                      pageCount={pageCount}
+                      handlePageClick={handlePageClick}
+                    />
+                  </Col>
+                </Row>
+              ) : (
+                <Row className="my-5">
+                  {props.advertisment.result.map((item, index) => {
+                    let pName;
+                    let newPath;
+                    if (item.photo != null) {
+                      pName = item.photo;
+                      newPath = pName.replaceAll(" ", "%20");
+                    }
+                    let slicedTitle = item.title;
+                    if (item.title !== null && item.title.length > 110) {
+                      const brief = item.title;
+                      slicedTitle = brief.substring(0, 100).concat(" ...");
+                    }
+                    return (
+                      <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                        <Link
+                          id="link"
+                          to={`/advertisment-details/${item.id}`}
+                          className="h-100"
+                        >
+                          <ListWithImage
+                            imgSrc={paths.ads + item.id + "/" + newPath}
+                            title={slicedTitle}
+                            date={`${moment(new Date(item.publishDate)).format(
+                              "LL"
+                            )}`}
+                            category={item.advertismentTypeName}
+                            imgHeight="200px"
+                            hoverTitle="hoverTitle h-100"
+                            // divHeight="25rem"
+                          />
+                        </Link>
+                      </Col>
+                    );
+                  })}
+                  <Col xs={12}>
+                    <PaginationSection
+                      currentPage={currentPage}
+                      pageCount={pageCount}
+                      handlePageClick={handlePageClick}
+                    />
+                  </Col>
+                </Row>
+              )}
+            </Container>
+          ) : (
+            <div className="text-center my-5">جاري رفع البيانات</div>
+          )}
+          {renderModal()}
+        </>
+      );
+    }
+    return (
+      <>
+        <ListSkeleton />
       </>
     );
-  }
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          {advertismentTypeId == 5 ? (
+            <h3>منتجات يدوية</h3>
+          ) : (
+            <h3>اعلانات ومناقصات</h3>
+          )}
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-lg-3 col-md-6 mt-3 mb-0 col-12"
+        dropdownOneVal={adsName.find((e) => e.value == advertismentTypeId)}
+        dropdownOneHandler={advertismentTypeHandler}
+        dropdownOneName={adsName}
+        dropdownOnePlaceholder="النوع"
+        classNameDropdownOne="col-lg-3 col-md-6 col-12"
+        publishDateFrom={publishDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-lg-3 mt-3 col-md-6 col-12"
+        publishDateTo={publishDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-lg-3 mt-3 col-md-6 col-12"
+      />
+      {render()}
     </>
   );
 };

@@ -126,28 +126,26 @@ const PhotoDetails = (props) => {
           </div>
           {details.sectorName ? (
             <div>
-            <div className="d-flex justify-content-end">
-              <Link id='link'
-                to={`/filterphotos/${
-                  sectorId + "&&" + sectorName + "&&" + "sector"
-                }`}
-                className=" d-flex justify-content-center align-items-center text-center  fa-1x"
-              >
-                <div className=" text-center fa-1x p-3 mb-1 detailsSectorName">
-                  {ReactHtmlParser(details.sectorName)}
-                </div>
-              </Link>
+              <div className="d-flex justify-content-end">
+                <Link
+                  id="link"
+                  to={`/filterphotos/${
+                    sectorId + "&&" + sectorName + "&&" + "sector"
+                  }`}
+                  className=" d-flex justify-content-center align-items-center text-center  fa-1x"
+                >
+                  <div className=" text-center fa-1x p-3 mb-1 detailsSectorName">
+                    {ReactHtmlParser(details.sectorName)}
+                  </div>
+                </Link>
+              </div>
+              <hr className=" m-0" />
             </div>
-          <hr className=" m-0" />
-          </div>
           ) : null}
         </div>
         <div className="row my-5 flex-column-reverse flex-lg-row">
           <div className="col-lg-7 my-3 my-lg-0">
-            <p
-              className=""
-              style={{ lineHeight: "30px", fontSize: "1rem" }}
-            >
+            <p className="" style={{ lineHeight: "30px", fontSize: "1rem" }}>
               {ReactHtmlParser(details.photoCaptionA)}
             </p>
           </div>
@@ -161,51 +159,88 @@ const PhotoDetails = (props) => {
         </div>
 
         {details.photos ? (
-          <div className="my-3">
-            <Slider {...settings} style={{ width: "100%" }}>
-              {details.photos.map((photo, index) => {
-                let pName;
-                let newPath;
-                if (photo.photo != null) {
-                  pName = photo.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                let title = photo.title;
-                if (photo.title === null) {
-                  title = photo.caption;
-                }
-                return (
-                  <div
-                    className="mx-auto p-3 hoverTitle"
-                    key={photo.id}
-                    onClick={() => {
-                      onShow();
-                      setContent(photo);
-                    }}
-                  >
-                    <div className="holder">
-                      <div
-                        style={{
-                          position: "relative",
-                          backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
-                        }}
-                        className="imageAlbum"
-                      ></div>
+          <div className="my-3 d-flex flex-wrap justify-content-center">
+            {details.photos.length > 2 ? (
+              <Slider {...settings} style={{ width: "100%" }}>
+                {details.photos.map((photo, index) => {
+                  let pName;
+                  let newPath;
+                  if (photo.photo != null) {
+                    pName = photo.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let title = photo.title;
+                  if (photo.title === null) {
+                    title = photo.caption;
+                  }
+                  return (
+                    <div
+                      className="mx-auto p-3 hoverTitle"
+                      key={photo.id}
+                      onClick={() => {
+                        onShow();
+                        setContent(photo);
+                      }}
+                    >
+                      <div className="holder">
+                        <div
+                          style={{
+                            position: "relative",
+                            backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                          }}
+                          className="imageAlbum"
+                        ></div>
+                      </div>
+                      <p className="text-center my-2">{title}</p>
                     </div>
-                    <p className="text-center my-2">{title}</p>
-                  </div>
-                );
-              })}
-            </Slider>
+                  );
+                })}
+              </Slider>
+            ) : (
+              <div className="col-lg-4 col-md-6 col-12">
+                {details.photos.map((photo, index) => {
+                  let pName;
+                  let newPath;
+                  if (photo.photo != null) {
+                    pName = photo.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let title = photo.title;
+                  if (photo.title === null) {
+                    title = photo.caption;
+                  }
+                  return (
+                    <div
+                      className="mx-auto p-3 hoverTitle"
+                      key={photo.id}
+                      onClick={() => {
+                        onShow();
+                        setContent(photo);
+                      }}
+                    >
+                      <div className="holder">
+                        <div
+                          style={{
+                            position: "relative",
+                            backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                          }}
+                          className="imageAlbum"
+                        ></div>
+                      </div>
+                      <p className="text-center my-2">{title}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         ) : null}
-        <Link id='link'
+        <Link
+          id="link"
           to={"/photoslist"}
           className="justify-content-center text-decoration-none align-items-center d-flex my-5"
         >
-          <button
-            className="btn_blue"
-          >
+          <button className="btn_blue">
             <span>عرض المزيد</span>
           </button>
         </Link>

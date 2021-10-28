@@ -13,7 +13,6 @@ import { Container } from "react-bootstrap";
 import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
-import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const TechCenterServices = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -69,8 +68,8 @@ const TechCenterServices = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.serviceDirectories?.result) {
-    let serviceDirVal;
+  let serviceDirVal = [];
+  if (props?.serviceTypes?.result) {
     if (props.serviceTypes != null) {
       serviceDirVal = props.serviceTypes.result.map((item) => ({
         value: item.id,
@@ -81,85 +80,70 @@ const TechCenterServices = (props) => {
       serviceDirVal = [];
       serviceDirVal.push({ value: null, label: "كل الخدمات" });
     }
-    pageCount = Math.ceil(props.serviceDirectories.count / 9);
-    if (props.serviceDirectories.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline  my-5">
-              <h3>خدمات المراكز التكنولوجية</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={nameHandler}
-            labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-5 col-12"
-            dropdownOneVal={serviceDirVal.find(
-              (e) => e.value == serviceCategoryId
-            )}
-            dropdownOneHandler={serviceDirectoriesHandler}
-            dropdownOnePlaceholder="كل الخدمات"
-            dropdownOneName={serviceDirVal}
-            classNameDropdownOne="col-md-5 mt-4 mb-md-3 mb-0 col-12"
-            classNameBtn="col-md-2 col-12"
-          />
-          <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.serviceDirectories.result.map((item, index) => {
-              return (
-                <div
-                  className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
-                  key={item.id}
-                >
-                  <div className="justify-content-start d-flex my-2 ">
-                    <span className="py-1 px-2 fa-1x">
-                      {item.serviceCategoryName}
-                    </span>
-                  </div>
+  }
 
-                  <div className="justify-content-center d-flex my-2 ">
-                    <span
-                      className="py-1 px-2 rounded-3 h4"
-                      style={{
-                        backgroundColor: "rgb(6, 73, 106)",
-                        color: "white",
-                      }}
-                    >
-                      {item.name}
-                    </span>
-                  </div>
+  const render = () => {
+    if (props?.serviceDirectories?.result) {
+      pageCount = Math.ceil(props.serviceDirectories.count / 9);
+      if (props.serviceDirectories.page == currentPage + 1) {
+        return (
+          <>
+            <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.serviceDirectories.result.map((item, index) => {
+                return (
+                  <div
+                    className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 p-3  bg-light"
+                    key={item.id}
+                  >
+                    <div className="justify-content-start d-flex my-2 ">
+                      <span className="py-1 px-2 fa-1x">
+                        {item.serviceCategoryName}
+                      </span>
+                    </div>
 
-                  {item.urls
-                    ? item.urls.map((url) => {
-                        return (
-                          <div className="d-flex my-3">
-                            <div className="mx-2">
-                              {" "}
-                              <FontAwesomeIcon
-                                icon={faLink}
-                                size={"1x"}
-                              ></FontAwesomeIcon>
+                    <div className="justify-content-center d-flex my-2 ">
+                      <span
+                        className="py-1 px-2 rounded-3 h4"
+                        style={{
+                          backgroundColor: "rgb(6, 73, 106)",
+                          color: "white",
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                    </div>
+
+                    {item.urls
+                      ? item.urls.map((url) => {
+                          return (
+                            <div className="d-flex my-3">
+                              <div className="mx-2">
+                                {" "}
+                                <FontAwesomeIcon
+                                  icon={faLink}
+                                  size={"1x"}
+                                ></FontAwesomeIcon>
+                              </div>
+                              <div className="mx-2">
+                                {" "}
+                                <a
+                                  className="text-decoration-none"
+                                  style={{
+                                    cursor: "pointer",
+                                    wordBreak: "break-all",
+                                  }}
+                                  href={url}
+                                  target="_blank"
+                                >
+                                  إضغط هنا
+                                </a>
+                              </div>
                             </div>
-                            <div className="mx-2">
-                              {" "}
-                              <a
-                                className="text-decoration-none"
-                                style={{
-                                  cursor: "pointer",
-                                  wordBreak: "break-all",
-                                }}
-                                href={url}
-                                target="_blank"
-                              >
-                                إضغط هنا
-                              </a>
-                            </div>
-                          </div>
-                        );
-                      })
-                    : null}
+                          );
+                        })
+                      : null}
 
-                  {/* {item.url ? (
+                    {/* {item.url ? (
                     <div className="d-flex my-3 ">
                       <div className="mx-2">
                         {" "}
@@ -181,27 +165,49 @@ const TechCenterServices = (props) => {
                       </div>
                     </div>
                   ) : null} */}
-                </div>
-              );
-            })}
-          </div>
-          {props.serviceDirectories.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
+                  </div>
+                );
+              })}
+            </div>
+            {props.serviceDirectories.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
     }
-  }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>خدمات المراكز التكنولوجية</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={nameHandler}
+        labelTextFieldOne="الاسم"
+        classNameTextFieldOne="col-md-5 mt-md-2 mt-3 col-12"
+        dropdownOneVal={serviceDirVal.find((e) => e.value == serviceCategoryId)}
+        dropdownOneHandler={serviceDirectoriesHandler}
+        dropdownOnePlaceholder="كل الخدمات"
+        dropdownOneName={serviceDirVal}
+        classNameDropdownOne="col-md-5 mt-4 mb-md-3 mb-0 col-12"
+        classNameBtn="col-md-2 col-12"
+      />
+      {render()}
     </>
   );
 };

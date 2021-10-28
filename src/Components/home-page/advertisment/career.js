@@ -13,7 +13,6 @@ import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import CareerForm from "../../forms/career-form";
 import ReactHtmlParser from "react-html-parser";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const Career = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -84,81 +83,88 @@ const Career = (props) => {
     setFlag(0);
   }, [currentPage]);
 
-  if (props?.career?.result) {
-    pageCount = Math.ceil(props.career.count / 9);
+  const render = () => {
+    if (props?.career?.result) {
+      pageCount = Math.ceil(props.career.count / 9);
+      return (
+        <>
+          {props?.career?.result?.length ? (
+            <Container>
+              <Row className="my-5">
+                {props.career.result.map((item, index) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let slicedDesc = item.description;
+                  if (
+                    item.description !== null &&
+                    item.description.length > 230
+                  ) {
+                    const brief = item.description;
+                    slicedDesc = brief.substring(0, 230).concat(" ...");
+                  }
+                  return (
+                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                      <div id="link" className="h-100">
+                        <ListWithImage
+                          title={item.title}
+                          imgHeight="0px"
+                          careerButton={true}
+                          careerDetails={ReactHtmlParser(slicedDesc)}
+                          renderModal={() => {
+                            onShow();
+                            setContent(item);
+                          }}
+                          center
+                          divHeight="27rem"
+                          appliedPeople={item.applicantCount}
+                          details={item}
+                        />
+                      </div>
+                    </Col>
+                  );
+                })}
+                <Col xs={12}>
+                  <PaginationSection
+                    currentPage={currentPage}
+                    pageCount={pageCount}
+                    handlePageClick={handlePageClick}
+                  />
+                </Col>
+              </Row>
+            </Container>
+          ) : (
+            <div className=" text-center">جاري رفع البيانات</div>
+          )}
+          {renderModal(content)}
+        </>
+      );
+    }
     return (
       <>
-        <Container fluid>
-          <div className=" container underline  my-5">
-            <h3> وظائف شاغرة</h3>
-          </div>
-        </Container>
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-sm-10 col-12"
-          classNameBtn="col-sm-2 col-12"
-        />
-        {props?.career?.result?.length ? (
-          <Container>
-            <Row className="my-5">
-              {props.career.result.map((item, index) => {
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                let slicedDesc = item.description;
-                if (
-                  item.description !== null &&
-                  item.description.length > 230
-                ) {
-                  const brief = item.description;
-                  slicedDesc = brief.substring(0, 230).concat(" ...");
-                }
-                return (
-                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div id="link" className="h-100">
-                      <ListWithImage
-                        title={item.title}
-                        imgHeight="0px"
-                        careerButton={true}
-                        careerDetails={ReactHtmlParser(slicedDesc)}
-                        renderModal={() => {
-                          onShow();
-                          setContent(item);
-                        }}
-                        center
-                        divHeight="27rem"
-                        appliedPeople={item.applicantCount}
-                        details={item}
-                      />
-                    </div>
-                  </Col>
-                );
-              })}
-              <Col xs={12}>
-                <PaginationSection
-                  currentPage={currentPage}
-                  pageCount={pageCount}
-                  handlePageClick={handlePageClick}
-                />
-              </Col>
-            </Row>
-          </Container>
-        ) : (
-          <div className=" text-center">جاري رفع البيانات</div>
-        )}
-        {renderModal(content)}
+        <ListSkeleton />
       </>
     );
-  }
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className="container underline mt-3 mb-5">
+          <h3> وظائف شاغرة</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-sm-10 col-12"
+        classNameBtn="col-sm-2 col-12"
+      />
+      {render()}
     </>
   );
 };

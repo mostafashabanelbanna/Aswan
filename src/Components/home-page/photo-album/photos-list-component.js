@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/ar";
 import ReactHtmlParser from "react-html-parser";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const PhotosList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -88,80 +87,89 @@ const PhotosList = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.photosList?.result) {
-    pageCount = Math.ceil(props.photosList.count / 9);
-    if (props.photosList.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline  my-5">
-              <h3>البوم الصور</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-md-4 col-sm-6 col-12"
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-md-3 col-sm-6 col-12 m-0"
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo="col-md-3 col-sm-6 col-12 m-md-0"
-            classNameBtn="col-md-2 col-sm-6 col-12"
-          />
-          <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.photosList.result.map((item, index) => {
-              let date = item.publishDate.replace(/\//g, "-").split("-");
-              let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
-              let pName;
-              let newPath;
-              if (item.photo != null) {
-                pName = item.photo;
-                newPath = pName.replaceAll(" ", "%20");
-              }
-              return (
-                <div
-                  style={{ cursor: "pointer" }}
-                  className="mb-4 col-md-6 col-xl-4 col-12 p-3"
-                >
-                  <Link
-                    id="link"
-                    to={`/photodetails/${item.id}`}
-                    className="h-100 text-decoration-none"
+  const render = () => {
+    if (props?.photosList?.result) {
+      pageCount = Math.ceil(props.photosList.count / 9);
+      if (props.photosList.page == currentPage + 1) {
+        return (
+          <>
+            <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.photosList.result.map((item, index) => {
+                let date = item.publishDate.replace(/\//g, "-").split("-");
+                let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                return (
+                  <div
+                    style={{ cursor: "pointer" }}
+                    className="mb-4 col-md-6 col-xl-4 col-12 p-3"
                   >
-                    <ListWithImage
-                      imgSrc={paths.PhotoLibraryAlbum + item.id + "/" + newPath}
-                      title={item.titleA}
-                      content={ReactHtmlParser(item.photoCaptionA)}
-                      date={`${moment(new Date(publishedDate)).format("LL")}`}
-                      center="yes"
-                      imgHeight="250px"
-                      hoverTitle="hoverTitle h-100"
-                    />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          {props.photosList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
+                    <Link
+                      id="link"
+                      to={`/photodetails/${item.id}`}
+                      className="h-100 text-decoration-none"
+                    >
+                      <ListWithImage
+                        imgSrc={
+                          paths.PhotoLibraryAlbum + item.id + "/" + newPath
+                        }
+                        title={item.titleA}
+                        content={ReactHtmlParser(item.photoCaptionA)}
+                        date={`${moment(new Date(publishedDate)).format("LL")}`}
+                        center="yes"
+                        imgHeight="250px"
+                        hoverTitle="hoverTitle h-100"
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            {props.photosList.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
     }
-  }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>البوم الصور</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-md-4 col-sm-6 col-12"
+        publishDateFrom={publishDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-md-3 col-sm-6 col-12 m-0"
+        publishDateTo={publishDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-md-3 col-sm-6 col-12 m-md-0"
+        classNameBtn="col-md-2 col-sm-6 col-12"
+      />
+      {render()}
     </>
   );
 };

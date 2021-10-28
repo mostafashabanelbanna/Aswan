@@ -27,7 +27,6 @@ import { paths } from "../../../paths/paths";
 import ReactHtmlParser from "react-html-parser";
 import ListWithImage from "../../ui/list-with-image";
 import { Link } from "react-router-dom";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
 
 const InvestmentOpportunitiesList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -114,137 +113,146 @@ const InvestmentOpportunitiesList = (props) => {
     setRenderFlag(1);
   }, [currentPage]);
 
-  if (
-    props?.investorOpportunitiesList?.result &&
-    props?.investorPaymentSystem?.result &&
-    props?.investorSpecialtyType?.result &&
-    props?.activity?.result &&
-    props?.industrialZone?.result
-  ) {
-    let investorPaymentSystemVal,
-      investorSpecialtyTypeVal,
-      activityVal,
-      industrialZoneVal;
-
+  let investorPaymentSystemVal = [];
+  if (props?.investorPaymentSystem?.result) {
     investorPaymentSystemVal = props.investorPaymentSystem.result.map(
       ({ id, nameA }) => ({ value: id, label: nameA })
     );
+    investorPaymentSystemVal.unshift({ value: null, label: "نظام السداد" });
+  }
+
+  let investorSpecialtyTypeVal = [];
+  if (props?.investorSpecialtyType?.result) {
     investorSpecialtyTypeVal = props.investorSpecialtyType.result.map(
       ({ id, nameA }) => ({ value: id, label: nameA })
     );
+    investorSpecialtyTypeVal.unshift({ value: null, label: "نوع التخصيص" });
+  }
+
+  let activityVal = [];
+  if (props?.activity?.result) {
     activityVal = props.activity.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
+    activityVal.unshift({ value: null, label: "النشاط" });
+  }
+
+  let industrialZoneVal = [];
+  if (props?.industrialZone?.result) {
     industrialZoneVal = props.industrialZone.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
-
-    investorPaymentSystemVal.unshift({ value: null, label: "نظام السداد" });
-    investorSpecialtyTypeVal.unshift({ value: null, label: "نوع التخصيص" });
-    activityVal.unshift({ value: null, label: "النشاط" });
     industrialZoneVal.unshift({ value: null, label: "كل المناطق " });
-
-    pageCount = Math.ceil(props.investorOpportunitiesList.count / 9);
-    if (props.investorOpportunitiesList.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline my-5">
-              <h3>فرص الإستثمار</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            dropdownOneVal={industrialZoneVal.find(
-              (e) => e.value == industryPartID
-            )}
-            dropdownOneHandler={industryPartIDHandler}
-            dropdownOnePlaceholder="كل المناطق "
-            dropdownOneName={industrialZoneVal}
-            classNameDropdownOne="col-md-5 col-12"
-            dropdownTwoVal={activityVal.find((e) => e.value == activityID)}
-            dropdownTwoHandler={activityIDHandler}
-            dropdownTwoPlaceholder="النشاط"
-            dropdownTwoName={activityVal}
-            classNameDropdownTwo="col-md-5 col-12"
-            classNameBtn="col-md-2 mt-0 col-12"
-            // dropdownThreeVal={investorSpecialtyTypeVal.find(
-            //   (e) => e.value == investmentSpecialtyTypeid
-            // )}
-            // dropdownThreeHandler={investmentSpecialtyTypeidHandler}
-            // dropdownThreePlaceholder="نوع التخصيص"
-            // dropdownThreeName={investorSpecialtyTypeVal}
-            // classNameDropdownThree="col-md-3 col-sm-6 col-12"
-            // dropdownFourVal={investorPaymentSystemVal.find(
-            //   (e) => e.value == investmentPaymentSystemid
-            // )}
-            // dropdownFourHandler={investmentPaymentSystemidHandler}
-            // dropdownFourPlaceholder="نظام السداد"
-            // dropdownFourName={investorPaymentSystemVal}
-            // classNameDropdownFour="col-md-3 col-sm-6 col-12"
-          />
-          <div className="container mt-5">
-            <div className="row ">
-              {props.investorOpportunitiesList.result.map((item) => {
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                let Title;
-                if (item.title) {
-                  Title = item.title;
-                } else {
-                  Title = "فرصة إستثمارية: ";
-                }
-                return (
-                  <div className="mb-4 col-md-6 col-xl-4 col-12">
-                    <Link
-                      id="link"
-                      to={"/opportunitiesdetails/" + item.id}
-                      className="h-100"
-                    >
-                      <ListWithImage
-                        imgSrc={
-                          paths.InvestmentPhotos + item.id + "/" + newPath
-                        }
-                        content={`- ${Title}\n
-                        - المنطقة الصناعية: ${item.industryZoneName}\n
-                        - النشاط: ${item.activityName}\n
-                        - التخصص: ${item.investmentSpecialtyTypeName}\n
-                        - نظام السداد: ${item.investmentPaymentSystemName}\n
-                        `}
-                        center=""
-                        imgHeight="250px"
-                        hoverTitle="hoverTitle h-100"
-                        // divHeight="31rem"
-                      />
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          {props.investorOpportunitiesList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
-    }
   }
+
+  const render = () => {
+    if (props?.investorOpportunitiesList?.result) {
+      pageCount = Math.ceil(props.investorOpportunitiesList.count / 9);
+      if (props.investorOpportunitiesList.page == currentPage + 1) {
+        return (
+          <>
+            <div className="container mt-5">
+              <div className="row ">
+                {props.investorOpportunitiesList.result.map((item) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let Title;
+                  if (item.title) {
+                    Title = item.title;
+                  } else {
+                    Title = "فرصة إستثمارية: ";
+                  }
+                  return (
+                    <div className="mb-4 col-md-6 col-xl-4 col-12">
+                      <Link
+                        id="link"
+                        to={"/opportunitiesdetails/" + item.id}
+                        className="h-100"
+                      >
+                        <ListWithImage
+                          imgSrc={
+                            paths.InvestmentPhotos + item.id + "/" + newPath
+                          }
+                          content={`- ${Title}\n
+                          - المنطقة الصناعية: ${item.industryZoneName}\n
+                          - النشاط: ${item.activityName}\n
+                          - التخصص: ${item.investmentSpecialtyTypeName}\n
+                          - نظام السداد: ${item.investmentPaymentSystemName}\n
+                          `}
+                          center=""
+                          imgHeight="250px"
+                          hoverTitle="hoverTitle h-100"
+                        />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {props.investorOpportunitiesList.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
+    }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>فرص الإستثمار</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        dropdownOneVal={industrialZoneVal.find(
+          (e) => e.value == industryPartID
+        )}
+        dropdownOneHandler={industryPartIDHandler}
+        dropdownOnePlaceholder="كل المناطق "
+        dropdownOneName={industrialZoneVal}
+        classNameDropdownOne="col-md-5 col-12"
+        dropdownTwoVal={activityVal.find((e) => e.value == activityID)}
+        dropdownTwoHandler={activityIDHandler}
+        dropdownTwoPlaceholder="النشاط"
+        dropdownTwoName={activityVal}
+        classNameDropdownTwo="col-md-5 col-12"
+        classNameBtn="col-md-2 mt-0 col-12"
+        // dropdownThreeVal={investorSpecialtyTypeVal.find(
+        //   (e) => e.value == investmentSpecialtyTypeid
+        // )}
+        // dropdownThreeHandler={investmentSpecialtyTypeidHandler}
+        // dropdownThreePlaceholder="نوع التخصيص"
+        // dropdownThreeName={investorSpecialtyTypeVal}
+        // classNameDropdownThree="col-md-3 col-sm-6 col-12"
+        // dropdownFourVal={investorPaymentSystemVal.find(
+        //   (e) => e.value == investmentPaymentSystemid
+        // )}
+        // dropdownFourHandler={investmentPaymentSystemidHandler}
+        // dropdownFourPlaceholder="نظام السداد"
+        // dropdownFourName={investorPaymentSystemVal}
+        // classNameDropdownFour="col-md-3 col-sm-6 col-12"
+      />
+      {render()}
     </>
   );
 };

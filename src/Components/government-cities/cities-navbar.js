@@ -25,7 +25,7 @@ const CitiesNavBar = (props) => {
     pageCount = Math.ceil(props.citiesList.count / 9);
     return (
       <>
-        <div className="container my-3">
+        <div className="container mt-3 mb-5">
           <div className="underline mb-5 mt-3">
             <h3>مدن المحافظة</h3>
           </div>

@@ -14,7 +14,6 @@ import "moment/locale/ar";
 import SearchSection from "../ui/search-section";
 import PaginationSection from "../ui/pagination-section";
 import ListSkeleton from "../loading-skeleton/list-skiliton";
-import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const DocumentLibrary = (props) => {
   let id = props.match.params.type;
@@ -91,7 +90,7 @@ const DocumentLibrary = (props) => {
     if (!props.documentLibraryType) props.getAllDocumentType();
   }, []);
 
-  if (props.documentLibraryType) {
+  if (props?.documentLibraryType?.result) {
     catName = props.documentLibraryType.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
@@ -111,10 +110,6 @@ const DocumentLibrary = (props) => {
                 {props.documentLibrary.result.length ? (
                   <>
                     {props.documentLibrary.result.map((item) => {
-                      // let date = item.publishDate
-                      //   .replace(/\//g, "-")
-                      //   .split("-");
-                      // let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
                       let pName;
                       let newPath;
                       if (item.photo != null) {
@@ -150,7 +145,6 @@ const DocumentLibrary = (props) => {
                               category={item.documentTypeName}
                               imgHeight="200px"
                               hoverTitle="hoverTitle h-100"
-                              // divHeight="23rem"
                             />
                           </Link>
                         </Col>
@@ -176,7 +170,6 @@ const DocumentLibrary = (props) => {
     }
     return (
       <>
-        <SearchSkeleton />
         <ListSkeleton />
       </>
     );
@@ -197,9 +190,9 @@ const DocumentLibrary = (props) => {
   }
 
   return (
-    <div>
+    <>
       <Container fluid>
-        <div className=" container underline mt-5 mb-4">
+        <div className="container underline mt-3 mb-5">
           <h3>{pageTitle}</h3>
         </div>
       </Container>
@@ -221,8 +214,8 @@ const DocumentLibrary = (props) => {
         classNameDPTo="col-md-3 col-sm-6 col-12 mt-4 mb-3 order-3"
         classNameBtn="order-4"
       />
-      <Container>{render()}</Container>
-    </div>
+      {render()}
+    </>
   );
 };
 

@@ -14,7 +14,6 @@ import PaginationSection from "../../../ui/pagination-section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
-import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const Advertisements = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -94,111 +93,132 @@ const Advertisements = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.advertisementsList?.result && props?.advertisementTypes?.result) {
-    let advName = props.advertisementTypes.result.map(({ id, nameA }) => ({
+  let advName = [];
+  if (props?.advertisementTypes?.result) {
+    advName = props.advertisementTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     advName.unshift({ value: null, label: "كل الفئات" });
-    pageCount = Math.ceil(props.advertisementsList.count / 9);
-    if (props.advertisementsList.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline  my-5">
-              <h3>إعلانات ومناقصات</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-lg-3 col-md-6 col-12"
-            dropdownOneVal={advName.find((e) => e.value == advertismentTypeId)}
-            dropdownOneHandler={advHandler}
-            dropdownOneName={advName}
-            dropdownOnePlaceholder="الفئة"
-            classNameDropdownOne="col-lg-3 col-md-6 col-12"
-            publishDateFrom={publishDateFrom}
-            publishFromHandler={publishFromHandler}
-            classNameDPFrom="col-lg-3 col-md-6 col-12"
-            publishDateTo={publishDateTo}
-            publishToHandler={publishToHandler}
-            classNameDPTo="col-lg-3 col-md-6 col-12"
-          />
-          <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.advertisementsList.result.map((item, index) => {
-              let slicedDescription = item.description;
-              if (item.description !== null && item.description.length > 500) {
-                const desc = item.description;
-                slicedDescription = desc.substring(0, 490).concat(" ...");
-              }
+  }
 
-              return (
-                <div
-                  className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
-                  key={item.id}
-                >
-                  {item.advertismentTypeName ? (
-                    <div className="justify-content-end d-flex my-3">
-                      <span
-                        className="py-1 px-2 fa-1x"
-                        style={{
-                          backgroundColor: "rgb(6, 73, 106)",
-                          color: "white",
-                          borderTopRightRadius: "5px",
-                          borderBottomRightRadius: "5px",
-                        }}
-                      >
-                        {item.advertismentTypeName}
+  const render = () => {
+    if (props?.advertisementsList?.result) {
+      pageCount = Math.ceil(props.advertisementsList.count / 9);
+      if (props.advertisementsList.page == currentPage + 1) {
+        return (
+          <>
+            <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.advertisementsList.result.map((item, index) => {
+                let slicedDescription = item.description;
+                if (
+                  item.description !== null &&
+                  item.description.length > 500
+                ) {
+                  const desc = item.description;
+                  slicedDescription = desc.substring(0, 490).concat(" ...");
+                }
+
+                return (
+                  <div
+                    className="holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                    key={item.id}
+                  >
+                    {item.advertismentTypeName ? (
+                      <div className="justify-content-end d-flex my-3">
+                        <span
+                          className="py-1 px-2 fa-1x"
+                          style={{
+                            backgroundColor: "rgb(6, 73, 106)",
+                            color: "white",
+                            borderTopRightRadius: "5px",
+                            borderBottomRightRadius: "5px",
+                          }}
+                        >
+                          {item.advertismentTypeName}
+                        </span>
+                      </div>
+                    ) : null}
+
+                    <div className="justify-content-start d-flex my-2">
+                      <span className="py-1 px-2 fa-1x">
+                        {slicedDescription}
                       </span>
                     </div>
-                  ) : null}
 
-                  <div className="justify-content-start d-flex my-2">
-                    <span className="py-1 px-2 fa-1x">{slicedDescription}</span>
+                    {item.publishDate ? (
+                      <div className="d-flex my-3">
+                        <div className="mx-2">
+                          {" "}
+                          <FontAwesomeIcon
+                            icon={faCalendarAlt}
+                            size={"1x"}
+                          ></FontAwesomeIcon>
+                        </div>
+                        <div className="mx-2">
+                          {" "}
+                          <a
+                            style={{
+                              textDecoration: "none",
+                              cursor: "pointer",
+                            }}
+                          >
+                            {`${moment(new Date(item.publishDate)).format(
+                              "LL"
+                            )}`}
+                          </a>
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
-
-                  {item.publishDate ? (
-                    <div className="d-flex my-3">
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          icon={faCalendarAlt}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
-                      </div>
-                      <div className="mx-2">
-                        {" "}
-                        <a
-                          style={{ textDecoration: "none", cursor: "pointer" }}
-                        >
-                          {`${moment(new Date(item.publishDate)).format("LL")}`}
-                        </a>
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-          {props.advertisementsList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
+                );
+              })}
+            </div>
+            {props.advertisementsList.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
     }
-  }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline  my-3">
+          <h3>إعلانات ومناقصات</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-lg-3 col-md-6 col-12"
+        dropdownOneVal={advName.find((e) => e.value == advertismentTypeId)}
+        dropdownOneHandler={advHandler}
+        dropdownOneName={advName}
+        dropdownOnePlaceholder="الفئة"
+        classNameDropdownOne="col-lg-3 col-md-6 col-12"
+        publishDateFrom={publishDateFrom}
+        publishFromHandler={publishFromHandler}
+        classNameDPFrom="col-lg-3 col-md-6 col-12"
+        publishDateTo={publishDateTo}
+        publishToHandler={publishToHandler}
+        classNameDPTo="col-lg-3 col-md-6 col-12"
+      />
+      {render()}
     </>
   );
 };

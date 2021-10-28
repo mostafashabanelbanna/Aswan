@@ -13,7 +13,7 @@ import PaginationSection from "../../ui/pagination-section";
 import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import YouthForm from "../../forms/youth-form";
 import ReactHtmlParser from "react-html-parser";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton";
+import { render } from "react-dom";
 
 const YouthEmp = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -84,85 +84,94 @@ const YouthEmp = (props) => {
     setFlag(0);
   }, [currentPage]);
 
-  if (props?.youthemp?.result) {
-    pageCount = Math.ceil(props.youthemp.count / 9);
+  const render = () => {
+    if (props?.youthemp?.result) {
+      pageCount = Math.ceil(props.youthemp.count / 9);
+      return (
+        <>
+          {props?.youthemp?.result?.length ? (
+            <Container>
+              <Row className="my-5">
+                {props.youthemp.result.map((item, index) => {
+                  let pName;
+                  let newPath;
+                  if (item.photo != null) {
+                    pName = item.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let slicedDesc = item.description;
+                  if (
+                    item.description !== null &&
+                    item.description.length > 230
+                  ) {
+                    const brief = item.description;
+                    slicedDesc = brief.substring(0, 230).concat(" ...");
+                  }
+                  return (
+                    <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
+                      <div id="link" className="h-100">
+                        <ListWithImage
+                          // imgSrc={paths.youth + item.id + "/" + newPath}
+                          title={item.title}
+                          date={`${moment(new Date(item.startDate)).format(
+                            "LL"
+                          )} إلى ${moment(new Date(item.endDate)).format(
+                            "LL"
+                          )}`}
+                          imgHeight="0px"
+                          youthButton={true}
+                          youthDetails={ReactHtmlParser(slicedDesc)}
+                          renderModal={() => {
+                            onShow();
+                            setContent(item);
+                          }}
+                          center
+                          divHeight="30rem"
+                          appliedPeople={item.applicantCount}
+                          details={item}
+                        />
+                      </div>
+                    </Col>
+                  );
+                })}
+                <Col xs={12}>
+                  <PaginationSection
+                    currentPage={currentPage}
+                    pageCount={pageCount}
+                    handlePageClick={handlePageClick}
+                  />
+                </Col>
+              </Row>
+            </Container>
+          ) : (
+            <div className=" text-center">جاري رفع البيانات</div>
+          )}
+          {renderModal(content)}
+        </>
+      );
+    }
     return (
       <>
-        <Container fluid>
-          <div className=" container underline  my-5">
-            <h3>توظيف الشباب</h3>
-          </div>
-        </Container>
-        <SearchSection
-          submit={submitHandler}
-          TextFieldOneHandler={titleHandler}
-          labelTextFieldOne="العنوان"
-          classNameTextFieldOne="col-sm-10 col-12"
-          classNameBtn="col-sm-2 col-12"
-        />
-        {props?.youthemp?.result?.length ? (
-          <Container>
-            <Row className="my-5">
-              {props.youthemp.result.map((item, index) => {
-                let pName;
-                let newPath;
-                if (item.photo != null) {
-                  pName = item.photo;
-                  newPath = pName.replaceAll(" ", "%20");
-                }
-                let slicedDesc = item.description;
-                if (
-                  item.description !== null &&
-                  item.description.length > 230
-                ) {
-                  const brief = item.description;
-                  slicedDesc = brief.substring(0, 230).concat(" ...");
-                }
-                return (
-                  <Col xl={4} md={6} sm={12} key={item.id} className="mb-4">
-                    <div id="link" className="h-100">
-                      <ListWithImage
-                        // imgSrc={paths.youth + item.id + "/" + newPath}
-                        title={item.title}
-                        date={`${moment(new Date(item.startDate)).format(
-                          "LL"
-                        )} إلى ${moment(new Date(item.endDate)).format("LL")}`}
-                        imgHeight="0px"
-                        youthButton={true}
-                        youthDetails={ReactHtmlParser(slicedDesc)}
-                        renderModal={() => {
-                          onShow();
-                          setContent(item);
-                        }}
-                        center
-                        divHeight="30rem"
-                        appliedPeople={item.applicantCount}
-                        details={item}
-                      />
-                    </div>
-                  </Col>
-                );
-              })}
-              <Col xs={12}>
-                <PaginationSection
-                  currentPage={currentPage}
-                  pageCount={pageCount}
-                  handlePageClick={handlePageClick}
-                />
-              </Col>
-            </Row>
-          </Container>
-        ) : (
-          <div className=" text-center">جاري رفع البيانات</div>
-        )}
-        {renderModal(content)}
+        <ListSkeleton />
       </>
     );
-  }
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>توظيف الشباب</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-sm-10 col-12"
+        classNameBtn="col-sm-2 col-12"
+      />
+      {render()}
     </>
   );
 };

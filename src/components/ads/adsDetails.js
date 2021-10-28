@@ -45,7 +45,7 @@ const AdvertismentDetails = (props) => {
     return (
       <div className="pt-4">
         <Container fluid className="px-0">
-          <div className="container underline  my-5">
+          <div className="container underline mt-3 mb-5">
             <h4>{props.advertismentDetail.result.title}</h4>
           </div>
           <div className="d-flex container my-1">
@@ -111,19 +111,19 @@ const AdvertismentDetails = (props) => {
               {/* End of Slider */}
             </div>
             <div className="container">
-                <div className="row">
-                  <div className="col-12">
-                    {props.advertismentDetail.result.attachment ? (
-                      <iframe
-                        frameborder="0"
-                        src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${props.advertismentDetail.result.attachment}`}
-                        width="100%"
-                        height="800px"
-                      ></iframe>
-                    ) : null}
-                  </div>
+              <div className="row">
+                <div className="col-12">
+                  {props.advertismentDetail.result.attachment ? (
+                    <iframe
+                      frameborder="0"
+                      src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${props.advertismentDetail.result.attachment}`}
+                      width="100%"
+                      height="800px"
+                    ></iframe>
+                  ) : null}
                 </div>
               </div>
+            </div>
           </div>
         </Container>
       </div>

@@ -22,7 +22,7 @@ const Leaders = (props) => {
     }
     return (
       <>
-        <div className=" container underline  my-5">
+        <div className=" container underline mt-3 mb-5">
           <h3>قيادات المحافظة </h3>
         </div>
         <div className="container d-flex justify-content-center my-5">

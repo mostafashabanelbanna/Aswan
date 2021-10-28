@@ -51,7 +51,7 @@ const OrgChartRender = (props) => {
   }, [true]);
   return (
     <Container className="" fluid>
-      <div className=" container underline  my-5">
+      <div className=" container underline mt-3 mb-5">
         <h3>الديوان العام</h3>
       </div>
       <div className=" bg-light">

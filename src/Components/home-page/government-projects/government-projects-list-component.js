@@ -13,7 +13,6 @@ import ListSkeleton from "../../loading-skeleton/list-skiliton";
 import ListWithImage from "../../ui/list-with-image";
 import { paths } from "../../../paths/paths";
 import { Link } from "react-router-dom";
-import SearchSkeleton from "../../loading-skeleton/search-skeleton.js";
 
 const ProjectsList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -77,83 +76,93 @@ const ProjectsList = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.projectsList?.result) {
-    let sectorName = props.projectsSectors.result.map(({ id, nameA }) => ({
+  let sectorName = [];
+  if (props?.projectsSectors?.result) {
+    sectorName = props.projectsSectors.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     sectorName.unshift({ value: null, label: "كل قطاعات المشروعات" });
-    pageCount = Math.ceil(props.projectsList.count / 9);
-    if (props.projectsList.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline  my-5">
-              <h3>مشروعات المحافظة</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={nameHandler}
-            labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-5 col-12"
-            dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
-            dropdownOneHandler={sectorIdHandler}
-            dropdownOnePlaceholder="كل قطاعات المشروعات"
-            dropdownOneName={sectorName}
-            classNameDropdownOne="col-md-5 my-4 col-12"
-            classNameBtn="col-md-2 col-12"
-          />
-          <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.projectsList.result.map((item, index) => {
-              let pName;
-              let newPath;
-              if (item.photo != null) {
-                pName = item.photo;
-                newPath = pName.replaceAll(" ", "%20");
-              }
-              return (
-                <div
-                  style={{ cursor: "pointer" }}
-                  className="mb-4 col-md-6 col-xl-4 col-12 p-3"
-                >
-                  <Link
-                    id="link"
-                    to={`projectDetails/${item.id}`}
-                    className="h-100 text-decoration-none"
-                  >
-                    <ListWithImage
-                      imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}
-                      title={item.name}
-                      category={item.sectorName}
-                      center="yes"
-                      imgHeight="250px"
-                      divHeight="24rem"
-                      hoverTitle="hoverTitle h-100"
-                      changeRate={item.changeRate}
-                    />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          {props.projectsList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center mt-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
-    }
   }
+
+  const render = () => {
+    if (props?.projectsList?.result) {
+      pageCount = Math.ceil(props.projectsList.count / 9);
+      if (props.projectsList.page == currentPage + 1) {
+        return (
+          <>
+            <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.projectsList.result.map((item, index) => {
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                return (
+                  <div
+                    style={{ cursor: "pointer" }}
+                    className="mb-4 col-md-6 col-xl-4 col-12 p-3"
+                  >
+                    <Link
+                      id="link"
+                      to={`projectDetails/${item.id}`}
+                      className="h-100 text-decoration-none"
+                    >
+                      <ListWithImage
+                        imgSrc={paths.ProjectPhoto + item.id + "/" + newPath}
+                        title={item.name}
+                        category={item.sectorName}
+                        center="yes"
+                        imgHeight="250px"
+                        divHeight="24rem"
+                        hoverTitle="hoverTitle h-100"
+                        changeRate={item.changeRate}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            {props.projectsList.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center mt-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
+    }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>مشروعات المحافظة</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={nameHandler}
+        labelTextFieldOne="الاسم"
+        classNameTextFieldOne="col-md-5 mt-md-2 mt-3 col-12"
+        dropdownOneVal={sectorName.find((e) => e.value == sectorId)}
+        dropdownOneHandler={sectorIdHandler}
+        dropdownOnePlaceholder="كل قطاعات المشروعات"
+        dropdownOneName={sectorName}
+        classNameDropdownOne="col-md-5 my-4 col-12"
+        classNameBtn="col-md-2 col-12"
+      />
+      {render()}
     </>
   );
 };

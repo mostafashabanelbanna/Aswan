@@ -35,7 +35,7 @@ const DirectoratesContainer = (props) => {
     return (
       <div>
         <div className="container">
-          <div className="my-5 underline">
+          <div className="my-3 underline">
             <h3 className="mb-0">{name}</h3>
           </div>
         </div>

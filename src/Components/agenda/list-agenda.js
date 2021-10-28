@@ -16,7 +16,6 @@ import ListSkeleton from "../loading-skeleton/list-skiliton";
 import ListWithImage from "../ui/list-with-image";
 import { paths } from "../../paths/paths";
 import { Link } from "react-router-dom";
-import SearchSkeleton from "../loading-skeleton/search-skeleton";
 
 const AgendaList = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -126,123 +125,133 @@ const AgendaList = (props) => {
     };
   }, [currentPage]);
 
-  if (
-    props?.eventsList?.result &&
-    props?.eventsSectors?.result &&
-    props?.eventsTypes?.result
-  ) {
-    let eventsTypeName = props.eventsTypes.result.map(({ id, nameA }) => ({
+  let eventsTypeName = [];
+  if (props?.eventsTypes?.result) {
+    eventsTypeName = props.eventsTypes.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     eventsTypeName.unshift({ value: null, label: "كل الأنواع" });
+  }
 
-    let eventsSectorName = props.eventsSectors.result.map(({ id, nameA }) => ({
+  let eventsSectorName = [];
+  if (props?.eventsSectors?.result) {
+    eventsSectorName = props.eventsSectors.result.map(({ id, nameA }) => ({
       value: id,
       label: nameA,
     }));
     eventsSectorName.unshift({ value: null, label: "كل التصنيفات" });
-    pageCount = Math.ceil(props.eventsList.count / 9);
-    if (props.eventsList.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline  my-5">
-              <h3>الأحداث</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={titleHandler}
-            labelTextFieldOne="العنوان"
-            classNameTextFieldOne="col-md-4 mt-md-4 mt-3 mb-md-3 mb-0 col-12"
-            dropdownOneVal={eventsTypeName.find((e) => e.value == eventTypeId)}
-            dropdownOneHandler={eventTypeHandler}
-            dropdownOnePlaceholder="كل الأنواع"
-            dropdownOneName={eventsTypeName}
-            classNameDropdownOne="col-md-4 col-12"
-            dropdownTwoVal={eventsSectorName.find((e) => e.value == sectorId)}
-            dropdownTwoHandler={sectorHandler}
-            dropdownTwoPlaceholder="كل التصنيفات"
-            dropdownTwoName={eventsSectorName}
-            classNameDropdownTwo="col-md-4 col-12"
-            publishDateFrom={eventStartDateFrom}
-            publishFromHandler={eventStartDateFromHandler}
-            classNameDPFrom="col-md-3 col-sm-6 col-12 mt-0"
-            DPFromLabel="تاريخ بداية الحدث من"
-            publishDateTo={eventStartDateTo}
-            publishToHandler={eventStartDateToHandler}
-            classNameDPTo="col-md-3 col-sm-6 col-12 mt-0"
-            DPToLabel="تاريخ بداية الحدث إلى"
-            endDateFrom={eventEndDateFrom}
-            endDateFromHandler={eventEndDateFromHandler}
-            classNameEDFTo="col-md-3 col-sm-6 col-12 mt-0"
-            EDFToLabel="تاريخ نهاية الحدث من"
-            endDateTo={eventEndDateTo}
-            endDateToHandler={eventEndDateToHandler}
-            classNameEDTTo="col-md-3 col-sm-6 col-12 mt-0"
-            EDTToLabel="تاريخ نهاية الحدث إلى"
-          />
-          <div className="d-flex container flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.eventsList.result.map((item, index) => {
-              let slicedBrief = item.brief;
-              if (item.brief !== null && item.brief.length > 150) {
-                const brief = item.brief;
-                slicedBrief = brief.substring(0, 140).concat(" ...");
-              }
-
-              let pName;
-              let newPath;
-              if (item.photo != null) {
-                pName = item.photo;
-                newPath = pName.replaceAll(" ", "%20");
-              }
-              return (
-                <div
-                  style={{ cursor: "pointer" }}
-                  className="mb-4 col-lg-4 col-sm-6 col-12 p-3"
-                >
-                  <Link
-                    id="link"
-                    to={`/eventdetails/${item.id}`}
-                    className="h-100 text-decoration-none"
-                  >
-                    <ListWithImage
-                      imgSrc={paths.EventsPhotos + item.id + "/" + item.photo}
-                      title={item.title}
-                      date={`${moment(new Date(item.startDateTime)).format(
-                        "LL"
-                      )} إلى ${moment(new Date(item.endDateTime)).format(
-                        "LL"
-                      )}`}
-                      category={item.sectorName}
-                      content={slicedBrief}
-                      center="yes"
-                      imgHeight="250px"
-                      hoverTitle="hoverTitle h-100"
-                    />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          {props.eventsList.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
-    }
   }
+
+  const render = () => {
+    if (props?.eventsList?.result) {
+      pageCount = Math.ceil(props.eventsList.count / 9);
+      if (props.eventsList.page == currentPage + 1) {
+        return (
+          <>
+            <div className="d-flex container flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.eventsList.result.map((item, index) => {
+                let slicedBrief = item.brief;
+                if (item.brief !== null && item.brief.length > 150) {
+                  const brief = item.brief;
+                  slicedBrief = brief.substring(0, 140).concat(" ...");
+                }
+
+                let pName;
+                let newPath;
+                if (item.photo != null) {
+                  pName = item.photo;
+                  newPath = pName.replaceAll(" ", "%20");
+                }
+                return (
+                  <div
+                    style={{ cursor: "pointer" }}
+                    className="mb-4 col-lg-4 col-sm-6 col-12 p-3"
+                  >
+                    <Link
+                      id="link"
+                      to={`/eventdetails/${item.id}`}
+                      className="h-100 text-decoration-none"
+                    >
+                      <ListWithImage
+                        imgSrc={paths.EventsPhotos + item.id + "/" + item.photo}
+                        title={item.title}
+                        date={`${moment(new Date(item.startDateTime)).format(
+                          "LL"
+                        )} إلى ${moment(new Date(item.endDateTime)).format(
+                          "LL"
+                        )}`}
+                        category={item.sectorName}
+                        content={slicedBrief}
+                        center="yes"
+                        imgHeight="250px"
+                        hoverTitle="hoverTitle h-100"
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            {props.eventsList.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
+    }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>الأحداث</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={titleHandler}
+        labelTextFieldOne="العنوان"
+        classNameTextFieldOne="col-md-4 mt-3 mb-md-3 mb-0 col-12"
+        dropdownOneVal={eventsTypeName.find((e) => e.value == eventTypeId)}
+        dropdownOneHandler={eventTypeHandler}
+        dropdownOnePlaceholder="كل الأنواع"
+        dropdownOneName={eventsTypeName}
+        classNameDropdownOne="col-md-4 col-12"
+        dropdownTwoVal={eventsSectorName.find((e) => e.value == sectorId)}
+        dropdownTwoHandler={sectorHandler}
+        dropdownTwoPlaceholder="كل التصنيفات"
+        dropdownTwoName={eventsSectorName}
+        classNameDropdownTwo="col-md-4 col-12"
+        publishDateFrom={eventStartDateFrom}
+        publishFromHandler={eventStartDateFromHandler}
+        classNameDPFrom="col-md-3 col-sm-6 col-12 mt-0"
+        DPFromLabel="تاريخ بداية الحدث من"
+        publishDateTo={eventStartDateTo}
+        publishToHandler={eventStartDateToHandler}
+        classNameDPTo="col-md-3 col-sm-6 col-12 mt-0"
+        DPToLabel="تاريخ بداية الحدث إلى"
+        endDateFrom={eventEndDateFrom}
+        endDateFromHandler={eventEndDateFromHandler}
+        classNameEDFTo="col-md-3 col-sm-6 col-12 mt-0"
+        EDFToLabel="تاريخ نهاية الحدث من"
+        endDateTo={eventEndDateTo}
+        endDateToHandler={eventEndDateToHandler}
+        classNameEDTTo="col-md-3 col-sm-6 col-12 mt-0"
+        EDTToLabel="تاريخ نهاية الحدث إلى"
+      />
+      {render()}
     </>
   );
 };

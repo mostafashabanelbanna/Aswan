@@ -13,7 +13,6 @@ import SearchSection from "../../../ui/search-section";
 import PaginationSection from "../../../ui/pagination-section";
 import ListSkeleton from "../../../loading-skeleton/list-skiliton";
 import { Link } from "react-router-dom";
-import SearchSkeleton from "../../../loading-skeleton/search-skeleton";
 
 const NationalCouncil = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -79,86 +78,106 @@ const NationalCouncil = (props) => {
     };
   }, [currentPage]);
 
-  if (props?.NationalCouncil?.result) {
-    pageCount = Math.ceil(props.NationalCouncil.count / 9);
-    if (props.NationalCouncil.page == currentPage + 1) {
-      return (
-        <>
-          <Container fluid>
-            <div className=" container underline my-5">
-              <h3>المجالس القومية</h3>
-            </div>
-          </Container>
-          <SearchSection
-            submit={submitHandler}
-            TextFieldOneHandler={nameHandler}
-            labelTextFieldOne="الاسم"
-            classNameTextFieldOne="col-md-5 col-12"
-            TextFieldTwoHandler={addressHandler}
-            labelTextFieldTwo="العنوان"
-            classNameTextFieldTwo="col-md-5 col-12"
-            classNameBtn="col-md-2 col-12 mt-2"
-          />
-          <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
-            {props.NationalCouncil.result.map((item, index) => {
-              return (
-                <div
-                  className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
-                  key={item.id}
-                >
-                  <Link
-                    to={`/nationalcouncildetails/${item.id}`}
-                    id="link"
-                    style={{ width: "100%", height: "100%" }}
+  const render = () => {
+    if (props?.NationalCouncil?.result) {
+      pageCount = Math.ceil(props.NationalCouncil.count / 9);
+      if (props.NationalCouncil.page == currentPage + 1) {
+        return (
+          <>
+            <div className="container d-flex flex-wrap justify-content-around flex-column flex-sm-row">
+              {props.NationalCouncil.result.map((item, index) => {
+                return (
+                  <div
+                    className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
+                    key={item.id}
                   >
-                    <div className="justify-content-center d-flex my-2 ">
-                      <span
-                        className="py-1 px-2 rounded-3 h4"
-                        style={{ color: "orange" }}
-                      >
-                        {item.name}
-                      </span>
-                    </div>
-                  </Link>
-
-                  {item.homePage ? (
-                    <a
-                      className="d-flex my-3"
-                      style={{ cursor: "pointer" }}
-                      target="_blank"
+                    <Link
+                      to={`/nationalcouncildetails/${item.id}`}
+                      id="link"
+                      style={{ width: "100%", height: "100%" }}
                     >
-                      <div className="mx-2">
-                        {" "}
-                        <FontAwesomeIcon
-                          className="text-dark"
-                          icon={faGlobe}
-                          size={"1x"}
-                        ></FontAwesomeIcon>
+                      <div className="justify-content-center d-flex my-2 ">
+                        <span
+                          className="py-1 px-2 rounded-3 h4"
+                          style={{ color: "orange" }}
+                        >
+                          {item.name}
+                        </span>
                       </div>
-                      <div className="mx-2">{item.homePage}</div>
-                    </a>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-          {props.NationalCouncil.result.length ? (
-            <PaginationSection
-              currentPage={currentPage}
-              pageCount={pageCount}
-              handlePageClick={handlePageClick}
-            />
-          ) : (
-            <div className="text-center my-5">جاري رفع البيانات</div>
-          )}
-        </>
-      );
+                    </Link>
+
+                    {item.mainGoal ? (
+                      <div
+                        className=" text-justify px-3 pb-2"
+                        style={{
+                          lineHeight: "30px",
+                          fontSize: "1.2rem",
+                          textAlign: "justify",
+                        }}
+                      >
+                        {`الهدف الرئيسي: ${item.mainGoal}`}
+                      </div>
+                    ) : null}
+
+                    {item.homePage ? (
+                      <a
+                        className="d-flex my-3"
+                        style={{ cursor: "pointer" }}
+                        target="_blank"
+                      >
+                        <div className="mx-2">
+                          {" "}
+                          <FontAwesomeIcon
+                            className="text-dark"
+                            icon={faGlobe}
+                            size={"1x"}
+                          ></FontAwesomeIcon>
+                        </div>
+                        <div className="mx-2">{item.homePage}</div>
+                      </a>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+            {props.NationalCouncil.result.length ? (
+              <PaginationSection
+                currentPage={currentPage}
+                pageCount={pageCount}
+                handlePageClick={handlePageClick}
+              />
+            ) : (
+              <div className="text-center my-5">جاري رفع البيانات</div>
+            )}
+          </>
+        );
+      }
     }
-  }
+    return (
+      <>
+        <ListSkeleton />
+      </>
+    );
+  };
+
   return (
     <>
-      <SearchSkeleton />
-      <ListSkeleton />
+      <Container fluid>
+        <div className=" container underline mt-3 mb-5">
+          <h3>المجالس القومية</h3>
+        </div>
+      </Container>
+      <SearchSection
+        submit={submitHandler}
+        TextFieldOneHandler={nameHandler}
+        labelTextFieldOne="الاسم"
+        classNameTextFieldOne="col-md-5 col-12"
+        TextFieldTwoHandler={addressHandler}
+        labelTextFieldTwo="العنوان"
+        classNameTextFieldTwo="col-md-5 col-12"
+        classNameBtn="col-md-2 col-12 mt-2"
+      />
+      {render()}
     </>
   );
 };
