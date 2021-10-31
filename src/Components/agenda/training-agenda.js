@@ -202,57 +202,55 @@ const TrainingAgenda = (props) => {
                 return (
                   <Fade dalay={200}>
                     <div>
-                      <div>
-                        <h3>{item.eventTypeName}</h3>
-                      </div>
-                      <div>
-                        <h5>{item.title}</h5>
-                      </div>
-                      <div>
-                        <p>{ReactHtmlParser(slicedContent)}</p>
-                      </div>
-                      <div className="d-flex flex-wrap justify-content-between mt-5">
-                        <div className="p-3 bg_gradient text-white">{`${moment(
-                          new Date(item.startDateTime)
-                        ).format("LL")} إلى ${moment(
-                          new Date(item.endDateTime)
-                        ).format("LL")}`}</div>
-                        {/*  */}
-                        {item.eventTypeId == 4 ? (
-                          <div className="align-items-center d-flex">
-                            <button
-                              onClick={() => {
-                                setContent(item);
-                                onShow();
-                              }}
-                              className=" mx-1 mb-2 mb-sm-0 btn_blue"
-                              style={{ verticalAlign: "middle" }}
-                            >
-                              <span>مشاركة</span>
-                            </button>
-                          </div>
-                        ) : null}
-                        <div className="align-items-center d-flex">
-                          <Link id="link" to={`/eventdetails/${item.id}`}>
-                            <button
-                              className="btn_orange mx-1 mb-2 mb-sm-0"
-                              style={{ verticalAlign: "middle" }}
-                            >
-                              <span>المزيد</span>
-                            </button>
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        className="my-3"
-                        style={{
-                          height: "1px",
-                          width: "60%",
-                          backgroundColor: "gray",
-                          margin: "auto",
-                        }}
-                      ></div>
+                      <h3>{item.eventTypeName}</h3>
                     </div>
+                    <div>
+                      <h5>{item.title}</h5>
+                    </div>
+                    <div>
+                      <p>{ReactHtmlParser(slicedContent)}</p>
+                    </div>
+                    <div className="d-flex flex-wrap justify-content-between mt-5">
+                      <div className="p-3 bg_gradient text-white">{`${moment(
+                        new Date(item.startDateTime)
+                      ).format("LL")} إلى ${moment(
+                        new Date(item.endDateTime)
+                      ).format("LL")}`}</div>
+                      {/*  */}
+                      {item.eventTypeId == 4 ? (
+                        <div className="align-items-center d-flex">
+                          <button
+                            onClick={() => {
+                              setContent(item);
+                              onShow();
+                            }}
+                            className=" mx-1 mb-2 mb-sm-0 btn_blue"
+                            style={{ verticalAlign: "middle" }}
+                          >
+                            <span>مشاركة</span>
+                          </button>
+                        </div>
+                      ) : null}
+                      <div className="align-items-center d-flex">
+                        <Link id="link" to={`/eventdetails/${item.id}`}>
+                          <button
+                            className="btn_orange mx-1 mb-2 mb-sm-0"
+                            style={{ verticalAlign: "middle" }}
+                          >
+                            <span>المزيد</span>
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    <div
+                      className="my-3"
+                      style={{
+                        height: "1px",
+                        width: "60%",
+                        backgroundColor: "gray",
+                        margin: "auto",
+                      }}
+                    ></div>
                   </Fade>
                 );
               })
