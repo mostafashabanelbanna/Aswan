@@ -80,7 +80,6 @@ const Video = (props) => {
     : (mainVid = props.homeMainVideo);
 
   if (videos?.result && mainVid?.result) {
-    console.log("HIII VIDEO", mainVid);
     // vidCount = videos.result.length
     return (
       <div>

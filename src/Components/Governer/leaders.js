@@ -38,9 +38,6 @@ const Leaders = (props) => {
             {props.leader.result.map((item) => {
               let pName;
               let newPath;
-              {
-                console.log(item.resumee);
-              }
               if (item.photo != null) {
                 pName = item.photo;
                 newPath = pName.replaceAll(" ", "%20");
