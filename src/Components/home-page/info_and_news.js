@@ -9,7 +9,7 @@ const InfoNews = () => {
     <div
       className="custom_bg_light pt-4"
       style={{
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: `url("${bgImg}")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -18,12 +18,14 @@ const InfoNews = () => {
       <div className=" container p-0 ">
         <div className="my-3 d-flex align-items-end">
           <img
-          style={{filter: 'drop-shadow(2px 4px 6px black)'}}
+            style={{ filter: "drop-shadow(2px 4px 6px black)" }}
             src="/images/icons/نظم المعلومات والتحول الرقمي-01.png"
             width="50px"
           />
           <div className="  underline">
-            <h3 className="mt-4 me-2 text-white">نظم المعلومات والتحول الرقمي</h3>
+            <h3 className="mt-4 me-2 text-white">
+              نظم المعلومات والتحول الرقمي
+            </h3>
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@ const InfoNews = () => {
                   style={{
                     height: "200px",
                     width: "200px",
-                    backgroundImage: `url(${cardBg})`,
+                    backgroundImage: `url("${cardBg}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
@@ -80,7 +82,7 @@ const InfoNews = () => {
                   style={{
                     height: "200px",
                     width: "200px",
-                    backgroundImage: `url(${cardBg})`,
+                    backgroundImage: `url("${cardBg}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
@@ -89,7 +91,6 @@ const InfoNews = () => {
                   <img
                     style={{ width: 150 }}
                     className="brightness px-4 imgfilter"
-
                     src={"/images/icons/bulletin-0١.png"}
                   />
                 </div>
@@ -119,7 +120,7 @@ const InfoNews = () => {
                   style={{
                     height: "200px",
                     width: "200px",
-                    backgroundImage: `url(${cardBg})`,
+                    backgroundImage: `url("${cardBg}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
@@ -128,7 +129,6 @@ const InfoNews = () => {
                   <img
                     style={{ width: 150 }}
                     className="brightness px-4 imgfilter"
-
                     src={"/images/icons/decision-0١.png"}
                   />
                 </div>
@@ -158,7 +158,7 @@ const InfoNews = () => {
                   style={{
                     height: "200px",
                     width: "200px",
-                    backgroundImage: `url(${cardBg})`,
+                    backgroundImage: `url("${cardBg}")`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
@@ -167,7 +167,6 @@ const InfoNews = () => {
                   <img
                     style={{ width: 150 }}
                     className="brightness px-4 imgfilter"
-
                     src={"/images/icons/statistics-0١.png"}
                   />
                 </div>

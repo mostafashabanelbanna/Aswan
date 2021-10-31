@@ -104,7 +104,7 @@ const EServiceDirectories = (props) => {
                     className="holder custom-holder text-center rounded-3 my-5 col-lg-3 mx-md-4 col-md-5 mx-0 col-11 bg-light"
                     key={item.id}
                     style={{
-                      backgroundImage: `url(${paths.ServicesPhoto}${item.id}/${newPath})`,
+                      backgroundImage: `url("${paths.ServicesPhoto}${item.id}/${newPath}")`,
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
                     }}

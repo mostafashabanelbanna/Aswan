@@ -39,7 +39,7 @@ const InvestmentOpportunities = (props) => {
                 <div className="holder mb-4">
                   <div
                     style={{
-                      backgroundImage: `url(${paths.InvestmentPhotos}${item.id}/${newPath})`,
+                      backgroundImage: `url("${paths.InvestmentPhotos}${item.id}/${newPath}")`,
                       cursor: "unset",
                     }}
                     className="imageAlbum"
@@ -73,7 +73,7 @@ const InvestmentOpportunities = (props) => {
         <div
           className="city_name_attachment"
           style={{
-            backgroundImage: `url(/images/mohamed-soliman-MFgPnJOsI_I-unsplash.jpg)`,
+            backgroundImage: `url("/images/mohamed-soliman-MFgPnJOsI_I-unsplash.jpg")`,
           }}
         >
           <div

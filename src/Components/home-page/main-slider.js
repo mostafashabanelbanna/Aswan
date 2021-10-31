@@ -34,19 +34,20 @@ const MainSlider = () => {
           mainSlider.map((item, idx) => {
             let pName;
             let newPath;
-            if(item.photo != null){
-            pName = item.photo;
-            newPath  = pName.replaceAll(' ','%20')
+            if (item.photo != null) {
+              pName = item.photo;
+              newPath = pName.replaceAll(" ", "%20");
             }
             return (
               <Carousel.Item style={{ height: "80vh" }}>
-                <Link id='link'
+                <Link
+                  id="link"
                   to={`tourist-attraction-details/${item.id}`}
                   className="h-100"
                 >
                   <div
                     style={{
-                      backgroundImage: `url(${paths.MainSlider}${item.id}/${newPath})`,
+                      backgroundImage: `url("${paths.MainSlider}${item.id}/${newPath}")`,
                     }}
                     className="item_conatainer position-relative"
                   >

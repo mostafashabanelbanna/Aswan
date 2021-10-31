@@ -92,7 +92,7 @@ const GovernmentFamous = (props) => {
                       <div
                         className="innerPolygon"
                         style={{
-                          backgroundImage: `url(${paths.FamousPeople}${person.id}/${newPath})`,
+                          backgroundImage: `url("${paths.FamousPeople}${person.id}/${newPath}")`,
                         }}
                       ></div>
                     </div>

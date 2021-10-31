@@ -198,7 +198,7 @@ const ProjectDetails = (props) => {
                       <div
                         style={{
                           position: "relative",
-                          backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                          backgroundImage: `url("${paths.ProjectPhotos}${photo.id}/${newPath}")`,
                         }}
                         className="imageAlbum"
                       ></div>
@@ -235,7 +235,7 @@ const ProjectDetails = (props) => {
                     <div
                       style={{
                         position: "relative",
-                        backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                        backgroundImage: `url("${paths.ProjectPhotos}${photo.id}/${newPath}")`,
                       }}
                       className="imageAlbum"
                     ></div>

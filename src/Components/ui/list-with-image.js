@@ -17,7 +17,7 @@ const ListWithImage = (props) => {
         <div
           className="list_img"
           style={{
-            backgroundImage: `url(${props.imgSrc})`,
+            backgroundImage: `url("${props.imgSrc}")`,
             height: props.imgHeight,
           }}
         ></div>

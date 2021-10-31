@@ -48,14 +48,16 @@ const InvestorAlbum = (props) => {
           return (
             <Link
               id="link"
-              to={`/statichome/${item.id}/${item.name}/${item.id}/${'investor'}`}
+              to={`/statichome/${item.id}/${item.name}/${
+                item.id
+              }/${"investor"}`}
               className=" col-lg-4 col-md-6 col-10 mb-4 mb-lg-0 mx-auto p-3"
             >
               <div className="hoverTitle " key={item.id}>
                 <div className="holder mb-4">
                   <div
                     style={{
-                      backgroundImage: `url(${item.photo})`,
+                      backgroundImage: `url("${item.photo}")`,
                     }}
                     className="imageAlbum"
                     alt={item.title}
@@ -77,7 +79,7 @@ const InvestorAlbum = (props) => {
       <div className="container mt-5">
         <div className="d-flex my-2">
           <img
-          className='brightness'
+            className="brightness"
             src="./images/icons/photoalbum_titel-0٢.png"
             alt=""
             width="80px"

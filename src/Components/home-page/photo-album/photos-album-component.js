@@ -43,7 +43,7 @@ const PhotosAlbum = (props) => {
                 <div className="holder mb-4">
                   <div
                     style={{
-                      backgroundImage: `url(${paths.PhotoLibraryAlbum}${item.id}/${newPath})`,
+                      backgroundImage: `url("${paths.PhotoLibraryAlbum}${item.id}/${newPath}")`,
                     }}
                     className="imageAlbum"
                     alt={item.titleA}

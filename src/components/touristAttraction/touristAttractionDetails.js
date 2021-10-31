@@ -24,8 +24,7 @@ const TouristAttractionDetails = (props) => {
 
   const getTouristAttraction = async () => {
     //fetch data
-    const response = await axios
-      .get("/TouristAttraction/Details/" + id)
+    const response = await axios.get("/TouristAttraction/Details/" + id);
     if (response && response.data) {
       setTouristAttraction(response.data.result);
     }
@@ -100,21 +99,21 @@ const TouristAttractionDetails = (props) => {
     ],
   };
 
-  if(!noTouristAttraction){
+  if (!noTouristAttraction) {
     let pName;
     let newPath;
-    if(touristAttraction.photo != null){
-    pName = touristAttraction.photo;
-    newPath  = pName.replaceAll(' ','%20')
+    if (touristAttraction.photo != null) {
+      pName = touristAttraction.photo;
+      newPath = pName.replaceAll(" ", "%20");
     }
-  return (
-    <>
-      {renderModal(content)}
+    return (
+      <>
+        {renderModal(content)}
         <div className="my-5">
           <div
             className="city_name_attachment"
             style={{
-              backgroundImage: `url(${paths.MainSlider}${touristAttraction.id}/${newPath})`,
+              backgroundImage: `url("${paths.MainSlider}${touristAttraction.id}/${newPath}")`,
             }}
           >
             <div
@@ -130,86 +129,88 @@ const TouristAttractionDetails = (props) => {
             <div className="my-5">
               {ReactHtmlParser(touristAttraction.description)}
             </div>
-            {touristAttraction.photos.length > 2?
-            <Slider {...settings} style={{ width: "100%" }}>
-              {touristAttraction.photos.map((photo, index) => {
-                let pName;
-                let newPath;
-                if(photo.photo != null){
-                  pName = photo.photo;
-                  newPath  = pName.replaceAll(' ','%20')
-                }
-                let title = photo.title;
-                let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${newPath})`;
-                if (photo.title === null) {
-                  title = photo.caption;
-                }
-                return (
-                  <div
-                  className="mx-auto p-3 hoverTitle"
-                  key={photo.id}
-                  onClick={() => {
-                    onShow();
-                    setContent(photo);
-                  }}
-                  >
-                    <div className="holder">
-                      <div
-                        style={{
-                          // position: "relative",
-                          backgroundImage: imgPath,
-                        }}
-                        className="imageAlbum"
+            {touristAttraction.photos.length > 2 ? (
+              <Slider {...settings} style={{ width: "100%" }}>
+                {touristAttraction.photos.map((photo, index) => {
+                  let pName;
+                  let newPath;
+                  if (photo.photo != null) {
+                    pName = photo.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let title = photo.title;
+                  let imgPath = `url("${paths.TouristAttractionSlider}${photo.id}/${newPath}")`;
+                  if (photo.title === null) {
+                    title = photo.caption;
+                  }
+                  return (
+                    <div
+                      className="mx-auto p-3 hoverTitle"
+                      key={photo.id}
+                      onClick={() => {
+                        onShow();
+                        setContent(photo);
+                      }}
+                    >
+                      <div className="holder">
+                        <div
+                          style={{
+                            // position: "relative",
+                            backgroundImage: imgPath,
+                          }}
+                          className="imageAlbum"
                         ></div>
+                      </div>
+                      <p className="text-center my-2">{title}</p>
                     </div>
-                    <p className="text-center my-2">{title}</p>
-                  </div>
-                );
-              })}
-            </Slider>
-        :<div className='d-flex justify-content-around'>
-          {touristAttraction.photos.map((photo, index) => {
-                let pName;
-                let newPath;
-                if(photo.photo != null){
-                  pName = photo.photo;
-                  newPath  = pName.replaceAll(' ','%20')
-                }
-                let title = photo.title;
-                let imgPath = `url(${paths.TouristAttractionSlider}${photo.id}/${newPath})`;
-                if (photo.title === null) {
-                  title = photo.caption;
-                }
-                return (
-                  <div
-                  className="mx-auto p-3 col-md-4 col-sm-6 col-12 hoverTitle"
-                  key={photo.id}
-                  onClick={() => {
-                    onShow();
-                    setContent(photo);
-                  }}
-                  >
-                    <div className="holder">
-                      <div
-                        style={{
-                          // position: "relative",
-                          backgroundImage: imgPath,
-                        }}
-                        className="imageAlbum"
+                  );
+                })}
+              </Slider>
+            ) : (
+              <div className="d-flex justify-content-around">
+                {touristAttraction.photos.map((photo, index) => {
+                  let pName;
+                  let newPath;
+                  if (photo.photo != null) {
+                    pName = photo.photo;
+                    newPath = pName.replaceAll(" ", "%20");
+                  }
+                  let title = photo.title;
+                  let imgPath = `url("${paths.TouristAttractionSlider}${photo.id}/${newPath}")`;
+                  if (photo.title === null) {
+                    title = photo.caption;
+                  }
+                  return (
+                    <div
+                      className="mx-auto p-3 col-md-4 col-sm-6 col-12 hoverTitle"
+                      key={photo.id}
+                      onClick={() => {
+                        onShow();
+                        setContent(photo);
+                      }}
+                    >
+                      <div className="holder">
+                        <div
+                          style={{
+                            // position: "relative",
+                            backgroundImage: imgPath,
+                          }}
+                          className="imageAlbum"
                         ></div>
+                      </div>
+                      <p className="text-center my-2">{title}</p>
                     </div>
-                    <p className="text-center my-2">{title}</p>
-                  </div>
-                );
-              })}
-          </div>}
+                  );
+                })}
+              </div>
+            )}
           </Container>
-          </div>
-          </>
-          );
-        } else {
-          return <TouristAttractionSkeleton /> 
-}
+        </div>
+      </>
+    );
+  } else {
+    return <TouristAttractionSkeleton />;
+  }
 };
 
 export default TouristAttractionDetails;

@@ -181,7 +181,7 @@ const ServicesComponent = (props) => {
                     {item.photo ? (
                       <div
                         style={{
-                          backgroundImage: `url(${paths.Directory}${item.id}/${newPath})`,
+                          backgroundImage: `url("${paths.Directory}${item.id}/${newPath}")`,
                           height: "200px",
                           backgroundRepeat: "no-repeat",
                           backgroundSize: "cover",
@@ -205,7 +205,7 @@ const ServicesComponent = (props) => {
                     ) : (
                       <div
                         style={{
-                          backgroundImage: `url(/images/icons/cluesServices-0١.png)`,
+                          backgroundImage: `url("/images/icons/cluesServices-0١.png")`,
                           height: "200px",
                           backgroundRepeat: "no-repeat",
                           backgroundSize: "contain",

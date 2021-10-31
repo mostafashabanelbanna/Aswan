@@ -68,8 +68,8 @@ const InvestorMap = (props) => {
         breakpoint: 480,
         settings: {
           centerMode: false,
-          arrows:false,
-          dots:true,
+          arrows: false,
+          dots: true,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -114,7 +114,7 @@ const InvestorMap = (props) => {
                 newPath = pName.replaceAll(" ", "%20");
               }
               let title = item.title;
-              let imgPath = `url(${paths.DocumentLibraryPhotos}${item.id}/${newPath})`;
+              let imgPath = `url("${paths.DocumentLibraryPhotos}${item.id}/${newPath}")`;
               return (
                 <div
                   className="mx-auto p-3"

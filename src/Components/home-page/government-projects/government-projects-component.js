@@ -203,7 +203,7 @@ const GovernmentProjects = (props) => {
                       <div
                         className="mx-3 mb-5 mb-lg-0 mt-md-0 imageDiv"
                         style={{
-                          backgroundImage: `url(${paths.ProjectPhoto}${project.id}/${newPath})`,
+                          backgroundImage: `url("${paths.ProjectPhoto}${project.id}/${newPath}")`,
                         }}
                       ></div>
                     </div>

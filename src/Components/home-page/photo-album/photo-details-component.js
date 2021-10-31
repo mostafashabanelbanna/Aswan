@@ -52,6 +52,8 @@ const PhotoDetails = (props) => {
     pauseOnHover: true,
     swipe: true,
     swipeToSlide: true,
+    rows: 1,
+    touchMove: true,
     responsive: [
       {
         breakpoint: 1300,
@@ -158,7 +160,11 @@ const PhotoDetails = (props) => {
                     let newPath;
                     if (photo.photo != null) {
                       pName = photo.photo;
-                      newPath = pName.replaceAll(" ", "%20");
+                      newPath = pName.replace(" ", "%20");
+                      // newPath = decodeURI(pName);
+                      console.log(
+                        `${paths.ProjectPhotos}${photo.id}/${newPath}`
+                      );
                     }
                     let title = photo.title;
                     if (photo.title === null) {
@@ -177,7 +183,7 @@ const PhotoDetails = (props) => {
                           <div
                             style={{
                               position: "relative",
-                              backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                              backgroundImage: `url("${paths.ProjectPhotos}${photo.id}/${newPath}")`,
                             }}
                             className="imageAlbum"
                           ></div>
@@ -215,7 +221,7 @@ const PhotoDetails = (props) => {
                           <div
                             style={{
                               position: "relative",
-                              backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                              backgroundImage: `url("${paths.ProjectPhotos}${photo.id}/${newPath}")`,
                             }}
                             className="imageAlbum"
                           ></div>

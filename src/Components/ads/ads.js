@@ -36,7 +36,7 @@ const Ads = (props) => {
               <Link to={`/advertisment-details/${item.id}`}>
                 <div
                   style={{
-                    background: `url(${paths.ads}${item.id}/${item.photo})`,
+                    background: `url("${paths.ads}${item.id}/${item.photo}")`,
                     borderRadius: "10px",
                     height: "200px",
                     width: "100%",
