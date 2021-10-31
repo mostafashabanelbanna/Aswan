@@ -41,27 +41,17 @@ const PhotoDetails = (props) => {
   var settings = {
     dots: false,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     infinite: true,
-    speed: 2000,
+    speed: 4000,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    // dots: true,
-    // arrows: false,
-    // autoplay: true,
-    // autoplaySpeed: 1000,
-    // infinite: true,
-    // speed: 2000,
-    // slidesToShow: 4,
-    // slidesToScroll: 1,
-    // initialSlide: 1,
-    // pauseOnFocus: true,
-    // pauseOnHover: true,
-    // swipe: true,
-    // swipeToSlide: true,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    swipe: true,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1300,
@@ -152,7 +142,7 @@ const PhotoDetails = (props) => {
           <div className="col-lg-5 detailsPhoto p-0 h-100">
             <img
               className="img-fluid w-100"
-              style={{ borderRadius: 17 }}
+              style={{ borderRadius: 17, height: 450 }}
               src={`${paths.PhotoLibraryAlbum}${details.id}/${details.photo}`}
             />
           </div>
@@ -161,76 +151,80 @@ const PhotoDetails = (props) => {
         {details.photos ? (
           <div className="my-3 d-flex flex-wrap justify-content-center">
             {details.photos.length > 2 ? (
-              <Slider {...settings} style={{ width: "100%" }}>
-                {details.photos.map((photo, index) => {
-                  let pName;
-                  let newPath;
-                  if (photo.photo != null) {
-                    pName = photo.photo;
-                    newPath = pName.replaceAll(" ", "%20");
-                  }
-                  let title = photo.title;
-                  if (photo.title === null) {
-                    title = photo.caption;
-                  }
-                  return (
-                    <div
-                      className="mx-auto p-3 hoverTitle"
-                      key={photo.id}
-                      onClick={() => {
-                        onShow();
-                        setContent(photo);
-                      }}
-                    >
-                      <div className="holder">
-                        <div
-                          style={{
-                            position: "relative",
-                            backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
-                          }}
-                          className="imageAlbum"
-                        ></div>
+              <div className="col-12">
+                <Slider {...settings} style={{ width: "100%" }}>
+                  {details.photos.map((photo, index) => {
+                    let pName;
+                    let newPath;
+                    if (photo.photo != null) {
+                      pName = photo.photo;
+                      newPath = pName.replaceAll(" ", "%20");
+                    }
+                    let title = photo.title;
+                    if (photo.title === null) {
+                      title = photo.caption;
+                    }
+                    return (
+                      <div
+                        className="mx-auto p-3 hoverTitle"
+                        key={photo.id}
+                        onClick={() => {
+                          onShow();
+                          setContent(photo);
+                        }}
+                      >
+                        <div className="holder">
+                          <div
+                            style={{
+                              position: "relative",
+                              backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                            }}
+                            className="imageAlbum"
+                          ></div>
+                        </div>
+                        <p className="text-center my-2">{title}</p>
                       </div>
-                      <p className="text-center my-2">{title}</p>
-                    </div>
-                  );
-                })}
-              </Slider>
+                    );
+                  })}
+                </Slider>
+              </div>
             ) : (
-              <div className="col-lg-4 col-md-6 col-12">
-                {details.photos.map((photo, index) => {
-                  let pName;
-                  let newPath;
-                  if (photo.photo != null) {
-                    pName = photo.photo;
-                    newPath = pName.replaceAll(" ", "%20");
-                  }
-                  let title = photo.title;
-                  if (photo.title === null) {
-                    title = photo.caption;
-                  }
-                  return (
-                    <div
-                      className="mx-auto p-3 hoverTitle"
-                      key={photo.id}
-                      onClick={() => {
-                        onShow();
-                        setContent(photo);
-                      }}
-                    >
-                      <div className="holder">
-                        <div
-                          style={{
-                            position: "relative",
-                            backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
-                          }}
-                          className="imageAlbum"
-                        ></div>
+              <div className="col-12">
+                <div className="my-3 d-flex flex-wrap justify-content-center">
+                  {details.photos.map((photo, index) => {
+                    let pName;
+                    let newPath;
+                    if (photo.photo != null) {
+                      pName = photo.photo;
+                      newPath = pName.replaceAll(" ", "%20");
+                    }
+                    let title = photo.title;
+                    if (photo.title === null) {
+                      title = photo.caption;
+                    }
+                    return (
+                      <div
+                        className="col-lg-4 mx-auto p-3 hoverTitle"
+                        key={photo.id}
+                        onClick={() => {
+                          onShow();
+                          setContent(photo);
+                        }}
+                      >
+                        <div className="holder">
+                          <div
+                            style={{
+                              position: "relative",
+                              backgroundImage: `url(${paths.ProjectPhotos}${photo.id}/${newPath})`,
+                            }}
+                            className="imageAlbum"
+                          ></div>
+                        </div>
+                        <p className="text-center my-2">{title}</p>
                       </div>
-                      <p className="text-center my-2">{title}</p>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>
