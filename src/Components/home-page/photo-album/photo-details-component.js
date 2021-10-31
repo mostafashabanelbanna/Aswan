@@ -75,10 +75,10 @@ const PhotoDetails = (props) => {
         breakpoint: 600,
         settings: {
           arrows: false,
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2,
-          dots: false,
+          dots: true,
         },
       },
       {
@@ -86,7 +86,7 @@ const PhotoDetails = (props) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
+          dots: true,
         },
       },
     ],
