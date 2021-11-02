@@ -70,7 +70,7 @@ const AppRouting = () => {
           {/* home page*/}
           <Route exact path="/" component={HomeComponent} />
           <Route exact path="/home" component={HomeComponent} />
-          <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/contactus/:id" component={Contact} />
           {/* projects */}
           <Route exact path="/projectDetails/:id" component={ProjectDetails} />
           <Route exact path="/projectslist" component={ProjectsList} />

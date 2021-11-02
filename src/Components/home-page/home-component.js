@@ -5,7 +5,7 @@ import PhotosAlbum from "./photo-album/photos-album-component";
 import News from "./news/newsScreen";
 import Video from "./videos/videoScreen";
 import Complaints from "./complaints-screen";
-import Contact from "./contact_us";
+import ContactHome from "./contactus-home";
 import Footer from "../footer";
 import MainSlider from "./main-slider";
 import InfoNews from "./info_and_news";
@@ -42,7 +42,7 @@ class HomeComponent extends Component {
         <PhotosAlbum {...this.props} pagePath={"home"} title={"البوم الصور"} />
         <Complaints {...this.props} />
         <ImportantPortals {...this.props} />
-        <Contact {...this.props} />
+        <ContactHome {...this.props} />
       </React.Fragment>
     );
   }

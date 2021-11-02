@@ -57,10 +57,10 @@ const Main_navbar = () => {
   return (
     <div>
       <div
-        className="row p-0 m-0 sticky-top"
-        style={{ backgroundColor: "#ffe990" }}
+        className="row p-0 m-0 sticky-top text-white"
+        style={{ backgroundColor: "rgb(66 176 211)" }}
       >
-        <div className="col-2 d-none d-lg-block p-0">
+        <div className="col-2 d-none d-lg-block p-0 ">
           <div className="position-relative">
             <Link id="link" to="/home">
               <img
@@ -75,17 +75,19 @@ const Main_navbar = () => {
         </div>
         <div
           style={{ color: "#7f807f" }}
-          className="col-lg-7 py-3 col-12 text-center d-flex justify-content-between align-items-center p-0"
+          className="col-lg-7 py-3 col-12 text-center d-flex justify-content-between align-items-center p-0 text-white"
         >
           <Link
             id="link"
             to="/home"
             className="hvr-float-shadow  d-flex justify-content-center align-items-center"
+            style={{ color: "#f3f3f3" }}
           >
             <div>
               <img
                 className="mx-2 imgsz"
                 src="/images/icons_black/citiezen.png"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
               <span className="spansz">الرئيسية</span>
             </div>
@@ -96,11 +98,13 @@ const Main_navbar = () => {
             id="link"
             to="/investor"
             className="hvr-float-shadow  d-flex justify-content-center align-items-center"
+            style={{ color: "#f3f3f3" }}
           >
             <div>
               <img
                 className="mx-2 imgsz"
                 src="/images/icons_black/Investor-0١.png"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
               <span className="spansz">المستثمر</span>
             </div>
@@ -111,10 +115,12 @@ const Main_navbar = () => {
             id="link"
             to="/tourist"
             className="hvr-float-shadow  d-flex justify-content-center align-items-center"
+            style={{ color: "#f3f3f3" }}
           >
             <img
               className="mx-2 imgsz"
               src="/images/icons_black/Tourist-0٢.png"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
             <span className="spansz">السائح</span>
           </Link>
@@ -123,12 +129,15 @@ const Main_navbar = () => {
           </div>
         </div>
         <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-0">
-          <Link to="/contactus" className="text-dark text-decoration-none fsiz">
+          <Link
+            to="/contactus/1"
+            className="text-dark text-decoration-none fsiz"
+          >
             خريطة الموقع
           </Link>
           <div className="col-2 d-flex justify-content-center">|</div>
           <Link
-            to="/contactus"
+            to="/contactus/2"
             className="text-dark text-decoration-none col-3 fsiz"
           >
             اتصل بنا

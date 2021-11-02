@@ -1,6 +1,6 @@
 import React from "react";
 import "../../Styles/tourist-home.css";
-import Contact from "../home-page/contact_us";
+import ContactHome from "../home-page/contactus-home";
 import PhotosAlbum from "../home-page/photo-album/photos-album-component";
 import TrainingAgenda from "../agenda/training-agenda";
 import Video from "../home-page/videos/videoScreen";
@@ -29,7 +29,7 @@ const TouristHome = () => {
       />
       <Video pagePath={"tourist"} />
       <PhotosAlbum pagePath={"tourist"} title={"البوم الصور"} />
-      <Contact />
+      <ContactHome />
     </div>
   );
 };
