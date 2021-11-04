@@ -16,7 +16,7 @@ import IdeaForm from "./components/forms/idea-form";
 const Main_navbar = () => {
   const [show, setShow] = useState(false);
 
-  var mybutton;
+  let mybutton;
 
   useEffect(() => {
     mybutton = document.getElementById("myBtn");

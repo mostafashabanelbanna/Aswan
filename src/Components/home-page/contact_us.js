@@ -36,15 +36,15 @@ const Contact = (props) => {
         <div className="container p-0 py-4">
           <div className="mt-2 d-flex align-items-center my-2">
             {id == 1 ? (
+              <FontAwesomeIcon size={"2x"} icon={faMapMarkedAlt}>
+                {" "}
+              </FontAwesomeIcon>
+            ) : (
               <img
                 className="brightness"
                 src="/images/icons/contact_titel-0٢.png"
                 width="60"
               />
-            ) : (
-              <FontAwesomeIcon size={"2x"} icon={faMapMarkedAlt}>
-                {" "}
-              </FontAwesomeIcon>
             )}
             <div className="  underline">
               {" "}
