@@ -33,7 +33,7 @@ function App() {
     setTimeout(() => {
       document.querySelector("#preloader-active").style.transition = "1s";
       document.querySelector("#preloader-active").style.opacity = 0;
-      document.querySelector("#preloader-active").style.display = 'none';
+      document.querySelector("#preloader-active").style.display = "none";
       document.querySelector("body").style.overflowX = "hidden";
     }, 4000);
   }, []);

@@ -185,32 +185,34 @@ const IdeaForm = (props) => {
                     </div>
                   </div>
                   <div className="form-row d-flex flex-md-row flex-column">
-                    <div
-                      style={{ height: "1.1rem", zIndex: "16" }}
-                      className="col-md-6 col-12 align-self-baseline form-group"
-                    >
-                      <label className="form-label text-black">
-                        {" "}
-                        نوع المجال<span style={{ color: "red" }}> * </span>{" "}
-                      </label>
-                      <Select
-                        // value={BusinessFieldId}
-                        required
-                        // value={BusinessFieldName.find(
-                        //   (e) => e.value == BusinessFieldId
-                        // )}
-                        placeholder={"نوع المجال"}
-                        options={BusinessFieldName}
-                        onChange={(e) => {
-                          Formik.setFieldValue("BusinessFieldId", e.value);
-                        }}
-                      />
-                      {Formik.touched.BusinessFieldId &&
-                      Formik.errors.BusinessFieldId ? (
-                        <div className="text-danger">
-                          {Formik.errors.BusinessFieldId}
-                        </div>
-                      ) : null}
+                    <div style={{ zIndex: "16" }} className="col-md-6 col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">
+                          {" "}
+                          نوع المجال<span style={{ color: "red" }}>
+                            {" "}
+                            *{" "}
+                          </span>{" "}
+                        </label>
+                        <Select
+                          // value={BusinessFieldId}
+                          required
+                          // value={BusinessFieldName.find(
+                          //   (e) => e.value == BusinessFieldId
+                          // )}
+                          placeholder={"نوع المجال"}
+                          options={BusinessFieldName}
+                          onChange={(e) => {
+                            Formik.setFieldValue("BusinessFieldId", e.value);
+                          }}
+                        />
+                        {Formik.touched.BusinessFieldId &&
+                        Formik.errors.BusinessFieldId ? (
+                          <div className="text-danger">
+                            {Formik.errors.BusinessFieldId}
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
 
                     <div className="col-md-6 col-12">

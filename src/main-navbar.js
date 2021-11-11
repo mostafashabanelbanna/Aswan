@@ -274,20 +274,26 @@ const Main_navbar = () => {
                     className={`nav-item 
                       `}
                   >
-                    <a className=" d-lg-none d-block  nav-link text-light">
+                    <Link
+                      to="/contactus/1"
+                      className=" d-lg-none d-block  nav-link text-light"
+                    >
                       {" "}
                       خريطة الموفع
-                    </a>
+                    </Link>
                   </li>
 
                   <li
                     className={`nav-item 
                       `}
                   >
-                    <a className="d-lg-none d-block nav-link text-light">
+                    <Link
+                      to="/contactus/2"
+                      className="d-lg-none d-block nav-link text-light"
+                    >
                       {" "}
-                      تواصل معانا
-                    </a>
+                      اتصل بنا
+                    </Link>
                   </li>
                 </ul>
               </Nav>

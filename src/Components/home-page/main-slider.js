@@ -29,7 +29,7 @@ const MainSlider = () => {
 
   return (
     <div className="mainSlider" style={{ height: "80vh" }}>
-      <Carousel fade={true}>
+      <Carousel fade={true} interval={2000}>
         {!noMainSlider &&
           mainSlider.map((item, idx) => {
             let pName;

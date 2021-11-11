@@ -31,6 +31,7 @@ const AgendaForm = (props) => {
   const [Email, setEmail] = useState("");
   const [EventId, setEventId] = useState();
   const [NationalId, setNationalId] = useState();
+  const [Qualification, setQualification] = useState();
 
   const [disabled, setDisabled] = useState(false);
 
@@ -43,6 +44,9 @@ const AgendaForm = (props) => {
       .max(50, "الإسم طويل جدا")
       .trim("", "مطلوب *")
       .required("مطلوب *"),
+    // Qualification: Yup.string()
+    //   .min(5, "النص قصير جدا")
+    //   .trim(" ", "يرجى إدخال مؤهل صحيح"),
     Mobile: Yup.string()
       .matches(/^01[0125][0-9]{8}$/, "رقم الموبايل غير صحيح")
       .required("مطلوب *"),
@@ -68,6 +72,7 @@ const AgendaForm = (props) => {
     setName("");
     setMobile();
     setEmail("");
+    setQualification("");
     setEventId(props.content.id);
     setNationalId();
     setDisabled(false);
@@ -111,6 +116,7 @@ const AgendaForm = (props) => {
                 Email: "",
                 EventId: props.content.id,
                 NationalId: "",
+                Qualification: "",
               }}
               validationSchema={SignupSchema}
               onSubmit={async (values, { setSubmitting }) => {
@@ -159,6 +165,28 @@ const AgendaForm = (props) => {
                         {Formik.touched.Name && Formik.errors.Name ? (
                           <div className="text-danger">
                             {Formik.errors.Name}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="form-row d-flex flex-md-row flex-column">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label className="form-label text-black">المؤهل</label>
+                        <input
+                          type="text"
+                          className="form-control text-right "
+                          id="Qualificationf"
+                          name="Qualification"
+                          placeholder="المؤهل"
+                          onChange={Formik.handleChange("Qualification")}
+                        />
+                        {Formik.touched.Qualification &&
+                        Formik.errors.Qualification ? (
+                          <div className="text-danger">
+                            {Formik.errors.Qualification}
                           </div>
                         ) : null}
                       </div>
