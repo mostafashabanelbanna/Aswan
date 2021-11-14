@@ -61,6 +61,7 @@ import YouthLeaders from "./components/home-page/local-leaders/local-leaders-pag
 import FamousStaticContentDetails from "./components/home-page/government-famous/static-content-details";
 import FilterAppointment from "./components/appointment/filter-appointment";
 import AudioPlayer from "./components/ui/react-audio-player";
+import Player from "./components/ui/react-audio-player";
 const AppRouting = () => {
   return (
     <BrowserRouter>
@@ -217,7 +218,7 @@ const AppRouting = () => {
 
           {/* Org Chart */}
           <Route exact path="/org-chart" component={OrgChartRender} />
-          <Route exact path="/player" component={AudioPlayer} />
+          <Route exact path="/player" component={Player} />
           {/* Error */}
           <Route path="*" component={Error} />
         </Switch>
