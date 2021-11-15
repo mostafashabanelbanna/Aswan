@@ -28,7 +28,7 @@ const MainSlider = () => {
   const noMainSlider = !mainSlider || (mainSlider && mainSlider.length === 0); //check if no Main Slider
 
   return (
-    <div className="mainSlider" style={{ height: "80vh" }}>
+    <div className="mainSlider" style={{ height: "65vh" }}>
       <Carousel fade={true} interval={2000}>
         {!noMainSlider &&
           mainSlider.map((item, idx) => {
@@ -39,7 +39,7 @@ const MainSlider = () => {
               newPath = pName.replaceAll(" ", "%20");
             }
             return (
-              <Carousel.Item style={{ height: "80vh" }}>
+              <Carousel.Item style={{ height: "65vh" }}>
                 <Link
                   id="link"
                   to={`tourist-attraction-details/${item.id}`}

@@ -110,20 +110,20 @@ const AdvertismentDetails = (props) => {
               ) : null}
               {/* End of Slider */}
             </div>
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
-                  {props.advertismentDetail.result.attachment ? (
+            {props.advertismentDetail.result.attachment ? (
+              <div className="container">
+                <div className="row">
+                  <div className="col-12">
                     <iframe
                       frameborder="0"
                       src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${props.advertismentDetail.result.attachment}`}
                       width="100%"
                       height="800px"
                     ></iframe>
-                  ) : null}
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </Container>
       </div>

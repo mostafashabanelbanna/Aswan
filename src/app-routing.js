@@ -218,7 +218,7 @@ const AppRouting = () => {
 
           {/* Org Chart */}
           <Route exact path="/org-chart" component={OrgChartRender} />
-          <Route exact path="/player" component={Player} />
+          {/* <Route exact path="/player" component={Player} /> */}
           {/* Error */}
           <Route path="*" component={Error} />
         </Switch>

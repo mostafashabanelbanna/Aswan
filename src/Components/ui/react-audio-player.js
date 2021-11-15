@@ -1,40 +1,54 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect, createRef } from "react";
 
-const useAudio = (url) => {
-  const [audio] = useState(new Audio(url));
-  const [playing, setPlaying] = useState(true);
+// const useAudio = (url) => {
+//   const [audio] = useState(new Audio(url));
+//   const [playing, setPlaying] = useState(true);
 
-  const toggle = () => setPlaying(!playing);
+//   const toggle = () => setPlaying(!playing);
 
-<<<<<<< HEAD
-///////////////////////////////////////////////////////////
-=======
-  useEffect(() => {
-    playing ? audio.play() : audio.pause();
-  }, [playing]);
+//   useEffect(() => {
+//     playing ? audio.play() : audio.pause();
+//   }, [playing]);
 
-  useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false));
-    return () => {
-      audio.removeEventListener("ended", () => setPlaying(false));
-    };
-  }, []);
+//   // let aud = React.findDOMNode(this.refs.audio).value;
+//   // console.log(aud);
 
-  return [playing, toggle];
-};
+//   useEffect(() => {
+//     audio.addEventListener("ended", () => setPlaying(false));
+//     return () => {
+//       audio.removeEventListener("ended", () => setPlaying(false));
+//     };
+//   }, []);
 
-const Player = () => {
-  const url = "/audio/160547144-epic-egyptian-middle-eastern-a.wav";
-  const [playing, toggle] = useAudio(url);
+//   return [playing, toggle];
+// };
 
-  return (
-    <div>
-      <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
-    </div>
-  );
-};
+// const Player = () => {
+//   const audioRef = createRef();
+//   const url = "/audio/160547144-epic-egyptian-middle-eastern-a.wav";
+//   const [playing, toggle] = useAudio(url);
+//   const audioID = Array.from(document.getElementsByClassName("audioID"));
+//   console.log(audioID);
 
-export default Player;
+//   function myFunction() {
+//     document.getElementsByClassName("audio").click();
+//   }
+
+//   return (
+//     <div>
+//       <button
+//         ref={audioRef}
+//         className="audioID"
+//         onLoad={myFunction}
+//         onClick={toggle}
+//       >
+//         {playing ? "Pause" : "Play"}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default Player;
 
 // import useSound from "use-sound";
 // import { Button } from "react-bootstrap";
@@ -63,7 +77,6 @@ export default Player;
 //     </Button>
 //   );
 // };
->>>>>>> b99b80df1371cb358f4e87c6a36299a3fa3489df
 
 // export default AudioPlayer;
 
@@ -103,30 +116,33 @@ export default Player;
 
 // export default Player;
 
+//////////////////////////////////////////////////////////////////
+
 import React, { useEffect, useState } from "react";
-import { useAudioPlayer, AudioPlayerProvider } from "react-use-audio-player";
+// import { useAudioPlayer, AudioPlayerProvider } from "react-use-audio-player";
 
-const AudioPlayer = ({ file }) => {
-  const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
-    src: file,
-    format: "wav",
-    autoplay: true,
-    html5: true,
-  });
+// const AudioPlayer = ({ file }) => {
 
-  useEffect(() => {
-    togglePlayPause();
-  }, []);
+//   const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
+//     src: file,
+//     format: "wav",
+//     autoplay: true,
+//     html5: true,
+//   });
 
-  if (!ready && !loading) return <div>No audio to play</div>;
-  if (loading) return <div>Loading audio</div>;
+//   useEffect(() => {
+//     togglePlayPause();
+//   }, []);
 
-  return (
-    <div>
-      <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
-    </div>
-  );
-};
+//   if (!ready && !loading) return <div>No audio to play</div>;
+//   if (loading) return <div>Loading audio</div>;
+
+//   return (
+//     <div>
+//       <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
+//     </div>
+//   );
+// };
 
 const AudioPlayerProv = () => {
   const [Playing, setPlaying] = useState(false);

@@ -147,7 +147,32 @@ const ProjectDetails = (props) => {
           </div>
           <hr className=" m-0" />
         </div>
+
         <div className="container mb-3">
+          <div className="row">
+            <div className="col-12 text-justify">
+              <p className="text-justify">
+                <img
+                  className="img-fluid holder detailsPhoto col-12 col-lg-6 float-lg-start me-lg-5 mb-4 me-0 mt-3"
+                  src={`${paths.ProjectPhoto}${details.id}/${details.photo}`}
+                  alt={`${details.photo}`}
+                />
+              </p>
+              <div
+                className=" text-justify ps-lg-3 ps-0"
+                style={{
+                  lineHeight: "30px",
+                  fontSize: "1rem",
+                  textAlign: "justify",
+                }}
+              >
+                {ReactHtmlParser(details.description)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="container mb-3">
           <div className="row">
             <div className="col-12 text-justify">
               <p className="text-justify">
@@ -169,7 +194,7 @@ const ProjectDetails = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {details.photos.length > 3 ? (
           <div className="my-3">

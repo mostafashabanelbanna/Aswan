@@ -7,14 +7,17 @@ import {
   faYoutube,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pulse from "react-reveal/Pulse";
 import { Link } from "react-router-dom";
 import IdeaForm from "./components/forms/idea-form";
+import Ads from "./components/ads/ads";
+import Fade from "react-reveal/Fade";
 
 const Main_navbar = () => {
   const [show, setShow] = useState(false);
+  const [display, setDisplay] = useState("block");
 
   let mybutton;
 
@@ -369,9 +372,9 @@ const Main_navbar = () => {
       </div>{" "}
       <div
         className="d-flex flex-column position-fixed"
-        style={{ left: "10px", top: "30%", zIndex: 10 }}
+        style={{ left: "2px", top: "30%", zIndex: 10 }}
       >
-        <Pulse>
+        {/* <Pulse>
           <a href="https://www.facebook.com/aswan.gov.eg" target="_blank">
             <div
               className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
@@ -385,7 +388,35 @@ const Main_navbar = () => {
               ></FontAwesomeIcon>
             </div>
           </a>
-        </Pulse>
+        </Pulse> */}
+
+        {/* paid ads */}
+
+        <Fade left>
+          <div
+            className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
+            style={{
+              backgroundColor: "",
+              display: display,
+              height: "260px",
+              width: "200px",
+            }}
+          >
+            <div className="w-100 d-flex px-1">
+              <FontAwesomeIcon
+                onClick={() => {
+                  setDisplay("none");
+                }}
+                color={"#3b51a3"}
+                size="1x"
+                icon={faTimes}
+                cursor={"pointer"}
+              ></FontAwesomeIcon>
+            </div>
+            <Ads />
+          </div>
+        </Fade>
+
         {/* <Pulse>
           <a href="#">
             <div className=" side_social_icons  text-center p-1 py-2 rounded-3 mb-3 ">
@@ -411,7 +442,7 @@ const Main_navbar = () => {
             </div>
           </a>{" "}
         </Pulse> */}
-        <Pulse>
+        {/* <Pulse>
           {" "}
           <a href="#">
             {" "}
@@ -424,7 +455,7 @@ const Main_navbar = () => {
               ></FontAwesomeIcon>
             </div>
           </a>
-        </Pulse>
+        </Pulse> */}
 
         {/* <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>
 <img className='mb-3' height='50' width='50' src={'./images/shrimp-zone-seafood_menu_2.jpg'}/>

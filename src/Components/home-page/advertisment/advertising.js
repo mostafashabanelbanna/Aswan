@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Ads from "../../ads/ads";
 
 const Advertising = () => {
   return (
@@ -18,7 +17,7 @@ const Advertising = () => {
         </div>
         <div className="container ">
           <Row>
-            <Col lg={8}>
+            <Col>
               <div className="row text-center justify-content-around">
                 <Link
                   id="link"
@@ -70,9 +69,6 @@ const Advertising = () => {
                   <div className="mt-4"> منتجات يدوية </div>
                 </Link>
               </div>
-            </Col>
-            <Col lg={4}>
-              <Ads />
             </Col>
           </Row>
         </div>

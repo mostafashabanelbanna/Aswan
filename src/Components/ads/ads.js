@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllAds } from "../../store/actions/advertisment-action";
+import { getAllPaidAds } from "../../store/actions/advertisment-action";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./ads.css";
@@ -9,16 +9,16 @@ import Slider from "react-slick";
 
 const Ads = (props) => {
   useEffect(() => {
-    props.getAllAds();
+    props.getAllPaidAds();
   }, []);
 
   var settings = {
     dots: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 500,
+    autoplaySpeed: 1000,
     infinite: true,
-    speed: 3000,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 1,
@@ -31,17 +31,18 @@ const Ads = (props) => {
     return (
       <Slider {...settings} className="ads_slider">
         {props.ads.result.map((item) => {
+          console.log(item.photo);
           return (
             <div className="p-2">
               <Link to={`/advertisment-details/${item.id}`}>
                 <div
                   style={{
                     background: `url("${paths.ads}${item.id}/${item.photo}")`,
-                    borderRadius: "10px",
                     height: "200px",
                     width: "100%",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
+                    backgroundPosition: "center",
                     padding: "10px",
                     textAlign: "justify",
                   }}
@@ -136,6 +137,6 @@ export default connect(
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getAllAds }, dispatch);
+    return bindActionCreators({ getAllPaidAds }, dispatch);
   }
 )(Ads);

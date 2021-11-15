@@ -20,11 +20,11 @@ export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
   };
 }
 
-export async function clearAdvertisement(){
+export async function clearAdvertisement() {
   let payload = null;
   return {
     type: "CLEAR_ADVERTISMENT_LIST",
-    payload
+    payload,
   };
 }
 
@@ -96,9 +96,7 @@ export async function getCareer(pageNumber, keywords = {}, pageSize = 9) {
 export async function getCareerDetails(Id) {
   let payload = null;
   try {
-    let response = await axios.get(
-      "/CareerAPI/Details/" + Id
-    );
+    let response = await axios.get("/CareerAPI/Details/" + Id);
     payload = response.data;
   } catch (error) {}
   return {
@@ -116,13 +114,10 @@ export async function clearCareerDetails() {
   };
 }
 
-
 export async function getYouthDetails(Id) {
   let payload = null;
   try {
-    let response = await axios.get(
-      "/YouthEmploymentAPI/Details/" + Id
-    );
+    let response = await axios.get("/YouthEmploymentAPI/Details/" + Id);
     payload = response.data;
   } catch (error) {}
   return {
@@ -141,7 +136,7 @@ export async function clearYouthDetails() {
 }
 
 //ads
-export async function getAllAds() {
+export async function getAllPaidAds() {
   let payload = null;
   try {
     let res = await axios.get("/AdvertismentAPI/GetPaidads");
@@ -177,7 +172,6 @@ export async function clearAdvertismentDetails() {
   };
 }
 
-
 //on load Modal ad
 export async function getFocusedAd() {
   let payload = null;
@@ -191,14 +185,11 @@ export async function getFocusedAd() {
   };
 }
 
-
 //get career counter
 export async function getCareerCounter(Id) {
   let payload = null;
   try {
-    let response = await axios.get(
-      "/CareerAPI/GetApplicantCount/" + Id
-    );
+    let response = await axios.get("/CareerAPI/GetApplicantCount/" + Id);
     payload = response.data;
   } catch (error) {}
   return {
