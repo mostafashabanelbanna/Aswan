@@ -162,9 +162,6 @@ const PhotoDetails = (props) => {
                       pName = photo.photo;
                       newPath = pName.replace(" ", "%20");
                       // newPath = decodeURI(pName);
-                      console.log(
-                        `${paths.ProjectPhotos}${photo.id}/${newPath}`
-                      );
                     }
                     let title = photo.title;
                     if (photo.title === null) {

@@ -53,9 +53,7 @@ const AdvertismentList = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setCurrentPage(0);
-    check(dataFilled) == false && advertismentTypeId != null
-      ? props.getAllAdvertisment(currentPage + 1)
-      : props.getAdvertisment(currentPage + 1, data(dataFilled));
+    props.getAdvertisment(currentPage + 1, data(dataFilled));
 
     setFlag(1);
   };
@@ -101,16 +99,16 @@ const AdvertismentList = (props) => {
   };
 
   useEffect(() => {
+    if (advertismentTypeId == 0) {
+      dataFilled.advertismentTypeId = null;
+      setAdvertismentTypeId(null);
+    }
     if (flag) {
-      check(dataFilled) == false
-        ? advertismentTypeId == 0
-          ? props.getAllAdvertisment(currentPage + 1)
-          : props.getAdvertisment(currentPage + 1)
+      check(dataFilled) == false || advertismentTypeId == 0
+        ? props.getAdvertisment(currentPage + 1)
         : props.getAdvertisment(currentPage + 1, data(dataFilled));
     } else {
-      advertismentTypeId == 0
-        ? props.getAllAdvertisment(currentPage + 1)
-        : props.getAdvertisment(currentPage + 1, data(dataFilled));
+      props.getAdvertisment(currentPage + 1, data(dataFilled));
     }
     setFlag(0);
 
@@ -129,7 +127,6 @@ const AdvertismentList = (props) => {
       value: id,
       label: nameA,
     }));
-    adsName.unshift({ value: 0, label: "اعلانات ومناقصات" });
     adsName.unshift({ value: null, label: "كل الاعلانات" });
   }
 
@@ -263,11 +260,7 @@ const AdvertismentList = (props) => {
     <>
       <Container fluid>
         <div className=" container underline mt-3 mb-5">
-          {advertismentTypeId == 5 ? (
-            <h3>منتجات يدوية</h3>
-          ) : (
-            <h3>اعلانات ومناقصات</h3>
-          )}
+          {advertismentTypeId == 5 ? <h3>منتجات يدوية</h3> : <h3>الإعلانات</h3>}
         </div>
       </Container>
       <SearchSection
@@ -301,7 +294,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getAdvertisment,
-      getAllAdvertisment,
       getAllAdvertismentType,
       clearAdvertisement,
     },

@@ -101,6 +101,7 @@ const ProjectsList = (props) => {
                 }
                 return (
                   <div
+                    key={item.id}
                     style={{ cursor: "pointer" }}
                     className="mb-4 col-md-6 col-xl-4 col-12 p-3"
                   >

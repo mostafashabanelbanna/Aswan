@@ -165,6 +165,7 @@ const AgendaList = (props) => {
                 }
                 return (
                   <div
+                    key={item.id}
                     style={{ cursor: "pointer" }}
                     className="mb-4 col-lg-4 col-sm-6 col-12 p-3"
                   >

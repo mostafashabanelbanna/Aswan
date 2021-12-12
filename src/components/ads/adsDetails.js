@@ -42,6 +42,15 @@ const AdvertismentDetails = (props) => {
   };
 
   if (props?.advertismentDetail?.result) {
+    let photoName, newPhotoName, fileName, newFileName;
+    if (props.advertismentDetail.result.photo != null) {
+      photoName = props.advertismentDetail.result.photo;
+      newPhotoName = photoName.replaceAll(" ", "%20");
+    }
+    if (props.advertismentDetail.result.attachment != null) {
+      fileName = props.advertismentDetail.result.attachment;
+      newFileName = fileName.replaceAll(" ", "%20");
+    }
     return (
       <div className="pt-4">
         <Container fluid className="px-0">
@@ -84,30 +93,32 @@ const AdvertismentDetails = (props) => {
                     {props.advertismentDetail.result.description}
                   </h5>
                 </Col>
-                <Col lg={4} className="bg-white text-center p-3">
-                  <img
-                    className="img-fluid"
-                    src={
-                      paths.ads +
-                      props.advertismentDetail.result.id +
-                      "/" +
-                      props.advertismentDetail.result.photo
-                    }
-                  />
-                </Col>
+                {props.advertismentDetail.result.photo ? (
+                  <Col lg={4} className="bg-white text-center p-3">
+                    <img
+                      className="img-fluid"
+                      src={
+                        paths.ads +
+                        props.advertismentDetail.result.id +
+                        "/" +
+                        newPhotoName
+                      }
+                    />
+                  </Col>
+                ) : null}
               </div>
               {/* Show Slider if album is not empty */}
-              {props.advertismentDetail.result.advertismentTypeId === 5 ? (
+              {/* {props.advertismentDetail.result.advertismentTypeId === 5 ? (
                 <Row>
                   <Col>
                     <Slider {...settings}>
                       {props.advertismentDetail.result.map((item, index) => {
-                        return <div className=""></div>;
+                        return <div key={item.id} className=""></div>;
                       })}
                     </Slider>
                   </Col>
                 </Row>
-              ) : null}
+              ) : null} */}
               {/* End of Slider */}
             </div>
             {props.advertismentDetail.result.attachment ? (
@@ -115,8 +126,8 @@ const AdvertismentDetails = (props) => {
                 <div className="row">
                   <div className="col-12">
                     <iframe
-                      frameborder="0"
-                      src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${props.advertismentDetail.result.attachment}`}
+                      frameBorder="0"
+                      src={`${paths.AdsAttachment}${props.advertismentDetail.result.id}/${newFileName}`}
                       width="100%"
                       height="800px"
                     ></iframe>

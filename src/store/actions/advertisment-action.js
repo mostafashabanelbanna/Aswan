@@ -1,6 +1,7 @@
 import axios from "../../Axios/Axios_Config";
 
 export async function getAdvertisment(pageNumber, keywords = {}, pageSize = 9) {
+  console.log(keywords);
   let payload = null;
   try {
     let response = await axios.post(

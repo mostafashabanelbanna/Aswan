@@ -174,6 +174,7 @@ const DirectoratesContainer = (props) => {
             {props.directoratesDetails.result.plans.map((item, index) => {
               return (
                 <div
+                  key={item.id}
                   id="link"
                   onClick={() => {
                     setDetailsID(item.id);

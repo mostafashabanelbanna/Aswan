@@ -357,6 +357,7 @@ const CityDetails = (props) => {
                     {props.cityDetails.result.villages.map((item, index) => {
                       return (
                         <Link
+                          key={item.id}
                           className="col-md-4 mb-2 text-dark"
                           to={`/citydetails/${item.id}`}
                           style={{

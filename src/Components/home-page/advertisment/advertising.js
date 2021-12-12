@@ -29,7 +29,7 @@ const Advertising = () => {
                     className="px-4 imgfilter brightness"
                     src={"/images/icons/AdvertisementServices-0١.png"}
                   />
-                  <div className="mt-4"> اعلانات ومناقصات </div>
+                  <div className="mt-4"> الإعلانات </div>
                 </Link>
                 <Link
                   id="link"
@@ -53,7 +53,7 @@ const Advertising = () => {
                     className="  px-4 imgfilter brightness"
                     src={"/images/icons/تشغيل_icon-01.png"}
                   />
-                  <div className="mt-4"> تشغيل شباب </div>
+                  <div className="mt-4">تشغيل وتدريب الشباب</div>
                 </Link>
 
                 <Link

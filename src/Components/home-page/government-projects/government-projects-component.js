@@ -126,7 +126,10 @@ const GovernmentProjects = (props) => {
                 }
 
                 return (
-                  <div className=" d-flex justify-content-around projectsDiv">
+                  <div
+                    key={project.id}
+                    className=" d-flex justify-content-around projectsDiv"
+                  >
                     <div className="d-flex h-100 w-100 flex-lg-row flex-column-reverse mx-auto align-items-center align-items-md-stretch">
                       <div className="ContainerDiv mb-2 mx-3 p-4 pb-5 custom_bg_light">
                         <div className="d-flex flex-row">

@@ -92,6 +92,26 @@ const NewsDetails = (props) => {
                   textAlign: "justify",
                 }}
               >
+                {props.newsdetail.result.introTitle ? (
+                  <p
+                    style={{
+                      color: "rgb(66, 176, 211)",
+                      fontWeight: "bold",
+                      fontSize: 18,
+                    }}
+                  >
+                    النبذة:
+                    <span
+                      style={{
+                        color: "black",
+                        fontWeight: "lighter",
+                        fontSize: 16,
+                      }}
+                    >
+                      {props.newsdetail.result.introTitle}
+                    </span>
+                  </p>
+                ) : null}
                 {ReactHtmlParser(props.newsdetail.result.content)}
               </div>
             </div>

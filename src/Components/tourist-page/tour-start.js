@@ -87,13 +87,13 @@ const TourStart = (props) => {
                 {props.slider.result.map((item, index) => {
                   return (
                     <Link
+                      key={item.id}
                       id="link"
                       to={`/tourist-attraction-details/${item.id}`}
                       className="col-sm-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">
                         <div
-                          key={item.id}
                           className="holder shadow-none"
                           style={{ borderRadius: "0px", height: "280px" }}
                         >
@@ -122,13 +122,13 @@ const TourStart = (props) => {
               {props.slider.result.map((item, index) => {
                 return (
                   <Link
+                    key={item.id}
                     id="link"
                     to={`/tourist-attraction-details/${item.id}`}
                     className="col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div
-                        key={item.id}
                         className="holder shadow-none"
                         style={{ borderRadius: "0px", height: "280px" }}
                       >

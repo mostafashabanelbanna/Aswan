@@ -122,11 +122,9 @@ const Video = (props) => {
                         id="link"
                         to={`videodetails/${item.id}`}
                         className=""
+                        key={item.id}
                       >
-                        <div
-                          key={item.id}
-                          className="mt-4 text-center p-4 hoverTitle"
-                        >
+                        <div className="mt-4 text-center p-4 hoverTitle">
                           <div className="holder">
                             <img
                               src={
@@ -151,14 +149,12 @@ const Video = (props) => {
                 {videos.result.map((item, index) => {
                   return (
                     <Link
+                      key={item.id}
                       id="link"
                       to={`videodetails/${item.id}`}
                       className=" col-lg-4 col-sm-6 col-12"
                     >
-                      <div
-                        key={item.id}
-                        className="mt-4 text-center p-4 hoverTitle"
-                      >
+                      <div className="mt-4 text-center p-4 hoverTitle">
                         <div className="holder">
                           <img
                             src={

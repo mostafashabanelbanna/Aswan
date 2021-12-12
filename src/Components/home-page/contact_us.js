@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 const Contact = (props) => {
   const id = props.match?.params?.id;
-  console.log(id);
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [name, setName] = useState("");

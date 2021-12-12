@@ -11,7 +11,6 @@
 //   }, [playing]);
 
 //   // let aud = React.findDOMNode(this.refs.audio).value;
-//   // console.log(aud);
 
 //   useEffect(() => {
 //     audio.addEventListener("ended", () => setPlaying(false));
@@ -28,7 +27,6 @@
 //   const url = "/audio/160547144-epic-egyptian-middle-eastern-a.wav";
 //   const [playing, toggle] = useAudio(url);
 //   const audioID = Array.from(document.getElementsByClassName("audioID"));
-//   console.log(audioID);
 
 //   function myFunction() {
 //     document.getElementsByClassName("audio").click();
@@ -119,6 +117,7 @@
 //////////////////////////////////////////////////////////////////
 
 import React, { useEffect, useState } from "react";
+// import $ from "jquery";
 // import { useAudioPlayer, AudioPlayerProvider } from "react-use-audio-player";
 
 // const AudioPlayer = ({ file }) => {
@@ -144,30 +143,41 @@ import React, { useEffect, useState } from "react";
 //   );
 // };
 
+//detect chrome browser
+
+// let isChrome =
+//   /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+// if (!isChrome) {
+//   $("#iframeAudio").remove();
+// } else {
+//   $("#playAudio").remove(); // just to make sure that it will not have 2x audio in the background
+// }
+
 const AudioPlayerProv = () => {
   const [Playing, setPlaying] = useState(false);
-  let aud;
+  let audio;
+
+  document.addEventListener("click", musicPlay);
+  function musicPlay() {
+    document.getElementById("playAudio").play();
+    document.removeEventListener("click", musicPlay);
+  }
 
   useEffect(() => {
     setPlaying(true);
     if (Playing) {
-      aud = document.getElementById("aud");
-      aud.play();
+      audio = document.getElementById("playAudio");
+      audio.play();
     }
   }, [Playing]);
 
   if (Playing)
     return (
-      // <AudioPlayerProvider>
-      //   <AudioPlayer file="/audio/160547144-epic-egyptian-middle-eastern-a.wav" />
-      // </AudioPlayerProvider>
       <audio
-        id="aud"
-        controls
+        id="playAudio"
         src="/audio/160547144-epic-egyptian-middle-eastern-a.wav"
-        autoplay
+        autoPlay
         loop
-        html5
       ></audio>
     );
   return <div>no way</div>;

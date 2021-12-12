@@ -99,6 +99,7 @@ const VideosList = (props) => {
                 let publishedDate = `${date[2]}-${date[1]}-${date[0]}T00:00:00`;
                 return (
                   <div
+                    key={item.id}
                     style={{ cursor: "pointer" }}
                     className="mb-4 col-md-6 col-xl-4 col-12 p-3"
                   >

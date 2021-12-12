@@ -96,7 +96,7 @@ const News = (props) => {
                     >
                       {" "}
                       {ReactHtmlParser(
-                        props.mainews.result.value.result[0].content
+                        props.mainews.result.value.result[0].introTitle
                       )}
                     </div>
                   </div>
@@ -135,7 +135,7 @@ const News = (props) => {
                       >
                         {" "}
                         {ReactHtmlParser(
-                          props.mainews.result.value.result[0].content
+                          props.mainews.result.value.result[0].introTitle
                         )}
                       </div>
                     </div>

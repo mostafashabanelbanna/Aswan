@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./Styles/navbar.css";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import {
   faFacebookF,
   faInstagram,
   faYoutube,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faChevronUp, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pulse from "react-reveal/Pulse";
 import { Link } from "react-router-dom";
 import IdeaForm from "./components/forms/idea-form";
 import Ads from "./components/ads/ads";
 import Fade from "react-reveal/Fade";
+import AudioPlayerProv from "./components/ui/react-audio-player";
 
 const Main_navbar = () => {
   const [show, setShow] = useState(false);
-  const [display, setDisplay] = useState("block");
-
-  let mybutton;
+  const [mybutton, setMybutton] = useState(null);
 
   useEffect(() => {
-    mybutton = document.getElementById("myBtn");
+    setMybutton(document.getElementById("myBtn"));
   }, []);
 
   const onShow = () => {
@@ -63,16 +62,11 @@ const Main_navbar = () => {
         className="row p-0 m-0 sticky-top text-white"
         style={{ backgroundColor: "rgb(66 176 211)" }}
       >
+        <AudioPlayerProv />
         <div className="col-2 d-none d-lg-block p-0 ">
           <div className="position-relative">
             <Link id="link" to="/home">
-              <img
-                className="main_logo rounded-3"
-                // src="/images/icons/logo_banner-0١.png"
-                // src='/images/logoo.jfif'
-                src="/images/logoooo.jfif"
-                // style={{height:'150px'}}
-              />
+              <img className="main_logo rounded-3" src="/images/logoooo.jfif" />
             </Link>
           </div>
         </div>
@@ -168,7 +162,6 @@ const Main_navbar = () => {
               <img
                 style={{ width: 20, marginLeft: 10, visibility: "hidden" }}
                 src="/images/icons/footer_logo-0١.png"
-                //src='/images/logoo.jfif'
               />
             </Link>
             <Link
@@ -179,7 +172,6 @@ const Main_navbar = () => {
               <img
                 style={{ width: 40, marginLeft: 10 }}
                 src="/images/icons/footer_logo-0١.png"
-                // src='/images/logoo.jfif'
               />
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -303,76 +295,10 @@ const Main_navbar = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        {/* <nav className="navbar navbar-expand-lg navbar-dark justify-content-around" style={{ backgroundColor: '#7f807f', color: 'white' }} >
- <div className="container-fluid">
-  <button className="navbar-toggler mx-auto"  type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse justify-content-around" id="main_nav">
-        <ul className='navbar-nav'>
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-
-            <li className="nav-item active">
-                <a className='nav-link'>عن المحافظة</a>
-            </li>
-        </ul>
-    </div>
-    </div>
-    </nav> */}
-        {/* <div className=' d-flex justify-content-center align-items-center p-0 py-2' style={{ backgroundColor: '#7f807f', color: 'white' }} >
-            <div className='fsiz'>عن المحافظة</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>قيادات المحافظة</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>المحافظون السابقون</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>لقاءات و قرارات السيد المحافظ</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>الديوان العام</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>مدن المحافظة</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>مجلس النواب</div>
-            <div className='mx-1'>|</div>
-
-            <div className='fsiz'>مجلس الشيوخ</div>
-        </div> */}
-      </div>{" "}
+      </div>
       <div
         className="d-flex flex-column position-fixed"
-        style={{ left: "2px", top: "30%", zIndex: 10 }}
+        style={{ left: "2px", top: "30%", zIndex: 100 }}
       >
         {/* <Pulse>
           <a href="https://www.facebook.com/aswan.gov.eg" target="_blank">
@@ -393,28 +319,27 @@ const Main_navbar = () => {
         {/* paid ads */}
 
         <Fade left>
-          <div
-            className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
-            style={{
-              backgroundColor: "",
-              display: display,
-              height: "260px",
-              width: "200px",
-            }}
-          >
-            <div className="w-100 d-flex px-1">
-              <FontAwesomeIcon
-                onClick={() => {
-                  setDisplay("none");
-                }}
-                color={"#3b51a3"}
-                size="1x"
-                icon={faTimes}
-                cursor={"pointer"}
-              ></FontAwesomeIcon>
-            </div>
-            <Ads />
-          </div>
+          {/* <div
+              className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
+              style={{
+                backgroundColor: "",
+                height: "260px",
+                width: "200px",
+              }}
+            >
+              <div className="w-100 d-flex px-1">
+                <FontAwesomeIcon
+                  onClick={() => {
+                    setDisplay(false);
+                  }}
+                  color={"#3b51a3"}
+                  size="1x"
+                  icon={faTimes}
+                  cursor={"pointer"}
+                ></FontAwesomeIcon>
+              </div> */}
+          <Ads />
+          {/* </div> */}
         </Fade>
 
         {/* <Pulse>

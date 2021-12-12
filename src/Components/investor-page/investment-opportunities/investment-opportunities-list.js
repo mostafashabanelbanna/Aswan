@@ -169,7 +169,10 @@ const InvestmentOpportunitiesList = (props) => {
                     Title = "فرصة إستثمارية: ";
                   }
                   return (
-                    <div className="mb-4 col-md-6 col-xl-4 col-12">
+                    <div
+                      key={item.id}
+                      className="mb-4 col-md-6 col-xl-4 col-12"
+                    >
                       <Link
                         id="link"
                         to={"/opportunitiesdetails/" + item.id}

@@ -200,7 +200,7 @@ const TrainingAgenda = (props) => {
                   end: item.endDateTime,
                 });
                 return (
-                  <Fade dalay={200}>
+                  <Fade dalay={200} key={item.id}>
                     <div>
                       <h3>{item.eventTypeName}</h3>
                     </div>

@@ -134,9 +134,9 @@ const EServiceDirectories = (props) => {
                       </div>
 
                       {item.urls
-                        ? item.urls.map((url) => {
+                        ? item.urls.map((url, index) => {
                             return (
-                              <div className="d-flex my-3">
+                              <div key={index} className="d-flex my-3">
                                 <div className="mx-2">
                                   {" "}
                                   <FontAwesomeIcon

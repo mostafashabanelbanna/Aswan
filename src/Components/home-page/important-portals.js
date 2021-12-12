@@ -94,28 +94,53 @@ const ImportantPortals = (props) => {
               </div>
             </div>
             <div className="portalsBorder mt-4 p-5 justify-content-center">
-              <Slider {...settings}>
-                {portals.result.map((photo, index) => {
-                  return (
-                    <div
-                      className="d-flex flex-column ms-md-0 my-2 circular-image hvr-shrink"
-                      key={photo.id}
-                    >
-                      <a
-                        href={photo.url}
-                        className="d-flex justify-content-center align-items-center"
-                        target="_blank"
-                        rel="noreferrer"
+              {portals.result.length >= 5 ? (
+                <Slider {...settings}>
+                  {portals.result.map((photo, index) => {
+                    return (
+                      <div
+                        className="d-flex flex-column ms-md-0 my-2 circular-image hvr-shrink"
+                        key={photo.id}
                       >
-                        <img
-                          src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
-                          alt={photo.name}
-                        />
-                      </a>
-                    </div>
-                  );
-                })}
-              </Slider>
+                        <a
+                          href={photo.url}
+                          className="d-flex justify-content-center align-items-center"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <img
+                            src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
+                            alt={photo.name}
+                          />
+                        </a>
+                      </div>
+                    );
+                  })}
+                </Slider>
+              ) : (
+                <div className="d-flex justify-content-center flex-wrap">
+                  {portals.result.map((photo, index) => {
+                    return (
+                      <div
+                        className="d-flex flex-column col-9 col-sm-6 col-lg-3 ms-md-0 my-3 circular-image hvr-shrink"
+                        key={photo.id}
+                      >
+                        <a
+                          href={photo.url}
+                          className="d-flex justify-content-center align-items-center"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <img
+                            src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
+                            alt={photo.name}
+                          />
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -48,7 +48,7 @@ const FilterPhotos = (props) => {
                 newPath = pName.replaceAll(" ", "%20");
               }
               return (
-                <div className="mb-4 col-md-6 col-xl-4 col-12">
+                <div key={item.id} className="mb-4 col-md-6 col-xl-4 col-12">
                   <Link
                     id="link"
                     to={`/photodetails/${item.id}`}

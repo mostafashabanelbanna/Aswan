@@ -105,7 +105,7 @@ const DocumentLibraryDetails = (props) => {
             <div className="col-12">
               {props.documentLibraryDetail.result.attachment ? (
                 <iframe
-                  frameborder="0"
+                  frameBorder="0"
                   src={`${paths.DocumentLibrarAttachment}${props.documentLibraryDetail.result.id}/${props.documentLibraryDetail.result.attachment}`}
                   width="100%"
                   height="800px"

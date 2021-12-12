@@ -70,19 +70,15 @@
   display: none;
 }
 
-
-
-.imgsz{
+.imgsz {
   width: 35px;
 }
 
-
 @media only screen and (max-width: 480px) {
-  .imgsz{
-      width: 20px;
+  .imgsz {
+    width: 20px;
   }
-  .spansz{
+  .spansz {
     font-size: 11px;
   }
-} 
-
+}

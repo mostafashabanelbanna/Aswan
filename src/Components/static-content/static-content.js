@@ -92,6 +92,7 @@ const StaticContent = (props) => {
                     setTitleFamous(item.title);
                     setPersonId(item.id);
                   }}
+                  key={item.id}
                   style={{
                     cursor: "pointer",
                     border: "1px solid orange",

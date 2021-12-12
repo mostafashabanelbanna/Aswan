@@ -161,7 +161,7 @@ const YouthEmp = (props) => {
     <>
       <Container fluid>
         <div className=" container underline mt-3 mb-5">
-          <h3>توظيف الشباب</h3>
+          <h3>تشغيل وتدريب الشباب</h3>
         </div>
       </Container>
       <SearchSection

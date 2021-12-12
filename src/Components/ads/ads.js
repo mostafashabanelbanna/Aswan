@@ -6,8 +6,12 @@ import "./ads.css";
 import { Link } from "react-router-dom";
 import { paths } from "../../paths/paths";
 import Slider from "react-slick";
+import { faChevronUp, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Ads = (props) => {
+  const [display, setDisplay] = useState(true);
+
   useEffect(() => {
     props.getAllPaidAds();
   }, []);
@@ -29,103 +33,50 @@ const Ads = (props) => {
 
   if (props?.ads?.result?.length > 0) {
     return (
-      <Slider {...settings} className="ads_slider">
-        {props.ads.result.map((item) => {
-          console.log(item.photo);
-          return (
-            <div className="p-2">
-              <Link to={`/advertisment-details/${item.id}`}>
-                <div
-                  style={{
-                    background: `url("${paths.ads}${item.id}/${item.photo}")`,
-                    height: "200px",
-                    width: "100%",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    padding: "10px",
-                    textAlign: "justify",
-                  }}
-                ></div>
-              </Link>
-            </div>
-          );
-        })}
-      </Slider>
+      <div
+        className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "
+        style={{
+          backgroundColor: "",
+          height: "260px",
+          width: "200px",
+        }}
+      >
+        <div className="w-100 d-flex px-1">
+          <FontAwesomeIcon
+            onClick={() => {
+              setDisplay(false);
+            }}
+            color={"#3b51a3"}
+            size="1x"
+            icon={faTimes}
+            cursor={"pointer"}
+          ></FontAwesomeIcon>
+        </div>
+        <Slider {...settings} className="ads_slider">
+          {props.ads.result.map((item) => {
+            return (
+              <div key={item.id} className="p-2">
+                <Link to={`/advertisment-details/${item.id}`}>
+                  <div
+                    className="rounded-2"
+                    style={{
+                      background: `url("${paths.ads}${item.id}/${item.photo}")`,
+                      height: "200px",
+                      width: "100%",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      padding: "10px",
+                      textAlign: "justify",
+                    }}
+                  ></div>
+                </Link>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     );
-
-    // return (
-    //   <div>
-    //     <div className="ads_inner_content h-100">
-    //       <div className="container h-100 pt-2">
-    //         <div className="row h-100 ">
-    //           {props.ads.result.length >= 1 ? (
-    //             <Link
-    //               id="link"
-    //               className="col-sm-4 px-2"
-    //               to={`/advertisment-details/${props.ads.result[0].id}`}
-    //             >
-    //               <div
-    //                 style={{
-    //                   background: `url(${paths.ads}${props.ads.result[0].id}/${props.ads.result[0].photo})`,
-    //                   borderRadius: "10px",
-    //                   height: "200px",
-    //                   width: "100%",
-    //                   backgroundRepeat: "no-repeat",
-    //                   backgroundSize: "cover",
-    //                   padding: "10px",
-    //                   textAlign: "justify",
-    //                 }}
-    //               ></div>
-    //             </Link>
-    //           ) : null}
-
-    //           {props.ads.result.length >= 2 ? (
-    //             <Link
-    //               id="link"
-    //               className="col-sm-4 px-2"
-    //               to={`/advertisment-details/${props.ads.result[1].id}`}
-    //             >
-    //               <div
-    //                 style={{
-    //                   background: `url(${paths.ads}${props.ads.result[1].id}/${props.ads.result[1].photo})`,
-    //                   borderRadius: "10px",
-    //                   height: "200px",
-    //                   width: "100%",
-    //                   backgroundRepeat: "no-repeat",
-    //                   backgroundSize: "cover",
-    //                   padding: "10px",
-    //                   textAlign: "justify",
-    //                 }}
-    //               ></div>
-    //             </Link>
-    //           ) : null}
-
-    //           {props.ads.result.length >= 3 ? (
-    //             <Link
-    //               id="link"
-    //               className="col-sm-4 px-2"
-    //               to={`/advertisment-details/${props.ads.result[2].id}`}
-    //             >
-    //               <div
-    //                 style={{
-    //                   background: `url(${paths.ads}${props.ads.result[2].id}/${props.ads.result[2].photo})`,
-    //                   borderRadius: "10px",
-    //                   height: "200px",
-    //                   width: "100%",
-    //                   backgroundRepeat: "no-repeat",
-    //                   backgroundSize: "cover",
-    //                   padding: "10px",
-    //                   textAlign: "justify",
-    //                 }}
-    //               ></div>
-    //             </Link>
-    //           ) : null}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
   }
   return null;
 };

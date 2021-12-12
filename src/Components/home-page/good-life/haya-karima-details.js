@@ -51,7 +51,7 @@ const HayaKarimaDetails = (props) => {
               <tbody>
                 {props.hayadata.result.rates.map((item) => {
                   return (
-                    <tr>
+                    <tr key={item.id}>
                       <td>%{item.changeValue}</td>
                       <td>{item.changeDate}</td>
                     </tr>

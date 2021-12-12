@@ -84,13 +84,13 @@ const InvestorStart = (props) => {
                 {props.sliderNews.result.map((item, index) => {
                   return (
                     <Link
+                      key={item.id}
                       id="link"
                       to={`/newsdetails/${item.id}`}
                       className="col-sm-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                     >
                       <div className="hoverTitle">
                         <div
-                          key={item.id}
                           className="holder shadow-none"
                           style={{ borderRadius: "0px" }}
                         >
@@ -118,13 +118,13 @@ const InvestorStart = (props) => {
               {props.sliderNews.result.map((item, index) => {
                 return (
                   <Link
+                    key={item.id}
                     id="link"
                     to={`/newsdetails/${item.id}`}
                     className="col-md-6 col-lg-3 text-decoration-none  col-12 mt-4 text-center px-3 "
                   >
                     <div className="hoverTitle">
                       <div
-                        key={item.id}
                         className="holder shadow-none"
                         style={{ borderRadius: "0px" }}
                       >

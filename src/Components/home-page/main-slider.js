@@ -39,7 +39,7 @@ const MainSlider = () => {
               newPath = pName.replaceAll(" ", "%20");
             }
             return (
-              <Carousel.Item style={{ height: "65vh" }}>
+              <Carousel.Item key={item.id} style={{ height: "65vh" }}>
                 <Link
                   id="link"
                   to={`tourist-attraction-details/${item.id}`}

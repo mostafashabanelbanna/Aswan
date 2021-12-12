@@ -97,7 +97,7 @@ const Tribe = (props) => {
             <div className="col-10 mx-auto my-5 d-flex flex-wrap justify-content-around flex-column flex-sm-row">
               {props.allTribe.result.map((item, index) => {
                 return (
-                  <div className="col-md-6">
+                  <div key={item.id} className="col-md-6">
                     <div
                       className="row p-2 m-2"
                       style={{
