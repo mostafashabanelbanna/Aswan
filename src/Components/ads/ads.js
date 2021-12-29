@@ -31,7 +31,8 @@ const Ads = (props) => {
     swipeToSlide: true,
   };
 
-  if (props?.ads?.result?.length > 0) {
+  if (props?.ads?.result?.length > 0 && display) {
+    console.log(props.ads.result);
     return (
       <div
         className="side_social_icons text-center p-1 py-2 rounded-3 mb-3 "

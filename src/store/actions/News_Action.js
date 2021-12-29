@@ -15,7 +15,7 @@ export async function sliderNews() {
 export async function mainNews() {
   let payload = null;
   try {
-    let response = await axios.get("/NewsAPI/GetAllGovernment");
+    let response = await axios.get("/NewsAPI/GetMainNews");
     payload = response.data;
   } catch (error) {}
   return {

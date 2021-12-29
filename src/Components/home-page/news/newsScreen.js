@@ -78,14 +78,12 @@ const News = (props) => {
             </div>
             <Link
               id="link"
-              to={`/newsdetails/${props.mainews.result.value.result[0].id}`}
+              to={`/newsdetails/${props.mainews.result.id}`}
               className=""
             >
               <div className="d-block d-lg-none">
                 <div>
-                  <h4 className="mb-3">
-                    {props.mainews.result.value.result[0].title}
-                  </h4>
+                  <h4 className="mb-3">{props.mainews.result.title}</h4>
                 </div>
                 <div className="d-flex flex-lg-row flex-column-reverse">
                   <div className="col-lg-6 col-12">
@@ -95,9 +93,7 @@ const News = (props) => {
                       style={{ textAlign: "justify" }}
                     >
                       {" "}
-                      {ReactHtmlParser(
-                        props.mainews.result.value.result[0].introTitle
-                      )}
+                      {ReactHtmlParser(props.mainews.result.introTitle)}
                     </div>
                   </div>
 
@@ -108,11 +104,11 @@ const News = (props) => {
                         className="img-fluid h-100 w-100"
                         src={
                           paths.NewsPhotos +
-                          props.mainews.result.value.result[0].id +
+                          props.mainews.result.id +
                           "/" +
-                          props.mainews.result.value.result[0].photo
+                          props.mainews.result.photo
                         }
-                        alt={props.mainews.result.value.result[0].title}
+                        alt={props.mainews.result.title}
                       />
                     </div>
                   </div>
@@ -123,9 +119,7 @@ const News = (props) => {
                 <div className="d-flex flex-lg-row flex-column-reverse">
                   <div className="col-lg-6 col-12">
                     <div>
-                      <h4 className="mb-3">
-                        {props.mainews.result.value.result[0].title}
-                      </h4>
+                      <h4 className="mb-3">{props.mainews.result.title}</h4>
                     </div>
                     <div>
                       <div
@@ -134,9 +128,7 @@ const News = (props) => {
                         style={{ textAlign: "justify" }}
                       >
                         {" "}
-                        {ReactHtmlParser(
-                          props.mainews.result.value.result[0].introTitle
-                        )}
+                        {ReactHtmlParser(props.mainews.result.introTitle)}
                       </div>
                     </div>
                   </div>
@@ -147,11 +139,11 @@ const News = (props) => {
                         className="img-fluid h-100 w-100"
                         src={
                           paths.NewsPhotos +
-                          props.mainews.result.value.result[0].id +
+                          props.mainews.result.id +
                           "/" +
-                          props.mainews.result.value.result[0].photo
+                          props.mainews.result.photo
                         }
-                        alt={props.mainews.result.value.result[0].title}
+                        alt={props.mainews.result.title}
                       />
                     </div>
                   </div>

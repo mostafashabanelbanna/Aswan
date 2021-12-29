@@ -175,9 +175,8 @@ const AudioPlayerProv = () => {
     return (
       <audio
         id="playAudio"
-        src="/audio/160547144-epic-egyptian-middle-eastern-a.wav"
+        src="/audio/egyptian-middle-eastern.mp3"
         autoPlay
-        loop
       ></audio>
     );
   return <div>no way</div>;

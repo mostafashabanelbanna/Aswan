@@ -32,6 +32,7 @@ const AgendaDetails = (props) => {
     let sectorName = props.eventDetails.result.sectorName;
     let sectorId = props.eventDetails.result.sectorId;
     let eventTypeId = props.eventDetails.result.eventTypeId;
+    console.log(`props.eventDetails`, props.eventDetails);
     return (
       <div>
         <div className="underline container mt-5">
@@ -107,6 +108,20 @@ const AgendaDetails = (props) => {
             </div>
           </div>
         </div>
+        {props.eventDetails.result.agenda ? (
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <iframe
+                  frameBorder="0"
+                  src={`${paths.EventAttachment}${props.eventDetails.result.id}/${props.eventDetails.result.agenda}`}
+                  width="100%"
+                  height="800px"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        ) : null}
         <Link
           id="link"
           to={"/eventlist"}

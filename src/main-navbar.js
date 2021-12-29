@@ -62,7 +62,7 @@ const Main_navbar = () => {
         className="row p-0 m-0 sticky-top text-white"
         style={{ backgroundColor: "rgb(66 176 211)" }}
       >
-        <AudioPlayerProv />
+        {/* <AudioPlayerProv /> */}
         <div className="col-2 d-none d-lg-block p-0 ">
           <div className="position-relative">
             <Link id="link" to="/home">

@@ -22,6 +22,7 @@ export const paths = {
   youth: `${MainPath}YouthEmployent/photo/`,
   TouristAttractionSlider: `${MainPath}PhotoLibraryPhoto/Photo/`,
   EventsPhotos: `${MainPath}Event/Photo/`,
+  EventAttachment: `${MainPath}Event/Agenda/`,
   InvestmentPhotos: `${MainPath}Investment/Photo/`,
   StaticContent: `${MainPath}StaticContent/Photo/`,
   OrgChart: `${MainPath}Leader/Photo/`,

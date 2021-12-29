@@ -93,11 +93,11 @@ const CityDetails = (props) => {
 
   if (props?.cityDetails?.result) {
     let photos = [];
-    if (props.cityDetails.result.photos.length > 3) {
+    if (props.cityDetails.result.photos.length >= 3) {
       photos = props.cityDetails.result.photos;
       pathName = paths.ProjectPhotos;
     } else if (props.cityDetails.result.photos.length < 3) {
-      if (props.cityDetails.result.photos > 0) {
+      if (props.cityDetails.result.photos.length > 0) {
         photos = props.cityDetails.result.photos;
         pathName = paths.ProjectPhotos;
       } else if (props.cityDetails.result.photos.length == 0) {
