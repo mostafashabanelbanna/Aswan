@@ -95,7 +95,7 @@ const AppRouting = () => {
             component={DirectoratesHome}
           />
           <Route exact path="/emergencynumbers" component={EmergencyNumbers} />
-          <Route exact path="/advertisements" component={Advertisements} />
+        <Route exact path="/advertisements" component={Advertisements} />
           <Route
             exact
             path="/techcenterservices"

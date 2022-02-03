@@ -121,9 +121,9 @@ const Main_navbar = () => {
             />
             <span className="spansz">السائح</span>
           </Link>
-          <div className="d-block d-lg-none text-white bg-danger p-2 text-center">
+         {/* <div className="d-block d-lg-none text-white bg-danger p-2 text-center">
             بث تجريبي
-          </div>
+  </div>*/}
         </div>
         <div className="col-3  d-none d-lg-flex justify-content-end align-items-center px-0">
           <Link
@@ -139,9 +139,9 @@ const Main_navbar = () => {
           >
             اتصل بنا
           </Link>
-          <div className="d-lg-block d-none text-white bg-danger p-2 text-center">
+          {/*<div className="d-lg-block d-none text-white bg-danger p-2 text-center">
             بث تجريبي
-          </div>
+          </div>*/}
         </div>
 
         <Navbar

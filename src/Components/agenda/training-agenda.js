@@ -93,7 +93,8 @@ const TrainingAgenda = (props) => {
 
   // if (agendaProps?.result) {
   return (
-    <div className="pt-5 custom_bg_light">
+    <div className="pt-5 training-agenda-bg">
+      <div className="agenda-overlay"></div>
       <div className="container">
         <div className="d-flex mb-5">
           {props.photo ? (
@@ -106,9 +107,9 @@ const TrainingAgenda = (props) => {
               width="70px"
             />
           )}
-          <div className="underline">
+          <div className="underline agenda-title">
             {" "}
-            <h3 className="mt-2 me-2 text_blue">{props.title} </h3>
+            <h3 className="mt-2 me-2 text_blue ">{props.title} </h3>
           </div>
         </div>
       </div>
@@ -255,7 +256,7 @@ const TrainingAgenda = (props) => {
                 );
               })
             ) : (
-              <div> لا توجد احداث هذا الشهر </div>
+              <div  className="no-events" > لا توجد احداث هذا الشهر </div>
             )
           ) : (
             <AgendaSkeleton />
@@ -263,12 +264,12 @@ const TrainingAgenda = (props) => {
         </div>
       </div>
       <div className="container d-flex justify-content-end">
-        <Link id="link" to="/eventlist">
+        <Link id="link" to="/eventlist" className="show-all" >
           <button
             className="btn_blue mx-1 mb-2 mb-sm-0"
             style={{ verticalAlign: "middle" }}
           >
-            <span>عرض الكل</span>
+            <span >عرض الكل</span>
           </button>
         </Link>
       </div>

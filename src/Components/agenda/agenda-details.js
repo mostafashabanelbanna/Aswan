@@ -35,7 +35,7 @@ const AgendaDetails = (props) => {
     console.log(`props.eventDetails`, props.eventDetails);
     return (
       <div>
-        <div className="underline container mt-5">
+        <div className="underline container mt-5" >
           <h3>{props.eventDetails.result.title}</h3>
         </div>
         <div className="container d-flex justify-content-between mt-4">
