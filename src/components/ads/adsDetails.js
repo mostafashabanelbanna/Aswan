@@ -14,9 +14,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const AdvertismentDetails = (props) => {
   let id = props.match.params.id;
+  
 
   useEffect(() => {
     // const resolver = async () => {
@@ -56,6 +58,7 @@ const AdvertismentDetails = (props) => {
         <Container fluid className="px-0">
           <div className="container underline mt-3 mb-5">
             <h4>{props.advertismentDetail.result.title}</h4>
+        
           </div>
           <div className="d-flex container my-1">
             <div className="mx-3">
@@ -92,6 +95,11 @@ const AdvertismentDetails = (props) => {
                   <h5 className="mb-4">
                     {props.advertismentDetail.result.description}
                   </h5>
+                  <div className="advertisement-link" >
+          <p>
+           <Link to ={props.advertismentDetail.result.url}>{props.advertismentDetail.result.url}</Link>
+          </p>
+        </div>
                 </Col>
                 {props.advertismentDetail.result.photo ? (
                   <Col lg={4} className="bg-white text-center p-3">
@@ -135,8 +143,13 @@ const AdvertismentDetails = (props) => {
                 </div>
               </div>
             ) : null}
+         
           </div>
+       
+         
         </Container>
+        
+      
       </div>
     );
   }

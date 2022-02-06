@@ -186,7 +186,7 @@ const DocumentLibrary = (props) => {
   } else if (id == "6") {
     pageTitle = "دراسات جدوى";
   } else {
-    pageTitle = "دعم القرار";
+    pageTitle = "بيانات متداولة";
   }
 
   return (

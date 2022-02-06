@@ -9,6 +9,7 @@ import {
 } from "../../../../store/actions/advertisment-action";
 import Details from "../../../loading-skeleton/Details";
 import CareerForm from "../../../forms/career-form";
+import { paths } from "../../../../paths/paths";
 
 const CareerDetails = (props) => {
   const id = props.match.params.id;
@@ -53,7 +54,8 @@ const CareerDetails = (props) => {
           </div>
         </div>
         <div className="container">
-          <div className="col-12 d-flex flex-column">
+          <div className="row">
+          <div className="col-lg-8  col-12 d-flex flex-column mb-3">
             <div className="my-1">{`متطلبات الوظيفة: ${ReactHtmlParser(
               props.careerDetails.result.requirement
             )}`}</div>
@@ -63,10 +65,42 @@ const CareerDetails = (props) => {
             <div className="my-1">{`نوع الوظيفة: ${ReactHtmlParser(
               props.careerDetails.result.employmentTypeName
             )}`}</div>
-          </div>
-          <p className="my-1">
+            <p className="my-1">
             عدد المتقدمين للوظيفة: {props.careerDetails.result.applicantCount}
           </p>
+         
+          </div>
+          <div className= " col-lg-4  col-12 mb-3">
+          {props.careerDetails.result.photo ? (
+                <div className="career-image text-center">
+                  <img src={`${paths.careerPhoto}${props.careerDetails.result.id}/${props.careerDetails.result.photo}`} className="img-fluid"/>
+                  
+                </div>
+
+              ) : null}
+         
+           
+          
+           
+          </div>
+          
+          </div>
+          <div className="career-attachment my-3">
+          {props.careerDetails.result.attachment ? (
+              <div className="container">
+                <div className="row">
+                  <div className="col-12">
+                    <iframe
+                      frameBorder="0"
+                      src={`${paths.careerAttachment}${props.careerDetails.result.id}/${props.careerDetails.result.attachment}`}
+                      width="100%"
+                      height="800px"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            </div>
         </div>
         <div
           className="col-12 d-flex flex-column align-items-center justify-content-center"

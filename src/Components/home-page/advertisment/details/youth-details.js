@@ -15,6 +15,7 @@ import moment from "moment";
 import "moment/locale/ar";
 import Details from "../../../loading-skeleton/Details";
 import YouthForm from "../../../forms/youth-form";
+import { path } from "d3";
 
 const YouthDetails = (props) => {
   const id = props.match.params.id;
@@ -59,16 +60,36 @@ const YouthDetails = (props) => {
           </div>
         </div>
         <div className="container">
-            <div className="col-12 d-flex flex-column">
+          <div className="row">
+            <div className="col-lg-8 col-md-6 d-flex flex-column mb-3">
               <div className='my-1'>{`متطلبات الوظيفة: ${ReactHtmlParser(props.youthDetails.result.requirement)}`}</div>
               <div className='my-1'>{`تاريخ البداية: ${moment(new Date(props.youthDetails.result.startDate)).format("LL")}`}</div>
               <div className='my-1'>{`تاريخ النهاية: ${moment(new Date(props.youthDetails.result.endDate)).format("LL")}`}</div>
-            </div>
-            <p
+              <p
               className='my-1'
             >
               عدد المتقدمين للوظيفة: {props.youthDetails.result.applicantCount}
             </p>
+            </div>
+            <div className="col-lg-4 col-md-6 col-12 mb-3">
+              {props.youthDetails.result.photo ? (
+                <div className="youth-details-img text-center" >
+                  <img src={`${paths.youth}${props.youthDetails.result.id}/${props.youthDetails.result.photo}`} className="img-fluid " style={{height:"300px" , width:"400px"}}/>
+                  
+                </div>
+
+              ) : null}
+            </div>
+          
+            </div>
+
+            <div className="youth-details-attachment my-3">
+          {props.youthDetails.result.attachment ? (
+             <div className="youth-attachment-image text-center ">
+               <img src={`${paths.youthAttachment}${props.youthDetails.result.id}/${props.youthDetails.result.attachment}`} className="img-fluid "/>
+               </div>
+            ) : null}
+            </div>
         </div>
 
         <div
