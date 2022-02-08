@@ -94,7 +94,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/1.png"}
                     />
 
-                    <div className="mx-auto" style={{ width: 60, height: 60 }}>
+                    {/*<div className="mx-auto" style={{ width: 60, height: 60 }}>
                       <CircularProgressbar
                         value={percentage1}
                         text={
@@ -124,7 +124,7 @@ const HayahKarima = () => {
                           backgroundColor: "white",
                         })}
                       />
-                    </div>
+                    </div>*/}
 
                     <div className="mt-1 mb-1 text-dark">
                       محور البنية الأساسية <br /> و المرافق
@@ -144,7 +144,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/2.png"}
                     />
 
-                    <div className="mx-auto" style={{ width: 60, height: 60 }}>
+                    {/*<div className="mx-auto" style={{ width: 60, height: 60 }}>
                       <CircularProgressbar
                         value={percentage2}
                         text={
@@ -174,7 +174,7 @@ const HayahKarima = () => {
                           backgroundColor: "white",
                         })}
                       />
-                    </div>
+                      </div>*/}
 
                     <div className="mt-1 mb-1 text-dark">
                       {" "}
@@ -195,7 +195,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/3.png"}
                     />
 
-                    <div className="mx-auto" style={{ width: 60, height: 60 }}>
+                    {/*<div className="mx-auto" style={{ width: 60, height: 60 }}>
                       <CircularProgressbar
                         value={percentage3}
                         text={
@@ -225,7 +225,7 @@ const HayahKarima = () => {
                           backgroundColor: "white",
                         })}
                       />
-                    </div>
+                    </div>*/}
 
                     <div className="mt-1 mb-1  text-dark">
                       {" "}
@@ -245,7 +245,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/4.png"}
                     />
 
-                    <div className="mx-auto" style={{ width: 60, height: 60 }}>
+                    {/*<div className="mx-auto" style={{ width: 60, height: 60 }}>
                       <CircularProgressbar
                         value={percentage4}
                         text={
@@ -275,7 +275,7 @@ const HayahKarima = () => {
                           backgroundColor: "white",
                         })}
                       />
-                    </div>
+                      </div>*/}
 
                     <div className="mt-1 mb-1  text-dark">
                       {" "}
@@ -296,7 +296,7 @@ const HayahKarima = () => {
                       src={"/images/haya_karima/5.png"}
                     />
 
-                    <div className="mx-auto" style={{ width: 60, height: 60 }}>
+                    {/*<div className="mx-auto" style={{ width: 60, height: 60 }}>
                       <CircularProgressbar
                         value={percentage5}
                         text={
@@ -326,7 +326,7 @@ const HayahKarima = () => {
                           backgroundColor: "white",
                         })}
                       />
-                    </div>
+                      </div>*/}
 
                     <div className="mt-1 mb-1  text-dark"> سكن كريم</div>
                   </div>
