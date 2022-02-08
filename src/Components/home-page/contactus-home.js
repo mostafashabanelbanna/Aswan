@@ -44,7 +44,7 @@ const ContactHome = () => {
           </div>
           <h5 className="mt-4 me-2 text_blue">
             للتواصل عبر الهاتف:&nbsp;
-            <span className="text-dark">0972316800</span>
+            <span className="text-dark">0927483111</span>
           </h5>
           <div className=" row p-0 m-0">
             <div className="col-sm-4 col-12 p-0 order-sm-1 order-2">
