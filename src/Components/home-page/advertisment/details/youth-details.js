@@ -54,7 +54,7 @@ const YouthDetails = (props) => {
 
         <div className=" container p-0">
           <div className="d-flex flex-column flex-md-row justify-content-center ">
-            <div className="p-3 col-12" style={{fontSize:'20px'}}>
+            <div className="p-3 col-12" style={{ fontSize: '20px' }}>
               {ReactHtmlParser(props.youthDetails.result.description)}
             </div>
           </div>
@@ -66,30 +66,30 @@ const YouthDetails = (props) => {
               <div className='my-1'>{`تاريخ البداية: ${moment(new Date(props.youthDetails.result.startDate)).format("LL")}`}</div>
               <div className='my-1'>{`تاريخ النهاية: ${moment(new Date(props.youthDetails.result.endDate)).format("LL")}`}</div>
               <p
-              className='my-1'
-            >
-              عدد المتقدمين للوظيفة: {props.youthDetails.result.applicantCount}
-            </p>
+                className='my-1'
+              >
+                عدد المتقدمين للوظيفة: {props.youthDetails.result.applicantCount}
+              </p>
             </div>
             <div className="col-lg-4 col-md-6 col-12 mb-3">
               {props.youthDetails.result.photo ? (
                 <div className="youth-details-img text-center" >
-                  <img src={`${paths.youth}${props.youthDetails.result.id}/${props.youthDetails.result.photo}`} className="img-fluid " style={{height:"300px" , width:"400px"}}/>
-                  
+                  <img src={`${paths.youth}${props.youthDetails.result.id}/${props.youthDetails.result.photo}`} className="img-fluid " />
+
                 </div>
 
               ) : null}
             </div>
-          
-            </div>
 
-            <div className="youth-details-attachment my-3">
-          {props.youthDetails.result.attachment ? (
-             <div className="youth-attachment-image text-center ">
-               <img src={`${paths.youthAttachment}${props.youthDetails.result.id}/${props.youthDetails.result.attachment}`} className="img-fluid "/>
-               </div>
+          </div>
+
+          <div className="youth-details-attachment my-3">
+            {props.youthDetails.result.attachment ? (
+              <div className="youth-attachment-image text-center ">
+                <img src={`${paths.youthAttachment}${props.youthDetails.result.id}/${props.youthDetails.result.attachment}`} className="img-fluid " />
+              </div>
             ) : null}
-            </div>
+          </div>
         </div>
 
         <div
@@ -98,7 +98,7 @@ const YouthDetails = (props) => {
           onClick={() => {
             onShow();
             setContent(props.youthDetails.result);
-            }}>
+          }}>
           <button
             type="button"
             className="btn_blue mx-1 my-4"
