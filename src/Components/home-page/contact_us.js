@@ -55,7 +55,7 @@ const Contact = (props) => {
           {id == 2 ? (
             <h5 className="mt-4 me-2 text_blue">
               للتواصل عبر الهاتف:&nbsp;
-              <span className="text-dark">0927483111</span>
+              <span className="text-dark">0972483111</span>
             </h5>
           ) : null}
           <div className=" row p-0 m-0">

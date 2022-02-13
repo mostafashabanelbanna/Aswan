@@ -150,7 +150,7 @@ const InfoNews = () => {
             <div className="col-lg-3 p-3 col-md-6 col-10 mx-auto mb-4 hvr-rectangle-out">
               <Link
                 id="link"
-                to={`document-library/4`}
+                to={`document-library/5`}
                 className="text-decoration-none d-flex flex-column align-items-center justify-content-center"
               >
                 <div
@@ -179,7 +179,7 @@ const InfoNews = () => {
                   }}
                 >
                   {" "}
-                   بيانات مفتوحة{" "}
+                  بيانات مفتوحة{" "}
                 </div>
               </Link>
             </div>
