@@ -99,19 +99,21 @@ const ImportantPortals = (props) => {
                   {portals.result.map((photo, index) => {
                     return (
                       <div
-                        className="d-flex flex-column ms-md-0 my-2 circular-image hvr-shrink"
+                        // className="d-flex flex-column ms-md-0 my-2 circular-image hvr-shrink"
                         key={photo.id}
                       >
                         <a
                           href={photo.url}
-                          className="d-flex justify-content-center align-items-center"
+                          //className="d-flex justify-content-center align-items-center"
                           target="_blank"
                           rel="noreferrer"
-                        >
-                          <img
+                        > 
+                        <div className="d-flex align-items-center justify-content-center bg-light p-2 rounded" style={{width:"120px", height: '120px'}}> 
+                          <img className="img-fluid"
                             src={`${paths.ImportantPortalsPhotos}${photo.id}/${photo.photo}`}
                             alt={photo.name}
                           />
+                          </div>
                         </a>
                       </div>
                     );
