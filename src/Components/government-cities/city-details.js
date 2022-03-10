@@ -152,7 +152,7 @@ const CityDetails = (props) => {
             </Slider>
           </div>
         ) : (
-          <div className="d-flex flex-wrap justify-content-center my-3 container">
+          <div className=" d-flex flex-wrap justify-content-center my-3 container">
             {photos.map((photo, index) => {
               let pName;
               let newPath;
@@ -353,7 +353,7 @@ const CityDetails = (props) => {
                 aria-labelledby="nav-2-tab"
               >
                 <div className="col-12 p-4 mr-1">
-                  <div className="d-flex justify-content-center">
+                  <div className="row d-flex justify-content-center">
                     {props.cityDetails.result.villages.map((item, index) => {
                       return (
                         <Link
