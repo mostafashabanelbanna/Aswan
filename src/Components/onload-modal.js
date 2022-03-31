@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useEffect, useState } from "react";
 import { paths } from "../paths/paths";
-import SliderDetailsModalComponent from "../components/slider-details-modal-component";
-import MainSliderSkeleton from "../components/loading-skeleton/mainSlider";
+import SliderDetailsModalComponent from "./slider-details-modal-component";
+import MainSliderSkeleton from "./loading-skeleton/mainSlider";
 
 const OnLoadModal = (props) => {
   const [show, setShow] = useState(true);

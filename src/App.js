@@ -14,6 +14,8 @@ import {
   createTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const theme = createTheme({
@@ -42,6 +44,7 @@ function App() {
       <StylesProvider jss={jss}>
         <ThemeProvider theme={theme}>
           <AppRouting />
+          <MessengerCustomerChat pageId="104085248909373" appId="801709641232523" />
         </ThemeProvider>
       </StylesProvider>
     </Provider>
